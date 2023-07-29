@@ -174,11 +174,37 @@ Page({
   getReady() {
     // TODO: Implement ready button logic
     console.log("I am ready!");
+    const self_id = 12;
+    const seats = this.data.seats;
+    var users = this.data.users;
+    const seatIndexWithUser12 = seats.findIndex((seat) => seat.occupied == true && seat.user_id == self_id);
+    if (seatIndexWithUser12 != -1) {
+      const userIndexWithUser12 = users.findIndex((user) => user.id == self_id);
+      if (userIndexWithUser12 != -1) {
+        users[userIndexWithUser12].status = 'ready';
+        this.setData({
+          users: users,
+        });
+      }
+    }
   },
 
   getCancel() {
     // TODO: Implement cancel button logic
     console.log("I quit!");
+    const self_id = 12;
+    const seats = this.data.seats;
+    var users = this.data.users;
+    const seatIndexWithUser12 = seats.findIndex((seat) => seat.occupied == true && seat.user_id == self_id);
+    if (seatIndexWithUser12 != -1) {
+      const userIndexWithUser12 = users.findIndex((user) => user.id == self_id);
+      if (userIndexWithUser12 != -1) {
+        users[userIndexWithUser12].status = 'joined';
+        this.setData({
+          users: users,
+        });
+      }
+    }
   },
 
   onSeatTap(event) {
@@ -203,13 +229,14 @@ Page({
     console.log("Double click detected!");
     const seatIndex = event.currentTarget.dataset.seatIndex;
     const seats = this.data.seats;
+    const users = this.data.users;
     if (!seats[seatIndex].occupied) {
       seats[seatIndex].occupied = true;
       seats[seatIndex].user_id = 12;
       this.setData({
         seats: seats,
       });
-    } else if (seats[seatIndex].user_id == 12) {
+    } else if (seats[seatIndex].user_id == 12 && users[11].status == "joined") {
       seats[seatIndex].occupied = false;
       this.setData({
         seats: seats,

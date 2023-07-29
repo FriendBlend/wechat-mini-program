@@ -161,13 +161,6 @@
   height: 57px;
   position: absolute;
 }
-.image3 {
-  top: 304px;
-  left: 197px;
-  width: 45px;
-  height: 45px;
-  position: absolute;
-}
 /* initiate */
 .init-button {
   top: 421px;

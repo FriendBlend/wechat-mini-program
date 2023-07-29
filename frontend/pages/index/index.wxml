@@ -12,7 +12,7 @@
     ></image>
     <span class="jinji-txt">紧急</span>
     <span class="paidui-txt">派对</span>
-    <span class="title-en-txt">Last-Minute Hangouts</span>
+    <span class="title-en-txt">Littention</span>
   </view>
   <!-- Profile and Namecard-->
   <view class="profile-and-namecard">
@@ -34,10 +34,6 @@
       <image
         class="namecard-avatar"
         src="Icons/Ellipse-15.png"
-      ></image>
-      <image
-        class="image3"
-        src="Icons/image-3.png"
       ></image>
     </view>
   </view>
