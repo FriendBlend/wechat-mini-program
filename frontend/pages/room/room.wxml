@@ -21,7 +21,7 @@
               <image class="status-icon" wx:if="{{seat.occupied && users[seat.user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
             </view>
           </view>
-          <view class="name-card" wx:else bindtap="onSeatTap" data-seat-index="{{seatIndex}}">
+          <view class="name-card empty-name-card" wx:else bindtap="onSeatTap" data-seat-index="{{seatIndex}}">
             <!-- Display the empty seat image if the seat is not occupied -->
             <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
           </view>
@@ -39,7 +39,7 @@
                 <image class="status-icon" wx:if="{{users[seats[seatIndex + 1].user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
               </view>
             </view>
-            <view wx:else class="name-card" bindtap="onSeatTap" data-seat-index="{{seatIndex + 1}}">
+            <view wx:else class="name-card empty-name-card" bindtap="onSeatTap" data-seat-index="{{seatIndex + 1}}">
               <!-- Display the empty seat image if the seat is not occupied -->
               <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
             </view>
