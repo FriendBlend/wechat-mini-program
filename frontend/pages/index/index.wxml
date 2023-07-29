@@ -1,0 +1,105 @@
+<view class="page-container">
+  <!-- Title -->
+  <view class="title">
+    <view class="title-blue-rect"></view>
+    <image
+      class="title-green-rect"
+      src="Icons/Rectangle453.png"
+    ></image>
+    <image
+      class="title-ellipse"
+      src="Icons/Ellipse-24.png"
+    ></image>
+    <span class="jinji-txt">紧急</span>
+    <span class="paidui-txt">派对</span>
+    <span class="title-en-txt">Last-Minute Hangouts</span>
+  </view>
+  <!-- Profile and Namecard-->
+  <view class="profile-and-namecard">
+    <view class="profile">
+      <button class="profile-button" bindtap="toProfile"></button>
+      <span class="wo-txt">我</span>
+      <span class="profile-txt">profile</span>
+      <image
+        class="profile-icon"
+        src="Icons/contacts.png"
+      ></image>
+    </view>
+    <view class="namecard">
+      <image
+        class="namecard-rect"
+        src="Icons/Rectangle443.png"
+      ></image>
+      <span class="namecard-name">仁喆</span>
+      <image
+        class="namecard-avatar"
+        src="Icons/Ellipse-15.png"
+      ></image>
+      <image
+        class="image3"
+        src="Icons/image-3.png"
+      ></image>
+    </view>
+  </view>
+  <!-- Initiate and Join -->
+  <view class="initiate-and-join">
+    <view class="initiate" bindtap="toInitiate">
+      <button class="init-button" style="width: 162px;"></button>
+      <span class="init-cn-txt">发起</span>
+      <span class="init-txt">initiate</span>
+      <image
+        class="init-icon"
+        src="Icons/add.png"
+      ></image>
+    </view>
+    <view class="join" bindtap="toJoin">
+      <button class="join-button" style="width: 130px;"></button>
+      <span class="join-txt">join</span>
+      <span class="join-cn-txt">加入</span>
+      <image
+        class="join-icon"
+        src="Icons/sending.png"
+      ></image>
+    </view>
+  </view>
+  <!-- Events -->
+  <view class="events">
+    <button class="events-button" bindtap="toEvents" style="width: 253px;"></button>
+    <view class="i-phone1-pro-default-group5">
+      <span class="events-cn-txt">事件</span>
+      <span class="events-txt">events</span>
+      <image
+        class="events-icon"
+        src="Icons/menu.png"
+      ></image>
+    </view>
+    <!-- Event Ticket -->
+    <view class="event-ticket" bindtap="toRoom">
+      <button
+        class="ticket-button"
+        style="width: 281px;"
+      ></button>
+      <span class="ticket-event-name">仁喆的生日派对</span>
+      <span class="ticket-event-info">
+        <view>明天</view>
+        <view>下午 3点</view>
+      </span>
+      <image
+        class="ticket-ellipse1"
+        src="Icons/Ellipse-23.png"
+      ></image>
+      <image
+        class="ticket-avatar"
+        src="Icons/Rectangle473.png"
+      ></image>
+      <image
+        class="ticket-line"
+        src="Icons/Line2.png"
+      ></image>
+      <image
+        class="ticket-ellipse2"
+        src="Icons/Ellipse-27.png"
+      ></image>
+    </view>
+  </view>
+</view>

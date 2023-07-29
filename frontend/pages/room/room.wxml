@@ -1,0 +1,144 @@
+<view class="i-phone1-pro2-container">
+  <view class="i-phone1-pro2-i-phone1-pro2">
+    <image
+      class="i-phone1-pro2-rectangle476"
+      src="icons/Rectangle 476.png"
+    ></image>
+    <button class="emerg-exit" bindtap="toIndex" style="width: 134.31px;"></button>
+
+    <scroll-view class="name-card-scroll-view" scroll-y="true">
+      <block wx:for="{{seats}}" wx:key="index" wx:for-item="seat"  wx:for-index="seatIndex">
+        <view class="name-card-row" wx:if="{{seatIndex % 2 === 0}}">
+          <!-- The first name card in the row -->
+          <view class="name-card" wx:if="{{seat.occupied}}" bindtap="onSeatTap" data-seat-index="{{seatIndex}}" data-occupied="{{seat.occupied}}" style="background-color: {{users[seat.user_id - 1].skin}}">
+            <!-- Display the name card if the seat is occupied -->
+            <view class="left-side">
+              <image class="avatar" src="{{users[seat.user_id - 1].avatar}}" mode="aspectFill"></image>
+              <text class="user-name">{{users[seat.user_id - 1].name}}</text>
+            </view>
+            <view class="right-side">
+              <image class="status-icon" wx:if="{{seat.occupied && users[seat.user_id - 1].status === 'host'}}" src="icons/host.png"></image>
+              <image class="status-icon" wx:if="{{seat.occupied && users[seat.user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
+            </view>
+          </view>
+          <view class="name-card" wx:else bindtap="onSeatTap" data-seat-index="{{seatIndex}}">
+            <!-- Display the empty seat image if the seat is not occupied -->
+            <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
+          </view>
+          <!-- Check if there's a second seat in this row -->
+          <view wx:if="{{seatIndex + 1 < seats.length}}">
+            <!-- Second seat in the row -->
+            <view wx:if="{{seats[seatIndex + 1].occupied}}" class="name-card" bindtap="onSeatTap" data-seat-index="{{seatIndex + 1}}" style="background-color: {{users[seats[seatIndex + 1].user_id - 1].skin}}">
+              <view class="left-side">
+                <!-- Display the name card if the seat is occupied -->
+                <image class="avatar" src="{{users[seats[seatIndex + 1].user_id - 1].avatar}}" mode="aspectFill"></image>
+                <text class="user-name">{{users[seats[seatIndex + 1].user_id - 1].name}}</text>
+              </view>
+              <view class="right-side">
+                <image class="status-icon" wx:if="{{users[seats[seatIndex + 1].user_id - 1].status === 'host'}}" src="icons/host.png"></image>
+                <image class="status-icon" wx:if="{{users[seats[seatIndex + 1].user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
+              </view>
+            </view>
+            <view wx:else class="name-card" bindtap="onSeatTap" data-seat-index="{{seatIndex + 1}}">
+              <!-- Display the empty seat image if the seat is not occupied -->
+              <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+      
+    <view class="corridor">
+      <span class="i-phone1-pro2-text08">走廊</span>
+      <span class="i-phone1-pro2-text10">Corridor</span>
+      <image
+        class="i-phone1-pro2-ellipse24"
+        src="icons/Ellipse 24.png"
+      ></image>
+      <image
+        class="i-phone1-pro2-ellipse26"
+        src="icons/Ellipse 26.png"
+      ></image>
+      <image
+        class="i-phone1-pro2-ellipse25"
+        src="icons/Ellipse 25.png"
+      ></image>
+    </view>
+    <!-- <view class="i-phone1-pro2-solarexitlineduotone">
+      <view class="i-phone1-pro2-group">
+        <image
+          class="i-phone1-pro2-vector"
+          src="icons/solar_exit-line-duotone.png"
+        ></image>
+        <image
+          class="i-phone1-pro2-vector1"
+          src="icons/solar_exit-line-duotone.png"
+        ></image>
+        <image
+          class="i-phone1-pro2-vector2"
+          src="icons/solar_exit-line-duotone.png"
+        ></image>
+      </view>
+    </view> -->
+    <view class="actions">
+      <view class="i-phone1-pro2-rectangle4553">
+        <view class="left-half" bindtap="getReady">
+          <view class="actions-text">
+            <view>准备</view>
+            <view>Ready</view>
+          </view>
+        </view>
+        <view class="right-half" bindtap="getCancel">
+          <view class="actions-text">
+            <view>取消</view>
+            <view>Cancel</view>
+          </view>
+        </view>
+      </view>
+      <!-- <text class="i-phone1-pro2-text14">准备<br />Ready</text>
+      <span class="i-phone1-pro2-text19">取消<br />Cancel</span> -->
+      <image
+        class="i-phone1-pro2-line1"
+        src="icons/Line 1.png"
+      ></image>
+    </view>
+    <view class="i-phone1-pro2-group9">
+      <image
+        class="i-phone1-pro2-rectangle49"
+        src="icons/Rectangle 49.png"
+      ></image>
+      <image
+        class="i-phone1-pro2-rectangle473"
+        src="icons/Rectangle 473.png"
+      ></image>
+      <view class="i-phone1-pro2-text24">
+        <view>明天</view>
+        <view>下午 3点</view>
+      </view>
+      <span class="i-phone1-pro2-text29">仁喆的生日派对</span>
+      <image
+        class="i-phone1-pro2-ellipse23"
+        src="icons/Ellipse 23.png"
+      ></image>
+      <image
+        class="i-phone1-pro2-ellipse27"
+        src="icons/Ellipse 27.png"
+      ></image>
+      <image
+        class="i-phone1-pro2-line2"
+        src="icons/Line 2.png"
+      ></image>
+    </view>
+
+    <image
+      class="i-phone1-pro2-solarexitlineduotone"
+      src="icons/solar_exit-line-duotone.png"
+    ></image>
+    <span class="i-phone1-pro2-text31">
+      <text class="jinji-exit-text">紧急出口</text>
+      <br />
+      <text class="emerg-exit-text">EMERG EXIT</text>
+      <br />
+    </span>
+  </view>
+</view>
