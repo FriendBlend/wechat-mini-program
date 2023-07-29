@@ -230,13 +230,20 @@ Page({
     const seatIndex = event.currentTarget.dataset.seatIndex;
     const seats = this.data.seats;
     const users = this.data.users;
+    const foundSelf = seats.findIndex((seat) => seat.occupied == true && seat.user_id == 12);
     if (!seats[seatIndex].occupied) {
+      // take a seat
+      if (foundSelf != -1) {
+        // already seated elsewhere
+        seats[foundSelf].occupied = false;
+      }
       seats[seatIndex].occupied = true;
       seats[seatIndex].user_id = 12;
       this.setData({
         seats: seats,
       });
     } else if (seats[seatIndex].user_id == 12 && users[11].status == "joined") {
+      // leave seat
       seats[seatIndex].occupied = false;
       this.setData({
         seats: seats,
