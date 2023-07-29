@@ -12,7 +12,7 @@
     ></image>
     <span class="jinji-txt">紧急</span>
     <span class="paidui-txt">派对</span>
-    <span class="title-en-txt">Last-Minute Hangouts</span>
+    <span class="title-en-txt">Littention</span>
   </view>
   <!-- Profile and Namecard-->
   <view class="profile-and-namecard">
@@ -30,21 +30,17 @@
         class="namecard-rect"
         src="Icons/Rectangle443.png"
       ></image>
-      <span class="namecard-name"></span>
+      <span class="namecard-name">仁喆</span>
       <image
         class="namecard-avatar"
         src="Icons/Ellipse-15.png"
-      ></image>
-      <image
-        class="image3"
-        src="Icons/image-3.png"
       ></image>
     </view>
   </view>
   <!-- Initiate and Join -->
   <view class="initiate-and-join">
     <view class="initiate" bindtap="toInitiate">
-      <button class="init-button"></button>
+      <button class="init-button" style="width: 162px;"></button>
       <span class="init-cn-txt">发起</span>
       <span class="init-txt">initiate</span>
       <image
@@ -53,7 +49,7 @@
       ></image>
     </view>
     <view class="join" bindtap="toJoin">
-      <button class="join-button"></button>
+      <button class="join-button" style="width: 130px;"></button>
       <span class="join-txt">join</span>
       <span class="join-cn-txt">加入</span>
       <image
@@ -64,7 +60,7 @@
   </view>
   <!-- Events -->
   <view class="events">
-    <button class="events-button" bindtap="toEvents"></button>
+    <button class="events-button" bindtap="toEvents" style="width: 253px;"></button>
     <view class="i-phone1-pro-default-group5">
       <span class="events-cn-txt">事件</span>
       <span class="events-txt">events</span>
@@ -77,6 +73,7 @@
     <view class="event-ticket" bindtap="toRoom">
       <button
         class="ticket-button"
+        style="width: 281px;"
       ></button>
       <span class="ticket-event-name">仁喆的生日派对</span>
       <span class="ticket-event-info">

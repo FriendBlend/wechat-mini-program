@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.functions.database import db_get_party_by_id, db_get_party_by_creater, db_add_party, delete_party, complete_party
+from app.functions.database import db_get_party_by_id, db_get_party_by_creater, db_add_party, delete_party, complete_party, join_party
 
 operate_bp = Blueprint("operate", __name__)
 
@@ -47,6 +47,16 @@ def deleteParty():
 def completeParty():
     party_id = request.json.get("party_id")
     status = complete_party(party_id)
+    if status:
+        return status, 200
+    else:
+        return status, 500
+    
+@operate_bp.route("/joinParty", methods=["POST"])
+def joinParty():
+    party_id = request.json.get("party_id")
+    user_id = request.json.get("user_id")
+    status = join_party(party_id, user_id)
     if status:
         return status, 200
     else:

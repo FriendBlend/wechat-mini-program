@@ -203,6 +203,28 @@ Page({
     console.log("Double click detected!");
     const seatIndex = event.currentTarget.dataset.seatIndex;
     const seats = this.data.seats;
+
+    wx.request({
+      url: 'http://localhost/operate/joinParty',
+      method: 'POST',
+      data: {
+        party_id: 1,
+        user_id: 1
+      }, // 请求参数
+      success: function (res) {
+        console.log(res.data);
+        // 处理请求成功后的逻辑
+        let newSeats = that.data.seats;
+        newSeats[seatIndex].occupied = true;
+        that.setData({
+          seats: newSeats
+        });
+      },
+      fail: function (res) {
+        console.log('fail', res);
+        // 处理请求失败后的逻辑
+      }
+    });
     if (!seats[seatIndex].occupied) {
       seats[seatIndex].occupied = true;
       seats[seatIndex].user_id = 12;

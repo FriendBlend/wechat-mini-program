@@ -57,3 +57,14 @@ def complete_party(party_id):
     except Exception as e:
         print(str(e))
         return False
+    
+def join_party(party_id, user_id):
+    try:
+        party = Party.query.filter_by(id=party_id).first()
+        party.current_member_num += 1
+        party.current_member_id += user_id + ','
+        db.session.commit()
+        return True
+    except Exception as e:
+        print(str(e))
+        return False
