@@ -5,7 +5,12 @@
     "pages/profile/profile",
     "pages/join/join",
     "pages/myEvents/myEvents",
-    "pages/initiate/initiate"
+    "pages/initiate/init-content/init-content",
+    "pages/initiate/init-name/init-name",
+    "pages/initiate/init-population/init-population",
+    "pages/initiate/init-location/init-location",
+    "pages/initiate/init-else/init-else",
+    "pages/initiate/init-time/init-time"
   ],
   "window": {
     "backgroundTextStyle": "light",

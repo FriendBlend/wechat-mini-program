@@ -1,0 +1,15 @@
+<text>其他</text>
+<view>
+  <view>
+    <text>备注</text>
+    <input type="text" placeholder="输入备注信息…ß"/>
+  </view>
+  <view>
+    <text>人均预估金额</text>
+    <button type="default">100以下</button>
+    <button type="default">101-250</button>
+    <button type="default">251-500</button>
+    <button type="default">自定义</button>
+  </view>
+  <button bindtap="toRoom">完成！</button>
+</view>

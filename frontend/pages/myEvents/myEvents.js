@@ -1,66 +1,23 @@
-// pages/myEvents/myEvents.js
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
-
+    scrollIntoView: "", // 滚动到指定位置的 ID，初始为空
+    pastEvents: [
+      { date: "2022-12-31", name: "跨年派对", info: "欢迎来到新的一年！" },
+      { date: "2022-12-31", name: "跨年派对", info: "欢迎来到新的一年！" },
+      { date: "2022-12-31", name: "跨年派对", info: "欢迎来到新的一年！" },
+      { date: "2022-12-31", name: "跨年派对", info: "欢迎来到新的一年！" },
+      { date: "2022-12-31", name: "跨年派对", info: "欢迎来到新的一年！" }
+    ],
+    futureEvents: [
+      { date: "2023-07-31", name: "生日聚会", info: "欢迎来庆祝我的生日！" },
+      { date: "2023-07-31", name: "生日聚会", info: "欢迎来庆祝我的生日！" },
+      { date: "2023-07-31", name: "生日聚会", info: "欢迎来庆祝我的生日！" },
+      { date: "2023-07-31", name: "生日聚会", info: "欢迎来庆祝我的生日！" },
+      { date: "2023-07-31", name: "生日聚会", info: "欢迎来庆祝我的生日！" },
+      { date: "2023-07-31", name: "生日聚会", info: "欢迎来庆祝我的生日！" },
+      { date: "2023-07-31", name: "生日聚会", info: "欢迎来庆祝我的生日！" },
+      { date: "2023-07-31", name: "生日聚会", info: "欢迎来庆祝我的生日！" },
+      
+    ],
   },
-
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad(options) {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage() {
-
-  }
-})
+});

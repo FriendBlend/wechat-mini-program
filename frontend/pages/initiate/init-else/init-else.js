@@ -1,4 +1,4 @@
-// pages/initiate/initiate.js
+// pages/initiate/init-else/init-else.js
 Page({
 
   /**
@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage() {
 
-  }
+  },
+
+  toRoom:function() {
+    wx.redirectTo({
+      url: '../../room/room',
+    })
+  }, 
 })

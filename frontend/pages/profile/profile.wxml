@@ -1,2 +1,16 @@
 <!--pages/profile/profile.wxml-->
-<text>pages/profile/profile.wxml</text>
+<text>Profile 我</text>
+<view class="name-card"></view>
+<view class="swiper-container">
+  <swiper class="seat-swiper" indicator-dots="true">
+    <swiper-item>
+      hi
+    </swiper-item>
+    <swiper-item>
+      hello
+    </swiper-item>
+    <swiper-item>
+      how are you
+    </swiper-item>
+  </swiper>
+</view>

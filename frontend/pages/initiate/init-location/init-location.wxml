@@ -1,0 +1,26 @@
+<view class="container">
+  <text>地点</text>
+  <view class="map-container">
+    <map
+      id="map"
+      longitude="{{longitude}}"
+      latitude="{{latitude}}"
+      markers="{{markers}}"
+      show-location
+      bindtap="onMapTap"
+    >
+    </map>
+  </view>
+
+  <view class="search-container">
+    <input
+      class="search-input"
+      placeholder="Type a location and press Enter"
+      bindconfirm="onSearch"
+      value="{{searchInput}}"
+    />
+  </view>
+  
+  <button bindtap="toElse">下一步</button>
+
+</view>

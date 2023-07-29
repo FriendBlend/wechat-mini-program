@@ -1,4 +1,4 @@
-// pages/index/index.js
+// pages/initiate/init-name/init-name.js
 Page({
 
   /**
@@ -64,29 +64,9 @@ Page({
 
   },
 
-  toRoom:function() {
+  toPopulation:function() {
     wx.navigateTo({
-      url: '../room/room',
+      url: '../init-population/init-population',
     })
   }, 
-  toProfile:function() {
-    wx.navigateTo({
-      url: '../profile/profile',
-    })
-  }, 
-  toInitiate:function() {
-    wx.navigateTo({
-      url: '../initiate/init-content/init-content',
-    })
-  }, 
-  toJoin:function() {
-    wx.navigateTo({
-      url: '../join/join',
-    })
-  }, 
-  toEvents:function() {
-    wx.navigateTo({
-      url: '../myEvents/myEvents',
-    })
-  }
 })

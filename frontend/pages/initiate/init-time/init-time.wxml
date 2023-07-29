@@ -1,0 +1,16 @@
+<!--pages/initiate/init-time/init-time.wxml-->
+
+<view class="container">
+  <text>time</text>
+  <!-- Date Picker -->
+  <picker mode="date" bindchange="onDateChange">
+    <view class="picker-item">{{selectedDate}}</view>
+  </picker>
+
+  <!-- Time Picker -->
+  <picker mode="time" bindchange="onTimeChange">
+    <view class="picker-item">{{selectedTime}}</view>
+  </picker>
+
+  <button bindtap="toLocation">下一步</button>
+</view>
