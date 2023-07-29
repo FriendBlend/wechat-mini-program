@@ -174,37 +174,11 @@ Page({
   getReady() {
     // TODO: Implement ready button logic
     console.log("I am ready!");
-    const self_id = 12;
-    const seats = this.data.seats;
-    var users = this.data.users;
-    const seatIndexWithUser12 = seats.findIndex((seat) => seat.occupied == true && seat.user_id == self_id);
-    if (seatIndexWithUser12 != -1) {
-      const userIndexWithUser12 = users.findIndex((user) => user.id == self_id);
-      if (userIndexWithUser12 != -1) {
-        users[userIndexWithUser12].status = 'ready';
-        this.setData({
-          users: users,
-        });
-      }
-    }
   },
 
   getCancel() {
     // TODO: Implement cancel button logic
     console.log("I quit!");
-    const self_id = 12;
-    const seats = this.data.seats;
-    var users = this.data.users;
-    const seatIndexWithUser12 = seats.findIndex((seat) => seat.occupied == true && seat.user_id == self_id);
-    if (seatIndexWithUser12 != -1) {
-      const userIndexWithUser12 = users.findIndex((user) => user.id == self_id);
-      if (userIndexWithUser12 != -1) {
-        users[userIndexWithUser12].status = 'joined';
-        this.setData({
-          users: users,
-        });
-      }
-    }
   },
 
   onSeatTap(event) {
@@ -229,21 +203,35 @@ Page({
     console.log("Double click detected!");
     const seatIndex = event.currentTarget.dataset.seatIndex;
     const seats = this.data.seats;
-    const users = this.data.users;
-    const foundSelf = seats.findIndex((seat) => seat.occupied == true && seat.user_id == 12);
-    if (!seats[seatIndex].occupied) {
-      // take a seat
-      if (foundSelf != -1) {
-        // already seated elsewhere
-        seats[foundSelf].occupied = false;
+
+    wx.request({
+      url: 'http://localhost/operate/joinParty',
+      method: 'POST',
+      data: {
+        party_id: 1,
+        user_id: 1
+      }, // 请求参数
+      success: function (res) {
+        console.log(res.data);
+        // 处理请求成功后的逻辑
+        let newSeats = that.data.seats;
+        newSeats[seatIndex].occupied = true;
+        that.setData({
+          seats: newSeats
+        });
+      },
+      fail: function (res) {
+        console.log('fail', res);
+        // 处理请求失败后的逻辑
       }
+    });
+    if (!seats[seatIndex].occupied) {
       seats[seatIndex].occupied = true;
       seats[seatIndex].user_id = 12;
       this.setData({
         seats: seats,
       });
-    } else if (seats[seatIndex].user_id == 12 && users[11].status == "joined") {
-      // leave seat
+    } else if (seats[seatIndex].user_id == 12) {
       seats[seatIndex].occupied = false;
       this.setData({
         seats: seats,
