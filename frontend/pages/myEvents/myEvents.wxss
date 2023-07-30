@@ -3,17 +3,6 @@
   padding: 20px;
 }
 
-.event-list {
-  height: 500px; /* 设置滚动视图的高度 */
-}
-
-.section-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
 .event-item {
   padding: 10px;
   border: 1px solid #ccc;
@@ -34,4 +23,26 @@
 .event-info {
   font-size: 14px;
   color: #555;
+}
+
+.tabs {
+  display: flex;
+  width: 500rpx;
+  background-color: #D9D9D9;
+}
+
+.tab {
+  flex: 1;
+  width: fit-content;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}
+
+.tab.active {
+  background: #6CE89E;
+}
+
+.event-list {
+  margin-top: 20px;
 }
