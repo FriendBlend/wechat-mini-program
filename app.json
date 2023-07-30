@@ -1,5 +1,6 @@
 {
   "pages": [
+    "frontend/pages/testfunc/test",
     "frontend/pages/index/index",
     "frontend/pages/room/room",
     "frontend/pages/profile/profile",
