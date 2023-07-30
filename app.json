@@ -1,6 +1,5 @@
 {
   "pages": [
-    "frontend/pages/testfunc/test",
     "frontend/pages/index/index",
     "frontend/pages/room/room",
     "frontend/pages/profile/profile",
@@ -11,7 +10,8 @@
     "frontend/pages/initiate/init-population/init-population",
     "frontend/pages/initiate/init-location/init-location",
     "frontend/pages/initiate/init-else/init-else",
-    "frontend/pages/initiate/init-time/init-time"
+    "frontend/pages/initiate/init-time/init-time",
+    "frontend/pages/testfunc/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
