@@ -6,11 +6,11 @@
 
 个人Profile: 
 - user_id: int
-- avatar: int
+- avatar: String
 - name: String
 - age: int
 - school: String
-- photos: 
+- photos: String
 - decription: String
 - room_id_list: list<int> 
 - skin_id_list: list<int>
@@ -20,7 +20,7 @@
 - member_num: int
 - seat_list: list<int>
 - time: String
-- location: pair<int>
+- location: String
 - cost: float
 - description: String
 - type: String
