@@ -83,28 +83,28 @@
   text-decoration: none;
 }
 /* profile */
-.profile-button {
-  top: 240px;
-  left: 41px;
-  width: 206px;
-  height: 162px;
+.profile {
+  top: 480rpx;
+  left: 82rpx;
+  width: 412rpx;
+  height: 324rpx;
   position: absolute;
-  border-radius: 21px;
-  background:#D9D9D9;
+  border-radius: 42rpx;
+  background-color:#D9D9D9;
 }
 .profile-icon {
-  top: 261px;
-  left: 68px;
-  width: 24px;
-  height: 24px;
+  top: 41rpx;
+  left: 54rpx;
+  width: 48rpx;
+  height: 48rpx;
   position: absolute;
-  flex-shrink: 0;
 }
 .wo-txt {
-  top: 262px;
-  left: 99px;
+  top: 44rpx;
+  left: 118rpx;
   color: rgba(0, 0, 0, 1);
-  height: auto;
+  width: 44rpx;
+  height: 48rpx;
   position: absolute;
   font-size: 22px;
   font-style: Regular;
@@ -116,8 +116,8 @@
   text-decoration: none;
 }
 .profile-txt {
-  top: 285px;
-  left: 66px;
+  top: 90rpx;
+  left: 50rpx;
   color: rgba(0, 0, 0, 1);
   height: auto;
   position: absolute;

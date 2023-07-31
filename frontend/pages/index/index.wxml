@@ -16,8 +16,7 @@
   </view>
   <!-- Profile and Namecard-->
   <view class="profile-and-namecard">
-    <view class="profile">
-      <button class="profile-button" bindtap="toProfile"></button>
+    <view class="profile" bindtap="toProfile">
       <span class="wo-txt">我</span>
       <span class="profile-txt">profile</span>
       <image
