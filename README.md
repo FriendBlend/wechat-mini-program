@@ -13,12 +13,12 @@
 - photos: String
 - decription: String
 - room_id_list: list<int> 
-- skin_id_list: list<int>
+- skin_id_list: list<String>
 
 局Party:
 - room_id: int
 - member_num: int
-- seat_list: list<int>
+- seat_list: list<String>
 - time: String
 - location: String
 - cost: float
@@ -26,7 +26,6 @@
 - type: String
 
 座位Seat: 
-- seat_id: int
 - seat_seq: int
 - user_id: int
 - ifOccupied: bool
