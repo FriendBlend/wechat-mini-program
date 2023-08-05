@@ -11,8 +11,9 @@
 .name-input-box{
   top: 136rpx;
   left: 75rpx;
+  right: 75rpx;
   position: absolute;
-  width: 488rpx;
+  width: auto;
   height: 96rpx;
   flex-shrink: 0;
   border-radius: 15px;
@@ -46,6 +47,7 @@
   height: 90rpx;
   flex-shrink: 0;
 }
+/* population */
 .population{
   top: 626rpx;
   left: 60rpx;
@@ -81,7 +83,6 @@
   width: 74rpx;
   height: 74rpx;
 }
-
 .less-than-four{
   top: 112rpx;
   left: 58rpx;
@@ -114,7 +115,6 @@
   border-radius: 10px;
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
 }
 .less-than-four-txt{
   top: 45rpx;
@@ -152,6 +152,7 @@
   line-height: 108%; /* 23.76px */
   letter-spacing: -0.22px;
 }
+/* else */
 .else{
   left: 60rpx;
   top: 924rpx;
@@ -183,7 +184,7 @@
   height: 60rpx;
   flex-shrink: 0;
 }
-
+/* expense */
 .expense-section{
   width: 294px;
   height: 101px;
@@ -265,6 +266,7 @@
   height: 48rpx;
   flex-shrink: 0;
 }
+/* remarks */
 .remarks{
   top: 334rpx;
   left: 20rpx;
@@ -287,8 +289,9 @@
 .remarks-input-box{
   left: 20rpx;
   top: 82rpx;
+  right: 20rpx;
   position: absolute;
-  width: 550rpx;
+  width: auto;
   height: 150rpx;
   border-radius: 10px;
   background: rgba(237, 237, 237, 0.90);
@@ -301,6 +304,7 @@
   font-family: ABeeZee;
   font-size: 36rpx;
 }
+/* next step */
 .next-step-button{
   top: 1572rpx;
   left: 250rpx;

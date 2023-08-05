@@ -1,16 +1,23 @@
-<!--pages/initiate/init-time/init-time.wxml-->
-
 <view class="container">
-  <text>time</text>
-  <!-- Date Picker -->
-  <picker mode="date" bindchange="onDateChange">
-    <view class="picker-item">{{selectedDate}}</view>
-  </picker>
-
-  <!-- Time Picker -->
-  <picker mode="time" bindchange="onTimeChange">
-    <view class="picker-item">{{selectedTime}}</view>
-  </picker>
-
-  <button bindtap="toElse">下一步</button>
+  <view class="main-content">
+    <image src="icons/time-icon.png" class="time-icon"/>
+    <text class="time-text">时间</text>
+    <!-- time picker -->
+    <picker-view class="picker" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{date}}" wx:key="*this" class="picker-item">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{ampm}}" wx:key="*this" class="picker-item">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{time}}" wx:key="*this" class="picker-item">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+    <!-- next step -->
+    <view class="next-step" bindtap="toElse">
+      <image class="arrow-icon" src="icons/arrow.png"/>
+      <span class="next-step-txt">下一步</span>
+    </view>
+  </view>
 </view>

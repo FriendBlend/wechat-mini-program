@@ -1,9 +1,0 @@
-<!--pages/initiate/init-population/init-population.wxml-->
-<text>人数</text>
-<view>
-  <button type="default">2-4人</button>
-  <button type="default">5-8人</button>
-  <button type="default">9-13人</button>
-  <button type="default">具体人数...</button>
-  <button bindtap="toTime">下一步</button>
-</view>

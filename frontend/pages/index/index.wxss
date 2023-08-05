@@ -1,7 +1,8 @@
 .page-container {
-  margin-top: -100px;
+  margin-top: -200rpx;
+  margin-left: -16rpx;
   width: 100%;
-  height: 852px;
+  height: 1704rpx;
   display: flex;
   overflow: hidden;
   position: relative;
@@ -11,54 +12,48 @@
 }
 /* title */
 .title-blue-rect {
-  top: 139px;
-  left: 50px;
-  width: 95px;
-  height: 59px;
+  top: 280rpx;
+  left: 76rpx;
+  width: 190rpx;
+  height: 118rpx;
   position: absolute;
   transform: rotate(-82deg);
   flex-shrink: 0;
-  border-radius: 12px;
+  border-radius: 24rpx;
   background-color: #10AEFF;
 }
 .title-green-rect {
-  top: 131px;
-  left: 102px;
-  width: 95px;
-  height: 59px;
+  top: 262rpx;
+  left: 204rpx;
+  width: 190rpx;
+  height: 118rpx;
   position: absolute;
-  border-radius: 12px;
+  border-radius: 24rpx;
 }
 .title-ellipse {
-  top: 150px;
-  left: 91px;
-  width: 21px;
-  height: 21px;
+  top: 300rpx;
+  left: 182rpx;
+  width: 42rpx;
+  height: 42rpx;
   position: absolute;
 }
 .title-en-txt {
-  top: 189px;
-  left: 91px;
+  top: 348rpx;
+  left: 228rpx;
   color: rgba(0, 0, 0, 1);
   height: auto;
   position: absolute;
-  font-size: 21px;
-  font-style: Regular;
-  text-align: left;
   font-family: ABeeZee;
-  font-weight: 400;
-  line-height: 108.00000429153442%;
-  font-stretch: normal;
-  text-decoration: none;
+  font-size: 72rpx;
 }
 .jinji-txt {
-  top: 140px;
-  left: 113px;
+  top: 280rpx;
+  left: 226rpx;
   color: #000000;
-  width: 92px;
+  width: 184rpx;
   height: auto;
   position: absolute;
-  font-size: 40px;
+  font-size: 80rpx;
   font-style: Regular;
   text-align: left;
   font-family: ABeeZee;
@@ -68,12 +63,12 @@
   text-decoration: none;
 }
 .paidui-txt {
-  top: 140px;
-  left: 197px;
+  top: 280rpx;
+  left: 394rpx;
   color: rgba(0, 0, 0, 1);
   height: auto;
   position: absolute;
-  font-size: 40px;
+  font-size: 80rpx;
   font-style: Regular;
   text-align: left;
   font-family: ABeeZee;
@@ -106,7 +101,7 @@
   width: 44rpx;
   height: 48rpx;
   position: absolute;
-  font-size: 22px;
+  font-size: 44rpx; 
   font-style: Regular;
   text-align: left;
   font-family: ABeeZee;
@@ -121,7 +116,7 @@
   color: rgba(0, 0, 0, 1);
   height: auto;
   position: absolute;
-  font-size: 22px;
+  font-size: 44rpx;
   font-style: Regular;
   text-align: left;
   font-family: ABeeZee;
@@ -130,22 +125,21 @@
   font-stretch: normal;
   text-decoration: none;
 }
-/* namecard */
 .namecard-rect {
-  top: 256px;
-  left: 147px;
-  width: 205px;
-  height: 126px;
+  top: 512rpx;
+  left: 294rpx;
+  width: 410rpx;
+  height: 252rpx;
   position: absolute;
-  border-radius: 21px;
+  border-radius: 42rpx;
 }
 .namecard-name {
-  top: 343px;
-  left: 181px;
+  top: 676rpx;
+  left: 356rpx;
   color: rgba(255, 255, 255, 1);
   height: auto;
   position: absolute;
-  font-size: 20px;
+  font-size: 40rpx;
   font-style: Regular;
   text-align: left;
   font-family: Inter;
@@ -155,30 +149,114 @@
   text-decoration: none;
 }
 .namecard-avatar {
-  top: 274px;
-  left: 170px;
-  width: 57px;
-  height: 57px;
+  top: 548rpx;
+  left: 340rpx;
+  width: 114rpx;
+  height: 114rpx;
   position: absolute;
 }
+/* large namecard */
+.large-namecard {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+}
+.large-namecard-content {
+  border-radius: 50rpx;
+  height: 1030rpx;
+  width: auto;
+  position: absolute;
+  left: 64rpx;
+  right: 64rpx;
+  z-index: 999;
+}
+.large-namecard-name {
+  height: 124rpx;
+  font-size: 88rpx;
+  position: absolute;
+  top: 60rpx;
+  left: 90rpx;
+}
+.user-info {
+  position: relative;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.user-image {
+  position: absolute;
+  top: 216rpx;
+  left: 60rpx;
+  width: 480rpx;
+  height: 638rpx;
+  border-radius: 30rpx;
+}
+.user-image-2 {
+  position: absolute;
+  top: 208rpx;
+  left: 70rpx;
+  width: 480rpx;
+  height: 638rpx;
+  border-radius: 30rpx;
+  opacity: 0.7;
+  z-index: -1;
+}
+.user-image-3 {
+  position: absolute;
+  top: 200rpx;
+  left: 80rpx;
+  width: 480rpx;
+  height: 638rpx;
+  border-radius: 30rpx;
+  opacity: 0.7;
+  z-index: -2;
+}
+.user-info-card {
+  position: absolute;
+  top: 876rpx;
+  left: 70rpx;
+  width: 482rpx;
+  height: 106rpx;
+}
+.card-behind {
+  position: absolute;
+  top: 870rpx;
+  left: 74rpx;
+  width: 476rpx;
+  height: 108rpx;
+  opacity: 0.7;
+  rotate: 1deg;
+}
+.close-btn {
+  position: absolute;
+  top: -43rpx;
+  right: 10rpx;
+  width: 82rpx;
+  height: 86rpx;
+  z-index: 999;
+}
+
 /* initiate */
-.init-button {
-  top: 421px;
-  left: 41px;
-  width: 162px;
-  height: 162px;
-  position: absolute;
-  border-radius: 21px;
-  align-content: left;
-  background-color: #D9D9D9;
-}
-.init-cn-txt {
-  top: 516px;
-  left: 65px;
+.init-txt {
+  top: 1080rpx;
+  left: 136rpx;
   color: rgba(0, 0, 0, 1);
   height: auto;
   position: absolute;
-  font-size: 22px;
+  font-size: 44rpx;
   font-style: Regular;
   text-align: left;
   font-family: ABeeZee;
@@ -187,13 +265,23 @@
   font-stretch: normal;
   text-decoration: none;
 }
-.init-txt {
-  top: 540px;
-  left: 68px;
+.init-button {
+  top: 842rpx;
+  left: 82rpx;
+  width: 324rpx;
+  height: 324rpx;
+  position: absolute;
+  border-radius: 42rpx;
+  align-content: left;
+  background-color: #D9D9D9;
+}
+.init-cn-txt {
+  top: 1032rpx;
+  left: 130rpx;
   color: rgba(0, 0, 0, 1);
   height: auto;
   position: absolute;
-  font-size: 22px;
+  font-size: 44rpx;
   font-style: Regular;
   text-align: left;
   font-family: ABeeZee;
@@ -203,142 +291,148 @@
   text-decoration: none;
 }
 .init-icon {
-  top: 451px;
-  left: 94px;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-/* join */
-.join-button {
-  top: 421px;
-  left: 222px;
-  width: 130px;
-  height: 162px;
-  position: absolute;
-  border-radius: 21px;
-  background-color: #D9D9D9;
-}
-.join-icon {
-  top: 451px;
-  left: 261px;
-  width: 57px;
-  height: 57px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.join-txt {
-  top: 540px;
-  left: 251px;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
-  position: absolute;
-  font-size: 22px;
-  font-style: Regular;
-  text-align: left;
-  font-family: ABeeZee;
-  font-weight: 400;
-  line-height: 108.00000429153442%;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.join-cn-txt {
-  top: 516px;
-  left: 248px;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
-  position: absolute;
-  font-size: 22px;
-  font-style: Regular;
-  text-align: left;
-  font-family: ABeeZee;
-  font-weight: 400;
-  line-height: 108.00000429153442%;
-  font-stretch: normal;
-  text-decoration: none;
-}
-/* events */
-.events-button {
-  top: 602px;
-  left: 41px;
-  width: 253px;
-  height: 215px;
-  position: absolute;
-  background-color: #D9D9D9;
-  border-radius: 21px;
-}
-.i-phone1-pro-default-group5 {
-  top: 620px;
-  left: 57px;
-  width: 107px;
-  height: 45px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
-.events-txt {
-  top: 21px;
-  left: 50px;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
-  position: absolute;
-  font-size: 22px;
-  font-style: Regular;
-  text-align: left;
-  font-family: ABeeZee;
-  font-weight: 400;
-  line-height: 108.00000429153442%;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.events-cn-txt {
-  left: 47px;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
-  position: absolute;
-  font-size: 22px;
-  font-style: Regular;
-  text-align: left;
-  font-family: ABeeZee;
-  font-weight: 400;
-  line-height: 108.00000429153442%;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.events-icon {
-  top: 0px;
-  left: 0px;
-  width: 45px;
-  height: 45px;
+  top: 902rpx;
+  left: 188rpx;
+  width: 112rpx;
+  height: 112rpx;
   display: flex;
   position: absolute;
   align-items: flex-start;
   flex-shrink: 0;
 }
 
-/* event ticket */
-.ticket-button {
-  top: 676px;
-  left: 74px;
-  width: 281px;
-  height: 115px;
+.join-button {
+  top: 842rpx;
+  left: 444rpx;
+  width: 260rpx;
+  height: 324rpx;
   position: absolute;
-  border-radius: 21px;
-  background: #10AEFF;
+  border-radius: 42rpx;
+  background-color: #D9D9D9;
 }
+
+.join-icon {
+  top: 902rpx;
+  left: 522rpx;
+  width: 114rpx;
+  height: 114rpx;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.join-txt {
+  top: 1080rpx;
+  left: 502rpx;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 44rpx;
+  font-style: Regular;
+  text-align: left;
+  font-family: ABeeZee;
+  font-weight: 400;
+  line-height: 108.00000429153442%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.join-cn-txt {
+  top: 1032rpx;
+  left: 496rpx;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 44rpx;
+  font-style: Regular;
+  text-align: left;
+  font-family: ABeeZee;
+  font-weight: 400;
+  line-height: 108.00000429153442%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.events-button {
+  top: 1204rpx;
+  left: 82rpx;
+  width: 506rpx;
+  height: 430rpx;
+  position: absolute;
+  background-color: #D9D9D9;
+  border-radius: 42rpx;
+}
+
+.i-phone1-pro-default-group5 {
+  top: 1240rpx;
+  left: 114rpx;
+  width: 214rpx;
+  height: 90rpx;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+
+.events-txt {
+  top: 42rpx;
+  left: 100rpx;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 44rpx;
+  font-style: Regular;
+  text-align: left;
+  font-family: ABeeZee;
+  font-weight: 400;
+  line-height: 108.00000429153442%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.events-cn-txt {
+  left: 94rpx;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 44rpx;
+  font-style: Regular;
+  text-align: left;
+  font-family: ABeeZee;
+  font-weight: 400;
+  line-height: 108.00000429153442%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.events-icon {
+  top: 0rpx;
+  left: 0rpx;
+  width: 90rpx;
+  height: 90rpx;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.ticket-base {
+  top: 1352rpx;
+  left: 148rpx;
+  width: 562rpx;
+  height: 230rpx;
+  position: absolute;
+  
+}
+
 .ticket-event-info {
-  top: 733px;
-  left: 191px;
+  top: 1466rpx;
+  left: 382rpx;
   color: rgba(255, 255, 255, 1);
   height: auto;
   position: absolute;
-  font-size: 18px;
+  font-size: 36rpx;
   font-style: Regular;
   text-align: left;
   font-family: ABeeZee;
@@ -347,13 +441,14 @@
   font-stretch: normal;
   text-decoration: none;
 }
+
 .ticket-event-name {
-  top: 702px;
-  left: 191px;
+  top: 1404rpx;
+  left: 382rpx;
   color: rgba(255, 255, 255, 1);
   height: auto;
   position: absolute;
-  font-size: 20px;
+  font-size: 40rpx;
   font-style: Regular;
   text-align: left;
   font-family: ABeeZee;
@@ -361,33 +456,12 @@
   line-height: 108.00000429153442%;
   font-stretch: normal;
   text-decoration: none;
-}
-.ticket-ellipse1 {
-  top: 715px;
-  left: 56px;
-  width: 36px;
-  height: 36px;
-  position: absolute;
-}
-.ticket-ellipse2 {
-  top: 717px;
-  left: 337px;
-  width: 36px;
-  height: 36px;
-  position: absolute;
-}
-.ticket-line {
-  top: 676px;
-  left: 177px;
-  width: 1px;
-  height: 115px;
-  position: absolute;
 }
 .ticket-avatar {
-  top: 704px;
-  left: 103px;
-  width: 58px;
-  height: 58px;
+  top: 1408rpx;
+  left: 206rpx;
+  width: 116rpx;
+  height: 116rpx;
   position: absolute;
-  border-radius: 100px;
+  border-radius: 200rpx;
 }

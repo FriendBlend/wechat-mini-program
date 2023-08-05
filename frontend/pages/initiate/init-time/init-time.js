@@ -1,15 +1,45 @@
 // index.js or index.ts
 Page({
   data: {
-    selectedDate: "", // Stores the selected date
-    selectedTime: "", // Stores the selected time
+    date: [],
+    ampm: ['上午', '下午'],
+    time: [],
+    value: [0, 0, 0],
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
+    // Initialize date and time
+    const date = [];
+    const time = [];
 
+    // Date (Next 7 days)
+    const now = new Date();
+    const week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+    for (let i = 0; i < 7; i++) {
+      const futureDate = new Date(now.getTime() + i * 24 * 60 * 60 * 1000);
+      date.push(`${futureDate.getFullYear()}年${futureDate.getMonth() + 1}月${futureDate.getDate()}日 ${week[futureDate.getDay()]}`);
+    }
+
+    // Time (Every half hour from 1:00 to 12:30)
+    for (let i = 1; i < 13; i++) {
+      for (let j = 0; j < 2; j++) {
+        time.push(`${i}:${j === 0 ? '00' : '30'}`);
+      }
+    }
+
+    this.setData({
+      date,
+      time,
+    });
+  },
+
+  bindChange(e) {
+    this.setData({
+      value: e.detail.value,
+    });
   },
 
   /**

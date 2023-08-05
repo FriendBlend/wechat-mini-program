@@ -17,7 +17,7 @@
       <block wx:for="{{seats}}" wx:key="index" wx:for-item="seat"  wx:for-index="seatIndex">
         <view class="name-card-row" wx:if="{{seatIndex % 2 === 0}}">
           <!-- The first name card in the row -->
-          <view class="name-card" wx:if="{{seat.occupied}}" bindtap="onSeatTap" data-seat-index="{{seatIndex}}" data-occupied="{{seat.occupied}}" style="background-color: {{users[seat.user_id - 1].skin}}">
+          <view class="name-card" wx:if="{{seat.occupied}}" bindtap="onSeatTap" data-seat-index="{{seatIndex}}" data-occupied="{{true}}" data-user="{{users[seat.user_id - 1]}}" style="background-color: {{users[seat.user_id - 1].skin}}">
             <!-- Display the name card if the seat is occupied -->
             <view class="left-side">
               <image class="avatar" src="{{users[seat.user_id - 1].avatar}}" mode="aspectFill"></image>
@@ -28,14 +28,14 @@
               <image class="status-icon" wx:if="{{seat.occupied && users[seat.user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
             </view>
           </view>
-          <view class="name-card empty-name-card" wx:else bindtap="onSeatTap" data-seat-index="{{seatIndex}}">
+          <view class="name-card empty-name-card" wx:else bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex}}">
             <!-- Display the empty seat image if the seat is not occupied -->
             <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
           </view>
           <!-- Check if there's a second seat in this row -->
           <view wx:if="{{seatIndex + 1 < seats.length}}">
             <!-- Second seat in the row -->
-            <view wx:if="{{seats[seatIndex + 1].occupied}}" class="name-card" bindtap="onSeatTap" data-seat-index="{{seatIndex + 1}}" style="background-color: {{users[seats[seatIndex + 1].user_id - 1].skin}}">
+            <view wx:if="{{seats[seatIndex + 1].occupied}}" class="name-card" bindtap="onSeatTap" data-seat-index="{{seatIndex + 1}}" data-occupied="{{true}}" data-user="{{users[seats[seatIndex + 1].user_id - 1]}}" style="background-color: {{users[seats[seatIndex + 1].user_id - 1].skin}}">
               <view class="left-side">
                 <!-- Display the name card if the seat is occupied -->
                 <image class="avatar" src="{{users[seats[seatIndex + 1].user_id - 1].avatar}}" mode="aspectFill"></image>
@@ -46,7 +46,7 @@
                 <image class="status-icon" wx:if="{{users[seats[seatIndex + 1].user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
               </view>
             </view>
-            <view wx:else class="name-card empty-name-card" bindtap="onSeatTap" data-seat-index="{{seatIndex + 1}}">
+            <view wx:else class="name-card empty-name-card" bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex + 1}}">
               <!-- Display the empty seat image if the seat is not occupied -->
               <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
             </view>
@@ -124,6 +124,20 @@
       </view>
       <span class="i-phone1-pro2-text29">仁喆的生日派对</span>
     </view>
-
+    <!-- Large namecard -->
+    <view wx:if="{{showNamecard}}" class="large-namecard">
+      <view class="popup-mask" bindtap="hideNamecard"></view>
+      <view class="large-namecard-content" style="background-color: {{currentUser.skin}};">
+        <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
+        <view class="user-info">
+          <text class="large-namecard-name">{{currentUser.name}}</text>
+          <image src="{{currentUser.userImage1}}" class="user-image"></image>
+          <image src="{{currentUser.userImage2}}" class="user-image-2"></image>
+          <image src="{{currentUser.userImage3}}" class="user-image-3"></image>
+          <image src="../../images/large-namecard/info-card.png" class="user-info-card"></image>
+          <image src="../../images/large-namecard/info-card-behind.png" class="card-behind"></image>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

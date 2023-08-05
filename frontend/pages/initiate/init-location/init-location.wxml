@@ -1,26 +1,32 @@
 <view class="container">
-  <text>地点</text>
-  <view class="map-container">
-    <map
-      id="map"
-      longitude="{{longitude}}"
-      latitude="{{latitude}}"
-      markers="{{markers}}"
-      show-location
-      bindtap="onMapTap"
-    >
-    </map>
+  <view class="main-content">
+    <image src="icons/location-icon.png" class="location-icon"/>
+    <text class="location-text">地点</text>
+    <view class="search-container">
+      <input
+        class="search-input"
+        placeholder="输入地址…"
+        placeholder-class="input-placeholder"
+        bindconfirm="onSearch"
+        value="{{searchInput}}"
+      />
+    </view>
+    <view class="map-container">
+      <map
+        id="map"
+        longitude="{{longitude}}"
+        latitude="{{latitude}}"
+        markers="{{markers}}"
+        show-location
+        bindtap="onMapTap"
+        class="map"
+      >
+      </map>
+    </view>
+    
+    <view class="next-step" bindtap="toTime">
+      <image class="arrow-icon" src="icons/arrow.png"/>
+      <span class="next-step-txt">下一步</span>
+    </view>
   </view>
-
-  <view class="search-container">
-    <input
-      class="search-input"
-      placeholder="Type a location and press Enter"
-      bindconfirm="onSearch"
-      value="{{searchInput}}"
-    />
-  </view>
-  
-  <button bindtap="toTime">下一步</button>
-
 </view>

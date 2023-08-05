@@ -24,7 +24,7 @@
         src="Icons/contacts.png"
       ></image>
     </view>
-    <view class="namecard">
+    <view class="namecard" bindtap="showNamecard">
       <image
         class="namecard-rect"
         src="Icons/Rectangle443.png"
@@ -39,7 +39,7 @@
   <!-- Initiate and Join -->
   <view class="initiate-and-join">
     <view class="initiate" bindtap="toInitiate">
-      <button class="init-button" style="width: 162px;"></button>
+      <button class="init-button" style="width: 324rpx;"></button>
       <span class="init-cn-txt">发起</span>
       <span class="init-txt">initiate</span>
       <image
@@ -48,7 +48,7 @@
       ></image>
     </view>
     <view class="join" bindtap="toJoin">
-      <button class="join-button" style="width: 130px;"></button>
+      <button class="join-button" style="width: 260rpx;"></button>
       <span class="join-txt">join</span>
       <span class="join-cn-txt">加入</span>
       <image
@@ -59,7 +59,7 @@
   </view>
   <!-- Events -->
   <view class="events">
-    <button class="events-button" bindtap="toEvents" style="width: 253px;"></button>
+    <button class="events-button" bindtap="toEvents" style="width: 506rpx;"></button>
     <view class="i-phone1-pro-default-group5">
       <span class="events-cn-txt">事件</span>
       <span class="events-txt">events</span>
@@ -70,31 +70,34 @@
     </view>
     <!-- Event Ticket -->
     <view class="event-ticket" bindtap="toRoom">
-      <button
-        class="ticket-button"
-        style="width: 281px;"
-      ></button>
+      <image
+        class="ticket-base"
+        src="../../images/tickets/blue-ticket.png"
+      ></image>
       <span class="ticket-event-name">仁喆的生日派对</span>
       <span class="ticket-event-info">
         <view>明天</view>
         <view>下午 3点</view>
       </span>
       <image
-        class="ticket-ellipse1"
-        src="Icons/Ellipse-23.png"
-      ></image>
-      <image
         class="ticket-avatar"
         src="Icons/Rectangle473.png"
       ></image>
-      <image
-        class="ticket-line"
-        src="Icons/Line2.png"
-      ></image>
-      <image
-        class="ticket-ellipse2"
-        src="Icons/Ellipse-27.png"
-      ></image>
+    </view>
+  </view>
+  <!-- Large namecard -->
+  <view wx:if="{{showNamecard}}" class="large-namecard">
+    <view class="popup-mask" bindtap="hideNamecard"></view>
+    <view class="large-namecard-content" style="background-color: {{userInfo.userColor}};">
+      <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
+      <view class="user-info">
+        <text class="large-namecard-name">{{userInfo.userName}}</text>
+        <image src="{{userInfo.userImage1}}" class="user-image"></image>
+        <image src="{{userInfo.userImage2}}" class="user-image-2"></image>
+        <image src="{{userInfo.userImage3}}" class="user-image-3"></image>
+        <image src="{{userInfo.userInfoCard}}" class="user-info-card"></image>
+        <image src="{{userInfo.cardBehind}}" class="card-behind"></image>
+      </view>
     </view>
   </view>
 </view>

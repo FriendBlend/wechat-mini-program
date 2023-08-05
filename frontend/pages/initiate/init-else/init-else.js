@@ -5,7 +5,7 @@ Page({
    * Page initial data
    */
   data: {
-
+    dollarCount: 1
   },
 
   /**
@@ -84,11 +84,19 @@ Page({
   },
 
   minusExpense(event) {
-    console.log("消费降级")
+    if (this.data.dollarCount > 1) {
+      this.setData({
+        dollarCount: this.data.dollarCount - 1,
+      });
+    }
   },
 
   plusExpense(event) {
-    console.log("消费升级")
+    if (this.data.dollarCount < 3) {
+      this.setData({
+        dollarCount: this.data.dollarCount + 1,
+      });
+    }
   },
 
   complete(event) {

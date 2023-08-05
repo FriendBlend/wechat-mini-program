@@ -1,6 +1,0 @@
-<!--pages/initiate/init-name/init-name.wxml-->
-<text>名称</text>
-<view>
-  <input type="text" placeholder="xyr的生日派对..."/>
-  <button bindtap="toPopulation">下一步</button>
-</view>

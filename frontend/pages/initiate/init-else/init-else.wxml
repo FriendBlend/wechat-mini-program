@@ -51,15 +51,15 @@
       <view class="dollar-icon-container">
         <image
           class="dollar-icon-1"
-          src="Icons/dark-dollar-sign-icon.png"
+          src="Icons/dark-dollar-sign.png"
         ></image>
         <image
           class="dollar-icon-2"
-          src="Icons/dark-dollar-sign-icon.png"
+          src="{{dollarCount >= 2 ? 'Icons/dark-dollar-sign.png' : 'Icons/grey-dollar-sign.png'}}"
         ></image>
         <image
           class="dollar-icon-3"
-          src="Icons/dark-dollar-sign-icon.png"
+          src="{{dollarCount >= 3 ? 'Icons/dark-dollar-sign.png' : 'Icons/grey-dollar-sign.png'}}"
         ></image>
       </view>
     </view>

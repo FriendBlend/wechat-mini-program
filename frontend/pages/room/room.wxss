@@ -711,6 +711,7 @@
 .name-card-scroll-view {
   top: 294px;
   left: 41px;
+  right: 41px;
   position: absolute;
   width: 311px;
   height: 380px;
@@ -794,4 +795,98 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+/* large namecard */
+.large-namecard {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+}
+.large-namecard-content {
+  border-radius: 50rpx;
+  height: 1030rpx;
+  width: auto;
+  position: absolute;
+  left: 64rpx;
+  right: 64rpx;
+  z-index: 999;
+}
+.large-namecard-name {
+  height: 124rpx;
+  font-size: 88rpx;
+  position: absolute;
+  top: 60rpx;
+  left: 90rpx;
+}
+.user-info {
+  position: relative;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.user-image {
+  position: absolute;
+  top: 216rpx;
+  left: 60rpx;
+  width: 480rpx;
+  height: 638rpx;
+  border-radius: 30rpx;
+}
+.user-image-2 {
+  position: absolute;
+  top: 208rpx;
+  left: 70rpx;
+  width: 480rpx;
+  height: 638rpx;
+  border-radius: 30rpx;
+  opacity: 0.7;
+  z-index: -1;
+}
+.user-image-3 {
+  position: absolute;
+  top: 200rpx;
+  left: 80rpx;
+  width: 480rpx;
+  height: 638rpx;
+  border-radius: 30rpx;
+  opacity: 0.7;
+  z-index: -2;
+}
+.user-info-card {
+  position: absolute;
+  top: 876rpx;
+  left: 70rpx;
+  width: 482rpx;
+  height: 106rpx;
+}
+.card-behind {
+  position: absolute;
+  top: 870rpx;
+  left: 74rpx;
+  width: 476rpx;
+  height: 108rpx;
+  opacity: 0.7;
+  rotate: 1deg;
+}
+.close-btn {
+  position: absolute;
+  top: -43rpx;
+  right: 10rpx;
+  width: 82rpx;
+  height: 86rpx;
+  z-index: 999;
 }

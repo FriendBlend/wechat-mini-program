@@ -5,7 +5,16 @@ Page({
    * Page initial data
    */
   data: {
-
+    showNamecard: false,
+    userInfo: {
+      userName: '仁喆',
+      userColor: '#979797',
+      userImage1: '../../images/large-namecard/brady.png',
+      userImage2: '../../images/large-namecard/brady.png',
+      userImage3: '../../images/large-namecard/brady.png',
+      userInfoCard: '../../images/large-namecard/info-card.png',
+      cardBehind: '../../images/large-namecard/info-card-behind.png'
+    }
   },
 
   /**
@@ -88,5 +97,16 @@ Page({
     wx.navigateTo({
       url: '../myEvents/myEvents',
     })
+  },
+
+  showNamecard(event) {
+    this.setData({
+      showNamecard: true
+    });
+  },
+  hideNamecard() {
+    this.setData({
+      showNamecard: false
+    });
   }
 })

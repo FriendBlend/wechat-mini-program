@@ -6,8 +6,6 @@
     "frontend/pages/join/join",
     "frontend/pages/myEvents/myEvents",
     "frontend/pages/initiate/init-content/init-content",
-    "frontend/pages/initiate/init-name/init-name",
-    "frontend/pages/initiate/init-population/init-population",
     "frontend/pages/initiate/init-location/init-location",
     "frontend/pages/initiate/init-else/init-else",
     "frontend/pages/initiate/init-time/init-time",

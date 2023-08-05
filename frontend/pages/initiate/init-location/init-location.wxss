@@ -1,1 +1,74 @@
-/* pages/initiate/init-location/init-location.wxss */
+.main-content {
+  width: 620rpx;
+  height: 916rpx;
+  position: absolute;
+  left: 66rpx;
+  top: 270rpx;
+  background: #d9d9d9;
+  border-radius: 42rpx;
+}
+/* title */
+.location-icon {
+  width: 84rpx;
+  height: 84rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 16rpx;
+}
+.location-text {
+  font-size: 44rpx;
+  font-family: ABeeZee;
+  position: absolute;
+  left: 130rpx;
+  top: 32rpx;
+}
+/* text input */
+.search-input {
+  width: auto;
+  height: 80rpx;
+  position: absolute;
+  left: 38rpx;
+  top: 140rpx;
+  right: 38rpx;
+  border-radius: 20rpx;
+  background: #FFF;
+  box-shadow: 0rpx 8rpx 8rpx 0px rgba(0, 0, 0, 0.25) inset;
+  padding-left: 16rpx;
+}
+/* map */
+.map {
+  width: auto;
+  height: 462rpx;
+  position: absolute;
+  left: 38rpx;
+  top: 260rpx;
+  right: 38rpx;
+  stroke-width: 2rpx;
+  border-radius: 42rpx;
+  overflow: hidden;
+  filter: drop-shadow(0rpx 8rpx 8rpx rgba(0, 0, 0, 0.25));
+}
+/* next step */
+.next-step{
+  width:170rpx;
+  height:170rpx;
+  position:absolute;
+  top: 700rpx;
+  left: 180rpx;
+}
+.next-step-txt{
+  position: absolute;
+  top: 118rpx;
+  left: 56rpx;
+  width: fit-content;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 44rpx;
+}
+.arrow-icon{
+  position: absolute; 
+  left: 54rpx;
+  top: 78rpx;
+  width: 144rpx;
+  height: 50rpx;
+}

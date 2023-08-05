@@ -17,7 +17,7 @@ Page({
           longitude: longitude,
           latitude: latitude,
           title: "Selected Location",
-          iconPath: "/images/marker.png", // Replace with your custom marker icon
+          iconPath: "icons/map-marker.png",
           width: 32,
           height: 32,
         },
@@ -35,7 +35,7 @@ Page({
       return;
     }
 
-    // Implement your location search logic here, using map service API (e.g., Tencent Maps API)
+    // TODO: Implement your location search logic here, using map service API (e.g., Tencent Maps API)
 
     // For demo purposes, let's assume we have fetched the longitude and latitude of the searched location
     const longitude = 113.123456;
@@ -50,7 +50,7 @@ Page({
           longitude: longitude,
           latitude: latitude,
           title: "Searched Location",
-          iconPath: "/images/marker.png", // Replace with your custom marker icon
+          iconPath: "icons/map-marker.png",
           width: 32,
           height: 32,
         },

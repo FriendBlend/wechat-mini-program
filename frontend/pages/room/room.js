@@ -5,6 +5,8 @@ Page({
    * Page initial data
    */
   data: {
+    showNamecard: false,
+    currentUser: null,
     seats: [
       { occupied: true, user_id: 1 },
       { occupied: false },
@@ -27,6 +29,9 @@ Page({
         status: "ready",
         avatar: "icons/empty-avatar.png",
         skin: "#10AEFF",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 2,
@@ -34,6 +39,9 @@ Page({
         status: "joined",
         avatar: "icons/empty-avatar.png",
         skin: "#FF7966",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 3,
@@ -41,13 +49,19 @@ Page({
         status: "ready",
         avatar: "icons/empty-avatar.png",
         skin: "#10AEFF",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 4,
-        name: "Peter",
+        name: "Renzhe",
         status: "host",
         avatar: "icons/empty-avatar.png",
-        skin: "#000",
+        skin: "pink",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 5,
@@ -55,6 +69,9 @@ Page({
         status: "ready",
         avatar: "icons/empty-avatar.png",
         skin: "#C7F5D8",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 6,
@@ -62,6 +79,9 @@ Page({
         status: "joined",
         avatar: "icons/empty-avatar.png",
         skin: "#FF7966",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 7,
@@ -69,13 +89,19 @@ Page({
         status: "ready",
         avatar: "icons/empty-avatar.png",
         skin: "#37CD82",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 8,
-        name: "Alex",
+        name: "忍者",
         status: "joined",
         avatar: "icons/empty-avatar.png",
         skin: "#FF7966",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 9,
@@ -83,6 +109,9 @@ Page({
         status: "ready",
         avatar: "icons/empty-avatar.png",
         skin: "#37CD82",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 10,
@@ -90,13 +119,19 @@ Page({
         status: "joined",
         avatar: "icons/empty-avatar.png",
         skin: "#10AEFF",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 11,
-        name: "Jane",
+        name: "老玉米",
         status: "ready",
         avatar: "icons/empty-avatar.png",
         skin: "#C7F5D8",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
       {
         id: 12,
@@ -104,6 +139,9 @@ Page({
         status: "joined",
         avatar: "icons/empty-avatar.png",
         skin: "#AEF359",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
       },
     ],
     lastClickTime: 0
@@ -192,7 +230,7 @@ Page({
       this.doubleClickSeat(event);
     } else {  // single click
       this.timeoutFunction = setTimeout(() => {
-        this.singleClickSeat();
+        this.singleClickSeat(event);
       }, clickThreshold);
     }
     this.setData({lastClickTime: currentTime});
@@ -239,12 +277,28 @@ Page({
     }
   },
 
-  singleClickSeat() {
-    // TODO: single click logic
+  singleClickSeat(event) {
     console.log("Single click detected!");
+    console.log(event.currentTarget.dataset)
+    if (event.currentTarget.dataset.occupied) {
+      this.showNamecard(event);
+    }
   },
 
   joinCorridor(event) {
     console.log("I joined the corridor")
+  },
+
+  showNamecard(event) {
+    this.setData({
+      showNamecard: true,
+      currentUser: event.currentTarget.dataset.user
+    });
+  },
+
+  hideNamecard() {
+    this.setData({
+      showNamecard: false
+    });
   }
 })

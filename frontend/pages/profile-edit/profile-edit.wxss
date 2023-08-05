@@ -29,6 +29,7 @@
   width: 712rpx;
   height: 78rpx;
   border-radius: 20rpx;
+  padding-left: 10rpx;
 }
 .submit-button {
   left: 20rpx;
