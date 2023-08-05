@@ -6,27 +6,26 @@
 
 个人Profile: 
 - user_id: int
-- avatar: int
+- avatar: String
 - name: String
 - age: int
 - school: String
-- photos: 
+- photos: String
 - decription: String
 - room_id_list: list<int> 
-- skin_id_list: list<int>
+- skin_id_list: list<String>
 
 局Party:
 - room_id: int
 - member_num: int
-- seat_list: list<int>
+- seat_list: list<String>
 - time: String
-- location: pair<int>
+- location: String
 - cost: float
 - description: String
 - type: String
 
 座位Seat: 
-- seat_id: int
 - seat_seq: int
 - user_id: int
 - ifOccupied: bool
