@@ -21,6 +21,6 @@
     />
   </view>
   
-  <button bindtap="toElse">下一步</button>
+  <button bindtap="toTime">下一步</button>
 
 </view>

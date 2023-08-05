@@ -1,15 +1,80 @@
-<text>其他</text>
-<view>
-  <view>
-    <text>备注</text>
-    <input type="text" placeholder="输入备注信息…ß"/>
+<view class="page-container">
+  <!--name input-->
+  <view class="name-input">
+    <span class="name-txt">名称</span>
+    <image
+        class="name-card-icon"
+        src="Icons/name-card-icon.png"
+    ></image>
+  <input class="name-input-box" type="text" placeholder="xyr的生日派对…" />
   </view>
-  <view>
-    <text>人均预估金额</text>
-    <button type="default">100以下</button>
-    <button type="default">101-250</button>
-    <button type="default">251-500</button>
-    <button type="default">自定义</button>
+  <!--population-->
+  <view class="population">
+    <span class="population-txt">人数</span>
+    <image
+        class="peoplenum-icon"
+        src="Icons/peoplenum-icon.png"
+    ></image>
+    <view id="less-than-4" class="less-than-four" bindtap="setPopulation">
+      <span class="less-than-four-txt">小于4人</span>
+    </view>
+    <view id="5-8" class="five-to-eight" bindtap="setPopulation">
+      <span class="five-to-eight-txt">5-8人</span>
+    </view>
+    <view id="more-than-8" class="more-than-eight" bindtap="setPopulation">
+      <span class="more-than-eight-txt">大于8人</span>
+    </view>
   </view>
-  <button bindtap="toRoom">完成！</button>
+  <!--else-->
+  <view class="else">
+    <span class="else-txt">其他</span>
+    <image
+        class="else-icon"
+        src="Icons/else-icon.png"
+    ></image>
+    <view class="expense-section">
+      <span class="expense-txt">预估消费</span>
+      <image
+        class="expense-icon"
+        src="Icons/expense-icon.png"
+      ></image>
+      <image
+        class="minus-icon"
+        src="Icons/minus-icon.png"
+        bindtap="minusExpense"
+      ></image>
+      <image
+        class="plus-icon"
+        src="Icons/plus-icon.png"
+        bindtap="plusExpense"
+      ></image>
+      <view class="dollar-icon-container">
+        <image
+          class="dollar-icon-1"
+          src="Icons/dark-dollar-sign-icon.png"
+        ></image>
+        <image
+          class="dollar-icon-2"
+          src="Icons/dark-dollar-sign-icon.png"
+        ></image>
+        <image
+          class="dollar-icon-3"
+          src="Icons/dark-dollar-sign-icon.png"
+        ></image>
+      </view>
+    </view>
+    <!--Remarks-->
+    <view class="remarks">
+      <span class="remarks-txt">备注</span>
+      <textarea class="remarks-input-box" type="text" placeholder="输入备注信息…" placeholder-class="remarks-input-placeholder"/>
+    </view>
+  </view>
+  
+  <view class="next-step-button" bindtap="toRoom">
+    <span class="complete-txt" bindtap="complete">完成！</span>
+        <image
+          class="check-icon"
+          src="Icons/check-icon.png"
+        ></image>
+  </view>
 </view>

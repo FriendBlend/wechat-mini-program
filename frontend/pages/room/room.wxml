@@ -1,10 +1,17 @@
 <view class="i-phone1-pro2-container">
   <view class="i-phone1-pro2-i-phone1-pro2">
-    <image
-      class="i-phone1-pro2-rectangle476"
-      src="icons/Rectangle 476.png"
-    ></image>
-    <button class="emerg-exit" bindtap="toIndex" style="width: 134.31px;"></button>
+    <view class="emerg-exit" bindtap="toIndex" style="width: 134.31px;">
+      <image
+        class="exit-sign"
+        src="icons/solar_exit-line-duotone.png"
+      ></image>
+      <span class="emerg-exit-text">
+        <text class="emerg-exit-cn-text">紧急出口</text>
+        <br />
+        <text class="emerg-exit-en-text">EMERG EXIT</text>
+        <br />
+      </span>
+    </view>
 
     <scroll-view class="name-card-scroll-view" scroll-y="true">
       <block wx:for="{{seats}}" wx:key="index" wx:for-item="seat"  wx:for-index="seatIndex">
@@ -48,20 +55,20 @@
       </block>
     </scroll-view>
       
-    <view class="corridor">
-      <span class="i-phone1-pro2-text08">走廊</span>
-      <span class="i-phone1-pro2-text10">Corridor</span>
+    <view class="corridor" bindtap="joinCorridor">
+      <view class="corridor-cn-text">走廊</view>
+      <view class="corridor-en-text">Corridor</view>
       <image
-        class="i-phone1-pro2-ellipse24"
-        src="icons/Ellipse 24.png"
+        class="corridor-avatar avatar-3"
+        src="icons/corridor-empty-avatar.png"
       ></image>
       <image
-        class="i-phone1-pro2-ellipse26"
-        src="icons/Ellipse 26.png"
+        class="corridor-avatar avatar-2"
+        src="icons/corridor-empty-avatar.png"
       ></image>
       <image
-        class="i-phone1-pro2-ellipse25"
-        src="icons/Ellipse 25.png"
+        class="corridor-avatar avatar-1"
+        src="icons/corridor-empty-avatar.png"
       ></image>
     </view>
     <!-- <view class="i-phone1-pro2-solarexitlineduotone">
@@ -105,7 +112,7 @@
     <view class="i-phone1-pro2-group9">
       <image
         class="i-phone1-pro2-rectangle49"
-        src="icons/Rectangle 49.png"
+        src="icons/tickets/blue-ticket.png"
       ></image>
       <image
         class="i-phone1-pro2-rectangle473"
@@ -116,29 +123,7 @@
         <view>下午 3点</view>
       </view>
       <span class="i-phone1-pro2-text29">仁喆的生日派对</span>
-      <image
-        class="i-phone1-pro2-ellipse23"
-        src="icons/Ellipse 23.png"
-      ></image>
-      <image
-        class="i-phone1-pro2-ellipse27"
-        src="icons/Ellipse 27.png"
-      ></image>
-      <image
-        class="i-phone1-pro2-line2"
-        src="icons/Line 2.png"
-      ></image>
     </view>
 
-    <image
-      class="i-phone1-pro2-solarexitlineduotone"
-      src="icons/solar_exit-line-duotone.png"
-    ></image>
-    <span class="i-phone1-pro2-text31">
-      <text class="jinji-exit-text">紧急出口</text>
-      <br />
-      <text class="emerg-exit-text">EMERG EXIT</text>
-      <br />
-    </span>
   </view>
 </view>

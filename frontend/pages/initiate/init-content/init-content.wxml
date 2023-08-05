@@ -1,14 +1,28 @@
-<!--frontend/pages/initiate/init-content/init-content.wxml-->
-
 <view>
-  <text>内容</text>>
-  <button type="default">桌游</button>
-  <button type="default">麻将</button>
-  <button type="default">酒局</button>
-  <button type="default">饭局</button>
-  <button type="default">蹦迪</button>
-  <button type="default">运动</button>
-  <button type="default">自定义</button>
-  <button bindtap="toName">下一步</button>
-  
+  <view class="main-frame">
+    <span class="content-txt">活动内容</span>
+    <image class="content-icon" src="icons/content-icon.png"/>
+    <view class="table-game-view">
+      <image class="icon" src="icons/table-game.png"/>
+    </view>
+    <view class="alcohol-view">
+      <image class="icon" src="icons/alcohol.png"/>
+    </view>
+    <view class="cuisine-view">
+      <image class="icon" src="icons/cuisine.png"/>
+    </view>
+    <view class="balloon-view">
+      <image class="icon" src="icons/balloon.png"/>
+    </view>
+    <view class="sports-view">
+      <image class="icon" src="icons/sports.png"/>
+    </view>
+    <view class="opera-view">
+      <image class="icon" src="icons/opera.png"/>
+    </view>
+    <view class="next-step" bindtap="toLocation">
+      <image class="arrow-icon" src="icons/arrow.png"/>
+      <span class="next-step-txt">下一步</span>
+    </view>
+  </view>
 </view>

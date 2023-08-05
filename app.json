@@ -11,7 +11,8 @@
     "frontend/pages/initiate/init-location/init-location",
     "frontend/pages/initiate/init-else/init-else",
     "frontend/pages/initiate/init-time/init-time",
-    "frontend/pages/testfunc/test"
+    "frontend/pages/testfunc/test",
+    "frontend/pages/profile-edit/profile-edit"
   ],
   "window": {
     "backgroundTextStyle": "light",

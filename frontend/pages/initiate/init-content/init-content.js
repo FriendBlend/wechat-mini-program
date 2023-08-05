@@ -64,9 +64,9 @@ Page({
 
   },
 
-  toName:function() {
+  toLocation:function() {
     wx.navigateTo({
-      url: '../init-name/init-name',
+      url: '../init-location/init-location',
     })
   }, 
 })

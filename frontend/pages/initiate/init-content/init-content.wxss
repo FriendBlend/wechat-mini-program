@@ -1,1 +1,122 @@
 /* frontend/pages/initiate/init-content/init-content.wxss */
+.main-frame{
+  border-radius: 21px;
+  background: #D9D9D9; 
+  width: 600rpx;
+  height: 1000rpx;
+  position: absolute;
+  top: 200rpx;
+  left: 78rpx;
+}
+
+.icon{
+  margin-top: 20%;
+  margin-left: 17%;
+  width:110rpx;
+  height:110rpx;
+}
+
+.table-game-view{
+  top:154rpx;
+  left:82rpx;
+  width:170rpx;
+  height:170rpx;
+  position:absolute;
+  border-radius: 21px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.20);
+}
+.balloon-view{
+  width:170rpx;
+  height:170rpx;
+  position:absolute;
+  border-radius: 21px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.20);
+  top:154rpx;
+  left:340rpx;
+}
+.alcohol-view{
+  width:170rpx;
+  height:170rpx;
+  position:absolute;
+  border-radius: 21px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.20);
+  top:386rpx;
+  left:82rpx;
+}
+.cuisine-view{
+  width:170rpx;
+  height:170rpx;
+  position:absolute;
+  border-radius: 21px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.20);
+  top:386rpx;
+  left:340rpx;
+}
+.sports-view{
+  width:170rpx;
+  height:170rpx;
+  position:absolute;
+  border-radius: 21px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.20);
+  top:626rpx;
+  left:82rpx;
+}
+.opera-view{
+  width:170rpx;
+  height:170rpx;
+  position:absolute;
+  border-radius: 21px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.20);
+  top:626rpx;
+  left:340rpx;
+}
+.content-txt{
+  display: flex;
+  width: 121px;
+  height: 33px;
+  flex-direction: column;
+  justify-content: center;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 22px;
+  top: 32rpx;
+  left: 94rpx;
+  position: absolute;
+}
+.content-icon{
+  width: 74rpx;
+  height: 74rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+}
+.next-step{
+  width:170rpx;
+  height:170rpx;
+  position:absolute;
+  top: 789rpx;
+  left: 180rpx;
+}
+.next-step-txt{
+  position: absolute;
+  top: 118rpx;
+  left: 56rpx;
+  width: fit-content;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 22px;
+
+}
+.arrow-icon{
+  position: absolute; 
+  left: 54rpx;
+  top: 78rpx;
+  width: 144rpx;
+  height: 50rpx;
+}

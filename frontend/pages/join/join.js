@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  joinRoom(event) {
+    wx.redirectTo({
+      url: '../room/room',
+    })
   }
 })

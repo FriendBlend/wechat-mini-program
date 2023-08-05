@@ -1,5 +1,12 @@
-<view style="display: flex; margin-top: 100pt; margin-left: 20pt; flex-direction: row; height: 40pt; font-size: large;">
-  <text>请输入房间号：</text>
-  <input style="border-bottom: 1pt solid lightgray; padding-left: 5pt; margin-top: 1pt; width: 100pt;" placeholder="6位房间号" type="number"/>
+<view class="container">
+  <view class="panel">
+    <view class="top-part">
+      <view class="input-text">请输入房间号</view>
+      <input class="input-field" type="text" placeholder="8888-8888" placeholder-class="input-field-placeholder"/>
+    </view>
+    <view class="join-button" bindtap="joinRoom">
+      <image src="../initiate/init-else/icons/check-icon.png" class="join-image"/>
+      <view class="join-text">加入!</view>
+    </view>
+  </view>
 </view>
-  <button style="margin-top: 20pt;" type="default">确认加入</button>

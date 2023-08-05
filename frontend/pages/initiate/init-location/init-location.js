@@ -58,9 +58,9 @@ Page({
     });
   },
 
-  toElse:function() {
+  toTime:function() {
     wx.redirectTo({
-      url: '../init-else/init-else',
+      url: '../init-time/init-time',
     })
   }, 
 })

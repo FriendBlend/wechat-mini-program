@@ -1,10 +1,27 @@
 /* pages/profile/profile.wxss */
 .name-card {
-  width: 130px;
-  height: 80px;
-  border-radius: 21px;
-  background: #D9D9D9;
+  width: 410rpx;
+  height: 252rpx;
+  border-radius: 42rpx;
+  background: #979797;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: space-evenly;
+}
+.avatar {
+  position: absolute;
+  top: 62rpx;
+  left: 32rpx;
+  width: 118rpx;
+  height: 118rpx;
+  border-radius: 200rpx;
+}
+.top-part {
+  display: flex;
+  justify-content: flex-start;
+}
+.profile-edit-button {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 100rpx;
 }

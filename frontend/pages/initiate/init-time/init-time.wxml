@@ -12,5 +12,5 @@
     <view class="picker-item">{{selectedTime}}</view>
   </picker>
 
-  <button bindtap="toLocation">下一步</button>
+  <button bindtap="toElse">下一步</button>
 </view>

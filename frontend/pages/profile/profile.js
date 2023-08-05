@@ -62,5 +62,10 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  toEdit() {
+    wx.navigateTo({
+      url: '../profile-edit/profile-edit',
+    })
   }
 })

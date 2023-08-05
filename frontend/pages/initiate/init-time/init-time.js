@@ -97,9 +97,9 @@ Page({
     this.toLocation();
   },
 
-  toLocation:function() {
+  toElse:function() {
     wx.redirectTo({
-      url: '../init-location/init-location',
+      url: '../init-else/init-else',
     })
   }, 
 });

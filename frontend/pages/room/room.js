@@ -242,5 +242,9 @@ Page({
   singleClickSeat() {
     // TODO: single click logic
     console.log("Single click detected!");
+  },
+
+  joinCorridor(event) {
+    console.log("I joined the corridor")
   }
 })

@@ -18,12 +18,6 @@
   background-color: rgba(255, 255, 255, 1);
 }
 .i-phone1-pro2-rectangle476 {
-  top: 724px;
-  left: 41px;
-  width: 148px;
-  height: 97px;
-  position: absolute;
-  border-radius: 15px;
 }
 .emerg-exit {
   top: 157px;
@@ -37,6 +31,33 @@
 }
 .emerg-exit:active {
   background: cornsilk;
+}
+.emerg-exit-text {
+  top: 24rpx;
+  left: 92rpx;
+  width: 163rpx;
+  height: 67rpx;
+  flex-shrink: 0;
+  position: absolute;
+}
+.emerg-exit-cn-text {
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 16px;
+}
+.emerg-exit-en-text {
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 12px;
+}
+.exit-sign {
+  top: 28rpx;
+  left: 14rpx;
+  width: 72rpx;
+  height: 72rpx;
+  position: absolute;
+  flex-shrink: 0;
+  transform: rotate(82deg);
 }
 .i-phone1-pro2-rectangle455 {
   top: 294px;
@@ -370,26 +391,20 @@
   height: 39px;
   position: absolute;
 }
-.i-phone1-pro2-ellipse24 {
-  top: 772px;
-  left: 139px;
-  width: 40px;
-  height: 40px;
+.corridor-avatar {
+  top: 96rpx;
+  width: 80rpx;
+  height: 80rpx;
   position: absolute;
 }
-.i-phone1-pro2-ellipse26 {
-  top: 772px;
-  left: 110px;
-  width: 40px;
-  height: 40px;
-  position: absolute;
+.avatar-1 {
+  left: 74rpx;
 }
-.i-phone1-pro2-ellipse25 {
-  top: 772px;
-  left: 78px;
-  width: 40px;
-  height: 40px;
-  position: absolute;
+.avatar-2 {
+  left: 138rpx;
+}
+.avatar-3 {
+  left: 196rpx;
 }
 .i-phone1-pro2-ellipse14 {
   top: 611px;
@@ -494,35 +509,32 @@
   font-stretch: normal;
   text-decoration: none;
 }
-.i-phone1-pro2-text08 {
-  top: 735px;
-  left: 56px;
+.corridor-cn-text {
+  top: 22rpx;
+  left: 30rpx;
   color: rgba(0, 0, 0, 1);
   height: auto;
   position: absolute;
   font-size: 14px;
-  font-style: Regular;
-  text-align: left;
   font-family: Inter;
-  font-weight: 400;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
 }
-.i-phone1-pro2-text10 {
-  top: 752px;
-  left: 56px;
+.corridor {
+  top: 724px;
+  left: 41px;
+  width: 148px;
+  height: 97px;
+  position: absolute;
+  border-radius: 15px;
+  background-color: #D9D9D9;
+}
+.corridor-en-text {
+  top: 56rpx;
+  left: 30rpx;
   color: rgba(0, 0, 0, 1);
   height: auto;
   position: absolute;
   font-size: 12px;
-  font-style: Regular;
-  text-align: left;
   font-family: ABeeZee;
-  font-weight: 400;
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
 }
 .i-phone1-pro2-text12 {
   top: 557px;
@@ -559,17 +571,6 @@
   width: 45px;
   height: 45px;
   position: absolute;
-}
-.i-phone1-pro2-solarexitlineduotone {
-  top: 224.69830322265625px;
-  left: 44px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  overflow: hidden;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 0;
 }
 .i-phone1-pro2-group {
   top: 2.5833799839019775px;
@@ -653,7 +654,6 @@
   width: 281px;
   height: 115px;
   position: absolute;
-  border-radius: 21px;
 }
 .i-phone1-pro2-rectangle473 {
   top: 28px;
@@ -693,52 +693,6 @@
   font-stretch: normal;
   text-decoration: none;
 }
-.i-phone1-pro2-ellipse23 {
-  top: 39px;
-  left: 0px;
-  width: 36px;
-  height: 36px;
-  position: absolute;
-}
-.i-phone1-pro2-ellipse27 {
-  top: 41px;
-  left: 281px;
-  width: 36px;
-  height: 36px;
-  position: absolute;
-}
-.i-phone1-pro2-line2 {
-  top: 0px;
-  left: 121px;
-  height: 115px;
-  width: 1px;
-  position: absolute;
-}
-.i-phone1-pro2-text31 {
-  top: 160px;
-  left: 25px;
-  width: 81.887px;
-  height: 33.533px;
-  transform: rotate(-82deg);
-  flex-shrink: 0;
-  position: absolute;
-}
-.jinji-exit-text {
-  color: #000;
-  font-family: ABeeZee;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-.emerg-exit-text {
-  color: #000;
-  font-family: ABeeZee;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
 .i-phone1-pro2-image2 {
   top: 342px;
   left: 245px;
@@ -763,13 +717,12 @@
   border-radius: 21px;
   background: #D9D9D9;
   padding-top: 15px;
-  padding-bottom: 18px;
 }
 .name-card-row {
   display: flex;
   justify-content:space-evenly;
   width: 100%;
-  margin-bottom: 17px;
+  padding-bottom: 17px;
 }
 .name-card {
   width: 130px;

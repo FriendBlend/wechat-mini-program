@@ -1,6 +1,14 @@
 <!--pages/profile/profile.wxml-->
 <text>Profile 我</text>
-<view class="name-card"></view>
+<view class="top-part">
+  <view class="name-card">
+    <image src="../index/Icons/add.png" class="avatar"/>
+  </view>
+  <button class="profile-edit-button" bindtap="toEdit">
+    编辑资料
+  </button>
+</view>
+
 <view class="swiper-container">
   <swiper class="seat-swiper" indicator-dots="true">
     <swiper-item>

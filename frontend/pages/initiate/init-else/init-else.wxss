@@ -1,1 +1,331 @@
-/* pages/initiate/init-else/init-else.wxss */
+.name-input{
+  top: 352rpx;
+  left: 60rpx;
+  position: absolute;
+  width: 628rpx;
+  height: 260rpx;
+  flex-shrink: 0;
+  border-radius: 21px;
+  background: #D9D9D9;
+}
+.name-input-box{
+  top: 136rpx;
+  left: 75rpx;
+  position: absolute;
+  width: 488rpx;
+  height: 96rpx;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  padding-left: 28rpx;
+}
+.name-txt{
+  top: 34rpx;
+  left: 92rpx;
+  position: absolute;
+  display: flex;
+  width: 121px;
+  height: 33px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 108%; /* 23.76px */
+  letter-spacing: -0.22px;
+}
+.name-card-icon{
+  top: 14rpx;
+  left: 6rpx;
+  position: absolute;
+  width: 90rpx;
+  height: 90rpx;
+  flex-shrink: 0;
+}
+.population{
+  top: 626rpx;
+  left: 60rpx;
+  position: absolute;
+  width: 628rpx;
+  height: 282rpx;
+  flex-shrink: 0;
+  border-radius: 21px;
+  background: #D9D9D9;
+}
+.population-txt{
+  top: 25rpx;
+  left: 92rpx;
+  position: absolute;
+  display: flex;
+  width: 121px;
+  height: 33px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 108%; /* 23.76px */
+  letter-spacing: -0.22px;
+}
+.peoplenum-icon{
+  top: 14rpx;
+  left: 12rpx;
+  position: absolute;
+  width: 74rpx;
+  height: 74rpx;
+}
+
+.less-than-four{
+  top: 112rpx;
+  left: 58rpx;
+  position: absolute;
+  width: 132rpx;
+  height: 124rpx;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.five-to-eight{
+  top: 112rpx;
+  left: 236rpx;
+  position: absolute;
+  width: 132rpx;
+  height: 124rpx;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.more-than-eight{
+  top: 112rpx;
+  left: 418rpx;
+  position: absolute;
+  width: 132rpx;
+  height: 124rpx;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+.less-than-four-txt{
+  top: 45rpx;
+  left: 10%;
+  position: absolute;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 108%; /* 23.76px */
+  letter-spacing: -0.22px;
+}
+.five-to-eight-txt{
+  top: 45rpx;
+  left: 20%;
+  position: absolute;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 108%; /* 23.76px */
+  letter-spacing: -0.22px;
+}
+.more-than-eight-txt{
+  top: 45rpx;
+  left: 10%;
+  position: absolute;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 108%; /* 23.76px */
+  letter-spacing: -0.22px;
+}
+.else{
+  left: 60rpx;
+  top: 924rpx;
+  position: absolute;
+  width: 628rpx;
+  height: 636rpx;
+  flex-shrink: 0;
+  border-radius: 21px;
+  background: #D9D9D9;
+}
+.else-txt{
+  left: 92rpx;
+  top: 25rpx;
+  position: absolute;
+  display: flex;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 108%; /* 23.76px */
+  letter-spacing: -0.22px;
+}
+.else-icon{
+  top: 10rpx;
+  left: 20rpx;
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  flex-shrink: 0;
+}
+
+.expense-section{
+  width: 294px;
+  height: 101px;
+  border-radius: 15px;
+  background: #FFF;
+  top: 96rpx;
+  left: 20rpx;
+  position: absolute; 
+}
+.expense-txt{
+  left: 92rpx;
+  top: 25rpx;
+  position: absolute;
+  display: flex;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 108%; /* 23.76px */
+  letter-spacing: -0.22px;
+}
+.expense-icon{
+  top: 10rpx;
+  left: 20rpx;
+  position: absolute;
+  width: 68rpx;
+  height: 68rpx;
+  flex-shrink: 0;
+}
+.minus-icon{
+  top: 104rpx;
+  left: 110rpx;
+  position:absolute;
+  width: 70rpx;
+  height: 66rpx;
+  flex-shrink: 0;
+}
+.plus-icon{
+  top: 104rpx;
+  left: 388rpx;
+  position:absolute;
+  width: 70rpx;
+  height: 66rpx;
+  flex-shrink: 0;
+}
+.dollar-icon-container{
+  top: 94rpx;
+  left: 180rpx;
+  position:absolute;
+  width: 208rpx;
+  height: 76rpx;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #EBEBEB;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.dollar-icon-1{
+  top: 12rpx;
+  left: 30rpx;
+  position:absolute;
+  width: 48rpx;
+  height: 48rpx;
+  flex-shrink: 0;
+}
+.dollar-icon-2{
+  top: 12rpx;
+  left: 80rpx;
+  position:absolute;
+  width: 48rpx;
+  height: 48rpx;
+  flex-shrink: 0;
+}
+.dollar-icon-3{
+  top: 12rpx;
+  left: 128rpx;
+  position:absolute;
+  width: 48rpx;
+  height: 48rpx;
+  flex-shrink: 0;
+}
+.remarks{
+  top: 334rpx;
+  left: 20rpx;
+  position:absolute;
+  width: 590rpx;
+  height: 262rpx;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #FFF;
+}
+.remarks-txt{
+  left: 36rpx;
+  top: 25rpx;
+  position: absolute;
+  display: flex;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 18px;
+}
+.remarks-input-box{
+  left: 20rpx;
+  top: 82rpx;
+  position: absolute;
+  width: 550rpx;
+  height: 150rpx;
+  border-radius: 10px;
+  background: rgba(237, 237, 237, 0.90);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  padding-left: 24rpx;
+  padding-top: 8rpx;
+  font-size: 18px;
+}
+.remarks-input-placeholder {
+  font-family: ABeeZee;
+  font-size: 36rpx;
+}
+.next-step-button{
+  top: 1572rpx;
+  left: 250rpx;
+  position: absolute;
+  width: 210rpx;
+  height: 74rpx;
+  flex-shrink: 0;
+  border-radius: 20rpx;
+  background: #EBEBEB;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.check-icon{
+  left: 20rpx;
+  top: 6rpx;
+  position: absolute;
+  width: 50rpx;
+  height: 66rpx;
+  flex-shrink: 0;  
+}
+.complete-txt{
+  left: 84rpx;
+  top: 4rpx;
+  position: absolute;
+  width: 148rpx;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 44rpx;
+}

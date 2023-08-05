@@ -1,18 +1,25 @@
-// pages/initiate/init-else/init-else.js
+// frontend/pages/profile-edit/profile-edit.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    properties: [
+      "称呼","性别","MBTI","地区",
+      "大学&毕业时间: eg. HKU 25’", 
+      "身高","星座","职业","爱好",
+      "待过的城市","宠物"
+    ]
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-
+    wx.setNavigationBarTitle({
+      title: '编辑资料',
+    })
   },
 
   /**
@@ -64,35 +71,10 @@ Page({
 
   },
 
-  toRoom:function() {
-    wx.redirectTo({
-      url: '../../room/room',
-    })
-  }, 
-
-  setPopulation(event) {
-    var population = -1;
-    const button_id = event.currentTarget.id;
-    if (button_id == "less-than-4") {
-      population = 4;
-    } else if (button_id == "5-8") {
-      population = 8;
-    } else if (button_id == "more-than-8") {
-      population = 10;
-    }
-    console.log("初始座位数：" + population)
-  },
-
-  minusExpense(event) {
-    console.log("消费降级")
-  },
-
-  plusExpense(event) {
-    console.log("消费升级")
-  },
-
-  complete(event) {
-    // TODO: Store all the above info into database.
-    console.log("完成！")
+  save() {
+    // TODO: save logic
+    wx.navigateBack({
+      url: "../profile/profile"
+    });
   }
 })
