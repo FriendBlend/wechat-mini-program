@@ -1,4 +1,5 @@
-<view>
+<view class="container">
+  <progress-ticket></progress-ticket>
   <view class="main-frame">
     <span class="content-txt">活动内容</span>
     <image class="content-icon" src="icons/content-icon.png"/>

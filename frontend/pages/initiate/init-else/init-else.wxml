@@ -1,4 +1,5 @@
-<view class="page-container">
+<view class="container">
+  <progress-ticket avatar="../initiate/init-content/icons/meeting.png" location="闵行区" time="明天 下午 4点"></progress-ticket>
   <!--name input-->
   <view class="name-input">
     <span class="name-txt">名称</span>
@@ -51,7 +52,7 @@
       <view class="dollar-icon-container">
         <image
           class="dollar-icon-1"
-          src="Icons/dark-dollar-sign.png"
+          src="{{dollarCount >= 1 ? 'Icons/dark-dollar-sign.png' : 'Icons/grey-dollar-sign.png'}}"
         ></image>
         <image
           class="dollar-icon-2"

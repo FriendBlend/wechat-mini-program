@@ -1,0 +1,53 @@
+.container {
+  position: absolute;
+  left: 66rpx;
+  top: 10rpx;
+}
+.ticket-base {
+  height: 268rpx;
+  width: 620rpx;
+}
+.empty {
+  background-color: #fff1c1;
+}
+.avatar {
+  position: absolute;
+  top: 76rpx;
+  left: 69rpx;
+  width: 110rpx;
+  height: 110rpx;
+}
+.avatar-square {
+  position: absolute;
+  top: 68rpx;
+  left: 62rpx;
+  width: 134rpx;
+  height: 134rpx;
+}
+.name {
+  position: absolute;
+  top: 54rpx;
+  left: 276rpx;
+  width: 276rpx;
+  height: 58rpx;
+  color: #fff;
+  font-size: 40rpx;
+}
+.time {
+  position: absolute;
+  top: 190rpx;
+  left: 276rpx;
+  width: 228rpx;
+  height: 40rpx;
+  color: #fff;
+  font-size: 36rpx;
+}
+.location {
+  position: absolute;
+  top: 134rpx;
+  left: 276rpx;
+  width: 146rpx;
+  height: 40rpx;
+  color: #fff;
+  font-size: 36rpx;
+}

@@ -20,7 +20,7 @@ Page({
     const week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
     for (let i = 0; i < 7; i++) {
       const futureDate = new Date(now.getTime() + i * 24 * 60 * 60 * 1000);
-      date.push(`${futureDate.getFullYear()}年${futureDate.getMonth() + 1}月${futureDate.getDate()}日 ${week[futureDate.getDay()]}`);
+      date.push(`${futureDate.getMonth() + 1}月${futureDate.getDate()}日 ${week[futureDate.getDay()]}`);
     }
 
     // Time (Every half hour from 1:00 to 12:30)

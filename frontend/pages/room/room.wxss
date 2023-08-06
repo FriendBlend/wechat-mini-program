@@ -1,23 +1,8 @@
-.i-phone1-pro2-container {
-  margin-top: -100px;
-  width: 100%;
-  display: flex;
-  overflow: auto;
-  min-height: 100vh;
-  align-items: center;
-  flex-direction: column;
-}
-.i-phone1-pro2-i-phone1-pro2 {
-  width: 100%;
+.container {
+  margin-top: -200rpx;
+  margin-left: -18rpx;
   height: 852px;
-  display: flex;
-  overflow: hidden;
   position: relative;
-  align-items: flex-start;
-  flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 1);
-}
-.i-phone1-pro2-rectangle476 {
 }
 .emerg-exit {
   top: 157px;
@@ -28,9 +13,6 @@
   transform: rotate(-82deg);
   border-radius: 21px;
   background: #D9D9D9;
-}
-.emerg-exit:active {
-  background: cornsilk;
 }
 .emerg-exit-text {
   top: 24rpx;
@@ -655,11 +637,11 @@
   height: 115px;
   position: absolute;
 }
-.i-phone1-pro2-rectangle473 {
-  top: 28px;
-  left: 47px;
-  width: 58px;
-  height: 58px;
+.event-avatar {
+  top: 30px;
+  left: 48px;
+  width: 54px;
+  height: 54px;
   position: absolute;
   border-radius: 100px;
 }
@@ -782,10 +764,6 @@
   align-items: center;
   text-align: center;
 }
-.left-half:active,
-.right-half:active {
-  background-color:rgb(231, 230, 225); /* Change the background color when clicked */
-}
 .actions-text {
   height: 34px;
   width: 41px;
@@ -819,7 +797,7 @@
 }
 .large-namecard-content {
   border-radius: 50rpx;
-  height: 1030rpx;
+  height: 1018rpx;
   width: auto;
   position: absolute;
   left: 64rpx;
@@ -830,45 +808,53 @@
   height: 124rpx;
   font-size: 88rpx;
   position: absolute;
-  top: 60rpx;
-  left: 90rpx;
+  top: 58rpx;
+  left: 92rpx;
 }
 .user-info {
   position: relative;
   font-size: 30rpx;
   font-weight: bold;
 }
+.user-photos {
+  position: absolute;
+  top: 210rpx;
+  left: 68rpx;
+}
 .user-image {
   position: absolute;
-  top: 216rpx;
-  left: 60rpx;
   width: 480rpx;
   height: 638rpx;
   border-radius: 30rpx;
+  
 }
 .user-image-2 {
   position: absolute;
-  top: 208rpx;
-  left: 70rpx;
-  width: 480rpx;
+  top: 2rpx;
+  left: 14rpx;
+  width: 478rpx;
   height: 638rpx;
   border-radius: 30rpx;
-  opacity: 0.7;
+  rotate: 2deg;
+  background-color: #D9D9D9;
+  opacity: 0.9;
   z-index: -1;
 }
 .user-image-3 {
   position: absolute;
-  top: 200rpx;
-  left: 80rpx;
-  width: 480rpx;
+  top: -18rpx;
+  left: -10rpx;
+  width: 478rpx;
   height: 638rpx;
   border-radius: 30rpx;
-  opacity: 0.7;
+  rotate: -3deg;
+  background-color: #D9D9D9;
+  opacity: 0.8;
   z-index: -2;
 }
 .user-info-card {
   position: absolute;
-  top: 876rpx;
+  top: 878rpx;
   left: 70rpx;
   width: 482rpx;
   height: 106rpx;
@@ -879,8 +865,8 @@
   left: 74rpx;
   width: 476rpx;
   height: 108rpx;
-  opacity: 0.7;
   rotate: 1deg;
+  opacity: 0.8;
 }
 .close-btn {
   position: absolute;

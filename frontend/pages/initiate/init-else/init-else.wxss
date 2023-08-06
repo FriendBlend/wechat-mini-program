@@ -1,6 +1,8 @@
+.container {
+  height: 1650rpx;
+}
 .name-input{
-  top: 352rpx;
-  left: 60rpx;
+  top: 300rpx;
   position: absolute;
   width: 628rpx;
   height: 260rpx;
@@ -49,8 +51,7 @@
 }
 /* population */
 .population{
-  top: 626rpx;
-  left: 60rpx;
+  top: 570rpx;
   position: absolute;
   width: 628rpx;
   height: 282rpx;
@@ -154,8 +155,7 @@
 }
 /* else */
 .else{
-  left: 60rpx;
-  top: 924rpx;
+  top: 865rpx;
   position: absolute;
   width: 628rpx;
   height: 636rpx;
@@ -306,7 +306,7 @@
 }
 /* next step */
 .next-step-button{
-  top: 1572rpx;
+  top: 1530rpx;
   left: 250rpx;
   position: absolute;
   width: 210rpx;

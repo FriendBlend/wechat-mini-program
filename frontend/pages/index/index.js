@@ -6,9 +6,9 @@ Page({
    */
   data: {
     showNamecard: false,
-    userInfo: {
-      userName: '仁喆',
-      userColor: '#979797',
+    currentUser: {
+      name: '仁喆',
+      skin: '#979797',
       userImage1: '../../images/large-namecard/brady.png',
       userImage2: '../../images/large-namecard/brady.png',
       userImage3: '../../images/large-namecard/brady.png',

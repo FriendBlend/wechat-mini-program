@@ -16,7 +16,7 @@
   </view>
   <!-- Profile and Namecard-->
   <view class="profile-and-namecard">
-    <view class="profile" bindtap="toProfile">
+    <view class="profile grey-button" bindtap="toProfile">
       <span class="wo-txt">我</span>
       <span class="profile-txt">profile</span>
       <image
@@ -39,7 +39,7 @@
   <!-- Initiate and Join -->
   <view class="initiate-and-join">
     <view class="initiate" bindtap="toInitiate">
-      <button class="init-button" style="width: 324rpx;"></button>
+      <button class="init-button grey-button" style="width: 324rpx;"></button>
       <span class="init-cn-txt">发起</span>
       <span class="init-txt">initiate</span>
       <image
@@ -48,7 +48,7 @@
       ></image>
     </view>
     <view class="join" bindtap="toJoin">
-      <button class="join-button" style="width: 260rpx;"></button>
+      <button class="join-button grey-button" style="width: 260rpx;"></button>
       <span class="join-txt">join</span>
       <span class="join-cn-txt">加入</span>
       <image
@@ -59,7 +59,7 @@
   </view>
   <!-- Events -->
   <view class="events">
-    <button class="events-button" bindtap="toEvents" style="width: 506rpx;"></button>
+    <button class="events-button grey-button" bindtap="toEvents" style="width: 506rpx;"></button>
     <view class="i-phone1-pro-default-group5">
       <span class="events-cn-txt">事件</span>
       <span class="events-txt">events</span>
@@ -88,15 +88,19 @@
   <!-- Large namecard -->
   <view wx:if="{{showNamecard}}" class="large-namecard">
     <view class="popup-mask" bindtap="hideNamecard"></view>
-    <view class="large-namecard-content" style="background-color: {{userInfo.userColor}};">
+    <view class="large-namecard-content" style="background-color: {{currentUser.skin}};">
       <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
       <view class="user-info">
-        <text class="large-namecard-name">{{userInfo.userName}}</text>
-        <image src="{{userInfo.userImage1}}" class="user-image"></image>
-        <image src="{{userInfo.userImage2}}" class="user-image-2"></image>
-        <image src="{{userInfo.userImage3}}" class="user-image-3"></image>
-        <image src="{{userInfo.userInfoCard}}" class="user-info-card"></image>
-        <image src="{{userInfo.cardBehind}}" class="card-behind"></image>
+        <text class="large-namecard-name">{{currentUser.name}}</text>
+        <view class="user-photos">
+          <image src="{{currentUser.userImage1}}" class="user-image"></image>
+          <!-- <image src="{{currentUser.userImage2}}" class="user-image-2"></image>
+          <image src="{{currentUser.userImage3}}" class="user-image-3"></image> -->
+          <view class="user-image-2"></view>
+          <view class="user-image-3"></view>
+        </view>
+        <image src="../../images/large-namecard/info-card.png" class="user-info-card"></image>
+        <image src="../../images/large-namecard/info-card-behind.png" class="card-behind"></image>
       </view>
     </view>
   </view>

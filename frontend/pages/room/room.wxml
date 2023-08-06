@@ -1,142 +1,127 @@
-<view class="i-phone1-pro2-container">
-  <view class="i-phone1-pro2-i-phone1-pro2">
-    <view class="emerg-exit" bindtap="toIndex" style="width: 134.31px;">
-      <image
-        class="exit-sign"
-        src="icons/solar_exit-line-duotone.png"
-      ></image>
-      <span class="emerg-exit-text">
-        <text class="emerg-exit-cn-text">紧急出口</text>
-        <br />
-        <text class="emerg-exit-en-text">EMERG EXIT</text>
-        <br />
-      </span>
-    </view>
+<view class="container">
+  <view class="emerg-exit grey-button" bindtap="toIndex" style="width: 134.31px;">
+    <image
+      class="exit-sign"
+      src="icons/solar_exit-line-duotone.png"
+    ></image>
+    <span class="emerg-exit-text">
+      <text class="emerg-exit-cn-text">紧急出口</text>
+      <br />
+      <text class="emerg-exit-en-text">EMERG EXIT</text>
+      <br />
+    </span>
+  </view>
 
-    <scroll-view class="name-card-scroll-view" scroll-y="true">
-      <block wx:for="{{seats}}" wx:key="index" wx:for-item="seat"  wx:for-index="seatIndex">
-        <view class="name-card-row" wx:if="{{seatIndex % 2 === 0}}">
-          <!-- The first name card in the row -->
-          <view class="name-card" wx:if="{{seat.occupied}}" bindtap="onSeatTap" data-seat-index="{{seatIndex}}" data-occupied="{{true}}" data-user="{{users[seat.user_id - 1]}}" style="background-color: {{users[seat.user_id - 1].skin}}">
-            <!-- Display the name card if the seat is occupied -->
+  <scroll-view class="name-card-scroll-view" scroll-y="true">
+    <block wx:for="{{seats}}" wx:key="index" wx:for-item="seat"  wx:for-index="seatIndex">
+      <view class="name-card-row" wx:if="{{seatIndex % 2 === 0}}">
+        <!-- The first name card in the row -->
+        <view class="name-card" wx:if="{{seat.occupied}}" bindtap="onSeatTap" data-seat-index="{{seatIndex}}" data-occupied="{{true}}" data-user="{{users[seat.user_id - 1]}}" style="background-color: {{users[seat.user_id - 1].skin}}">
+          <!-- Display the name card if the seat is occupied -->
+          <view class="left-side">
+            <image class="avatar" src="{{users[seat.user_id - 1].avatar}}" mode="aspectFill"></image>
+            <text class="user-name">{{users[seat.user_id - 1].name}}</text>
+          </view>
+          <view class="right-side">
+            <image class="status-icon" wx:if="{{seat.occupied && users[seat.user_id - 1].status === 'host'}}" src="icons/host.png"></image>
+            <image class="status-icon" wx:if="{{seat.occupied && users[seat.user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
+          </view>
+        </view>
+        <view class="name-card empty-name-card" wx:else bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex}}">
+          <!-- Display the empty seat image if the seat is not occupied -->
+          <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
+        </view>
+        <!-- Check if there's a second seat in this row -->
+        <view wx:if="{{seatIndex + 1 < seats.length}}">
+          <!-- Second seat in the row -->
+          <view wx:if="{{seats[seatIndex + 1].occupied}}" class="name-card" bindtap="onSeatTap" data-seat-index="{{seatIndex + 1}}" data-occupied="{{true}}" data-user="{{users[seats[seatIndex + 1].user_id - 1]}}" style="background-color: {{users[seats[seatIndex + 1].user_id - 1].skin}}">
             <view class="left-side">
-              <image class="avatar" src="{{users[seat.user_id - 1].avatar}}" mode="aspectFill"></image>
-              <text class="user-name">{{users[seat.user_id - 1].name}}</text>
+              <!-- Display the name card if the seat is occupied -->
+              <image class="avatar" src="{{users[seats[seatIndex + 1].user_id - 1].avatar}}" mode="aspectFill"></image>
+              <text class="user-name">{{users[seats[seatIndex + 1].user_id - 1].name}}</text>
             </view>
             <view class="right-side">
-              <image class="status-icon" wx:if="{{seat.occupied && users[seat.user_id - 1].status === 'host'}}" src="icons/host.png"></image>
-              <image class="status-icon" wx:if="{{seat.occupied && users[seat.user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
+              <image class="status-icon" wx:if="{{users[seats[seatIndex + 1].user_id - 1].status === 'host'}}" src="icons/host.png"></image>
+              <image class="status-icon" wx:if="{{users[seats[seatIndex + 1].user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
             </view>
           </view>
-          <view class="name-card empty-name-card" wx:else bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex}}">
+          <view wx:else class="name-card empty-name-card" bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex + 1}}">
             <!-- Display the empty seat image if the seat is not occupied -->
             <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
           </view>
-          <!-- Check if there's a second seat in this row -->
-          <view wx:if="{{seatIndex + 1 < seats.length}}">
-            <!-- Second seat in the row -->
-            <view wx:if="{{seats[seatIndex + 1].occupied}}" class="name-card" bindtap="onSeatTap" data-seat-index="{{seatIndex + 1}}" data-occupied="{{true}}" data-user="{{users[seats[seatIndex + 1].user_id - 1]}}" style="background-color: {{users[seats[seatIndex + 1].user_id - 1].skin}}">
-              <view class="left-side">
-                <!-- Display the name card if the seat is occupied -->
-                <image class="avatar" src="{{users[seats[seatIndex + 1].user_id - 1].avatar}}" mode="aspectFill"></image>
-                <text class="user-name">{{users[seats[seatIndex + 1].user_id - 1].name}}</text>
-              </view>
-              <view class="right-side">
-                <image class="status-icon" wx:if="{{users[seats[seatIndex + 1].user_id - 1].status === 'host'}}" src="icons/host.png"></image>
-                <image class="status-icon" wx:if="{{users[seats[seatIndex + 1].user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
-              </view>
-            </view>
-            <view wx:else class="name-card empty-name-card" bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex + 1}}">
-              <!-- Display the empty seat image if the seat is not occupied -->
-              <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
-            </view>
-          </view>
-        </view>
-      </block>
-    </scroll-view>
-      
-    <view class="corridor" bindtap="joinCorridor">
-      <view class="corridor-cn-text">走廊</view>
-      <view class="corridor-en-text">Corridor</view>
-      <image
-        class="corridor-avatar avatar-3"
-        src="icons/corridor-empty-avatar.png"
-      ></image>
-      <image
-        class="corridor-avatar avatar-2"
-        src="icons/corridor-empty-avatar.png"
-      ></image>
-      <image
-        class="corridor-avatar avatar-1"
-        src="icons/corridor-empty-avatar.png"
-      ></image>
-    </view>
-    <!-- <view class="i-phone1-pro2-solarexitlineduotone">
-      <view class="i-phone1-pro2-group">
-        <image
-          class="i-phone1-pro2-vector"
-          src="icons/solar_exit-line-duotone.png"
-        ></image>
-        <image
-          class="i-phone1-pro2-vector1"
-          src="icons/solar_exit-line-duotone.png"
-        ></image>
-        <image
-          class="i-phone1-pro2-vector2"
-          src="icons/solar_exit-line-duotone.png"
-        ></image>
-      </view>
-    </view> -->
-    <view class="actions">
-      <view class="i-phone1-pro2-rectangle4553">
-        <view class="left-half" bindtap="getReady">
-          <view class="actions-text">
-            <view>准备</view>
-            <view>Ready</view>
-          </view>
-        </view>
-        <view class="right-half" bindtap="getCancel">
-          <view class="actions-text">
-            <view>取消</view>
-            <view>Cancel</view>
-          </view>
         </view>
       </view>
-      <!-- <text class="i-phone1-pro2-text14">准备<br />Ready</text>
-      <span class="i-phone1-pro2-text19">取消<br />Cancel</span> -->
-      <image
-        class="i-phone1-pro2-line1"
-        src="icons/Line 1.png"
-      ></image>
-    </view>
-    <view class="i-phone1-pro2-group9">
-      <image
-        class="i-phone1-pro2-rectangle49"
-        src="icons/tickets/blue-ticket.png"
-      ></image>
-      <image
-        class="i-phone1-pro2-rectangle473"
-        src="icons/Rectangle 473.png"
-      ></image>
-      <view class="i-phone1-pro2-text24">
-        <view>明天</view>
-        <view>下午 3点</view>
+    </block>
+  </scroll-view>
+    
+  <view class="corridor grey-button" bindtap="joinCorridor">
+    <view class="corridor-cn-text">走廊</view>
+    <view class="corridor-en-text">Corridor</view>
+    <image
+      class="corridor-avatar avatar-3"
+      src="icons/corridor-empty-avatar.png"
+    ></image>
+    <image
+      class="corridor-avatar avatar-2"
+      src="icons/corridor-empty-avatar.png"
+    ></image>
+    <image
+      class="corridor-avatar avatar-1"
+      src="icons/corridor-empty-avatar.png"
+    ></image>
+  </view>
+
+  <view class="actions">
+    <view class="i-phone1-pro2-rectangle4553">
+      <view class="left-half grey-button" bindtap="getReady">
+        <view class="actions-text">
+          <view>准备</view>
+          <view>Ready</view>
+        </view>
       </view>
-      <span class="i-phone1-pro2-text29">仁喆的生日派对</span>
+      <view class="right-half grey-button" bindtap="getCancel">
+        <view class="actions-text">
+          <view>取消</view>
+          <view>Cancel</view>
+        </view>
+      </view>
     </view>
-    <!-- Large namecard -->
-    <view wx:if="{{showNamecard}}" class="large-namecard">
-      <view class="popup-mask" bindtap="hideNamecard"></view>
-      <view class="large-namecard-content" style="background-color: {{currentUser.skin}};">
-        <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
-        <view class="user-info">
-          <text class="large-namecard-name">{{currentUser.name}}</text>
+    <image
+      class="i-phone1-pro2-line1"
+      src="icons/Line 1.png"
+    ></image>
+  </view>
+  <view class="i-phone1-pro2-group9">
+    <image
+      class="i-phone1-pro2-rectangle49"
+      src="icons/tickets/blue-ticket.png"
+    ></image>
+    <image
+      class="event-avatar"
+      src="../initiate/init-content/icons/meeting.png"
+    ></image>
+    <view class="i-phone1-pro2-text24">
+      <view>闵行区</view>
+      <view>明天 下午 4点</view>
+    </view>
+    <span class="i-phone1-pro2-text29">紧急派对会议</span>
+  </view>
+  <!-- Large namecard -->
+  <view wx:if="{{showNamecard}}" class="large-namecard">
+    <view class="popup-mask" bindtap="hideNamecard"></view>
+    <view class="large-namecard-content" style="background-color: {{currentUser.skin}};">
+      <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
+      <view class="user-info">
+        <text class="large-namecard-name">{{currentUser.name}}</text>
+        <view class="user-photos">
           <image src="{{currentUser.userImage1}}" class="user-image"></image>
-          <image src="{{currentUser.userImage2}}" class="user-image-2"></image>
-          <image src="{{currentUser.userImage3}}" class="user-image-3"></image>
-          <image src="../../images/large-namecard/info-card.png" class="user-info-card"></image>
-          <image src="../../images/large-namecard/info-card-behind.png" class="card-behind"></image>
+          <!-- <image src="{{currentUser.userImage2}}" class="user-image-2"></image>
+          <image src="{{currentUser.userImage3}}" class="user-image-3"></image> -->
+          <view class="user-image-2"></view>
+          <view class="user-image-3"></view>
         </view>
+        <image src="../../images/large-namecard/info-card.png" class="user-info-card"></image>
+        <image src="../../images/large-namecard/info-card-behind.png" class="card-behind"></image>
       </view>
     </view>
   </view>

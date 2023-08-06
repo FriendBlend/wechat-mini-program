@@ -2,8 +2,7 @@
   width: 620rpx;
   height: 916rpx;
   position: absolute;
-  left: 66rpx;
-  top: 270rpx;
+  top: 300rpx;
   background: #d9d9d9;
   border-radius: 42rpx;
 }

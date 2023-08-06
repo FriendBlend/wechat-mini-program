@@ -5,7 +5,7 @@ Page({
    * Page initial data
    */
   data: {
-    dollarCount: 1
+    dollarCount: 0
   },
 
   /**
@@ -84,7 +84,7 @@ Page({
   },
 
   minusExpense(event) {
-    if (this.data.dollarCount > 1) {
+    if (this.data.dollarCount > 0) {
       this.setData({
         dollarCount: this.data.dollarCount - 1,
       });

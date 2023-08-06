@@ -1,0 +1,11 @@
+<view class="container">
+  <image class="ticket-base" src="../../images/tickets/blue-ticket.png"/>
+  <image wx:if="{{avatar != null}}" class="avatar" src="{{avatar}}" alt="头像" />
+  <view wx:else class="avatar-square empty"></view>
+  <view wx:if="{{location != null}}" class="location">{{location}}</view>
+  <view wx:else class="location empty"></view>
+  <view wx:if="{{time != null}}" class="time">{{time}}</view>
+  <view wx:else class="time empty"></view>
+  <view wx:if="{{name != null}}" class="name">{{name}}</view>
+  <view wx:else class="name empty"></view>
+</view>
