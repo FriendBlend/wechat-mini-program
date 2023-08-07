@@ -7,20 +7,23 @@ Page({
   data: {
     showNamecard: false,
     currentUser: null,
+    currentSeatIndex: -1,
+    showDropdown: false,
+    selfStatus: 'owner',
     seats: [
-      { occupied: true, user_id: 1 },
+      { occupied: true, user_id: 1, dropdown: false },
       { occupied: false },
-      { occupied: true, user_id: 2 },
-      { occupied: true, user_id: 3 },
-      { occupied: true, user_id: 4 },
-      { occupied: true, user_id: 5 },
-      { occupied: true, user_id: 6 },
+      { occupied: true, user_id: 2, dropdown: false },
+      { occupied: true, user_id: 3, dropdown: false },
+      { occupied: true, user_id: 4, dropdown: false },
+      { occupied: true, user_id: 5, dropdown: false },
+      { occupied: true, user_id: 6, dropdown: false },
       { occupied: false },
-      { occupied: true, user_id: 7 },
-      { occupied: true, user_id: 8 },
-      { occupied: true, user_id: 9 },
-      { occupied: true, user_id: 10 },
-      { occupied: true, user_id: 11 }
+      { occupied: true, user_id: 7, dropdown: false },
+      { occupied: true, user_id: 8, dropdown: false },
+      { occupied: true, user_id: 9, dropdown: false },
+      { occupied: true, user_id: 10, dropdown: false },
+      { occupied: true, user_id: 11, dropdown: false }
     ],
     users: [
       {
@@ -281,7 +284,7 @@ Page({
     console.log("Single click detected!");
     console.log(event.currentTarget.dataset)
     if (event.currentTarget.dataset.occupied) {
-      this.showNamecard(event);
+      this.showDropdown(event);
     }
   },
 
@@ -290,9 +293,9 @@ Page({
   },
 
   showNamecard(event) {
+    this.hideDropdown();
     this.setData({
-      showNamecard: true,
-      currentUser: event.currentTarget.dataset.user
+      showNamecard: true
     });
   },
 
@@ -300,5 +303,39 @@ Page({
     this.setData({
       showNamecard: false
     });
+  },
+
+  showDropdown(event) {
+    var index = event.currentTarget.dataset.seatIndex;
+    let newSeats = this.data.seats;
+    newSeats[index].dropdown = true;
+    this.setData({
+      currentUser: event.currentTarget.dataset.user,
+      currentSeatIndex: event.currentTarget.dataset.seatIndex,
+      seats: newSeats,
+      showDropdown: true
+    });
+  },
+  hideDropdown() {
+    let newSeats = this.data.seats;
+    for (let i = 0; i < newSeats.length; i++) {
+      newSeats[i].dropdown = false;
+    }
+    this.setData({
+      seats: newSeats,
+      showDropdown: false
+    });
+  },
+
+  deleteUser() {
+    this.hideDropdown();
+    let newSeats = this.data.seats;
+    newSeats[this.data.currentSeatIndex].occupied = false;
+    this.setData({
+      seats: newSeats,
+    });
+    wx.showToast({
+      title: '你做得对',
+    })
   }
 })
