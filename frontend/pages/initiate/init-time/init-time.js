@@ -2,7 +2,7 @@
 Page({
   data: {
     date: [],
-    ampm: ['上午', '下午'],
+    ampm: [],
     time: [],
     value: [0, 0, 0],
   },
@@ -13,32 +13,92 @@ Page({
   onLoad(options) {
     // Initialize date and time
     const date = [];
+    const ampm = [];
     const time = [];
 
     // Date (Next 7 days)
     const now = new Date();
-    const week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-    for (let i = 0; i < 7; i++) {
+    const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+    date.push(`今天 ${week[now.getDay()]}`);
+    date.push(`明天 ${week[now.getDay()+1]}`);
+    for (let i = 2; i < 7; i++) {
       const futureDate = new Date(now.getTime() + i * 24 * 60 * 60 * 1000);
       date.push(`${futureDate.getMonth() + 1}月${futureDate.getDate()}日 ${week[futureDate.getDay()]}`);
     }
+    
+    // AM/PM
+    const hour = now.getHours();
+    if (hour <= 12) {
+      ampm.push('上午');
+    }
+    ampm.push('下午');
 
-    // Time (Every half hour from 1:00 to 12:30)
-    for (let i = 1; i < 13; i++) {
-      for (let j = 0; j < 2; j++) {
-        time.push(`${i}:${j === 0 ? '00' : '30'}`);
+    // Time (Every half hour from now to 12:00pm)
+    if (hour > 12) {
+      for (let i = hour - 12; i < 12; i++) {
+        time.push(`${i}:00`);
+        time.push(`${i}:30`);
+      }
+    } else {
+      for (let i = hour; i < 13; i++) {
+        time.push(`${i}:00`);
+        time.push(`${i}:30`);
       }
     }
-
+    
     this.setData({
       date,
+      ampm,
       time,
     });
   },
 
   bindChange(e) {
+    let date_i = e.detail.value[0];
+    let ampm_i = e.detail.value[1];
+    let now = new Date();
+    let newAmpm = [];
+    let newTime = [];
+    // ampm
+    if (date_i != 0 || now.getHours() <= 12) {
+      newAmpm.push('上午');
+    }
+    newAmpm.push('下午');
+    // time
+    if (date_i != 0) {        // Other days
+      if (ampm_i == 0) {      // AM
+        for (let i = 0; i < 13; i++) {
+          newTime.push(`${i}:00`);
+          newTime.push(`${i}:30`);
+        }
+      } else {                // PM
+        for (let i = 1; i < 12; i++) {
+          newTime.push(`${i}:00`);
+          newTime.push(`${i}:30`);
+        }
+      }
+    } else {                  // Today
+      if (this.data.ampm.size > 1 && ampm_i == 0) {      // AM
+        for (let i = now.getHours(); i < 13; i++) {
+          newTime.push(`${i}:00`);
+          newTime.push(`${i}:30`);
+        }
+      } else {                // PM
+        let j = 1;
+        if (now.getHours() > 12) {
+          j = now.getHours() - 12;
+        }
+        for (let i = j; i < 12; i++) {
+          newTime.push(`${i}:00`);
+          newTime.push(`${i}:30`);
+        }
+      }
+    }
+    
     this.setData({
       value: e.detail.value,
+      ampm: newAmpm,
+      time: newTime
     });
   },
 
@@ -89,42 +149,6 @@ Page({
    */
   onShareAppMessage() {
 
-  },
-
-  // Event handler for date picker change event
-  onDateChange: function (event) {
-    const selectedDate = event.detail.value;
-    this.setData({
-      selectedDate: selectedDate,
-    });
-  },
-
-  // Event handler for time picker change event
-  onTimeChange: function (event) {
-    const selectedTime = event.detail.value;
-    this.setData({
-      selectedTime: selectedTime,
-    });
-  },
-
-  // Event handler for Submit button click event
-  onSubmit: function () {
-    const { selectedDate, selectedTime } = this.data;
-
-    if (!selectedDate || !selectedTime) {
-      wx.showToast({
-        title: "Please select both date and time.",
-        icon: "none",
-      });
-      return;
-    }
-
-    // Combine the selected date and time into a single DateTime string
-    const selectedDateTime = `${selectedDate} ${selectedTime}`;
-    
-    // Use the selectedDateTime as needed (e.g., make an API call, perform further processing, etc.)
-    // ...
-    this.toLocation();
   },
 
   toElse:function() {

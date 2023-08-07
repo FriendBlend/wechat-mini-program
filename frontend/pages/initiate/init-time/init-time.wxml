@@ -2,16 +2,16 @@
   <progress-ticket avatar="../initiate/init-content/icons/meeting.png" location="闵行区"></progress-ticket>
   <view class="main-content">
     <image src="icons/time-icon.png" class="time-icon"/>
-    <text class="time-text">时间</text>
+    <text class="time-text">开始时间</text>
     <!-- time picker -->
     <picker-view class="picker" value="{{value}}" bindchange="bindChange">
-      <picker-view-column>
+      <picker-view-column class="date-column">
         <view wx:for="{{date}}" wx:key="*this" class="picker-item">{{item}}</view>
       </picker-view-column>
-      <picker-view-column>
+      <picker-view-column class="ampm-column">
         <view wx:for="{{ampm}}" wx:key="*this" class="picker-item">{{item}}</view>
       </picker-view-column>
-      <picker-view-column>
+      <picker-view-column class="time-column">
         <view wx:for="{{time}}" wx:key="*this" class="picker-item">{{item}}</view>
       </picker-view-column>
     </picker-view>

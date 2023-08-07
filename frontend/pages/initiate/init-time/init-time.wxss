@@ -1,6 +1,6 @@
 .main-content {
   width: 620rpx;
-  height: 916rpx;
+  height: 816rpx;
   position: absolute;
   top: 300rpx;
   background: #d9d9d9;
@@ -26,19 +26,32 @@
   width: 90%;
   height: 300rpx;
   position: absolute;
-  top: 250rpx;
+  top: 230rpx;
   left: 5%;
+  background-color: #eeeeee;
+  border-radius: 42rpx;
+  overflow: hidden;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .picker-item {
   text-align: center;
+  font-size: large;
   line-height: 100rpx;
+}
+.date-column {
+  flex: 0 0 50%;
+}
+.ampm-column {
+  flex: 0 0 20%;
+}
+.time-column {
 }
 /* next step */
 .next-step{
   width:170rpx;
   height:170rpx;
   position:absolute;
-  top: 700rpx;
+  top: 600rpx;
   left: 180rpx;
 }
 .next-step-txt{
