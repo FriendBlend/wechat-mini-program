@@ -95,6 +95,9 @@
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+.less-than-four:active {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
 .five-to-eight{
   top: 112rpx;
   left: 236rpx;
@@ -106,6 +109,9 @@
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+.five-to-eight:active {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
 .more-than-eight{
   top: 112rpx;
   left: 418rpx;
@@ -116,6 +122,9 @@
   border-radius: 10px;
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.more-than-eight:active {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 .less-than-four-txt{
   top: 45rpx;

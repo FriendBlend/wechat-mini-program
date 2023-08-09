@@ -3,22 +3,22 @@
   <view class="main-frame">
     <span class="content-txt">活动内容</span>
     <image class="content-icon" src="icons/content-icon.png"/>
-    <view class="table-game-view">
+    <view class="table-game-view" bindtap="onSelection" id="table-game">
       <image class="icon" src="icons/table-game.png"/>
     </view>
-    <view class="alcohol-view">
+    <view class="alcohol-view" bindtap="onSelection" id="alcohol">
       <image class="icon" src="icons/alcohol.png"/>
     </view>
-    <view class="cuisine-view">
+    <view class="cuisine-view"  bindtap="onSelection" id="cuisine">
       <image class="icon" src="icons/cuisine.png"/>
     </view>
-    <view class="balloon-view">
+    <view class="balloon-view" bindtap="onSelection" id="balloon">
       <image class="icon" src="icons/balloon.png"/>
     </view>
-    <view class="sports-view">
+    <view class="sports-view" bindtap="onSelection" id="sports">
       <image class="icon" src="icons/sports.png"/>
     </view>
-    <view class="opera-view">
+    <view class="opera-view" bindtap="onSelection" id="opera">
       <image class="icon" src="icons/opera.png"/>
     </view>
     <view class="next-step" bindtap="toLocation">
