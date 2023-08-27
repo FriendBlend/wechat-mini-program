@@ -1,24 +1,64 @@
 <!--pages/profile/profile.wxml-->
-<text>Profile 我</text>
-<view class="top-part">
-  <view class="name-card">
-    <image src="../index/Icons/add.png" class="avatar"/>
-  </view>
-  <button class="profile-edit-button" bindtap="toEdit">
-    编辑资料
-  </button>
+
+
+<span class="profile-eng-txt">Profile</span>
+<span class="profile-chi-txt">我</span>
+<image
+  class="profile-icon"
+  src="../profile/profile-icon/profile.png"
+></image>
+
+
+<view class="name-card">
+  <image 
+    class="avatar"
+    src="../profile/profile-icon/Ellipse.png"
+    ></image>
+  <span class="name">忍者</span>
 </view>
 
-<view class="swiper-container">
-  <swiper class="seat-swiper" indicator-dots="true">
-    <swiper-item>
-      hi
-    </swiper-item>
-    <swiper-item>
-      hello
-    </swiper-item>
-    <swiper-item>
-      how are you
-    </swiper-item>
-  </swiper>
+<view 
+  class="profile-edit-button"
+  bindtap="toEdit">
+  <span class="edit-namecard-txt">编辑 名片</span>
+  <image 
+  class="edit-icon"
+  src="../profile/profile-icon/pencil.png"></image>
 </view>
+
+<view class="privacy-edit-button">
+  <span class="edit-privacy-txt">设置 隐私</span>
+  <image 
+  class="edit-privacy-icon"
+  src="../profile/profile-icon/edit.png"></image>
+</view>
+
+<view class="social-network-button">
+  <span class="social-network-txt">社交网络</span>
+  <image 
+  class="social-network-icon"
+  src="../profile/profile-icon/social-network.png"></image>
+</view>
+
+<view 
+  class="manage-photo-button"
+  bindtap="toPhoto">
+  <span class="manage-photo-txt">管理 相册</span>
+  <image 
+  class="manage-photo-icon"
+  src="../profile/profile-icon/photo.png"></image>
+</view>
+
+<view class="manage-label-button">
+  <span class="manage-label-txt">管理 标签</span>
+  <image 
+  class="manage-label-icon"
+  src="../profile/profile-icon/label.png"></image>
+</view>
+
+<view class="photo1"></view>
+<view class="photo2"></view>
+<image
+  class="photo3"
+  src="../profile/profile-icon/selfie.png">
+  </image>
