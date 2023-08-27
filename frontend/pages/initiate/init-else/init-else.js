@@ -5,7 +5,8 @@ Page({
    * Page initial data
    */
   data: {
-    dollarCount: 0
+    dollarCount: 0,
+    population: 0
   },
 
   /**
@@ -71,16 +72,19 @@ Page({
   }, 
 
   setPopulation(event) {
-    var population = -1;
+    var newPopulation = 0;
     const button_id = event.currentTarget.id;
     if (button_id == "less-than-4") {
-      population = 4;
+      newPopulation = 4;
     } else if (button_id == "5-8") {
-      population = 8;
+      newPopulation = 8;
     } else if (button_id == "more-than-8") {
-      population = 10;
+      newPopulation = 10;
     }
-    console.log("初始座位数：" + population)
+    this.setData({
+      population: newPopulation
+    });
+    console.log("初始座位数：" + this.data.population);
   },
 
   minusExpense(event) {

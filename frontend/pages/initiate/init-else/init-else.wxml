@@ -16,13 +16,13 @@
         class="peoplenum-icon"
         src="Icons/peoplenum-icon.png"
     ></image>
-    <view id="less-than-4" class="less-than-four" bindtap="setPopulation">
+    <view id="less-than-4" class="less-than-four {{population==4 ? 'selected' : ''}}" bindtap="setPopulation">
       <span class="less-than-four-txt">小于4人</span>
     </view>
-    <view id="5-8" class="five-to-eight" bindtap="setPopulation">
+    <view id="5-8" class="five-to-eight {{population==8 ? 'selected' : ''}}" bindtap="setPopulation">
       <span class="five-to-eight-txt">5-8人</span>
     </view>
-    <view id="more-than-8" class="more-than-eight" bindtap="setPopulation">
+    <view id="more-than-8" class="more-than-eight {{population==10 ? 'selected' : ''}}" bindtap="setPopulation">
       <span class="more-than-eight-txt">大于8人</span>
     </view>
   </view>

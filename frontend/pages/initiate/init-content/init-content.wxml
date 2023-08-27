@@ -3,22 +3,22 @@
   <view class="main-frame">
     <span class="content-txt">活动内容</span>
     <image class="content-icon" src="icons/content-icon.png"/>
-    <view class="table-game-view" bindtap="onSelection" id="table-game">
+    <view class="table-game-view white-button {{selectedEvent=='table-game' ? 'selected' : ''}}" bindtap="onSelection" id="table-game">
       <image class="icon" src="icons/table-game.png"/>
     </view>
-    <view class="alcohol-view" bindtap="onSelection" id="alcohol">
+    <view class="alcohol-view white-button {{selectedEvent=='alcohol' ? 'selected' : ''}}" bindtap="onSelection" id="alcohol">
       <image class="icon" src="icons/alcohol.png"/>
     </view>
-    <view class="cuisine-view"  bindtap="onSelection" id="cuisine">
+    <view class="cuisine-view white-button {{selectedEvent=='cuisine' ? 'selected' : ''}}"  bindtap="onSelection" id="cuisine">
       <image class="icon" src="icons/cuisine.png"/>
     </view>
-    <view class="balloon-view" bindtap="onSelection" id="balloon">
+    <view class="balloon-view white-button {{selectedEvent=='balloon' ? 'selected' : ''}}" bindtap="onSelection" id="balloon">
       <image class="icon" src="icons/balloon.png"/>
     </view>
-    <view class="sports-view" bindtap="onSelection" id="sports">
+    <view class="sports-view white-button {{selectedEvent=='sports' ? 'selected' : ''}}" bindtap="onSelection" id="sports">
       <image class="icon" src="icons/sports.png"/>
     </view>
-    <view class="opera-view" bindtap="onSelection" id="opera">
+    <view class="opera-view white-button {{selectedEvent=='opera' ? 'selected' : ''}}" bindtap="onSelection" id="opera">
       <image class="icon" src="icons/opera.png"/>
     </view>
     <view class="next-step" bindtap="toLocation">
