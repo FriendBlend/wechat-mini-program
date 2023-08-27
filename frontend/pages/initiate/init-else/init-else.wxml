@@ -1,5 +1,5 @@
 <view class="container">
-  <progress-ticket avatar="../initiate/init-content/icons/meeting.png" location="闵行区" time="明天 下午 4点"></progress-ticket>
+  <progress-ticket avatar="../../images/event-avatars/meeting.png" location="闵行区" time="明天 下午 4点"></progress-ticket>
   <!--name input-->
   <view class="name-input">
     <span class="name-txt">名称</span>

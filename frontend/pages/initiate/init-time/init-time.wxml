@@ -1,5 +1,5 @@
 <view class="container">
-  <progress-ticket avatar="../initiate/init-content/icons/meeting.png" location="闵行区"></progress-ticket>
+  <progress-ticket avatar="../../images/event-avatars/meeting.png" location="闵行区"></progress-ticket>
   <view class="main-content">
     <image src="icons/time-icon.png" class="time-icon"/>
     <text class="time-text">开始时间</text>
