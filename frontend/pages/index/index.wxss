@@ -38,25 +38,25 @@
   position: absolute;
 }
 .title-en-txt {
-  top: 348rpx;
+  top: 368rpx;
   left: 228rpx;
-  color: rgba(0, 0, 0, 1);
-  height: auto;
   position: absolute;
   font-family: ABeeZee;
-  font-size: 72rpx;
+  font-size: 29px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.29px;
 }
 .jinji-txt {
   top: 280rpx;
   left: 226rpx;
-  color: #000000;
   width: 184rpx;
   height: auto;
   position: absolute;
   font-size: 80rpx;
   font-style: Regular;
   text-align: left;
-  font-family: ABeeZee;
+  font-family: "ABeeZee";
   font-weight: 400;
   line-height: 108.00000429153442%;
   font-stretch: normal;
@@ -65,14 +65,12 @@
 .paidui-txt {
   top: 280rpx;
   left: 394rpx;
-  color: rgba(0, 0, 0, 1);
   height: auto;
   position: absolute;
   font-size: 80rpx;
   font-style: Regular;
   text-align: left;
-  font-family: ABeeZee;
-  font-weight: 400;
+  font-family: "ABeeZee";
   line-height: 108.00000429153442%;
   font-stretch: normal;
   text-decoration: none;

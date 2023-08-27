@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import "./frontend/fonts/abeezee/abeezee.wxss";
+
 .container {
   height: 100%;
   display: flex;
