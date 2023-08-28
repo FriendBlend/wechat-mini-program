@@ -5,15 +5,12 @@ Page({
    * Page initial data
    */
   data: {
+    party_id: '',
     showNamecard: false,
     currentUser: null,
     currentSeatIndex: -1,
     showDropdown: false,
     selfStatus: 'owner',
-    roomName: null,
-    roomLocation: null,
-    roomTime: null,
-    roomAvatar: null,
     seats: [
       { occupied: true, user_id: 1, dropdown: false },
       { occupied: false },
@@ -157,14 +154,128 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad(options) {
-    this.setData({
-      roomName: options.dataName,
-      roomLocation: options.dataLocation,
-      roomTime: options.dataTime,
-      roomAvatar: options.dataEvent
-    });
+  onLoad: function (options) {
+    // 检查是否从URL获取了partyId
+    if (options.partyId) {
+      wx.showToast({
+        title: '已根据ID打开派对！',
+        icon: 'none',
+        duration: 2000
+      });
+      this.setData({
+        party_id: options.partyId
+      });
+      
+      // 根据partyId从数据库获取相关的party信息
+      // this.getPartyInfo(options.partyId);
+    } else {
+        // 如果没有提供partyId，则为创建party
+
+        // 从存储中获取之前页面保存的数据
+      const partyDetails = wx.getStorageSync('partyDetails');
+      
+      // 若数据不存在，则提前退出
+      if (!partyDetails) {
+          console.error('未找到派对详情！');
+          return;
+      }
+
+      // 解构数据
+      const {
+          partyName,
+          population,
+          dollarCount,
+          remarks,
+          partyLocation,
+          partyTime
+      } = partyDetails;
+
+      // 调用云函数
+      wx.cloud.callFunction({
+          name: 'add_party',
+          data: {
+              party_name: partyName,
+              member_num: population,
+              seat_list: Array(population).fill("no"),  // 暂时使用"no"填充座位列表
+              time: partyTime,
+              location: partyLocation,
+              cost: dollarCount,
+              description: remarks,
+              type: "no"  // 暂时使用"no"作为类型
+          },
+          success: res => {
+              if (res.result.success) {
+                  console.log('成功录入组局信息');
+                  
+                  // 更新room.wxml中对应的位置显示party_id
+                  this.setData({
+                      party_id: res.result.party_id
+                  });
+      
+                  // 删除本地存储的派对详情
+                  wx.removeStorageSync('partyDetails');
+              } else {
+                  console.error(res.result.message);
+      
+                  // 显示错误提示
+                  wx.showToast({
+                      title: res.result.message,
+                      icon: 'none',
+                      duration: 2000,
+                      complete: () => {
+                          // 跳转至"time"页
+                          wx.navigateTo({
+                              url: '../initiate/init-content/init-content'  // 替换为您的"time"页的路径
+                          });
+                      }
+                  });
+              }
+          },
+          fail: err => {
+              console.error('调用云函数失败', err);
+      
+              // 显示错误提示
+              wx.showToast({
+                  title: '调用云函数失败，请重试',
+                  icon: 'none',
+                  duration: 2000,
+                  complete: () => {
+                      // 跳转至"time"页
+                      wx.navigateTo({
+                          url: '../initiate/init-content/init-content'  // 替换为您的"time"页的路径
+                      });
+                  }
+              });
+          }
+      });
+    }
   },
+
+  getPartyInfo(partyId) {
+    wx.cloud.callFunction({
+        name: 'id_get_party',
+        data: {
+            party_id: Number(partyId)
+        },
+        success: res => {
+            if (res.result.success) {
+            } else {
+                wx.showToast({
+                    title: res.result.message,
+                    icon: 'none',
+                    duration: 2000
+                });
+            }
+        },
+        fail: err => {
+            wx.showToast({
+                title: '获取房间信息失败，请重试',
+                icon: 'none',
+                duration: 2000
+            });
+        }
+    });
+},
 
   /**
    * Lifecycle function--Called when page is initially rendered
@@ -346,5 +457,19 @@ Page({
     wx.showToast({
       title: '你做得对',
     })
-  }
+  },
+
+  copyPartyId() {
+    const { party_id } = this.data;
+    wx.setClipboardData({
+        data: String(party_id),
+        success() {
+            wx.showToast({
+                title: 'ID已复制',
+                icon: 'success',
+                duration: 2000
+            });
+        }
+    });
+}
 })

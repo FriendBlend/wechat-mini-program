@@ -18,7 +18,7 @@ function hashString(str) {
 exports.main = async (event, context) => {
   // 解构从客户端传来的参数
   const {
-    room_id,
+    party_name,
     member_num,
     seat_list,
     time,
@@ -29,10 +29,10 @@ exports.main = async (event, context) => {
   } = event
 
   // 使用派对信息和当前时间戳生成字符串
-  const partyInfoString = room_id + member_num + seat_list.join('') + time + location + cost + description + type + Date.now()
+  const partyInfoString =  member_num + seat_list.join('') + time + location + cost + description + type + Date.now()
 
   // 使用哈希函数生成10位数字
-  let party_id = hashString(partyInfoString) % 10000000000;
+  let party_id = hashString(partyInfoString) % 100000000000;
 
   // 连接到数据库
   const db = cloud.database()
@@ -52,7 +52,7 @@ exports.main = async (event, context) => {
     const res = await db.collection('party').add({
       data: {
         party_id: party_id, // 唯一的10位数字ID
-        room_id: room_id,
+        party_name: party_name,
         member_num: member_num,
         seat_list: seat_list,
         time: time,
@@ -65,10 +65,12 @@ exports.main = async (event, context) => {
 
     // 返回成功信息
     return {
-      success: true,
-      message: '成功录入组局信息',
-      data: res
+        success: true,
+        message: '成功录入组局信息',
+        data: res,
+        party_id: party_id  // 返回party_id
     }
+    
   } catch (err) {
     // 发生错误时返回失败信息
     console.error(err)

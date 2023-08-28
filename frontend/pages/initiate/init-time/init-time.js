@@ -4,21 +4,13 @@ Page({
     date: [],
     ampm: [],
     time: [],
-    value: [0, 0, 0],
-    selectedEvent: null,
-    selectedLocation: null
+    value: [0, 0, 0]
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    // receive event data from last page
-    this.setData({
-      selectedEvent: options.dataEvent,
-      selectedLocation: options.dataLocation
-    });
-
     // Initialize date and time
     const date = [];
     const ampm = [];
@@ -159,16 +151,25 @@ Page({
 
   },
 
-  toElse:function() {
-    let value = this.data.value;
-    let date = this.data.date[value[0]].split(" ")[0];
-    let ampm = this.data.ampm[value[1]];
-    let time = this.data.time[value[2]];
-    let output = date + " " + ampm + " " + time;
+  // 当用户点击“下一步”时触发的事件
+  toElse: function() {
+    // 保存用户选择的时间到本地存储
+    const selectedDate = this.data.date[this.data.value[0]].split(" ")[0];
+    const selectedAmpm = this.data.ampm[this.data.value[1]];
+    const selectedTime = this.data.time[this.data.value[2]];
+    const output = date + " " + ampm + " " + time;
     console.log(output);
+
+    wx.setStorageSync('partyTime', {
+      date: selectedDate,
+      ampm: selectedAmpm,
+      time: selectedTime
+    });
     
-    wx.redirectTo({
-      url: '../init-else/init-else?dataEvent=' + this.data.selectedEvent + '&dataLocation=' + this.data.selectedLocation + '&dataTime=' + output
-    })
-  }, 
+    // 跳转到下一个页面
+    wx.navigateTo({
+      url: '../init-else/init-else'
+    });
+  }
+
 });

@@ -3,9 +3,7 @@ Page({
     longitude: 113.324520,
     latitude: 23.099994,
     markers: [],
-    searchInput: "",
-    selectedEvent: null,
-    selectedLocation: "老地方"
+    searchInput: ""
   },
 
   onMapTap: function (event) {
@@ -60,6 +58,7 @@ Page({
     });
   },
 
+<<<<<<< HEAD
   onLoad(options) {
     this.setData({
       selectedEvent: options.dataEvent
@@ -72,4 +71,21 @@ Page({
       url: '../init-time/init-time?dataEvent=' + this.data.selectedEvent + '&dataLocation=' + this.data.selectedLocation
     })
   }, 
+=======
+  // 当用户点击“下一步”时触发的事件
+  toTime: function() {
+    // 保存用户选择的地址和坐标到本地存储
+    wx.setStorageSync('partyLocation', {
+      searchInput: this.data.searchInput,
+      latitude: this.data.latitude,
+      longitude: this.data.longitude,
+      markers: this.data.markers
+    });
+    
+    // 跳转到下一个页面
+    wx.navigateTo({
+      url: '../init-time/init-time'
+    });
+  }
+>>>>>>> 661dd820c45dd32691faaefefaabc0f1a76c9792
 })

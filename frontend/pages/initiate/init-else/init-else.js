@@ -6,11 +6,9 @@ Page({
    */
   data: {
     dollarCount: 0,
+    partyName: "",  // 派对名称
+    remarks: "",  // 备注
     population: 0,
-    selectedEvent: null,
-    selectedLocation: null,
-    selectedTime: null,
-    selectedName: null,
     username: "xyr"
   },
 
@@ -18,11 +16,14 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
+    // 从存储中检索地点和时间
+    const locationData = wx.getStorageSync('partyLocation');
+    const timeData = wx.getStorageSync('partyTime');
+
     this.setData({
-      selectedEvent: options.dataEvent,
-      selectedLocation: options.dataLocation,
-      selectedTime: options.dataTime
-    })
+      partyLocation: locationData.searchInput,
+      partyTime: timeData.date + " " + timeData.ampm + " " + timeData.time
+    });
   },
 
   /**
@@ -76,19 +77,20 @@ Page({
 
   getNameInput(event) {
     this.setData({
-      selectedName: event.detail.value
+      partyName: event.detail.value
     })
   },
 
-  toRoom:function() {
-    if (this.data.selectedName == null) {
+  toRoom: function(e) {
+    if (this.data.partyName == null) {
       this.setData({
-        selectedName: this.data.username + "的紧急派对"
+        partyName: this.data.username + "的紧急派对"
       });
     }
+    this.complete(e);
     wx.redirectTo({
-      url: '../../room/room?dataEvent=' + this.data.selectedEvent + '&dataLocation=' + this.data.selectedLocation + '&dataTime=' + this.data.selectedTime + '&dataName=' + this.data.selectedName
-    })
+      url: '../../room/room'
+    });
   }, 
 
   setPopulation(event) {
@@ -136,4 +138,5 @@ Page({
     });
     console.log("完成！")
   }
+  
 })

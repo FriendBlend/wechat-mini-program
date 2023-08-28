@@ -122,6 +122,26 @@
       src="icons/Line 1.png"
     ></image>
   </view>
+  <view class="i-phone1-pro2-group9">
+    <image
+      class="i-phone1-pro2-rectangle49"
+      src="icons/tickets/blue-ticket.png"
+    ></image>
+    <image
+      class="event-avatar"
+      src="../initiate/init-content/icons/meeting.png"
+    ></image>
+    <view class="i-phone1-pro2-text24">
+      <view>闵行区</view>
+      <view>明天 下午 4点</view>
+      <view class="id-container"> <!-- 使用Flex布局的容器 -->
+        <text class="party-id-text">ID: {{party_id}}</text>
+        <!-- 添加复制按钮 -->
+        <button class="copy-button" bindtap="copyPartyId">复制</button>
+      </view>
+    </view>
+    <span class="i-phone1-pro2-text29">紧急派对会议</span>
+  </view>
   
   <!-- Large namecard -->
   <view wx:if="{{showNamecard}}" class="large-namecard">

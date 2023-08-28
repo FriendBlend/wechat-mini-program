@@ -72,7 +72,7 @@
   </view>
   
   <view class="next-step-button" bindtap="toRoom">
-    <span class="complete-txt" bindtap="complete">完成！</span>
+    <span class="complete-txt">完成！</span>
         <image
           class="check-icon"
           src="Icons/check-icon.png"
