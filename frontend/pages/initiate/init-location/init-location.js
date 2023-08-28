@@ -58,9 +58,19 @@ Page({
     });
   },
 
-  toTime:function() {
-    wx.redirectTo({
-      url: '../init-time/init-time',
-    })
-  }, 
+  // 当用户点击“下一步”时触发的事件
+  toTime: function() {
+    // 保存用户选择的地址和坐标到本地存储
+    wx.setStorageSync('partyLocation', {
+      searchInput: this.data.searchInput,
+      latitude: this.data.latitude,
+      longitude: this.data.longitude,
+      markers: this.data.markers
+    });
+    
+    // 跳转到下一个页面
+    wx.navigateTo({
+      url: '../init-time/init-time'
+    });
+  }
 })

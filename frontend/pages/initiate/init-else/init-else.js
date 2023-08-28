@@ -5,14 +5,24 @@ Page({
    * Page initial data
    */
   data: {
-    dollarCount: 0
+    dollarCount: 0,
+    partyName: "",  // 派对名称
+    population: "",  // 人数
+    remarks: ""  // 备注
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
+    // 从存储中检索地点和时间
+    const locationData = wx.getStorageSync('partyLocation');
+    const timeData = wx.getStorageSync('partyTime');
 
+    this.setData({
+      partyLocation: locationData.searchInput,
+      partyTime: timeData.date + " " + timeData.ampm + " " + timeData.time
+    });
   },
 
   /**
@@ -64,7 +74,7 @@ Page({
 
   },
 
-  toRoom:function() {
+  toRoom: function() {
     wx.redirectTo({
       url: '../../room/room',
     })
@@ -100,7 +110,16 @@ Page({
   },
 
   complete(event) {
-    // TODO: Store all the above info into database.
-    console.log("完成！")
+    const {
+      partyName, population, dollarCount, remarks
+    } = this.data;
+  
+    wx.setStorageSync('partyDetails', {
+      partyName: partyName,
+      population: population,
+      dollarCount: dollarCount,
+      remarks: remarks
+    });
   }
+  
 })

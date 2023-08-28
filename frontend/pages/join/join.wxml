@@ -2,7 +2,7 @@
   <view class="panel">
     <view class="top-part">
       <view class="input-text">请输入房间号</view>
-      <input class="input-field" type="text" placeholder="8888-8888" placeholder-class="input-field-placeholder"/>
+      <input class="input-field" type="text" placeholder="88888-88888" placeholder-class="input-field-placeholder" bindinput="onInput"/>
     </view>
     <view class="join-button" bindtap="joinRoom">
       <image src="../initiate/init-else/icons/check-icon.png" class="join-image"/>

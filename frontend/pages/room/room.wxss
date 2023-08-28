@@ -911,3 +911,32 @@
   left: 0;
   z-index: 1;
 }
+
+.id-container {
+  max-width: 60%;
+  display: flex;      
+  align-items: center;
+  justify-content: space-between;
+  padding: 0; /* 为容器添加左右内边距 */
+}
+
+.party-id-text {
+  max-width: 60%; /* 调整为合适的值，以确保文本不会换行 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 如果文本过长，则用省略号表示 */
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.copy-button {
+  max-width: 20%;
+  background-color: transparent;
+  border: none;
+  color: #eeeeee;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  white-space: nowrap; /* 确保按钮文本不会换行 */
+}

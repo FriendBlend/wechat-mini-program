@@ -117,6 +117,11 @@
     <view class="i-phone1-pro2-text24">
       <view>闵行区</view>
       <view>明天 下午 4点</view>
+      <view class="id-container"> <!-- 使用Flex布局的容器 -->
+        <text class="party-id-text">ID: {{party_id}}</text>
+        <!-- 添加复制按钮 -->
+        <button class="copy-button" bindtap="copyPartyId">复制</button>
+      </view>
     </view>
     <span class="i-phone1-pro2-text29">紧急派对会议</span>
   </view>

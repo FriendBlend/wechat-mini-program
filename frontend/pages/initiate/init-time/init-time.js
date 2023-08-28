@@ -151,9 +151,22 @@ Page({
 
   },
 
-  toElse:function() {
-    wx.redirectTo({
-      url: '../init-else/init-else',
-    })
-  }, 
+  // 当用户点击“下一步”时触发的事件
+  toElse: function() {
+    // 保存用户选择的时间到本地存储
+    const selectedDate = this.data.date[this.data.value[0]];
+    const selectedAmpm = this.data.ampm[this.data.value[1]];
+    const selectedTime = this.data.time[this.data.value[2]];
+
+    wx.setStorageSync('partyTime', {
+      date: selectedDate,
+      ampm: selectedAmpm,
+      time: selectedTime
+    });
+    
+    // 跳转到下一个页面
+    wx.navigateTo({
+      url: '../init-else/init-else'
+    });
+  }
 });
