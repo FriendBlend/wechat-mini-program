@@ -4,13 +4,20 @@ Page({
     date: [],
     ampm: [],
     time: [],
-    value: [0, 0, 0]
+    value: [0, 0, 0],
+    partyContent: "",
+    partyLocation: ""
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
+    // 获取party已有信息
+    this.setData({
+      partyContent: wx.getStorageSync('partyContent'),
+      partyLocation: wx.getStorageSync('partyLocation').name
+    })
     // Initialize date and time
     const date = [];
     const ampm = [];
@@ -66,7 +73,7 @@ Page({
     newAmpm.push('下午');
     // time
     if (date_i != 0) {        // Other days
-      if (ampm_i == 0) {      // AM
+      if (this.data.ampm.length > 1 && ampm_i == 0) {      // AM
         for (let i = 0; i < 13; i++) {
           newTime.push(`${i}:00`);
           newTime.push(`${i}:30`);
@@ -78,12 +85,14 @@ Page({
         }
       }
     } else {                  // Today
-      if (ampm_i == 0) {      // AM
+      if (this.data.ampm.length > 1 && ampm_i == 0) {      // AM
         for (let i = now.getHours(); i < 13; i++) {
-            newTime.push(`${i}:00`);
-            newTime.push(`${i}:30`);
+          console.log("today am")
+          newTime.push(`${i}:00`);
+          newTime.push(`${i}:30`);
         }
       } else {                // PM
+        console.log("today pm")
         let j = 1;
         if (now.getHours() > 12) {
             j = now.getHours() - 12;
@@ -154,20 +163,21 @@ Page({
   // 当用户点击“下一步”时触发的事件
   toElse: function() {
     // 保存用户选择的时间到本地存储
-    const selectedDate = this.data.date[this.data.value[0]].split(" ")[0];
+    const selectedDate = this.data.date[this.data.value[0]];
     const selectedAmpm = this.data.ampm[this.data.value[1]];
     const selectedTime = this.data.time[this.data.value[2]];
-    const output = date + " " + ampm + " " + time;
+    const output = selectedDate.split(" ")[0] + " " + selectedAmpm + " " + selectedTime;
     console.log(output);
 
     wx.setStorageSync('partyTime', {
       date: selectedDate,
       ampm: selectedAmpm,
-      time: selectedTime
+      time: selectedTime,
+      full: output
     });
     
     // 跳转到下一个页面
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../init-else/init-else'
     });
   }

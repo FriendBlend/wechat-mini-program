@@ -9,7 +9,9 @@ Page({
     partyName: "",  // 派对名称
     remarks: "",  // 备注
     population: 0,
-    username: "xyr"
+    partyTime: "",
+    partyLocation: "",
+    partyContent: ""
   },
 
   /**
@@ -21,8 +23,9 @@ Page({
     const timeData = wx.getStorageSync('partyTime');
 
     this.setData({
-      partyLocation: locationData.searchInput,
-      partyTime: timeData.date + " " + timeData.ampm + " " + timeData.time
+      partyContent: wx.getStorageSync('partyContent'),
+      partyLocation: wx.getStorageSync('partyLocation').name,
+      partyTime: timeData.full
     });
   },
 
@@ -82,9 +85,9 @@ Page({
   },
 
   toRoom: function(e) {
-    if (this.data.partyName == null) {
+    if (this.data.partyName == "") {
       this.setData({
-        partyName: this.data.username + "的紧急派对"
+        partyName: "MIKE的紧急派对"
       });
     }
     this.complete(e);
@@ -127,14 +130,17 @@ Page({
 
   complete(event) {
     const {
-      partyName, population, dollarCount, remarks
+      partyName, population, dollarCount, remarks, partyTime, partyLocation, partyContent
     } = this.data;
   
     wx.setStorageSync('partyDetails', {
       partyName: partyName,
       population: population,
       dollarCount: dollarCount,
-      remarks: remarks
+      remarks: remarks,
+      partyLocation: partyLocation,
+      partyTime: partyTime,
+      partyType: partyContent
     });
     console.log("完成！")
   }

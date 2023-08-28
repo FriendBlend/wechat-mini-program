@@ -6,7 +6,7 @@ Component({
   properties: {
     avatar: {
       type: String,
-      value: null
+      value: "meeting"
     },
     location: {
       type: String,

@@ -1,5 +1,5 @@
 <view class="container">
-  <progress-ticket avatar="../../images/event-avatars/meeting.png" location="{{selectedLocation}}" time="{{selectedTime}}"></progress-ticket>
+  <progress-ticket avatar="{{partyContent}}" location="{{partyLocation}}" time="{{partyTime}}"></progress-ticket>
   <!--name input-->
   <view class="name-input">
     <span class="name-txt">名称</span>

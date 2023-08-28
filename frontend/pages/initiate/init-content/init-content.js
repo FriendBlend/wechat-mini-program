@@ -68,17 +68,20 @@ Page({
     this.setData({
       selectedEvent: event.currentTarget.id
     });
-    console.log(this.data.selectedEvent);
+    console.log('selected: ' + this.data.selectedEvent);
   },
 
   toLocation:function() {
     if (this.data.selectedEvent == null) {
       wx.showToast({
         title: '请选择一个活动内容',
+        icon: 'error'
       })
+      return;
     }
+    wx.setStorageSync('partyContent', this.data.selectedEvent);
     wx.navigateTo({
-      url: '../init-location/init-location?dataEvent=' + this.data.selectedEvent
+      url: '../init-location/init-location'
     })
   }, 
 })

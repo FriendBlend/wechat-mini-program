@@ -11,6 +11,10 @@ Page({
     currentSeatIndex: -1,
     showDropdown: false,
     selfStatus: 'owner',
+    partyType: "",
+    partyName: "",
+    partyTime: "",
+    partyLocation: "",
     seats: [
       { occupied: true, user_id: 1, dropdown: false },
       { occupied: false },
@@ -163,11 +167,12 @@ Page({
         duration: 2000
       });
       this.setData({
-        party_id: options.partyId
+        party_id: options.partyId,
       });
       
       // 根据partyId从数据库获取相关的party信息
-      // this.getPartyInfo(options.partyId);
+      this.getPartyInfo(options.partyId);
+      
     } else {
         // 如果没有提供partyId，则为创建party
 
@@ -187,8 +192,17 @@ Page({
           dollarCount,
           remarks,
           partyLocation,
-          partyTime
+          partyTime,
+          partyType
       } = partyDetails;
+
+      // 更新页面数据
+      this.setData({
+        partyType: partyType,
+        partyName: partyName,
+        partyTime: partyTime,
+        partyLocation: partyLocation
+      })
 
       // 调用云函数
       wx.cloud.callFunction({
@@ -201,7 +215,7 @@ Page({
               location: partyLocation,
               cost: dollarCount,
               description: remarks,
-              type: "no"  // 暂时使用"no"作为类型
+              type: partyType
           },
           success: res => {
               if (res.result.success) {
@@ -259,12 +273,22 @@ Page({
         },
         success: res => {
             if (res.result.success) {
+              const partyInfo = res.result.data;
+              if (partyInfo != null) {
+                this.setData({
+                  partyType: partyInfo.type,
+                  partyName: partyInfo.party_name,
+                  partyLocation: partyInfo.location,
+                  partyTime: partyInfo.time
+                });
+              }
             } else {
                 wx.showToast({
                     title: res.result.message,
                     icon: 'none',
                     duration: 2000
                 });
+                return null;
             }
         },
         fail: err => {
@@ -273,6 +297,7 @@ Page({
                 icon: 'none',
                 duration: 2000
             });
+            return null;
         }
     });
 },

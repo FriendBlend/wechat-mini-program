@@ -1,9 +1,9 @@
 <view class="container">
   <image class="ticket-base" src="../../images/tickets/blue-ticket.png"/>
-  <image wx:if="{{avatar != null}}" class="avatar" src="{{avatar}}" alt="头像" />
+  <image wx:if="{{avatar != 'meeting'}}" class="avatar" src="../../images/event-avatars/{{avatar}}.png" alt="头像" />
   <view wx:else class="avatar-square empty"></view>
   <view wx:if="{{location != null}}" class="location non-empty">{{location}}</view>
-  <view wx:else class="location empty"></view>
+  <view wx:else class="location"></view>
   <view wx:if="{{time != null}}" class="time non-empty">{{time}}</view>
   <view wx:else class="time"></view>
   <view wx:if="{{name != null}}" class="name non-empty">{{name}}</view>

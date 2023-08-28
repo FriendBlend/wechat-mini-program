@@ -32,7 +32,7 @@ exports.main = async (event, context) => {
   const partyInfoString =  member_num + seat_list.join('') + time + location + cost + description + type + Date.now()
 
   // 使用哈希函数生成10位数字
-  let party_id = hashString(partyInfoString) % 100000000000;
+  let party_id = hashString(partyInfoString) % 10000000000;
 
   // 连接到数据库
   const db = cloud.database()
