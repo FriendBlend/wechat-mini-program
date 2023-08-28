@@ -6,14 +6,23 @@ Page({
    */
   data: {
     dollarCount: 0,
-    population: 0
+    population: 0,
+    selectedEvent: null,
+    selectedLocation: null,
+    selectedTime: null,
+    selectedName: null,
+    username: "xyr"
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-
+    this.setData({
+      selectedEvent: options.dataEvent,
+      selectedLocation: options.dataLocation,
+      selectedTime: options.dataTime
+    })
   },
 
   /**
@@ -65,9 +74,20 @@ Page({
 
   },
 
+  getNameInput(event) {
+    this.setData({
+      selectedName: event.detail.value
+    })
+  },
+
   toRoom:function() {
+    if (this.data.selectedName == null) {
+      this.setData({
+        selectedName: this.data.username + "的紧急派对"
+      });
+    }
     wx.redirectTo({
-      url: '../../room/room',
+      url: '../../room/room?dataEvent=' + this.data.selectedEvent + '&dataLocation=' + this.data.selectedLocation + '&dataTime=' + this.data.selectedTime + '&dataName=' + this.data.selectedName
     })
   }, 
 
@@ -104,7 +124,16 @@ Page({
   },
 
   complete(event) {
-    // TODO: Store all the above info into database.
+    const {
+      partyName, population, dollarCount, remarks
+    } = this.data;
+  
+    wx.setStorageSync('partyDetails', {
+      partyName: partyName,
+      population: population,
+      dollarCount: dollarCount,
+      remarks: remarks
+    });
     console.log("完成！")
   }
 })

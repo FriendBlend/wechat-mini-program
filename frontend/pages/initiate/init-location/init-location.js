@@ -4,6 +4,8 @@ Page({
     latitude: 23.099994,
     markers: [],
     searchInput: "",
+    selectedEvent: null,
+    selectedLocation: "老地方"
   },
 
   onMapTap: function (event) {
@@ -58,9 +60,16 @@ Page({
     });
   },
 
+  onLoad(options) {
+    this.setData({
+      selectedEvent: options.dataEvent
+    });
+    console.log(this.data.selectedEvent)
+  },
+
   toTime:function() {
     wx.redirectTo({
-      url: '../init-time/init-time',
+      url: '../init-time/init-time?dataEvent=' + this.data.selectedEvent + '&dataLocation=' + this.data.selectedLocation
     })
   }, 
 })

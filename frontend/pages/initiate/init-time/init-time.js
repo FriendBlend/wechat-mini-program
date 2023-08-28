@@ -5,12 +5,20 @@ Page({
     ampm: [],
     time: [],
     value: [0, 0, 0],
+    selectedEvent: null,
+    selectedLocation: null
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
+    // receive event data from last page
+    this.setData({
+      selectedEvent: options.dataEvent,
+      selectedLocation: options.dataLocation
+    });
+
     // Initialize date and time
     const date = [];
     const ampm = [];
@@ -152,8 +160,15 @@ Page({
   },
 
   toElse:function() {
+    let value = this.data.value;
+    let date = this.data.date[value[0]].split(" ")[0];
+    let ampm = this.data.ampm[value[1]];
+    let time = this.data.time[value[2]];
+    let output = date + " " + ampm + " " + time;
+    console.log(output);
+    
     wx.redirectTo({
-      url: '../init-else/init-else',
+      url: '../init-else/init-else?dataEvent=' + this.data.selectedEvent + '&dataLocation=' + this.data.selectedLocation + '&dataTime=' + output
     })
   }, 
 });

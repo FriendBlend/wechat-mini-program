@@ -72,8 +72,13 @@ Page({
   },
 
   toLocation:function() {
+    if (this.data.selectedEvent == null) {
+      wx.showToast({
+        title: '请选择一个活动内容',
+      })
+    }
     wx.navigateTo({
-      url: '../init-location/init-location',
+      url: '../init-location/init-location?dataEvent=' + this.data.selectedEvent
     })
   }, 
 })

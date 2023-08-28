@@ -10,6 +10,10 @@ Page({
     currentSeatIndex: -1,
     showDropdown: false,
     selfStatus: 'owner',
+    roomName: null,
+    roomLocation: null,
+    roomTime: null,
+    roomAvatar: null,
     seats: [
       { occupied: true, user_id: 1, dropdown: false },
       { occupied: false },
@@ -154,7 +158,12 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-
+    this.setData({
+      roomName: options.dataName,
+      roomLocation: options.dataLocation,
+      roomTime: options.dataTime,
+      roomAvatar: options.dataEvent
+    });
   },
 
   /**

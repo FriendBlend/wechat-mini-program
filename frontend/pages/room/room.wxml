@@ -23,10 +23,10 @@
         src="../../images/event-avatars/meeting.png"
       ></image>
       <view class="i-phone1-pro2-text24">
-        <view>闵行区</view>
-        <view>明天 下午 4点</view>
+        <view>{{roomLocation}}</view>
+        <view>{{roomTime}}</view>
       </view>
-      <span class="i-phone1-pro2-text29">紧急派对会议</span>
+      <span class="i-phone1-pro2-text29">{{roomName}}</span>
     </view>
   </view>
 

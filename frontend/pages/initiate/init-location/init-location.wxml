@@ -1,5 +1,5 @@
 <view class="container">
-  <progress-ticket avatar="../../images/event-avatars/meeting.png"></progress-ticket>
+  <progress-ticket avatar="../../images/event-avatars/{{selectedEvent}}.png"></progress-ticket>
   <view class="main-content">
     <image src="icons/location-icon.png" class="location-icon"/>
     <text class="location-text">地点</text>

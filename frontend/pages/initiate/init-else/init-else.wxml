@@ -1,5 +1,5 @@
 <view class="container">
-  <progress-ticket avatar="../../images/event-avatars/meeting.png" location="闵行区" time="明天 下午 4点"></progress-ticket>
+  <progress-ticket avatar="../../images/event-avatars/meeting.png" location="{{selectedLocation}}" time="{{selectedTime}}"></progress-ticket>
   <!--name input-->
   <view class="name-input">
     <span class="name-txt">名称</span>
@@ -7,7 +7,7 @@
         class="name-card-icon"
         src="Icons/name-card-icon.png"
     ></image>
-  <input class="name-input-box" type="text" placeholder="xyr的生日派对…" />
+  <input class="name-input-box" type="text" placeholder="xyr的生日派对…" bindinput="getNameInput" />
   </view>
   <!--population-->
   <view class="population">
