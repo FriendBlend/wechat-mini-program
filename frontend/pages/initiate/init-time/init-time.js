@@ -78,19 +78,19 @@ Page({
         }
       }
     } else {                  // Today
-      if (this.data.ampm.size > 1 && ampm_i == 0) {      // AM
+      if (ampm_i == 0) {      // AM
         for (let i = now.getHours(); i < 13; i++) {
-          newTime.push(`${i}:00`);
-          newTime.push(`${i}:30`);
+            newTime.push(`${i}:00`);
+            newTime.push(`${i}:30`);
         }
       } else {                // PM
         let j = 1;
         if (now.getHours() > 12) {
-          j = now.getHours() - 12;
+            j = now.getHours() - 12;
         }
         for (let i = j; i < 12; i++) {
-          newTime.push(`${i}:00`);
-          newTime.push(`${i}:30`);
+            newTime.push(`${i}:00`);
+            newTime.push(`${i}:30`);
         }
       }
     }

@@ -14,6 +14,10 @@
   height:110rpx;
 }
 
+.main-frame .selected {
+  background-color: #6CE89E;
+}
+
 .table-game-view{
   top:154rpx;
   left:82rpx;
@@ -21,7 +25,7 @@
   height:170rpx;
   position:absolute;
   border-radius: 42rpx;
-  background: #FFF;
+  background-color: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.20);
 }
 .balloon-view{

@@ -5,7 +5,7 @@ Page({
    * Page initial data
    */
   data: {
-
+    selectedEvent: null,
   },
 
   /**
@@ -62,6 +62,13 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  onSelection(event) {
+    this.setData({
+      selectedEvent: event.currentTarget.id
+    });
+    console.log(this.data.selectedEvent);
   },
 
   toLocation:function() {

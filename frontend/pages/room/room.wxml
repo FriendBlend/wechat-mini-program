@@ -1,16 +1,33 @@
 <view class="container">
   <view class="dropdown-mask" wx:if="{{showDropdown}}" bindtap="hideDropdown"></view>
-  <view class="emerg-exit grey-button" bindtap="toIndex" style="width: 134.31px;">
-    <image
-      class="exit-sign"
-      src="icons/solar_exit-line-duotone.png"
-    ></image>
-    <span class="emerg-exit-text">
-      <text class="emerg-exit-cn-text">紧急出口</text>
-      <br />
-      <text class="emerg-exit-en-text">EMERG EXIT</text>
-      <br />
-    </span>
+  <view class="top-section">
+    <view class="emerg-exit grey-button" bindtap="toIndex" style="width: 134.31px;">
+      <image
+        class="exit-sign"
+        src="icons/solar_exit-line-duotone.png"
+      ></image>
+      <span class="emerg-exit-text">
+        <text class="emerg-exit-cn-text">紧急出口</text>
+        <br />
+        <text class="emerg-exit-en-text">EMERG EXIT</text>
+        <br />
+      </span>
+    </view>
+    <view class="i-phone1-pro2-group9">
+      <image
+        class="i-phone1-pro2-rectangle49"
+        src="icons/tickets/blue-ticket.png"
+      ></image>
+      <image
+        class="event-avatar"
+        src="../../images/event-avatars/meeting.png"
+      ></image>
+      <view class="i-phone1-pro2-text24">
+        <view>闵行区</view>
+        <view>明天 下午 4点</view>
+      </view>
+      <span class="i-phone1-pro2-text29">紧急派对会议</span>
+    </view>
   </view>
 
   <scroll-view class="name-card-scroll-view" scroll-y="true">
@@ -125,6 +142,7 @@
     </view>
     <span class="i-phone1-pro2-text29">紧急派对会议</span>
   </view>
+  
   <!-- Large namecard -->
   <view wx:if="{{showNamecard}}" class="large-namecard">
     <view class="popup-mask" bindtap="hideNamecard"></view>

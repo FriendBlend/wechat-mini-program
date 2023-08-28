@@ -65,7 +65,12 @@ Page({
   },
   toEdit() {
     wx.navigateTo({
-      url: '../profile-edit/profile-edit',
+      url: '../namecard-edit/namecard-edit',
+    })
+  },
+  toPhoto() {
+    wx.navigateTo({
+      url: '../photo-edit/photo-edit',
     })
   }
 })
