@@ -754,6 +754,10 @@
   width: 130px;
   height: 80px;
 }
+.namecard-placeholder {
+  width: 130px;
+  height: 80px;
+}
 /* For actions section */
 .left-half, .right-half {
   flex: 1;

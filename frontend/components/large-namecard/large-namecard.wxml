@@ -1,0 +1,16 @@
+<view wx:if="{{showNamecard}}" class="large-namecard">
+  <view class="popup-mask" bindtap="hideNamecard"></view>
+  <view class="large-namecard-content" style="background-color: {{userSkin}};">
+    <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
+    <view class="user-info">
+      <text class="large-namecard-name">{{userName}}</text>
+      <view class="user-photos">
+        <image src="{{userPicture}}" class="user-image"></image>
+        <view class="user-image-2"></view>
+        <view class="user-image-3"></view>
+      </view>
+      <image src="../../images/large-namecard/info-card.png" class="user-info-card"></image>
+      <image src="../../images/large-namecard/info-card-behind.png" class="card-behind"></image>
+    </view>
+  </view>
+</view>

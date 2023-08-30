@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "progress-ticket": "../../progressTicket/progressTicket"
+    "progress-ticket": "../../../components/progressTicket/progressTicket"
   }
 }

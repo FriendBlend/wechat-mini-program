@@ -33,6 +33,7 @@ exports.main = async (event, context) => {
 
   // 使用哈希函数生成10位数字
   let party_id = hashString(partyInfoString) % 10000000000;
+  party_id = parseInt(String(party_id).padStart(10, '0'));
 
   // 连接到数据库
   const db = cloud.database()

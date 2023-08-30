@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "large-namecard": "../../components/large-namecard/large-namecard",
+    "namecard": "../../components/namecard/namecard"
+  }
 }

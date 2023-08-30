@@ -10,7 +10,8 @@
     "frontend/pages/initiate/init-else/init-else",
     "frontend/pages/initiate/init-time/init-time",
     "frontend/pages/testfunc/test",
-    "frontend/pages/profile-edit/profile-edit"
+    "frontend/pages/profile-edit/profile-edit",
+    "frontend/components/large-namecard/large-namecard"
   ],
   "window": {
     "backgroundTextStyle": "light",

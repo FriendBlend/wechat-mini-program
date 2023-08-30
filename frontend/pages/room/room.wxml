@@ -34,53 +34,46 @@
     <block wx:for="{{seats}}" wx:key="index" wx:for-item="seat"  wx:for-index="seatIndex">
       <view class="name-card-row" wx:if="{{seatIndex % 2 === 0}}">
         <!-- The first name card in the row -->
-        <view class="name-card" wx:if="{{seat.occupied}}" capture-bind:tap="showDropdown" data-seat-index="{{seatIndex}}" data-occupied="{{true}}" data-user="{{users[seat.user_id - 1]}}" style="background-color: {{users[seat.user_id - 1].skin}}">
-          <!-- Display the name card if the seat is occupied -->
-          <view class="left-side">
-            <image class="avatar" src="{{users[seat.user_id - 1].avatar}}" mode="aspectFill"></image>
-            <text class="user-name">{{users[seat.user_id - 1].name}}</text>
-          </view>
-          <view class="right-side">
-            <image class="status-icon" wx:if="{{seat.occupied && users[seat.user_id - 1].status === 'host'}}" src="icons/host.png"></image>
-            <image class="status-icon" wx:if="{{seat.occupied && users[seat.user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
-          </view>
+        <!-- Display the name card if the seat is occupied -->
+        <namecard
+          wx:if="{{seat.occupied}}" capture-bind:tap="showDropdown" data-seat-index="{{seatIndex}}" data-occupied="{{true}}" data-user="{{users[seat.user_id - 1]}}"
+          name="{{users[seat.user_id - 1].name}}"
+          skin="{{users[seat.user_id - 1].skin}}"
+          avatarUrl="{{users[seat.user_id - 1].avatar}}" >
           <!-- dropdown -->
           <view wx:if="{{seats[seatIndex].dropdown}}" class="dropdown-menu">
             <view class="dropdown-item" bindtap="showNamecard">名片</view>
             <view wx:if="{{selfStatus == 'participant'}}"  class="dropdown-item">加好友</view>
             <view wx:if="{{selfStatus == 'owner'}}" class="dropdown-item" bindtap="deleteUser">踢出</view>
           </view>
-        </view>
+        </namecard>
         <view class="name-card empty-name-card" wx:else bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex}}">
           <!-- Display the empty seat image if the seat is not occupied -->
           <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
         </view>
-        <!-- <view class="user-menu"></view> -->
         <!-- Check if there's a second seat in this row -->
         <view wx:if="{{seatIndex + 1 < seats.length}}">
           <!-- Second seat in the row -->
-          <view wx:if="{{seats[seatIndex + 1].occupied}}" class="name-card" capture-bind:tap="showDropdown" data-seat-index="{{seatIndex + 1}}" data-occupied="{{true}}" data-user="{{users[seats[seatIndex + 1].user_id - 1]}}" style="background-color: {{users[seats[seatIndex + 1].user_id - 1].skin}}">
-            <view class="left-side">
-              <!-- Display the name card if the seat is occupied -->
-              <image class="avatar" src="{{users[seats[seatIndex + 1].user_id - 1].avatar}}" mode="aspectFill"></image>
-              <text class="user-name">{{users[seats[seatIndex + 1].user_id - 1].name}}</text>
-            </view>
-            <view class="right-side">
-              <image class="status-icon" wx:if="{{users[seats[seatIndex + 1].user_id - 1].status === 'host'}}" src="icons/host.png"></image>
-              <image class="status-icon" wx:if="{{users[seats[seatIndex + 1].user_id - 1].status === 'ready'}}" src="icons/ready.png"></image>
-            </view>
+          <namecard
+            wx:if="{{seats[seatIndex + 1].occupied}}" capture-bind:tap="showDropdown" data-seat-index="{{seatIndex + 1}}" data-occupied="{{true}}" data-user="{{users[seats[seatIndex + 1].user_id - 1]}}"
+            status="{{users[seats[seatIndex + 1].user_id - 1].status}}"
+            name="{{users[seats[seatIndex + 1].user_id - 1].name}}"
+            skin="{{users[seats[seatIndex + 1].user_id - 1].skin}}"
+            avatarUrl="{{users[seats[seatIndex + 1].user_id - 1].avatar}}" >
             <!-- dropdown -->
             <view wx:if="{{seats[seatIndex + 1].dropdown}}" class="dropdown-menu">
               <view class="dropdown-item" bindtap="showNamecard">名片</view>
               <view wx:if="{{selfStatus == 'participant'}}"  class="dropdown-item">加好友</view>
               <view wx:if="{{selfStatus == 'owner'}}" class="dropdown-item" bindtap="deleteUser">踢出</view>
             </view>
-          </view>
+          </namecard>
           <view wx:else class="name-card empty-name-card" bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex + 1}}">
             <!-- Display the empty seat image if the seat is not occupied -->
             <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
           </view>
         </view>
+        <!-- if there's no second seat -->
+        <view wx:else class="namecard-placeholder"></view>
       </view>
     </block>
   </scroll-view>
@@ -144,22 +137,11 @@
   </view>
   
   <!-- Large namecard -->
-  <view wx:if="{{showNamecard}}" class="large-namecard">
-    <view class="popup-mask" bindtap="hideNamecard"></view>
-    <view class="large-namecard-content" style="background-color: {{currentUser.skin}};">
-      <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
-      <view class="user-info">
-        <text class="large-namecard-name">{{currentUser.name}}</text>
-        <view class="user-photos">
-          <image src="{{currentUser.userImage1}}" class="user-image"></image>
-          <!-- <image src="{{currentUser.userImage2}}" class="user-image-2"></image>
-          <image src="{{currentUser.userImage3}}" class="user-image-3"></image> -->
-          <view class="user-image-2"></view>
-          <view class="user-image-3"></view>
-        </view>
-        <image src="../../images/large-namecard/info-card.png" class="user-info-card"></image>
-        <image src="../../images/large-namecard/info-card-behind.png" class="card-behind"></image>
-      </view>
-    </view>
-  </view>
+  <large-namecard
+    wx:if="{{currentUser != null}}"
+    showNamecard="{{showNamecard}}" 
+    userName="{{currentUser.name}}" 
+    userPicture="{{currentUser.userImage1}}" 
+    userSkin="{{currentUser.skin}}">
+  </large-namecard>
 </view>

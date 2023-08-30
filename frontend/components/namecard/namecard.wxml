@@ -1,0 +1,10 @@
+<view class="namecard" style="background: {{skin}};">
+  <view class="left-side">
+    <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
+    <text class="name">{{name}}</text>
+  </view>
+  <view class="right-side">
+    <image class="status-icon" wx:if="{{status != null && status != 'joined'}}" src="../../images/namecard/status-{{status}}.png"/>
+  </view>
+  <slot></slot>
+</view>

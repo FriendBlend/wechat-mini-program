@@ -4,7 +4,7 @@
     <view class="title-blue-rect"></view>
     <image
       class="title-green-rect"
-      src="Icons/Rectangle453.png"
+      src="Icons/green-rect.png"
     ></image>
     <image
       class="title-ellipse"
@@ -24,17 +24,12 @@
         src="Icons/contacts.png"
       ></image>
     </view>
-    <view class="namecard" bindtap="showNamecard">
-      <image
-        class="namecard-rect"
-        src="Icons/Rectangle443.png"
-      ></image>
-      <span class="namecard-name">仁喆</span>
-      <image
-        class="namecard-avatar"
-        src="Icons/Ellipse-15.png"
-      ></image>
-    </view>
+    <namecard 
+      class="namecard" 
+      bindtap="showNamecard" 
+      name="仁喆"
+      avatarUrl="../../images/large-namecard/brady2.JPG">
+    </namecard>
   </view>
   <!-- Initiate and Join -->
   <view class="initiate-and-join">
@@ -81,27 +76,17 @@
       </span>
       <image
         class="ticket-avatar"
-        src="Icons/Rectangle473.png"
+        src="../../images/event-avatars/balloon.png"
       ></image>
     </view>
   </view>
   <!-- Large namecard -->
-  <view wx:if="{{showNamecard}}" class="large-namecard">
-    <view class="popup-mask" bindtap="hideNamecard"></view>
-    <view class="large-namecard-content" style="background-color: {{currentUser.skin}};">
-      <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
-      <view class="user-info">
-        <text class="large-namecard-name">{{currentUser.name}}</text>
-        <view class="user-photos">
-          <image src="{{currentUser.userImage1}}" class="user-image"></image>
-          <!-- <image src="{{currentUser.userImage2}}" class="user-image-2"></image>
-          <image src="{{currentUser.userImage3}}" class="user-image-3"></image> -->
-          <view class="user-image-2"></view>
-          <view class="user-image-3"></view>
-        </view>
-        <image src="../../images/large-namecard/info-card.png" class="user-info-card"></image>
-        <image src="../../images/large-namecard/info-card-behind.png" class="card-behind"></image>
-      </view>
-    </view>
-  </view>
+  <large-namecard
+    wx:if="{{currentUser != null}}"
+    showNamecard="{{showNamecard}}" 
+    userName="{{currentUser.name}}" 
+    userPicture="{{currentUser.userImage1}}" 
+    userSkin="{{currentUser.skin}}">
+  </large-namecard>
+  
 </view>
