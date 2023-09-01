@@ -1,5 +1,5 @@
 /* large namecard */
-.large-namecard {
+.container {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -19,84 +19,71 @@
   z-index: 99;
   backdrop-filter: blur(22.5px);
 }
+.large-namecard {
+  position: absolute;
+  top: 149rpx;
+  left: 36rpx;
+  right: 36rpx;
+  bottom: 72rpx;
+}
 .large-namecard-content {
   border-radius: 50rpx;
-  height: 1018rpx;
-  width: auto;
+  height: auto;
+  width: 100%;
   position: absolute;
-  left: 64rpx;
-  right: 64rpx;
+  top: 74rpx;
+  bottom: 0;
   z-index: 999;
 }
-.large-namecard-name {
+.name-and-tags {
+  position: absolute;
+  bottom: 80rpx;
+  left: 80rpx;
+  width: 488rpx;
+}
+.name {
   height: 124rpx;
-  font-size: 88rpx;
-  position: absolute;
-  top: 58rpx;
-  left: 92rpx;
+  font-size: 64rpx;
+  font-weight: 700;
+  color: white;
 }
-.user-info {
+.swiper {
+  position: absolute;
+  left: 36rpx;
+  right: 36rpx;
+  bottom: 38rpx;
+  top: 128rpx;
+  width: auto;
+  height: auto;
+  border-radius: 30rpx;
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+.wx-swiper-dots-horizontal {
+  width: 100%;
   position: relative;
-  font-size: 30rpx;
-  font-weight: bold;
+  top: 34rpx;
+  background-color: coral;
 }
-.user-photos {
-  position: absolute;
-  top: 210rpx;
-  left: 68rpx;
+.wx-swiper-dot {
+  width: 30% !important;
+  border-radius: 100px !important;
+  background-color: #979797 !important;
+  height: 3.156px !important;
 }
-.user-image {
-  position: absolute;
-  width: 480rpx;
-  height: 638rpx;
-  border-radius: 30rpx;
-  
+.swiper .wx-swiper-dot-active {
+  background-color: white !important;
 }
-.user-image-2 {
-  position: absolute;
-  top: 2rpx;
-  left: 14rpx;
-  width: 478rpx;
-  height: 638rpx;
-  border-radius: 30rpx;
-  rotate: 2deg;
-  background-color: #D9D9D9;
-  opacity: 0.9;
-  z-index: -1;
-}
-.user-image-3 {
-  position: absolute;
-  top: -18rpx;
-  left: -10rpx;
-  width: 478rpx;
-  height: 638rpx;
-  border-radius: 30rpx;
-  rotate: -3deg;
-  background-color: #D9D9D9;
-  opacity: 0.8;
-  z-index: -2;
-}
-.user-info-card {
-  position: absolute;
-  top: 878rpx;
-  left: 70rpx;
-  width: 482rpx;
-  height: 106rpx;
-}
-.card-behind {
-  position: absolute;
-  top: 870rpx;
-  left: 74rpx;
-  width: 476rpx;
-  height: 108rpx;
-  rotate: 1deg;
-  opacity: 0.8;
-}
+
 .close-btn {
   position: absolute;
-  top: -43rpx;
-  right: 10rpx;
-  width: 82rpx;
+  top: -128rpx;
+  left: -10rpx;
+  width: 86rpx;
   height: 86rpx;
   z-index: 999;
 }

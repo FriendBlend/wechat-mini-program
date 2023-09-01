@@ -134,6 +134,20 @@
   color: white;
 }
 /* large namecard */
+.wx-swiper-dots-horizontal {
+  width: 100%;
+  position: relative;
+  top: 34rpx;
+}
+.wx-swiper-dot {
+  width: 30% !important;
+  border-radius: 100px !important;
+  background-color: #979797 !important;
+  height: 3.156px !important;
+}
+.wx-swiper-dot-active {
+  background-color: white !important;
+}
 .large-namecard {
   position: fixed;
   width: 100%;

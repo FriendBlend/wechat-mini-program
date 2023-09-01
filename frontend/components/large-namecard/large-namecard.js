@@ -12,9 +12,9 @@ Component({
       type: String,
       value: ""
     },
-    userPicture: {
-      type: String,
-      value: "../../images/large-namecard/dog.png"
+    userPictures: {
+      type: Array,
+      value: ["../../images/large-namecard/dog.png"]
     },
     userSkin: {
       type: String,
@@ -26,7 +26,7 @@ Component({
    * Component initial data
    */
   data: {
-
+    indicatorDots: true
   },
 
   /**
@@ -37,6 +37,13 @@ Component({
       this.setData({
         showNamecard: false
       });
+    },
+    onLoad() {
+      if (this.data.imgUrls.length === 1) {
+        this.setData({
+          indicatorDots: false
+        });
+      }
     }
   }
 })

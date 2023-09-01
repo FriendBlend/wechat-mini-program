@@ -85,7 +85,7 @@
     wx:if="{{currentUser != null}}"
     showNamecard="{{showNamecard}}" 
     userName="{{currentUser.name}}" 
-    userPicture="{{currentUser.userImage1}}" 
+    userPictures="{{currentUser.userPictures}}" 
     userSkin="{{currentUser.skin}}">
   </large-namecard>
   

@@ -8,10 +8,12 @@ Page({
     showNamecard: false,
     currentUser: {
       name: '仁喆',
-      skin: '#979797',
-      userImage1: '../../images/large-namecard/brady.png',
-      userImage2: '../../images/large-namecard/brady.png',
-      userImage3: '../../images/large-namecard/brady.png',
+      skin: '#D9D9D9',
+      userPictures: [
+        '../../images/large-namecard/brady.png',
+        '../../images/large-namecard/brady.png',
+        '../../images/large-namecard/brady.png'
+      ],
       userInfoCard: '../../images/large-namecard/info-card.png',
       cardBehind: '../../images/large-namecard/info-card-behind.png'
     }
