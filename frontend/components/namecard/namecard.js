@@ -22,6 +22,10 @@ Component({
     status: {
       type: String,
       value: null
+    },
+    hasShadow: {
+      type: Boolean,
+      value: true
     }
   },
 

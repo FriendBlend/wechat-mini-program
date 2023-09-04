@@ -11,7 +11,7 @@ Page({
       skin: '#D9D9D9',
       userPictures: [
         '../../images/large-namecard/brady.png',
-        '../../images/large-namecard/brady.png',
+        '../../images/large-namecard/brady2.JPG',
         '../../images/large-namecard/brady.png'
       ],
       userInfoCard: '../../images/large-namecard/info-card.png',
@@ -23,7 +23,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-
+    
   },
 
   /**

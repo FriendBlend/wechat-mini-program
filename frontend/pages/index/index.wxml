@@ -86,7 +86,8 @@
     showNamecard="{{showNamecard}}" 
     userName="{{currentUser.name}}" 
     userPictures="{{currentUser.userPictures}}" 
-    userSkin="{{currentUser.skin}}">
+    userSkin="{{currentUser.skin}}"
+    avatarUrl="../../images/large-namecard/brady2.JPG">
   </large-namecard>
   
 </view>

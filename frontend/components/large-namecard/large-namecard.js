@@ -16,9 +16,21 @@ Component({
       type: Array,
       value: ["../../images/large-namecard/dog.png"]
     },
+    petName: {
+      type: String,
+      value: "宠物"
+    },
+    petPictures: {
+      type: Array,
+      value: ["../../images/large-namecard/dog.png"]
+    },
     userSkin: {
       type: String,
       value: "#D9D9D9"
+    },
+    avatarUrl: {
+      type: String,
+      value: "../../images/event-avatars/default.png"
     }
   },
 
@@ -26,7 +38,8 @@ Component({
    * Component initial data
    */
   data: {
-    indicatorDots: true
+    indicatorDots: true,
+    activeTab: "person"
   },
 
   /**
@@ -38,12 +51,10 @@ Component({
         showNamecard: false
       });
     },
-    onLoad() {
-      if (this.data.imgUrls.length === 1) {
-        this.setData({
-          indicatorDots: false
-        });
-      }
+    tabClick(e) {
+      this.setData({
+        activeTab: e.currentTarget.id
+      })
     }
   }
 })

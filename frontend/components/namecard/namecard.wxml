@@ -1,4 +1,4 @@
-<view class="namecard" style="background: {{skin}};">
+<view class="namecard" style="background: {{skin}}; box-shadow: {{hasShadow ? '0px 4px 4px 0px rgba(0, 0, 0, 0.25)' : 'none'}};">
   <view class="left-side">
     <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
     <text class="name">{{name}}</text>
