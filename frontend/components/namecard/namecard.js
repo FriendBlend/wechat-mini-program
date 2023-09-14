@@ -3,6 +3,9 @@ Component({
   options: {
     addGlobalClass: true
   },
+  externalClasses: [
+    "external-class"
+  ],
   /**
    * Component properties
    */
@@ -17,7 +20,7 @@ Component({
     },
     skin: {
       type: String,
-      value: "#979797"
+      value: "var(--darkGrey)"
     },
     status: {
       type: String,

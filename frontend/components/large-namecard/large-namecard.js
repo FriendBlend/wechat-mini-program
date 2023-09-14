@@ -26,7 +26,7 @@ Component({
     },
     userSkin: {
       type: String,
-      value: "#D9D9D9"
+      value: "var(--lightGrey)"
     },
     avatarUrl: {
       type: String,

@@ -1,64 +1,53 @@
-<!--pages/profile/profile.wxml-->
+<view class="container">
+  <view class="top-container">
+    <view class="namecard-row">
+      <view class="namecard-placeholder">
+        <namecard external-class="namecard"></namecard>
+      </view>
+      <view class="option-buttons">
+        <view class="option-button">
+          <image src="../../images/icons/menu.svg" mode=""/>
+        </view>
+        <view class="option-button">
+          <image src="../../images/icons/add.svg" mode=""/>
+        </view>
+        <view class="option-button">
+          <image src="../../images/icons/greet.svg" mode=""/>
+        </view>
+      </view>
+    </view>
+    <swiper vertical="{{true}}" indicator-dots="{{true}}" indicator-active-color="white">
+      <swiper-item></swiper-item>
+      <swiper-item></swiper-item>
+    </swiper>
+  </view>
 
-
-<span class="profile-eng-txt">Profile</span>
-<span class="profile-chi-txt">我</span>
-<image
-  class="profile-icon"
-  src="../profile/profile-icon/profile.png"
-></image>
-
-
-<view class="name-card">
-  <image 
-    class="avatar"
-    src="../profile/profile-icon/Ellipse.png"
-    ></image>
-  <span class="name">忍者</span>
+  <view class="bottom-container">
+    <view class="tabs">
+      <view class="tab {{activeTab == 'photos' ? 'active' : ''}}" id="photos" bind:tap="tabClick">
+        <view class="tab-number">{{photos.length}}</view>
+        <view class="tab-text">相片</view>
+      </view>
+      <view class="tab {{activeTab == 'friends' ? 'active' : ''}}" id="friends" bind:tap="tabClick">
+        <view class="tab-number">{{friends.length}}</view>
+        <view class="tab-text">朋友</view>
+      </view>
+      <view class="tab {{activeTab == 'events' ? 'active' : ''}}" id="events" bind:tap="tabClick">
+        <view class="tab-number">{{events.length}}</view>
+        <view class="tab-text">事件</view>
+      </view>
+    </view>
+    <view class="photos-section" wx:if="{{activeTab == 'photos'}}">
+      <image src="../../images/large-namecard/brady.png" mode="aspectFill"/>
+      <image src="../../images/large-namecard/brady2.jpeg" mode="aspectFill"/>
+      <image src="../../images/large-namecard/brady3.jpeg" mode="aspectFill"/>
+      <view class="locked-photo-slot"></view>
+    </view>
+    <view class="friends-section" wx:if="{{activeTab == 'friends'}}">
+      
+    </view>
+    <view class="events-section" wx:if="{{activeTab == 'events'}}">
+      
+    </view>
+  </view>
 </view>
-
-<view 
-  class="profile-edit-button"
-  bindtap="toEdit">
-  <span class="edit-namecard-txt">编辑 名片</span>
-  <image 
-  class="edit-icon"
-  src="../profile/profile-icon/pencil.png"></image>
-</view>
-
-<view class="privacy-edit-button">
-  <span class="edit-privacy-txt">设置 隐私</span>
-  <image 
-  class="edit-privacy-icon"
-  src="../profile/profile-icon/edit.png"></image>
-</view>
-
-<view class="social-network-button">
-  <span class="social-network-txt">社交网络</span>
-  <image 
-  class="social-network-icon"
-  src="../profile/profile-icon/social-network.png"></image>
-</view>
-
-<view 
-  class="manage-photo-button"
-  bindtap="toPhoto">
-  <span class="manage-photo-txt">管理 相册</span>
-  <image 
-  class="manage-photo-icon"
-  src="../profile/profile-icon/photo.png"></image>
-</view>
-
-<view class="manage-label-button">
-  <span class="manage-label-txt">管理 标签</span>
-  <image 
-  class="manage-label-icon"
-  src="../profile/profile-icon/label.png"></image>
-</view>
-
-<view class="photo1"></view>
-<view class="photo2"></view>
-<image
-  class="photo3"
-  src="../profile/profile-icon/selfie.png">
-  </image>

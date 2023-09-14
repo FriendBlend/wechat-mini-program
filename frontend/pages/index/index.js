@@ -8,14 +8,12 @@ Page({
     showNamecard: false,
     currentUser: {
       name: '仁喆',
-      skin: '#D9D9D9',
+      skin: 'var(--lightGrey)',
       userPictures: [
         '../../images/large-namecard/brady.png',
-        '../../images/large-namecard/brady2.JPG',
-        '../../images/large-namecard/brady.png'
-      ],
-      userInfoCard: '../../images/large-namecard/info-card.png',
-      cardBehind: '../../images/large-namecard/info-card-behind.png'
+        '../../images/large-namecard/brady2.jpeg',
+        '../../images/large-namecard/brady3.jpeg'
+      ]
     }
   },
 

@@ -1,250 +1,108 @@
-/* pages/profile/profile.wxss */
-.name-card {
-  top: 282rpx;
-  left: 48rpx;
-  position: absolute;
-  width: 410rpx;
-  height: 252rpx;
-  border-radius: 42rpx;
-  background: #979797;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: space-evenly;
-}
-.avatar {
-  top: 36rpx;
-  left: 46rpx;
-  position: absolute;
-  width: 114rpx;
-  height: 114rpx;
-  flex-shrink: 0;
+.container {
+  padding: 0;
 }
 
-.name{
-  top: 174rpx;
-  left: 60rpx;
-  position: absolute;
-  color: #FFF;
-  font-family: Inter;
-  font-size: 40rpx;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.profile-edit-button {
-  top: 282rpx;
-  left: 480rpx;
-  position:absolute;
-  width: 208rpx;
-  height: 114rpx;
+.top-container {
+  width: 600rpx;
+  padding: 34rpx;
+  height: fit-content;
+  background: rgba(217, 217, 217, 0.50);
   border-radius: 42rpx;
-  background: #D9D9D9;
-  box-shadow: 0rpx 8rpx 8rpx 8rpx rgba(0, 0, 0, 0.25);
 }
-.privacy-edit-button{
-  top: 420rpx;
-  left: 480rpx;
-  position:absolute;
-  width: 208rpx;
-  height: 114rpx;
-  border-radius: 42rpx;
-  background: #D9D9D9;
-  box-shadow: 0rpx 8rpx 8rpx 8rpx rgba(0, 0, 0, 0.25);
-}
-.profile-chi-txt{
-  top: 126rpx;
-  left: 138rpx;
-  position: absolute;
-  color: #000;
-  font-family: ABeeZee;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 108%; /* 23.76px */
-  letter-spacing: -0.22px;
-}
-.profile-eng-txt{
-  top: 172rpx;
-  left: 72rpx;
-  position: absolute;
-  color: #000;
-  font-family: ABeeZee;
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 108%; /* 23.76px */
-  letter-spacing: -0.22px;
-}
-.profile-icon{
-  top: 124rpx;
-  left: 76rpx;
-  position: absolute;
+.namecard-row {
+  padding: 0 40rpx;
   display: flex;
-  width: 48rpx;
-  height: 48rpx;
-  justify-content: center;
   align-items: center;
-  flex-shrink: 0;
+  height: 288rpx;
+  background: coral;
 }
-.edit-namecard-txt{
-  top:24rpx;
-  left:116rpx;
-  position: absolute;
-  color: #333;
-  font-family: Inter;
-  font-size: 30rpx;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+.namecard-placeholder {
+  width: 500rpx;
+  background: cadetblue;
 }
-.edit-icon{
-  top:26rpx;
-  left:36rpx;
-  position:absolute;
-  width: 60rpx;
-  height: 68rpx;
-  flex-shrink: 0;
+.namecard {
+  position: relative;
+  margin-left: 65rpx;
+  scale: 180%;
 }
-.edit-privacy-txt{
-  top:24rpx;
-  left:116rpx;
-  position: absolute;
-  color: #333;
-  font-family: Inter;
-  font-size: 30rpx;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+.option-buttons {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }
-.edit-privacy-icon{
-  top:26rpx;
-  left:36rpx;
-  position:absolute;
-  width: 64rpx;
-  height: 70rpx;
-  flex-shrink: 0;
+.option-button {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 12px;
+  background: var(--lightGrey);
 }
-.social-network-button{
-  top:596rpx;
-  left:48rpx;
-  position: absolute;
-  width: 208rpx;
-  height: 200rpx;
-  flex-shrink: 0;
+.option-button image {
+  width: 54rpx;
+  height: 54rpx;
+  margin: 12rpx;
+}
+.top-container swiper {
+  margin-top: 32rpx;
+  background: var(--lightGrey);
+  height: 140rpx;
   border-radius: 42rpx;
-  background: #D9D9D9;
-  box-shadow: 0rpx 8rpx 8rpx 0rpx rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.social-network-txt{
-  top:142rpx;
-  left:44rpx;
-  position:absolute;
-  color: #333;
-  font-family: Inter;
-  font-size: 30rpx;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-}
-.social-network-icon{
-  top:40rpx;
-  left: 66rpx;
-  position:absolute;
-  width: 74rpx;
-  height: 84rpx;
-  flex-shrink: 0;
-}
-.manage-photo-button{
-  top:836rpx;
-  left:48rpx;
-  position: absolute;
-  width: 208rpx;
-  height: 114rpx;
-  flex-shrink: 0;
-  border-radius: 42rpx;
-  background: #D9D9D9;
-  box-shadow: 0px 8rpx 8rpx 0px rgba(0, 0, 0, 0.25);
 
-}
-.manage-photo-txt{
-  top:26rpx;
-  left:116rpx;
-  position:absolute;
-  color: #333;
-  font-family: Inter;
-  font-size: 30rpx;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-}
-.manage-photo-icon{
-  top:26rpx;
-  left:36rpx;
-  position:absolute; 
-  width: 58rpx;
-  height: 64rpx;
-  flex-shrink: 0;
-}
-.manage-label-button{
-  top:990rpx;
-  left:48rpx;
-  position: absolute;
-  width: 208rpx;
-  height: 114rpx;
-  flex-shrink: 0;
+.bottom-container {
+  width: 600rpx;
+  margin-top: 30rpx;
+  padding: 34rpx;
+  height: fit-content;
+  background: var(--lightGrey);
   border-radius: 42rpx;
-  background: #D9D9D9;
-  box-shadow: 0rpx 8rpx 8rpx 0rpx rgba(0, 0, 0, 0.25);
-
 }
-.manage-label-txt{
-  top:26rpx;
-  left:116rpx;
-  position:absolute;
-  color: #333;
-  font-family: Inter;
-  font-size: 30rpx;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
+.bottom-container .tabs {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
+  overflow: hidden;
 }
-.manage-label-icon{
-  top:26rpx;
-  left:36rpx;
-  position:absolute; 
-  width: 48rpx;
-  height: 68rpx;
-  flex-shrink: 0;
+.bottom-container .tab {
+  border-radius: 5px;
+  background: white;
+  padding: 14rpx;
+  width: 26%;
 }
-.photo1{
-  top:580rpx;
-  left:278rpx;
-  position: absolute;
-  width: 378.112rpx;
-  height: 504.678rpx;
-  transform: rotate(-3deg);
-  flex-shrink: 0;
+.bottom-container .active {
+  background: var(--darkGrey);
+  color: white;
+}
+.tab-number {
+  text-align: center;
+  font-size: 42rpx;
+}
+.tab-text {
+  margin-top: -6rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.photos-section {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 408rpx;
+  margin-top: 34rpx;
+}
+.photos-section image {
+  margin: auto;
+  width: 280rpx;
+  height: 390rpx;
   border-radius: 30rpx;
-  background: #D9D9D9;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.photo2{
-  top:603.74rpx;
-  left:308.06rpx;
-  position:absolute;
-  width: 378.112rpx;
-  height: 504.678rpx;
-  transform: rotate(2deg);
-  flex-shrink: 0;
+.locked-photo-slot {
+  background: var(--darkGrey);
+  margin: auto;
+  width: 280rpx;
+  height: 390rpx;
   border-radius: 30rpx;
-  background: #D9D9D9;
-}
-.photo3{
-  top: 603.3rpx;
-  left: 296rpx;
-  position:absolute;
-  width: 380rpx;
-  height: 504rpx;
-  flex-shrink: 0;
-  border-radius: 30rpx;
-  box-shadow: 0rpx 8rpx 8rpx 0rpx rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }

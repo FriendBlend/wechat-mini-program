@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "namecard": "../../components/namecard/namecard"
+  }
 }

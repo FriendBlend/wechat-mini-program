@@ -2,10 +2,7 @@
   <!-- Title -->
   <view class="title">
     <view class="title-blue-rect"></view>
-    <image
-      class="title-green-rect"
-      src="Icons/green-rect.png"
-    ></image>
+    <view class="title-green-rect"></view>
     <image
       class="title-ellipse"
       src="Icons/Ellipse-24.png"
@@ -28,7 +25,7 @@
       class="namecard" 
       bindtap="showNamecard" 
       name="仁喆"
-      avatarUrl="../../images/large-namecard/brady2.JPG">
+      avatarUrl="../../images/large-namecard/brady-avatar.JPG">
     </namecard>
   </view>
   <!-- Initiate and Join -->
@@ -87,7 +84,7 @@
     userName="{{currentUser.name}}" 
     userPictures="{{currentUser.userPictures}}" 
     userSkin="{{currentUser.skin}}"
-    avatarUrl="../../images/large-namecard/brady2.JPG">
+    avatarUrl="../../images/large-namecard/brady-avatar.JPG">
   </large-namecard>
   
 </view>

@@ -25,7 +25,7 @@ Page({
 
     // Date (Next 7 days)
     const now = new Date();
-    const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+    const week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六', '周日'];
     date.push(`今天 ${week[now.getDay()]}`);
     date.push(`明天 ${week[now.getDay()+1]}`);
     for (let i = 2; i < 7; i++) {

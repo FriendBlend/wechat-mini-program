@@ -4,31 +4,31 @@
   <view class="large-namecard">
     <view class="tabs">
       <view id="media" class="tab {{activeTab == 'media' ? 'active' : ''}}" bind:tap="tabClick">
-        <image class="tab-icon" src="../../images/large-namecard/mult-media.png"/>
+        <image class="tab-icon" src="../../images/icons/mult-media.png"/>
       </view>
       <view id="pet" class="tab {{activeTab == 'pet' ? 'active' : ''}}" bind:tap="tabClick">
-        <image class="tab-icon" src="../../images/large-namecard/pet.png"/>
+        <image class="tab-icon" src="../../images/icons/pet.png"/>
       </view>
       <view id="person" class="tab {{activeTab == 'person' ? 'active' : ''}}" bind:tap="tabClick">
-        <image class="tab-icon" src="../../images/large-namecard/person.png"/>
+        <image class="tab-icon" src="../../images/icons/person.png"/>
       </view>
     </view>
     <view class="large-namecard-content" style="background-color: {{userSkin}};">
-      <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
+      <image class="close-btn" bindtap="hideNamecard" src="../../images/icons/close-button.png"/>
       <namecard class="namecard" hasShadow="{{false}}" name="{{userName}}" avatarUrl="{{avatarUrl}}"></namecard>
       <!-- buttons -->
       <view class="button-more">
-        <image class="more-icon" src="../../images/large-namecard/more.png"/>
+        <image class="more-icon" src="../../images/icons/more.png"/>
       </view>
       <view wx:if="{{activeTab == 'pet'}}" class="greet-button">
-        <image class="button-icon" src="../../images/large-namecard/greet.png"/>
+        <image class="button-icon" src="../../images/icons/greet.svg"/>
       </view>
       <view wx:else class="action-buttons">
         <view class="action-button">
-          <image class="button-icon" src="../../images/large-namecard/edit.png"/>
+          <image class="button-icon" src="../../images/icons/edit.png"/>
         </view>
         <view class="action-button">
-          <image class="button-icon" src="../../images/large-namecard/share.png"/>
+          <image class="button-icon" src="../../images/icons/share.png"/>
         </view>
       </view>
       <!-- person swiper -->

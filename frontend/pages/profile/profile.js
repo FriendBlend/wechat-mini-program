@@ -5,7 +5,21 @@ Page({
    * Page initial data
    */
   data: {
-
+    activeTab: "friends",
+    photos: 
+    [
+      "../../images/large-namecard/brady.png",
+      "../../images/large-namecard/brady2.jpeg",
+      "../../images/large-namecard/brady3.jpeg"
+    ],
+    friends:
+    [
+      "", ""
+    ],
+    events:
+    [
+      "", "", "", "", "", ""
+    ]
   },
 
   /**
@@ -63,6 +77,13 @@ Page({
   onShareAppMessage() {
 
   },
+  
+  tabClick(e) {
+    this.setData({
+      activeTab: e.currentTarget.id
+    });
+  },
+
   toEdit() {
     wx.navigateTo({
       url: '../namecard-edit/namecard-edit',
