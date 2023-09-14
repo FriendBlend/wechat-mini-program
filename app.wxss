@@ -1,6 +1,13 @@
 /**app.wxss**/
 @import "./frontend/fonts/abeezee/abeezee.wxss";
 
+page {
+  --lightGrey: #D9D9D9;
+  --darkGrey: #979797;
+  --black: #333333;
+  --green: #23F788;
+}
+
 .container {
   height: 100%;
   display: flex;

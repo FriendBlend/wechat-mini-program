@@ -3,7 +3,7 @@
   height: 916rpx;
   position: absolute;
   top: 300rpx;
-  background: #d9d9d9;
+  background: var(--lightGrey);
   border-radius: 42rpx;
 }
 /* title */

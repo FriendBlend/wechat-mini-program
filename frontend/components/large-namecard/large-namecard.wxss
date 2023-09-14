@@ -58,7 +58,7 @@
   height: 54rpx;
 }
 .tabs .active {
-  background: #d9d9d9;
+  background: var(--lightGrey);
 }
 
 /* namecard */
@@ -176,7 +176,7 @@
 .wx-swiper-dot {
   width: 30% !important;
   border-radius: 100px !important;
-  background-color: #979797 !important;
+  background-color: var(--darkGrey) !important;
   height: 3.156px !important;
 }
 .swiper .wx-swiper-dot-active {

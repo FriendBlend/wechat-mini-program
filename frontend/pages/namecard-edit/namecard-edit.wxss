@@ -6,7 +6,7 @@
   width: 208rpx;
   height: 114rpx;
   border-radius: 42rpx;
-  background: #D9D9D9;
+  background: var(--lightGrey);
   box-shadow: 0rpx 8rpx 8rpx 8rpx rgba(0, 0, 0, 0.25);
 }
 .edit-namecard-txt{
@@ -36,7 +36,7 @@
   height: 252rpx;
   flex-shrink: 0;
   border-radius: 42rpx;
-  background: #979797;
+  background: var(--darkGrey);
   box-shadow: 0rpx 8rpx 8rpx 0rpx rgba(0, 0, 0, 0.25);
 }
 .avatar{
@@ -65,7 +65,7 @@
   height: 112rpx;
   flex-shrink: 0;
   border-radius: 30rpx;
-  background: #979797;
+  background: var(--darkGrey);
   box-shadow: 0rpx 8rpx 8rpx 0px rgba(0, 0, 0, 0.25);
 }
 .name-edit{
@@ -84,7 +84,7 @@
   width: 292rpx;
   height: 112rpx;
   flex-shrink: 0;
-  background: #D9D9D9;
+  background: var(--lightGrey);
   filter: drop-shadow(0px 8rpx 8rpx rgba(0, 0, 0, 0.25));
   border-radius: 30rpx;
 }
@@ -124,7 +124,7 @@
   height: 38px;
   flex-shrink: 0;
   border-radius: 26rpx;
-  background: #979797;
+  background: var(--darkGrey);
 }
 .decorate2{
   top:36rpx;
@@ -143,7 +143,7 @@
   height: 446rpx;
   flex-shrink: 0;
   border-radius: 42rpx;
-  background: #D9D9D9;
+  background: var(--lightGrey);
   box-shadow: 0rpx 8rpx 8rpx 0rpx rgba(0, 0, 0, 0.25);
 }
 .slot1{
@@ -154,7 +154,7 @@
   height: 148rpx;
   flex-shrink: 0;
   border-radius: 42rpx;
-  background: #979797;
+  background: var(--darkGrey);
   box-shadow: 0rpx 8rpx 8rpx 0rpx rgba(0, 0, 0, 0.25);
 }
 .circle1{
@@ -165,7 +165,7 @@
   height: 72rpx;
   flex-shrink: 0;
   border-radius: 42rpx;
-  background: #D9D9D9;
+  background: var(--lightGrey);
 }
 .red-flag{
   top:0rpx;
@@ -194,7 +194,7 @@
   height: 72rpx;
   flex-shrink: 0;
   border-radius: 42rpx;
-  background: #D9D9D9;
+  background: var(--lightGrey);
 }
 .lock1{
   top: 26rpx;
@@ -223,7 +223,7 @@
   height: 72rpx;
   flex-shrink: 0;
   border-radius: 42rpx;
-  background: #D9D9D9;
+  background: var(--lightGrey);
 }
 .lock2{
   top: 26rpx;
@@ -252,7 +252,7 @@
   height: 72rpx;
   flex-shrink: 0;
   border-radius: 42rpx;
-  background: #D9D9D9;
+  background: var(--lightGrey);
 }
 .lock3{
   top: 26rpx;
@@ -271,7 +271,7 @@
   height: 114rpx;
   flex-shrink: 0;
   border-radius: 42rpx;
-  background: #D9D9D9;
+  background: var(--lightGrey);
   box-shadow: 0rpx 8rpx 8rpx 0rpx rgba(0, 0, 0, 0.25);
 }
 .preview-icon{
@@ -302,7 +302,7 @@
   height: 114rpx;
   flex-shrink: 0;
   border-radius: 42rpx;
-  background: #D9D9D9;
+  background: var(--lightGrey);
   box-shadow: 0rpx 8rpx 8rpx 0rpx rgba(0, 0, 0, 0.25);
 }
 .save-icon{

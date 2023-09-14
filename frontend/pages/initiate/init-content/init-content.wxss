@@ -1,6 +1,6 @@
 .main-frame{
   border-radius: 21px;
-  background: #D9D9D9; 
+  background: var(--lightGrey); 
   width: 620rpx;
   height: 1000rpx;
   position: absolute;
@@ -15,7 +15,7 @@
 }
 
 .main-frame .selected {
-  background-color: #6CE89E;
+  background-color: var(--green);
 }
 
 .table-game-view{
