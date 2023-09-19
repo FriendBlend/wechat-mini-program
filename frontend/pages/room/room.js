@@ -35,7 +35,7 @@ Page({
         id: 1,
         name: "Brady",
         status: "ready",
-        avatar: "../../images/namecard/empty-avatar.png",
+        avatar: "../../images/large-namecard/brady2.jpeg",
         skin: "#10AEFF",
         userImage1: '../../images/large-namecard/brady.png',
         userImage2: '../../images/large-namecard/brady.png',

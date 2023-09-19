@@ -9,21 +9,16 @@
   background: rgba(217, 217, 217, 0.50);
   border-radius: 42rpx;
 }
-.namecard-row {
-  padding: 0 40rpx;
+.top-container--namecard-row {
   display: flex;
   align-items: center;
-  height: 288rpx;
-  background: coral;
+  height: 290rpx;
 }
-.namecard-placeholder {
-  width: 500rpx;
-  background: cadetblue;
+.top-container--namecard-placeholder {
+  width: 518rpx;
 }
-.namecard {
-  position: relative;
-  margin-left: 65rpx;
-  scale: 180%;
+.top-container--namecard {
+  transform: translateX(25%) scale(150%);
 }
 .option-buttons {
   float: right;

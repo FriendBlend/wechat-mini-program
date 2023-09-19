@@ -16,11 +16,11 @@ Component({
     },
     avatarUrl: {
       type: String,
-      value: "../../images/event-avatars/default.png"
+      value: "../../images/namecard/empty-avatar.png"
     },
     skin: {
       type: String,
-      value: "var(--darkGrey)"
+      value: "#979797"
     },
     status: {
       type: String,
@@ -29,6 +29,18 @@ Component({
     hasShadow: {
       type: Boolean,
       value: true
+    },
+    width: {
+      type: String,
+      value: "161.8px"
+    },
+    height: {
+      type: String,
+      value: "100px"
+    },
+    fontSize: {
+      type: String,
+      value: "13px"
     }
   },
 

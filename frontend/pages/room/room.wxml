@@ -35,45 +35,55 @@
       <view class="name-card-row" wx:if="{{seatIndex % 2 === 0}}">
         <!-- The first name card in the row -->
         <!-- Display the name card if the seat is occupied -->
-        <namecard
-          wx:if="{{seat.occupied}}" capture-bind:tap="showDropdown" data-seat-index="{{seatIndex}}" data-occupied="{{true}}" data-user="{{users[seat.user_id - 1]}}"
-          name="{{users[seat.user_id - 1].name}}"
-          skin="{{users[seat.user_id - 1].skin}}"
-          avatarUrl="{{users[seat.user_id - 1].avatar}}" >
-          <!-- dropdown -->
-          <view wx:if="{{seats[seatIndex].dropdown}}" class="dropdown-menu">
-            <view class="dropdown-item" bindtap="showNamecard">名片</view>
-            <view wx:if="{{selfStatus == 'participant'}}"  class="dropdown-item">加好友</view>
-            <view wx:if="{{selfStatus == 'owner'}}" class="dropdown-item" bindtap="deleteUser">踢出</view>
-          </view>
-        </namecard>
-        <view class="name-card empty-name-card" wx:else bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex}}">
+        <view class="namecard" wx:if="{{seat.occupied}}"
+          capture-bind:tap="showDropdown" 
+          data-seat-index="{{seatIndex}}" 
+          data-occupied="{{true}}" 
+          data-user="{{users[seat.user_id - 1]}}" >
+          <namecard
+            name="{{users[seat.user_id - 1].name}}"
+            skin="{{users[seat.user_id - 1].skin}}"
+            avatarUrl="{{users[seat.user_id - 1].avatar}}" >
+            <!-- dropdown -->
+            <view wx:if="{{seats[seatIndex].dropdown}}" class="dropdown-menu">
+              <view class="dropdown-item" bindtap="showNamecard">名片</view>
+              <view wx:if="{{selfStatus == 'participant'}}"  class="dropdown-item">加好友</view>
+              <view wx:if="{{selfStatus == 'owner'}}" class="dropdown-item" bindtap="deleteUser">踢出</view>
+            </view>
+          </namecard>
+        </view>
+        <view class="empty-name-card" wx:else bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex}}">
           <!-- Display the empty seat image if the seat is not occupied -->
           <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
         </view>
         <!-- Check if there's a second seat in this row -->
         <view wx:if="{{seatIndex + 1 < seats.length}}">
           <!-- Second seat in the row -->
-          <namecard
-            wx:if="{{seats[seatIndex + 1].occupied}}" capture-bind:tap="showDropdown" data-seat-index="{{seatIndex + 1}}" data-occupied="{{true}}" data-user="{{users[seats[seatIndex + 1].user_id - 1]}}"
-            status="{{users[seats[seatIndex + 1].user_id - 1].status}}"
-            name="{{users[seats[seatIndex + 1].user_id - 1].name}}"
-            skin="{{users[seats[seatIndex + 1].user_id - 1].skin}}"
-            avatarUrl="{{users[seats[seatIndex + 1].user_id - 1].avatar}}" >
-            <!-- dropdown -->
-            <view wx:if="{{seats[seatIndex + 1].dropdown}}" class="dropdown-menu">
-              <view class="dropdown-item" bindtap="showNamecard">名片</view>
-              <view wx:if="{{selfStatus == 'participant'}}"  class="dropdown-item">加好友</view>
-              <view wx:if="{{selfStatus == 'owner'}}" class="dropdown-item" bindtap="deleteUser">踢出</view>
-            </view>
-          </namecard>
-          <view wx:else class="name-card empty-name-card" bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex + 1}}">
+          <view class="namecard" wx:if="{{seats[seatIndex + 1].occupied}}" 
+          capture-bind:tap="showDropdown" 
+          data-seat-index="{{seatIndex + 1}}" 
+          data-occupied="{{true}}" 
+          data-user="{{users[seats[seatIndex + 1].user_id - 1]}}" >
+            <namecard
+              status="{{users[seats[seatIndex + 1].user_id - 1].status}}"
+              name="{{users[seats[seatIndex + 1].user_id - 1].name}}"
+              skin="{{users[seats[seatIndex + 1].user_id - 1].skin}}"
+              avatarUrl="{{users[seats[seatIndex + 1].user_id - 1].avatar}}" >
+              <!-- dropdown -->
+              <view wx:if="{{seats[seatIndex + 1].dropdown}}" class="dropdown-menu">
+                <view class="dropdown-item" bindtap="showNamecard">名片</view>
+                <view wx:if="{{selfStatus == 'participant'}}"  class="dropdown-item">加好友</view>
+                <view wx:if="{{selfStatus == 'owner'}}" class="dropdown-item" bindtap="deleteUser">踢出</view>
+              </view>
+            </namecard>
+          </view>
+          <view wx:else class="empty-name-card" bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex + 1}}">
             <!-- Display the empty seat image if the seat is not occupied -->
             <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
           </view>
         </view>
         <!-- if there's no second seat -->
-        <view wx:else class="namecard-placeholder"></view>
+        <view wx:else class="namecard-holder"></view>
       </view>
     </block>
   </scroll-view>

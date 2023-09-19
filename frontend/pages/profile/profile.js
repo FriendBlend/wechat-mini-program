@@ -6,6 +6,7 @@ Page({
    */
   data: {
     activeTab: "friends",
+    skin: "#979797",
     photos: 
     [
       "../../images/large-namecard/brady.png",

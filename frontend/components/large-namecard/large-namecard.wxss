@@ -65,7 +65,7 @@
 .namecard {
   position: absolute;
   top: -90rpx;
-  left: 326rpx;
+  left: 26rpx;
   scale: 94%;
   z-index: 999;
 }

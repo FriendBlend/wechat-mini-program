@@ -1,37 +1,37 @@
-.namecard {
+.namecard-component {
   width: 130px;
   height: 80px;
   border-radius: 21px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  position: absolute;
+}
+.namecard-placeholder {
+  position: relative;
+  border-radius: 21px;
   display: flex;
-  justify-content: space-evenly;
 }
 .namecard:active {
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25) inset;
 }
 .avatar {
-  width: 39px;
-  height: 39px;
+  width: 47px;
+  height: 47px;
   border-radius: 50%;
-  margin-top: 12px;
-  margin-bottom: 3px;
+  margin-top: 13px;
 }
 .name {
   font-family: ABeeZee;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  margin-top: 4px;
 }
 .left-side {
-  width: 50%;
+  padding-top: 3%;
+  width: 56.6%;
   display: flex;
   flex-direction: column;
   align-items: center;
   vertical-align: center;
 }
 .right-side {
-  width: 50%;
+  width: 43.4%;
   display: flex;
   align-items: center;
 }

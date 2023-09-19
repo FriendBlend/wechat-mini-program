@@ -1,8 +1,12 @@
 <view class="container">
   <view class="top-container">
-    <view class="namecard-row">
-      <view class="namecard-placeholder">
-        <namecard external-class="namecard"></namecard>
+    <view class="top-container--namecard-row">
+      <view class="top-container--namecard-placeholder">
+        <view class="top-container--namecard">
+          <namecard 
+            skin="{{skin}}"
+          ></namecard>
+        </view>
       </view>
       <view class="option-buttons">
         <view class="option-button">

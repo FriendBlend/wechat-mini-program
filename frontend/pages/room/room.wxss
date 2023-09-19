@@ -707,16 +707,12 @@
   width: 100%;
   padding-bottom: 17px;
 }
-.name-card {
+.empty-name-card {
+  position: relative;
+  top: 15rpx;
   width: 130px;
   height: 80px;
   border-radius: 21px;
-  background: var(--lightGrey);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: space-evenly;
-}
-.empty-name-card {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 .avatar {
@@ -749,14 +745,6 @@
 .status-icon {
   width: 45px;
   height: 45px;
-}
-.empty-seat {
-  width: 130px;
-  height: 80px;
-}
-.namecard-placeholder {
-  width: 130px;
-  height: 80px;
 }
 /* For actions section */
 .left-half, .right-half {
@@ -941,4 +929,17 @@
   display: inline-block;
   font-size: 10px;
   white-space: nowrap; /* 确保按钮文本不会换行 */
+}
+
+/* namecard */
+.namecard {
+  scale: 80%;
+  width: 130px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+}
+.namecard-holder {
+  width: 130px;
+  height: 80px;
 }
