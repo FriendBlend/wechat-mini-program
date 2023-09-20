@@ -68,7 +68,13 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    console.log(this.data.commonEvents.length);
+    const tab = options.initTab;
+    if (tab) {
+      var that = this;
+      that.setData({
+        activeTab: tab
+      });
+    }
   },
 
   /**
