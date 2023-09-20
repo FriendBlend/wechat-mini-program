@@ -6,6 +6,7 @@ Page({
    */
   data: {
     activeTab: "friends",
+    activeEventsTab: "future",
     skin: "#979797",
     photos: 
     [
@@ -13,13 +14,53 @@ Page({
       "../../images/large-namecard/brady2.jpeg",
       "../../images/large-namecard/brady3.jpeg"
     ],
-    friends:
+    commonFriends:
     [
-      "", ""
+      { uid: 0, name: "Brady" }, 
+      { uid: 1, name: "Bradyy" }, 
+      { uid: 2, name: "Bradyyy" }
     ],
-    events:
+    filteredCommonFriends: 
     [
-      "", "", "", "", "", ""
+      { uid: 0, name: "Brady" }, 
+      { uid: 1, name: "Bradyy" }, 
+      { uid: 2, name: "Bradyyy" }
+    ],
+    friends: 
+    [
+      { uid: 0, name: "Brady" }, 
+      { uid: 1, name: "Bradyy" }, 
+      { uid: 2, name: "Bradyyy" },
+      { uid: 3, name: "Mike" }, 
+      { uid: 4, name: "Zhiyi" }, 
+      { uid: 5, name: "QiJie" }, 
+      { uid: 6, name: "Yurui" }, 
+      { uid: 7, name: "Rex Zhan" }, 
+      { uid: 8, name: "iii" }
+    ],
+    filteredFriends: 
+    [
+      { uid: 0, name: "Brady" }, 
+      { uid: 1, name: "Bradyy" }, 
+      { uid: 2, name: "Bradyyy" },
+      { uid: 3, name: "Mike" }, 
+      { uid: 4, name: "Zhiyi" }, 
+      { uid: 5, name: "QiJie" }, 
+      { uid: 6, name: "Yurui" }, 
+      { uid: 7, name: "Rex Zhan" }, 
+      { uid: 8, name: "iii" }
+    ],
+    futureEvents:
+    [
+      {}, {}, {}, {}
+    ],
+    historyEvents:
+    [
+      {}, {}, {}, {}, {}, {}
+    ],
+    commonEvents:
+    [
+      {eid: 0}, {eid: 1}, {eid: 2}
     ]
   },
 
@@ -27,7 +68,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-
+    console.log(this.data.commonEvents.length);
   },
 
   /**
@@ -84,15 +125,23 @@ Page({
       activeTab: e.currentTarget.id
     });
   },
-
-  toEdit() {
-    wx.navigateTo({
-      url: '../namecard-edit/namecard-edit',
+  eventsTabClick(e) {
+    this.setData({
+      activeEventsTab: e.currentTarget.id
     })
   },
-  toPhoto() {
-    wx.navigateTo({
-      url: '../photo-edit/photo-edit',
-    })
+
+  onSearchInput: function(event) {
+    const searchQuery = event.detail.value.toLowerCase();
+    const filteredF = this.data.friends.filter(f => {
+      return f.name.toLowerCase().includes(searchQuery);
+    });
+    const filteredCF = this.data.commonFriends.filter(cf => {
+      return cf.name.toLowerCase().includes(searchQuery);
+    });
+    this.setData({
+      filteredFriends: filteredF,
+      filteredCommonFriends: filteredCF
+    });
   }
 })

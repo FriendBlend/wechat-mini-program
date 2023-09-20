@@ -1,4 +1,4 @@
-.container {
+.progress-ticket-component {
   position: absolute;
   left: 66rpx;
   top: 10rpx;
