@@ -84,10 +84,22 @@ Page({
     })
   },
 
+  skip(event) {
+    // TODO: implement skip logic here
+    if (this.data.partyName == "") {
+      this.setData({
+        partyName: "[用户]的紧急派对"
+      });
+    }
+    wx.redirectTo({
+      url: '../../room/room'
+    });
+  },
+
   toRoom: function(e) {
     if (this.data.partyName == "") {
       this.setData({
-        partyName: "MIKE的紧急派对"
+        partyName: "[用户]的紧急派对"
       });
     }
     this.complete(e);

@@ -1,29 +1,41 @@
 <view class="container">
   <progress-ticket></progress-ticket>
   <view class="main-frame">
-    <span class="content-txt">活动内容</span>
-    <image class="content-icon" src="icons/content-icon.png"/>
-    <view class="table-game-view white-button {{selectedEvent=='table-game' ? 'selected' : ''}}" bindtap="onSelection" id="table-game">
-      <image class="icon" src="../../../images/event-avatars/table-game.png"/>
+    <!--name input-->
+    <view class="name-input">
+      <button style="float: right; width: 40%;" bind:tap="skip">跳过</button>
+      <span class="name-txt">名称</span>
+      <image
+          class="name-card-icon"
+          src="Icons/name-card-icon.png"
+      ></image>
+      <input class="name-input-box" type="text" placeholder="xyr的生日派对…" bindinput="getNameInput" />
     </view>
-    <view class="alcohol-view white-button {{selectedEvent=='alcohol' ? 'selected' : ''}}" bindtap="onSelection" id="alcohol">
-      <image class="icon" src="../../../images/event-avatars/alcohol.png"/>
-    </view>
-    <view class="cuisine-view white-button {{selectedEvent=='cuisine' ? 'selected' : ''}}"  bindtap="onSelection" id="cuisine">
-      <image class="icon" src="../../../images/event-avatars/cuisine.png"/>
-    </view>
-    <view class="balloon-view white-button {{selectedEvent=='balloon' ? 'selected' : ''}}" bindtap="onSelection" id="balloon">
-      <image class="icon" src="../../../images/event-avatars/balloon.png"/>
-    </view>
-    <view class="sports-view white-button {{selectedEvent=='sports' ? 'selected' : ''}}" bindtap="onSelection" id="sports">
-      <image class="icon" src="../../../images/event-avatars/sports.png"/>
-    </view>
-    <view class="opera-view white-button {{selectedEvent=='opera' ? 'selected' : ''}}" bindtap="onSelection" id="opera">
-      <image class="icon" src="../../../images/event-avatars/opera.png"/>
-    </view>
-    <view class="next-step" bindtap="toLocation">
-      <image class="arrow-icon" src="icons/arrow.png"/>
-      <span class="next-step-txt">下一步</span>
+    <view class="activity-content">
+      <span class="content-txt">活动内容</span>
+      <image class="content-icon" src="icons/content-icon.png"/>
+      <view class="table-game-view white-button {{selectedEvent=='table-game' ? 'selected' : ''}}" bindtap="onSelection" id="table-game">
+        <image class="icon" src="../../../images/event-avatars/table-game.png"/>
+      </view>
+      <view class="alcohol-view white-button {{selectedEvent=='alcohol' ? 'selected' : ''}}" bindtap="onSelection" id="alcohol">
+        <image class="icon" src="../../../images/event-avatars/alcohol.png"/>
+      </view>
+      <view class="cuisine-view white-button {{selectedEvent=='cuisine' ? 'selected' : ''}}"  bindtap="onSelection" id="cuisine">
+        <image class="icon" src="../../../images/event-avatars/cuisine.png"/>
+      </view>
+      <view class="balloon-view white-button {{selectedEvent=='balloon' ? 'selected' : ''}}" bindtap="onSelection" id="balloon">
+        <image class="icon" src="../../../images/event-avatars/balloon.png"/>
+      </view>
+      <view class="sports-view white-button {{selectedEvent=='sports' ? 'selected' : ''}}" bindtap="onSelection" id="sports">
+        <image class="icon" src="../../../images/event-avatars/sports.png"/>
+      </view>
+      <view class="opera-view white-button {{selectedEvent=='opera' ? 'selected' : ''}}" bindtap="onSelection" id="opera">
+        <image class="icon" src="../../../images/event-avatars/opera.png"/>
+      </view>
+      <view class="next-step" bindtap="toLocation">
+        <image class="arrow-icon" src="icons/arrow.png"/>
+        <span class="next-step-txt">下一步</span>
+      </view>
     </view>
   </view>
 </view>

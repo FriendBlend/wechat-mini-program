@@ -67,6 +67,13 @@ Page({
     console.log(this.data.partyContent)
   },
 
+  skip(event) {
+    // TODO: implement skip logic here
+    wx.navigateTo({
+      url: '../init-time/init-time'
+    });
+  },
+
   // 当用户点击“下一步”时触发的事件
   toTime: function() {
     // 保存用户选择的地址和坐标到本地存储

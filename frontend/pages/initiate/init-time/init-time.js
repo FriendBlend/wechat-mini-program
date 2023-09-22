@@ -160,6 +160,13 @@ Page({
 
   },
 
+  skip(event) {
+    // TODO: implement skip logic here
+    wx.redirectTo({
+      url: '../init-else/init-else'
+    });
+  },
+
   // 当用户点击“下一步”时触发的事件
   toElse: function() {
     // 保存用户选择的时间到本地存储

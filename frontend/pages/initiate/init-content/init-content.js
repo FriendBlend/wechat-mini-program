@@ -71,17 +71,24 @@ Page({
     console.log('selected: ' + this.data.selectedEvent);
   },
 
+  skip(event) {
+    // TODO: implement skip logic here
+    wx.navigateTo({
+      url: '../init-location/init-location'
+    });
+  },
+
   toLocation:function() {
     if (this.data.selectedEvent == null) {
       wx.showToast({
         title: '请选择一个活动内容',
         icon: 'error'
-      })
+      });
       return;
     }
     wx.setStorageSync('partyContent', this.data.selectedEvent);
     wx.navigateTo({
       url: '../init-location/init-location'
-    })
+    });
   }, 
 })

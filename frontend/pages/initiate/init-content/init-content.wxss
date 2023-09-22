@@ -7,6 +7,58 @@
   top: 300rpx;
 }
 
+.activity-content {
+  position: absolute;
+  top: 110px;
+}
+
+.name-input{
+  position: absolute;
+  width: 628rpx;
+  height: 260rpx;
+  flex-shrink: 0;
+  border-radius: 21px;
+}
+.name-input-box{
+  top: 136rpx;
+  left: 75rpx;
+  right: 75rpx;
+  position: absolute;
+  width: auto;
+  height: 96rpx;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  padding-left: 28rpx;
+}
+.name-txt{
+  top: 34rpx;
+  left: 92rpx;
+  position: absolute;
+  display: flex;
+  width: 121px;
+  height: 33px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 108%; /* 23.76px */
+  letter-spacing: -0.22px;
+}
+.name-card-icon{
+  top: 14rpx;
+  left: 6rpx;
+  position: absolute;
+  width: 90rpx;
+  height: 90rpx;
+  flex-shrink: 0;
+}
+
 .icon{
   margin-top: 20%;
   margin-left: 17%;

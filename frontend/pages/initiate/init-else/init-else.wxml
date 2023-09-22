@@ -1,16 +1,8 @@
 <view class="container">
   <progress-ticket avatar="{{partyContent}}" location="{{partyLocation}}" time="{{partyTime}}"></progress-ticket>
-  <!--name input-->
-  <view class="name-input">
-    <span class="name-txt">名称</span>
-    <image
-        class="name-card-icon"
-        src="Icons/name-card-icon.png"
-    ></image>
-  <input class="name-input-box" type="text" placeholder="xyr的生日派对…" bindinput="getNameInput" />
-  </view>
   <!--population-->
   <view class="population">
+    <button style="float: right; width: 40%;" bind:tap="skip">跳过</button>
     <span class="population-txt">人数</span>
     <image
         class="peoplenum-icon"
