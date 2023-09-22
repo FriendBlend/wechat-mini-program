@@ -4,7 +4,9 @@
       <view class="top-container--namecard-placeholder">
         <view class="top-container--namecard">
           <namecard 
-            skin="{{skin}}"
+            name="{{currentUser.name}}"
+            skin="{{currentUser.skin}}"
+            avatarUrl="{{currentUser.avatar}}"
           ></namecard>
         </view>
       </view>
@@ -21,7 +23,11 @@
       </view>
     </view>
     <swiper vertical="{{true}}" indicator-dots="{{true}}" indicator-active-color="white">
-      <swiper-item></swiper-item>
+      <swiper-item class="tags-container">
+        <block wx:for="{{tags}}">
+          <view class="tag-block">{{item}}</view>
+        </block>
+      </swiper-item>
       <swiper-item></swiper-item>
     </swiper>
   </view>
@@ -29,7 +35,7 @@
   <view class="bottom-container">
     <view class="tabs">
       <view class="tab {{activeTab == 'photos' ? 'active' : ''}}" id="photos" bind:tap="tabClick">
-        <view class="tab-number">{{photos.length}}</view>
+        <view class="tab-number">{{currentUser.photos.length}}</view>
         <view class="tab-text">相片</view>
       </view>
       <view class="tab {{activeTab == 'friends' ? 'active' : ''}}" id="friends" bind:tap="tabClick">
@@ -42,9 +48,9 @@
       </view>
     </view>
     <view class="photos-section" wx:if="{{activeTab == 'photos'}}">
-      <image src="../../images/large-namecard/brady.png" mode="aspectFill"/>
-      <image src="../../images/large-namecard/brady2.jpeg" mode="aspectFill"/>
-      <image src="../../images/large-namecard/brady3.jpeg" mode="aspectFill"/>
+      <image src="{{currentUser.photos[0]}}" mode="aspectFill"/>
+      <image src="{{currentUser.photos[1]}}" mode="aspectFill"/>
+      <image src="{{currentUser.photos[2]}}" mode="aspectFill"/>
       <view class="locked-photo-slot"></view>
     </view>
     <view class="friends-section" wx:if="{{activeTab == 'friends'}}">

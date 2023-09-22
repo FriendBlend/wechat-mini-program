@@ -7,13 +7,16 @@ Page({
   data: {
     activeTab: "friends",
     activeEventsTab: "future",
-    skin: "#979797",
-    photos: 
-    [
-      "../../images/large-namecard/brady.png",
-      "../../images/large-namecard/brady2.jpeg",
-      "../../images/large-namecard/brady3.jpeg"
-    ],
+    currentUser: {
+      name: '仁喆',
+      skin: '#979797',
+      avatar: "/frontend/images/large-namecard/brady-avatar.JPG",
+      photos: [
+        '../../images/large-namecard/brady.png',
+        '../../images/large-namecard/brady2.jpeg',
+        '../../images/large-namecard/brady3.jpeg'
+      ]
+    },
     commonFriends:
     [
       { uid: 0, name: "Brady" }, 
@@ -61,7 +64,8 @@ Page({
     commonEvents:
     [
       {eid: 0}, {eid: 1}, {eid: 2}
-    ]
+    ],
+    tags: [ "香港大学'25", "180cm", "猫🐱", "19岁", "QDHS'21" ]
   },
 
   /**
