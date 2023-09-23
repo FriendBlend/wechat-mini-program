@@ -1,5 +1,5 @@
 <view class="container">
-  <progress-ticket avatar="{{partyContent}}" location="{{partyLocation}}" time="{{partyTime}}"></progress-ticket>
+  <progress-ticket name="{{partyName}}" avatar="{{partyContent}}" location="{{partyLocation}}" time="{{partyTime}}"></progress-ticket>
   <!--population-->
   <view class="population">
     <button style="float: right; width: 40%;" bind:tap="skip">跳过</button>
