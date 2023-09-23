@@ -13,21 +13,6 @@
         <br />
       </span>
     </view>
-    <view class="i-phone1-pro2-group9">
-      <image
-        class="i-phone1-pro2-rectangle49"
-        src="icons/tickets/blue-ticket.png"
-      ></image>
-      <image
-        class="event-avatar"
-        src="../../images/event-avatars/meeting.png"
-      ></image>
-      <view class="i-phone1-pro2-text24">
-        <view>{{roomLocation}}</view>
-        <view>{{roomTime}}</view>
-      </view>
-      <span class="i-phone1-pro2-text29">{{roomName}}</span>
-    </view>
   </view>
 
   <scroll-view class="name-card-scroll-view" scroll-y="true">
@@ -128,7 +113,7 @@
   <view class="i-phone1-pro2-group9">
     <image
       class="i-phone1-pro2-rectangle49"
-      src="icons/tickets/blue-ticket.png"
+      src="/frontend/images/tickets/blue-ticket.svg"
     ></image>
     <image
       class="event-avatar"

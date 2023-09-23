@@ -1,5 +1,5 @@
 <view class="progress-ticket-component">
-  <image class="ticket-base" src="../../images/tickets/blue-ticket.png"/>
+  <svg src="/frontend/images/tickets/blue-ticket.svg" color="{{skin}}" height="268rpx" width="620rpx"></svg>
   <image wx:if="{{avatar != 'meeting'}}" class="avatar" src="../../images/event-avatars/{{avatar}}.png" alt="头像" />
   <view wx:else class="avatar-square empty"></view>
   <view wx:if="{{location != null}}" class="location non-empty">{{location}}</view>
