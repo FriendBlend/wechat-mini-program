@@ -1,6 +1,7 @@
 <view class="container">
-  <progress-ticket avatar="{{partyContent}}"></progress-ticket>
+  <progress-ticket name="{{partyName}}" avatar="{{partyContent}}"></progress-ticket>
   <view class="main-content">
+    <button style="float: right; width: 40%;" bind:tap="skip">跳过</button>
     <image src="icons/location-icon.png" class="location-icon"/>
     <text class="location-text">地点</text>
     <view class="search-container">

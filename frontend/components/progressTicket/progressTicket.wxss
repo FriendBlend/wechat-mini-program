@@ -1,18 +1,14 @@
-.container {
+.progress-ticket-component {
   position: absolute;
   left: 66rpx;
   top: 10rpx;
-}
-.ticket-base {
-  height: 268rpx;
-  width: 620rpx;
 }
 .empty {
   background-color: #fff1c1;
 }
 .avatar {
   position: absolute;
-  top: 76rpx;
+  top: 78rpx;
   left: 69rpx;
   width: 110rpx;
   height: 110rpx;
@@ -26,7 +22,7 @@
 }
 .name {
   position: absolute;
-  top: 54rpx;
+  top: 46rpx;
   left: 276rpx;
   width: 276rpx;
   height: 58rpx;
@@ -36,7 +32,7 @@
 }
 .time {
   position: absolute;
-  top: 190rpx;
+  top: 180rpx;
   left: 276rpx;
   width: 228rpx;
   height: 40rpx;
@@ -46,7 +42,7 @@
 }
 .location {
   position: absolute;
-  top: 134rpx;
+  top: 126rpx;
   left: 276rpx;
   width: 146rpx;
   height: 40rpx;

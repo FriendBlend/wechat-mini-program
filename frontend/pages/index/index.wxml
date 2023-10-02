@@ -21,12 +21,15 @@
         src="Icons/contacts.png"
       ></image>
     </view>
-    <namecard 
-      class="namecard" 
-      bindtap="showNamecard" 
-      name="仁喆"
-      avatarUrl="../../images/large-namecard/brady-avatar.JPG">
-    </namecard>
+    <view class="namecard-holder">
+      <namecard 
+        class="namecard" 
+        bindtap="showNamecard" 
+        name="仁喆"
+        avatarUrl="../../images/large-namecard/brady-avatar.JPG"
+        fontSize="15.7px">
+      </namecard>
+    </view>
   </view>
   <!-- Initiate and Join -->
   <view class="initiate-and-join">

@@ -5,16 +5,30 @@ Page({
    * Page initial data
    */
   data: {
-    party_id: '',
     showNamecard: false,
     currentUser: null,
     currentSeatIndex: -1,
     showDropdown: false,
     selfStatus: 'owner',
-    partyType: "default",
-    partyName: "",
-    partyTime: "",
-    partyLocation: "",
+    activeTab: "people",
+    userStatus: "joined",
+    readyNum: 0,
+    joinedNum: 0,
+    completedInfoNum: 0,
+    partyInfo: {
+      partyId: "1234567890",
+      partyType: "桌游",
+      partyTypeEng: "board-game",
+      partyName: "Brady的紧急派对",
+      partyYear: "2023",
+      partyMonth: "8",
+      partyDate: "1",
+      partyWeekDay: "星期二",
+      partyAmPm: "下午",
+      partyTime: "3点",
+      partyLocation: "老地方",
+      partyDescript: "狼人杀局，可转阿瓦隆，不卡颜。欢迎带朋友。无dress code。3狼3民3神。地铁5号口出来。"
+    },
     seats: [
       { occupied: true, user_id: 1, dropdown: false },
       { occupied: false },
@@ -35,7 +49,7 @@ Page({
         id: 1,
         name: "Brady",
         status: "ready",
-        avatar: "../../images/namecard/empty-avatar.png",
+        avatar: "../../images/large-namecard/brady2.jpeg",
         skin: "#10AEFF",
         userImage1: '../../images/large-namecard/brady.png',
         userImage2: '../../images/large-namecard/brady.png',
@@ -167,7 +181,7 @@ Page({
         duration: 2000
       });
       this.setData({
-        party_id: options.partyId,
+        ['partyInfo.partyId']: options.partyId,
       });
       
       // 根据partyId从数据库获取相关的party信息
@@ -274,12 +288,14 @@ Page({
         success: res => {
             if (res.result.success) {
               const partyInfo = res.result.data;
+              var updatedPartyInfo = this.data.partyInfo;
+              updatedPartyInfo.partyType = partyInfo.type;
+              updatedPartyInfo.partyName = partyInfo.party_name;
+              updatedPartyInfo.partyLocation = partyInfo.location;
+              updatedPartyInfo.partyTime = partyInfo.time;
               if (partyInfo != null) {
                 this.setData({
-                  partyType: partyInfo.type,
-                  partyName: partyInfo.party_name,
-                  partyLocation: partyInfo.location,
-                  partyTime: partyInfo.time
+                  partyInfo: updatedPartyInfo
                 });
               }
             } else {
@@ -313,7 +329,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
-
+    this.updatePeopleProgress();
   },
 
   /**
@@ -367,6 +383,32 @@ Page({
     console.log("I quit!");
   },
 
+  updatePeopleProgress() {
+    let numJoined = 0;
+    let numReady = 0;
+    for (let seat of this.data.seats) {
+      if (seat.occupied) {
+        let status = this.data.users[seat.user_id].status;
+        if (["ready","host"].indexOf(status) > -1) {
+          numReady += 1;
+        } else if (status === "joined") {
+          numJoined += 1;
+        }
+      }
+    }
+    this.setData({
+      readyNum: numReady,
+      joinedNum: numJoined
+    });
+  },
+
+  tabClick(e) {
+    console.log(e.currentTarget);
+    this.setData({
+      activeTab: e.currentTarget.id
+    })
+  },
+
   onSeatTap(event) {
     const currentTime = event.timeStamp;
     var lastClickTime = this.data.lastClickTime
@@ -411,6 +453,7 @@ Page({
         // 处理请求失败后的逻辑
       }
     });
+    console.log(seats[seatIndex].user_id);
     if (!seats[seatIndex].occupied) {
       seats[seatIndex].occupied = true;
       seats[seatIndex].user_id = 12;
@@ -429,7 +472,7 @@ Page({
     console.log("Single click detected!");
     console.log(event.currentTarget.dataset)
     if (event.currentTarget.dataset.occupied) {
-      this.showDropdown(event);
+      this.showNamecard(event);
     }
   },
 
@@ -438,37 +481,15 @@ Page({
   },
 
   showNamecard(event) {
-    this.hideDropdown();
     this.setData({
-      showNamecard: true
+      showNamecard: true,
+      currentUser: event.currentTarget.dataset.user
     });
   },
 
   hideNamecard() {
     this.setData({
       showNamecard: false
-    });
-  },
-
-  showDropdown(event) {
-    var index = event.currentTarget.dataset.seatIndex;
-    let newSeats = this.data.seats;
-    newSeats[index].dropdown = true;
-    this.setData({
-      currentUser: event.currentTarget.dataset.user,
-      currentSeatIndex: event.currentTarget.dataset.seatIndex,
-      seats: newSeats,
-      showDropdown: true
-    });
-  },
-  hideDropdown() {
-    let newSeats = this.data.seats;
-    for (let i = 0; i < newSeats.length; i++) {
-      newSeats[i].dropdown = false;
-    }
-    this.setData({
-      seats: newSeats,
-      showDropdown: false
     });
   },
 

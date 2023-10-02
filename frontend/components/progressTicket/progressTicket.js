@@ -19,6 +19,10 @@ Component({
     name: {
       type: String,
       value: null
+    },
+    skin: {
+      type: String,
+      value: "#10AEFF"
     }
   },
 

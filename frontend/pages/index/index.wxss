@@ -127,12 +127,11 @@
   font-stretch: normal;
   text-decoration: none;
 }
-.namecard {
-  scale: 125%;
+.namecard-holder {
   position: absolute;
   top: 26rpx;
   right: 18rpx;
-  color: white;
+  scale: 140%;
 }
 /* large namecard */
 .wx-swiper-dots-horizontal {

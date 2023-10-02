@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "svg": "/frontend/components/svg/svg"
+  }
 }

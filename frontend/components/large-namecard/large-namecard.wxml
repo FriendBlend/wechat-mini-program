@@ -1,21 +1,10 @@
-<view wx:if="{{showNamecard}}" class="container">
+<view wx:if="{{showNamecard}}" class="large-namecard-container">
   <view class="popup-mask" bindtap="hideNamecard"></view>
   
   <view class="large-namecard">
-    <view class="tabs">
-      <view id="media" class="tab {{activeTab == 'media' ? 'active' : ''}}" bind:tap="tabClick">
-        <image class="tab-icon" src="../../images/icons/mult-media.png"/>
-      </view>
-      <view id="pet" class="tab {{activeTab == 'pet' ? 'active' : ''}}" bind:tap="tabClick">
-        <image class="tab-icon" src="../../images/icons/pet.png"/>
-      </view>
-      <view id="person" class="tab {{activeTab == 'person' ? 'active' : ''}}" bind:tap="tabClick">
-        <image class="tab-icon" src="../../images/icons/person.png"/>
-      </view>
-    </view>
-    <view class="large-namecard-content" style="background-color: {{userSkin}};">
-      <image class="close-btn" bindtap="hideNamecard" src="../../images/icons/close-button.png"/>
-      <namecard class="namecard" hasShadow="{{false}}" name="{{userName}}" avatarUrl="{{avatarUrl}}"></namecard>
+    <view class="large-namecard-content" style="background-color: #D9D9D9;">
+      <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
+      <namecard class="namecard" hasShadow="{{false}}" name="{{userName}}" avatarUrl="{{avatarUrl}}" skin="{{userSkin}}"></namecard>
       <!-- buttons -->
       <view class="button-more">
         <image class="more-icon" src="../../images/icons/more.png"/>
@@ -25,14 +14,20 @@
       </view>
       <view wx:else class="action-buttons">
         <view class="action-button">
-          <image class="button-icon" src="../../images/icons/edit.png"/>
+          <view wx:if="{{isCurrentUser}}">
+            <image class="button-icon" src="../../images/icons/edit.png"/>
+          </view>
+          <view wx:else>
+            <image wx:if="{{isFriend}}" class="button-icon" src="../../images/icons/delete.svg" bind:tap="deleteFriend"/>
+            <image wx:else class="button-icon" src="../../images/icons/add.svg" bind:tap="addFriend"/>
+          </view>
         </view>
         <view class="action-button">
           <image class="button-icon" src="../../images/icons/share.png"/>
         </view>
       </view>
       <!-- person swiper -->
-      <view wx:if="{{activeTab == 'person'}}">
+      <view>
         <swiper class="swiper" indicator-dots="{{userPictures.length > 1}}" circular="{{true}}">
           <block wx:for="{{userPictures}}" wx:key="*this">
             <swiper-item>
@@ -42,20 +37,6 @@
         </swiper>
         <view class="name-and-tags">
           <text class="name">{{userName}}</text>
-        </view>
-      </view>
-      <!-- pet swiper -->
-      <view wx:if="{{activeTab == 'pet'}}">
-        <swiper class="swiper" indicator-dots="{{petPictures.length > 1}}" circular="{{true}}">
-          <block wx:for="{{petPictures}}" wx:key="*this">
-            <swiper-item>
-              <image src="{{item}}" class="slide-image" mode="aspectFill"></image>
-            </swiper-item>
-          </block>
-        </swiper>
-        <view class="name-and-tags">
-            <text class="pet-name">{{petName}}\n</text>
-            <text class="pet-remark">{{userName}}的宠物</text>
         </view>
       </view>
     </view>

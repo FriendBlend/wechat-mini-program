@@ -1,7 +1,13 @@
 .container {
-  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
+/* top container */
 .top-container {
   width: 600rpx;
   padding: 34rpx;
@@ -9,21 +15,16 @@
   background: rgba(217, 217, 217, 0.50);
   border-radius: 42rpx;
 }
-.namecard-row {
-  padding: 0 40rpx;
+.top-container--namecard-row {
   display: flex;
   align-items: center;
-  height: 288rpx;
-  background: coral;
+  height: 290rpx;
 }
-.namecard-placeholder {
-  width: 500rpx;
-  background: cadetblue;
+.top-container--namecard-placeholder {
+  width: 518rpx;
 }
-.namecard {
-  position: relative;
-  margin-left: 65rpx;
-  scale: 180%;
+.top-container--namecard {
+  transform: translateX(25%) scale(150%);
 }
 .option-buttons {
   float: right;
@@ -31,6 +32,7 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+  z-index: 1;
 }
 .option-button {
   width: 80rpx;
@@ -38,19 +40,35 @@
   border-radius: 12px;
   background: var(--lightGrey);
 }
-.option-button image {
+.button-icon {
   width: 54rpx;
   height: 54rpx;
   margin: 12rpx;
 }
+
+/* tags */
 .top-container swiper {
   margin-top: 32rpx;
   background: var(--lightGrey);
   height: 140rpx;
+  width: 100%;
   border-radius: 42rpx;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+.tags-container {
+  margin: 10rpx;
+  width: 90% !important;
+}
+.tag-block {
+  display: inline-block;
+  background: var(--darkGrey);
+  line-height: 20px;
+  padding: 4rpx 16rpx;
+  border-radius: 24rpx;
+  margin: 6rpx;
+}
 
+/* bottom cotainer */
 .bottom-container {
   width: 600rpx;
   margin-top: 30rpx;
@@ -84,6 +102,19 @@
   text-align: center;
   font-size: 28rpx;
 }
+.profile-small-title {
+  display: flex;
+  align-items: center;
+  width: 200rpx;
+  justify-content: space-between;
+  margin-top: 28rpx;
+}
+.profile-small-icon {
+  width: 58rpx;
+  height: 58rpx;
+}
+
+/* 相片 */
 .photos-section {
   display: grid;
   width: 100%;
@@ -105,4 +136,78 @@
   height: 390rpx;
   border-radius: 30rpx;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* 朋友 */
+.search-input {
+  margin-top: 38rpx;
+  padding: 20rpx;
+  border-radius: 15px;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  background: white;
+}
+.common-friends-list {
+  margin-top: 10rpx;
+  height: fit-content;
+  white-space: nowrap;
+}
+.common-friends--namecard {
+  display: inline-block;
+  margin-right: 32rpx;
+}
+.friends-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.friends--namecard {
+  margin-bottom: 30rpx;
+  margin-left: -10rpx;
+  scale: 80%;
+  width: 130px;
+  height: 80px;
+}
+
+/* 事件 */
+.common-events-list {
+  margin-top: 28rpx;
+  height: fit-content;
+  white-space: nowrap;
+}
+.common-events-item {
+  display: inline-block;
+  width: 92%;
+  position: relative;
+  height: fit-content;
+}
+.events-tabs {
+  width: auto;
+  display: grid;
+  grid-template-columns: 0.75fr 0.15fr 1fr;
+}
+.events-tab--active {
+  color: white;
+}
+.tab-divider {
+  display: flex;
+  align-items: flex-end;
+  font-size: 20px;
+}
+.events-list {
+  height: 700rpx;
+  margin-top: 28rpx;
+}
+.future-events-list-item {
+  position: relative;
+  height: 240rpx;
+  scale: 80%;
+  margin-left: -70rpx;
+}
+.history-events-list-item {
+  display: flex;
+  justify-content: center;
+  margin: 10rpx 0;
+}
+.used-ticket {
+  height: 230rpx;
+  width: 500rpx;
 }

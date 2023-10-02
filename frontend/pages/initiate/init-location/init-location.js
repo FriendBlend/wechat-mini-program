@@ -5,7 +5,8 @@ Page({
     latitude: 23.099994,
     markers: [],
     searchInput: "",
-    partyContent: ""
+    partyContent: "",
+    partyName: ""
   },
 
   onMapTap: function (event) {
@@ -62,9 +63,17 @@ Page({
 
   onLoad() {
     this.setData({
-      partyContent: wx.getStorageSync('partyContent')
+      partyContent: wx.getStorageSync('partyContent'),
+      partyName: wx.getStorageSync('partyName')
     });
     console.log(this.data.partyContent)
+  },
+
+  skip(event) {
+    // TODO: implement skip logic here
+    wx.navigateTo({
+      url: '../init-time/init-time'
+    });
   },
 
   // 当用户点击“下一步”时触发的事件

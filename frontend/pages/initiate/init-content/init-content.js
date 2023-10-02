@@ -6,6 +6,7 @@ Page({
    */
   data: {
     selectedEvent: null,
+    partyName: ""
   },
 
   /**
@@ -71,17 +72,44 @@ Page({
     console.log('selected: ' + this.data.selectedEvent);
   },
 
+  getNameInput(event) {
+    this.setData({
+      partyName: event.detail.value
+    })
+  },
+
+  skip(event) {
+    // TODO: implement skip logic here
+    if (this.data.partyName == "") {
+      this.setData({
+        partyName: "[用户]的紧急派对"
+      });
+    }
+    wx.setStorageSync('partyContent', this.data.selectedEvent);
+    wx.setStorageSync('partyName', this.data.partyName);
+
+    wx.navigateTo({
+      url: '../init-location/init-location'
+    });
+  },
+
   toLocation:function() {
+    if (this.data.partyName == "") {
+      this.setData({
+        partyName: "[用户]的紧急派对"
+      });
+    }
     if (this.data.selectedEvent == null) {
       wx.showToast({
         title: '请选择一个活动内容',
         icon: 'error'
-      })
+      });
       return;
     }
     wx.setStorageSync('partyContent', this.data.selectedEvent);
+    wx.setStorageSync('partyName', this.data.partyName);
     wx.navigateTo({
       url: '../init-location/init-location'
-    })
+    });
   }, 
 })

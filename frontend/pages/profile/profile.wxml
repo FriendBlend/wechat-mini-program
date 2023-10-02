@@ -1,23 +1,39 @@
 <view class="container">
   <view class="top-container">
-    <view class="namecard-row">
-      <view class="namecard-placeholder">
-        <namecard external-class="namecard"></namecard>
+    <view class="top-container--namecard-row">
+      <view class="top-container--namecard-placeholder">
+        <view class="top-container--namecard">
+          <namecard 
+            name="{{currentUser.name}}"
+            skin="{{currentUser.skin}}"
+            avatarUrl="{{currentUser.avatar}}"
+          ></namecard>
+        </view>
       </view>
       <view class="option-buttons">
         <view class="option-button">
-          <image src="../../images/icons/menu.svg" mode=""/>
+          <image class="button-icon" src="../../images/icons/menu.svg"/>
         </view>
         <view class="option-button">
-          <image src="../../images/icons/add.svg" mode=""/>
+          <view wx:if="{{isCurrentUser}}">
+            <image class="button-icon" src="../../images/icons/edit.png"/>
+          </view>
+          <view wx:else>
+            <image wx:if="{{isFriend}}" class="button-icon" src="../../images/icons/delete.svg" bind:tap="deleteFriend"/>
+            <image wx:else class="button-icon" src="../../images/icons/add.svg" bind:tap="addFriend"/>
+          </view>
         </view>
         <view class="option-button">
-          <image src="../../images/icons/greet.svg" mode=""/>
+          <image class="button-icon" src="../../images/icons/greet.svg"/>
         </view>
       </view>
     </view>
     <swiper vertical="{{true}}" indicator-dots="{{true}}" indicator-active-color="white">
-      <swiper-item></swiper-item>
+      <swiper-item class="tags-container">
+        <block wx:for="{{tags}}">
+          <view class="tag-block">{{item}}</view>
+        </block>
+      </swiper-item>
       <swiper-item></swiper-item>
     </swiper>
   </view>
@@ -25,7 +41,7 @@
   <view class="bottom-container">
     <view class="tabs">
       <view class="tab {{activeTab == 'photos' ? 'active' : ''}}" id="photos" bind:tap="tabClick">
-        <view class="tab-number">{{photos.length}}</view>
+        <view class="tab-number">{{currentUser.photos.length}}</view>
         <view class="tab-text">相片</view>
       </view>
       <view class="tab {{activeTab == 'friends' ? 'active' : ''}}" id="friends" bind:tap="tabClick">
@@ -33,21 +49,95 @@
         <view class="tab-text">朋友</view>
       </view>
       <view class="tab {{activeTab == 'events' ? 'active' : ''}}" id="events" bind:tap="tabClick">
-        <view class="tab-number">{{events.length}}</view>
+        <view class="tab-number">{{futureEvents.length + historyEvents.length}}</view>
         <view class="tab-text">事件</view>
       </view>
     </view>
     <view class="photos-section" wx:if="{{activeTab == 'photos'}}">
-      <image src="../../images/large-namecard/brady.png" mode="aspectFill"/>
-      <image src="../../images/large-namecard/brady2.jpeg" mode="aspectFill"/>
-      <image src="../../images/large-namecard/brady3.jpeg" mode="aspectFill"/>
+      <image src="{{currentUser.photos[0]}}" mode="aspectFill"/>
+      <image src="{{currentUser.photos[1]}}" mode="aspectFill"/>
+      <image src="{{currentUser.photos[2]}}" mode="aspectFill"/>
       <view class="locked-photo-slot"></view>
     </view>
     <view class="friends-section" wx:if="{{activeTab == 'friends'}}">
-      
+      <!-- 搜索框 -->
+      <input class="search-input" bindinput="onSearchInput" placeholder="🔍搜索" />
+      <!-- 共同好友 -->
+      <view class="common-friends">
+        <view class="profile-small-title">
+          <image class="profile-small-icon" src="../../images/icons/common-friends.png"/>
+          <view>共同好友</view>
+        </view>
+        <scroll-view class="common-friends-list" scroll-x="true">
+          <block wx:for="{{ filteredCommonFriends }}" wx:key="uid">
+            <view class="common-friends--namecard">
+              <namecard
+                name="{{item.name}}"
+              ></namecard>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+      <!-- 好友列表 -->
+      <view class="friends"> 
+        <view class="profile-small-title">
+          <image class="profile-small-icon" src="../../images/icons/friends.png"/>
+          <view>Ta的好友</view>
+        </view>
+        <view class="friends-list">
+          <block wx:for="{{filteredFriends}}" wx:key="uid">
+            <view class="friends--namecard">
+              <namecard
+                name="{{item.name}}"
+              ></namecard>
+            </view>
+          </block>
+        </view>
+      </view>
     </view>
+    <!-- 事件页面 -->
     <view class="events-section" wx:if="{{activeTab == 'events'}}">
-      
+      <!-- 共同事件 -->
+      <view class="common-events">
+        <view class="profile-small-title">
+          <image class="profile-small-icon" src="/frontend/images/icons/events-common.svg"/>
+          <view>共同事件</view>
+        </view>
+        <scroll-view class="common-events-list" scroll-x="true">
+          <block wx:for="{{ commonEvents }}" wx:key="eid">
+            <view class="common-events-item">
+              <svg src="/frontend/images/tickets/blue-ticket.svg" color="#10AEFF" width="251px" height="102px"></svg>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+      <!-- 未来/历史事件tabs -->
+      <view class="events-tabs">
+        <view id="future" bind:tap="eventsTabClick" class="profile-small-title events-tab {{activeEventsTab == 'future' ? 'events-tab--active' : ''}}">
+          <svg class="profile-small-icon" src="/frontend/images/icons/events-future.svg" color="{{activeEventsTab == 'future' ? 'white' : '#333333'}}" height="58rpx" width="58rpx"></svg>
+          <view>未来事件</view>
+        </view>
+        <view class="tab-divider">|</view>
+        <view id="history" bind:tap="eventsTabClick" class="profile-small-title events-tab {{activeEventsTab == 'history' ? 'events-tab--active' : ''}}">
+          <svg class="profile-small-icon" src="/frontend/images/icons/events-history.svg" color="{{activeEventsTab == 'history' ? 'white' : '#333333'}}" height="58rpx" width="58rpx"></svg>
+          <view>历史事件</view>
+        </view>
+      </view>
+      <!-- 未来/历史事件列表 -->
+      <scroll-view scroll-y="true" class="events-list" wx:if="{{activeEventsTab == 'future'}}">
+        <block wx:for="{{ futureEvents }}">
+          <view class="future-events-list-item">
+            <event></event>
+          </view>
+        </block>
+      </scroll-view>
+      <scroll-view scroll-y="true" class="events-list" wx:else >
+        <block wx:for="{{ historyEvents }}">
+          <view class="history-events-list-item">
+            <image class="used-ticket" src="/frontend/images/tickets/green-ticket-used.svg"/>
+          </view>
+        </block>
+      </scroll-view>
     </view>
   </view>
 </view>

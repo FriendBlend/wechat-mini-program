@@ -21,10 +21,11 @@ Page({
     // 从存储中检索地点和时间
     const locationData = wx.getStorageSync('partyLocation');
     const timeData = wx.getStorageSync('partyTime');
-
+    
     this.setData({
       partyContent: wx.getStorageSync('partyContent'),
-      partyLocation: wx.getStorageSync('partyLocation').name,
+      partyLocation: locationData.name,
+      partyName: wx.getStorageSync('partyName'),
       partyTime: timeData.full
     });
   },
@@ -78,18 +79,14 @@ Page({
 
   },
 
-  getNameInput(event) {
-    this.setData({
-      partyName: event.detail.value
-    })
+  skip(event) {
+    // TODO: implement skip logic here
+    wx.redirectTo({
+      url: '../../room/room'
+    });
   },
 
   toRoom: function(e) {
-    if (this.data.partyName == "") {
-      this.setData({
-        partyName: "MIKE的紧急派对"
-      });
-    }
     this.complete(e);
     wx.redirectTo({
       url: '../../room/room'
@@ -132,6 +129,8 @@ Page({
     const {
       partyName, population, dollarCount, remarks, partyTime, partyLocation, partyContent
     } = this.data;
+
+    wx.clearStorageSync();
   
     wx.setStorageSync('partyDetails', {
       partyName: partyName,

@@ -6,7 +6,8 @@ Page({
     time: [],
     value: [0, 0, 0],
     partyContent: "",
-    partyLocation: ""
+    partyLocation: "",
+    partyName: ""
   },
 
   /**
@@ -16,7 +17,8 @@ Page({
     // 获取party已有信息
     this.setData({
       partyContent: wx.getStorageSync('partyContent'),
-      partyLocation: wx.getStorageSync('partyLocation').name
+      partyLocation: wx.getStorageSync('partyLocation').name,
+      partyName: wx.getStorageSync('partyName')
     })
     // Initialize date and time
     const date = [];
@@ -158,6 +160,13 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  skip(event) {
+    // TODO: implement skip logic here
+    wx.redirectTo({
+      url: '../init-else/init-else'
+    });
   },
 
   // 当用户点击“下一步”时触发的事件

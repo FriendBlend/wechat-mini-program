@@ -1,147 +1,176 @@
 <view class="container">
-  <view class="dropdown-mask" wx:if="{{showDropdown}}" bindtap="hideDropdown"></view>
-  <view class="top-section">
-    <view class="emerg-exit grey-button" bindtap="toIndex" style="width: 134.31px;">
-      <image
-        class="exit-sign"
-        src="icons/solar_exit-line-duotone.png"
-      ></image>
-      <span class="emerg-exit-text">
-        <text class="emerg-exit-cn-text">紧急出口</text>
-        <br />
-        <text class="emerg-exit-en-text">EMERG EXIT</text>
-        <br />
-      </span>
-    </view>
-    <view class="i-phone1-pro2-group9">
-      <image
-        class="i-phone1-pro2-rectangle49"
-        src="icons/tickets/blue-ticket.png"
-      ></image>
-      <image
-        class="event-avatar"
-        src="../../images/event-avatars/meeting.png"
-      ></image>
-      <view class="i-phone1-pro2-text24">
-        <view>{{roomLocation}}</view>
-        <view>{{roomTime}}</view>
-      </view>
-      <span class="i-phone1-pro2-text29">{{roomName}}</span>
-    </view>
-  </view>
 
-  <scroll-view class="name-card-scroll-view" scroll-y="true">
-    <block wx:for="{{seats}}" wx:key="index" wx:for-item="seat"  wx:for-index="seatIndex">
-      <view class="name-card-row" wx:if="{{seatIndex % 2 === 0}}">
-        <!-- The first name card in the row -->
-        <!-- Display the name card if the seat is occupied -->
-        <namecard
-          wx:if="{{seat.occupied}}" capture-bind:tap="showDropdown" data-seat-index="{{seatIndex}}" data-occupied="{{true}}" data-user="{{users[seat.user_id - 1]}}"
-          name="{{users[seat.user_id - 1].name}}"
-          skin="{{users[seat.user_id - 1].skin}}"
-          avatarUrl="{{users[seat.user_id - 1].avatar}}" >
-          <!-- dropdown -->
-          <view wx:if="{{seats[seatIndex].dropdown}}" class="dropdown-menu">
-            <view class="dropdown-item" bindtap="showNamecard">名片</view>
-            <view wx:if="{{selfStatus == 'participant'}}"  class="dropdown-item">加好友</view>
-            <view wx:if="{{selfStatus == 'owner'}}" class="dropdown-item" bindtap="deleteUser">踢出</view>
-          </view>
-        </namecard>
-        <view class="name-card empty-name-card" wx:else bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex}}">
-          <!-- Display the empty seat image if the seat is not occupied -->
-          <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
-        </view>
-        <!-- Check if there's a second seat in this row -->
-        <view wx:if="{{seatIndex + 1 < seats.length}}">
-          <!-- Second seat in the row -->
-          <namecard
-            wx:if="{{seats[seatIndex + 1].occupied}}" capture-bind:tap="showDropdown" data-seat-index="{{seatIndex + 1}}" data-occupied="{{true}}" data-user="{{users[seats[seatIndex + 1].user_id - 1]}}"
-            status="{{users[seats[seatIndex + 1].user_id - 1].status}}"
-            name="{{users[seats[seatIndex + 1].user_id - 1].name}}"
-            skin="{{users[seats[seatIndex + 1].user_id - 1].skin}}"
-            avatarUrl="{{users[seats[seatIndex + 1].user_id - 1].avatar}}" >
-            <!-- dropdown -->
-            <view wx:if="{{seats[seatIndex + 1].dropdown}}" class="dropdown-menu">
-              <view class="dropdown-item" bindtap="showNamecard">名片</view>
-              <view wx:if="{{selfStatus == 'participant'}}"  class="dropdown-item">加好友</view>
-              <view wx:if="{{selfStatus == 'owner'}}" class="dropdown-item" bindtap="deleteUser">踢出</view>
-            </view>
-          </namecard>
-          <view wx:else class="name-card empty-name-card" bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex + 1}}">
-            <!-- Display the empty seat image if the seat is not occupied -->
-            <!-- <image class="empty-seat" src="icons/empty-seat.png"></image> -->
-          </view>
-        </view>
-        <!-- if there's no second seat -->
-        <view wx:else class="namecard-placeholder"></view>
+  <section class="top-section">
+    <view class="top-section--background"></view>
+    <view class="event-ticket">
+      <image
+        class="ticket-base"
+        src="/frontend/images/tickets/blue-ticket.svg"
+      ></image>
+      <view class="avatar-background"></view>
+      <image
+        class="event-ticket--avatar"
+        src="../../images/event-avatars/{{partyInfo.partyTypeEng}}.svg"
+      ></image>
+      <view class="event-ticket--info">
+        <view>{{partyLocation}}</view>
+        <view>{{partyTime}}</view>
       </view>
-    </block>
-  </scroll-view>
-    
-  <view class="corridor grey-button" bindtap="joinCorridor">
-    <view class="corridor-cn-text">走廊</view>
-    <view class="corridor-en-text">Corridor</view>
-    <image
-      class="corridor-avatar avatar-3"
-      src="icons/corridor-empty-avatar.png"
-    ></image>
-    <image
-      class="corridor-avatar avatar-2"
-      src="icons/corridor-empty-avatar.png"
-    ></image>
-    <image
-      class="corridor-avatar avatar-1"
-      src="icons/corridor-empty-avatar.png"
-    ></image>
-  </view>
-
-  <view class="actions">
-    <view class="i-phone1-pro2-rectangle4553">
-      <view class="left-half grey-button" bindtap="getReady">
-        <view class="actions-text">
-          <view>准备</view>
-          <view>Ready</view>
-        </view>
+      <span class="event-ticket--name">{{partyName}}</span>
+    </view>
+    <view class="option-buttons">
+      <view class="option-button">
+        <image src="/frontend/images/icons/menu.svg"/>
       </view>
-      <view class="right-half grey-button" bindtap="getCancel">
-        <view class="actions-text">
-          <view>取消</view>
-          <view>Cancel</view>
-        </view>
+      <view class="option-button">
+        <image src="/frontend/images/icons/chat.svg"/>
       </view>
     </view>
-    <image
-      class="i-phone1-pro2-line1"
-      src="icons/Line 1.png"
-    ></image>
-  </view>
-  <view class="i-phone1-pro2-group9">
-    <image
-      class="i-phone1-pro2-rectangle49"
-      src="icons/tickets/blue-ticket.png"
-    ></image>
-    <image
-      class="event-avatar"
-      src="../../images/event-avatars/{{partyType}}.png"
-    ></image>
-    <view class="i-phone1-pro2-text24">
-      <view>{{partyLocation}}</view>
-      <view>{{partyTime}}</view>
-      <view class="id-container"> <!-- 使用Flex布局的容器 -->
-        <text class="party-id-text">ID: {{party_id}}</text>
-        <!-- 添加复制按钮 -->
-        <button class="copy-button" bindtap="copyPartyId">复制</button>
-      </view>
-    </view>
-    <span class="i-phone1-pro2-text29">{{partyName}}</span>
-  </view>
+  </section>
   
+  <section class="middle-section">
+    <view class="room-tabs">
+      <view id="people" class="room-tab {{activeTab == 'people' ? 'active' : ''}}" bind:tap="tabClick">
+        <image class="room-tab--icon" src="../../images/icons/room-people.png"/>
+        <view class="people-progress" wx:if="{{activeTab == 'people'}}">
+          <text class="people-progress--text">{{readyNum}}/{{joinedNum}}/{{seats.length}}</text>
+          <progress 
+            class="people-progress--joined"
+            percent="{{(joinedNum + readyNum) / seats.length * 100}}"
+            stroke-width="18"
+            border-radius="25px"
+            backgroundColor="white"/>
+          <progress 
+            class="people-progress--ready"
+            percent="{{readyNum / seats.length * 100}}"
+            stroke-width="18"
+            border-radius="25px"
+            backgroundColor="rgba(0, 0, 0, 0)"/>
+        </view>
+      </view>
+      <view id="info" class="room-tab {{activeTab == 'info' ? 'active' : ''}}" bind:tap="tabClick">
+        <image class="room-tab--icon" src="../../images/icons/room-info.png"/>
+        <view class="info-progress" wx:if="{{activeTab == 'info'}}">
+          <text class="info-progress--text">{{completedInfoNum / 6 * 100}}%</text>
+          <progress 
+            class="info-progress--bar"
+            percent="{{completedInfoNum / 6 * 100}}"
+            stroke-width="18"
+            border-radius="25px"
+            backgroundColor="white"/>
+        </view>
+      </view>
+    </view>
+    <view class="room-content">
+      <view wx:if="{{activeTab == 'people'}}">
+        <scroll-view class="name-card-scroll-view" scroll-y="true">
+          <block wx:for="{{seats}}" wx:key="index" wx:for-item="seat"  wx:for-index="seatIndex">
+            <view class="name-card-row" wx:if="{{seatIndex % 2 === 0}}">
+              <!-- The first namecard in the row -->
+              <!-- Display the namecard if the seat is occupied -->
+              <view class="namecard" wx:if="{{seat.occupied}}"
+                bind:tap="onSeatTap" 
+                data-seat-index="{{seatIndex}}" 
+                data-occupied="{{true}}" 
+                data-user="{{users[seat.user_id - 1]}}" >
+                <namecard
+                  name="{{users[seat.user_id - 1].name}}"
+                  skin="{{users[seat.user_id - 1].skin}}"
+                  avatarUrl="{{users[seat.user_id - 1].avatar}}"
+                  hasShadow="{{true}}" >
+                </namecard>
+              </view>
+              <view class="empty-name-card" wx:else bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex}}">
+                <!-- Display the empty seat image if the seat is not occupied -->
+              </view>
+              <!-- Check if there's a second seat in this row -->
+              <view wx:if="{{seatIndex + 1 < seats.length}}">
+                <!-- Second seat in the row -->
+                <view class="namecard" wx:if="{{seats[seatIndex + 1].occupied}}" 
+                bind:tap="onSeatTap" 
+                data-seat-index="{{seatIndex + 1}}" 
+                data-occupied="{{true}}" 
+                data-user="{{users[seats[seatIndex + 1].user_id - 1]}}" >
+                  <namecard
+                    status="{{users[seats[seatIndex + 1].user_id - 1].status}}"
+                    name="{{users[seats[seatIndex + 1].user_id - 1].name}}"
+                    skin="{{users[seats[seatIndex + 1].user_id - 1].skin}}"
+                    avatarUrl="{{users[seats[seatIndex + 1].user_id - 1].avatar}}" >
+                  </namecard>
+                </view>
+                <view wx:else class="empty-name-card" bindtap="onSeatTap" data-occupied="{{false}}" data-seat-index="{{seatIndex + 1}}">
+                  <!-- Display the empty seat image if the seat is not occupied -->
+                </view>
+              </view>
+              <!-- if there's no second seat -->
+              <view wx:else class="namecard-holder"></view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+      <view wx:else>
+        <view class="room-info">
+          <view class="row row1">
+            <view class="row1--event">
+              <image src="/frontend/images/event-avatars/board-game.svg" class="row1--event--avatar"/>
+              <view class="row1--event--text">
+                <view class="room-info--title">事件</view>
+                <view>{{partyInfo.partyType}}</view>
+              </view>
+            </view>
+            <view class="row1--desc">
+              <image class="room-info--icon" src="/frontend/images/icons/description.svg"/>
+              <text class="room-info--title"> 简介</text>
+              <view class="row1--desc--text">{{partyInfo.partyDescript}}</view>
+            </view>
+            <view class="row1--id">ID:<text>{{partyInfo.partyId}}</text></view>
+          </view>
+          <view class="row row2">
+            <view class="row2--time">
+              <text class="room-info--title">时间</text>
+            </view>
+            <view class="row2--countdown">
+              <image class="room-info--icon" src="/frontend/images/icons/countdown.svg"/>
+              <text class="room-info--title"> 距离事件开始</text>
+            </view>
+          </view>
+          <view class="row row3">
+            <view class="row3--location">
+              <text class="room-info--title">地点</text>
+            </view>
+            <view class="row3--cost">
+              <image class="room-info--icon" src="/frontend/images/icons/cost.svg"/>
+              <text class="room-info--title"> 费用信息</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </section>
+
+  <section class="bottom-section">
+    <view class="followers">
+      <image class="followers--icon" src="/frontend/images/icons/followers.png"/>
+      <view class="followers--text">关注者</view>
+    </view>
+    <view wx:if="{{userStatus == 'joined'}}" class="action-button ready-button">
+      <view class="action-button--text">锁定</view>
+      <image class="action-button--icon" src="/frontend/images/icons/ready.svg"/>
+    </view>
+    <view wx:elif="{{userStatus == 'ready'}}" class="action-button cancel-button">
+     <view>取消</view>
+    </view>
+    <view wx:else class="action-button">
+      
+    </view>
+  </section>
+
   <!-- Large namecard -->
   <large-namecard
-    wx:if="{{currentUser != null}}"
     showNamecard="{{showNamecard}}" 
     userName="{{currentUser.name}}" 
     userPicture="{{currentUser.userImage1}}" 
-    userSkin="{{currentUser.skin}}">
+    userSkin="{{currentUser.skin}}"
+    avatarUrl="{{currentUser.avatar}}">
   </large-namecard>
 </view>
