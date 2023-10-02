@@ -13,7 +13,7 @@
         src="../../images/event-avatars/{{partyInfo.partyTypeEng}}.svg"
       ></image>
       <view class="event-ticket--info">
-        <view>{{partyLocation}}</view>
+        <view>{{partyLocation.detail}}</view>
         <view>{{partyTime}}</view>
       </view>
       <span class="event-ticket--name">{{partyName}}</span>
@@ -128,19 +128,46 @@
           <view class="row row2">
             <view class="row2--time">
               <text class="room-info--title">时间</text>
+              <view class="row2--time--date">{{partyInfo.partyMonth}}月{{partyInfo.partyDate}}日</view>
+              <view class="row2--time--weekday">{{partyInfo.partyWeekday}}</view>
+              <view class="row2--time--time">{{partyInfo.partyAmPm}} {{partyInfo.partyTime}}</view>
             </view>
             <view class="row2--countdown">
               <image class="room-info--icon" src="/frontend/images/icons/countdown.svg"/>
               <text class="room-info--title"> 距离事件开始</text>
+              <view class="row2--countdown--container">
+                <view class="row2--countdown--item">
+                  <text class="row2--countdown--number">{{countDown.days}}</text>
+                  <view class="row2--countdown--text">days</view>
+                </view>
+                <view class="row2--countdown--item">
+                  <text class="row2--countdown--number">{{countDown.hours}}</text>
+                  <view class="row2--countdown--text">hrs</view>
+                </view>
+                <view class="row2--countdown--item">
+                  <text class="row2--countdown--number">{{countDown.minutes}}</text>
+                  <view class="row2--countdown--text">mins</view>
+                </view>
+              </view>
             </view>
           </view>
           <view class="row row3">
             <view class="row3--location">
               <text class="room-info--title">地点</text>
+              <view class="row3--location--district">{{partyInfo.partyLocation.city}} {{partyInfo.partyLocation.district}}</view>
+              <view class="row3--location--detail">{{partyInfo.partyLocation.detail}}</view>
             </view>
             <view class="row3--cost">
               <image class="room-info--icon" src="/frontend/images/icons/cost.svg"/>
               <text class="room-info--title"> 费用信息</text>
+              <view class="row3--cost--container">
+                <view class="row3--cost--expense">
+                  <view wx:for="{{dollarSignArray}}">
+                    <image class="row3--cost--dollar" src="/frontend/images/icons/dollar-{{item.color}}.svg"/>
+                  </view>
+                </view>
+                <image class="row3--cost--pay" src="/frontend/images/icons/{{partyInfo.partyCost.payMethod}}.svg" />
+              </view>
             </view>
           </view>
         </view>
@@ -158,10 +185,11 @@
       <image class="action-button--icon" src="/frontend/images/icons/ready.svg"/>
     </view>
     <view wx:elif="{{userStatus == 'ready'}}" class="action-button cancel-button">
-     <view>取消</view>
+     <view class="action-button--text">取消</view>
+     <image class="action-button--icon" src="/frontend/images/icons/cancel.svg"/>
     </view>
-    <view wx:else class="action-button">
-      
+    <view wx:else class="action-button action-button--empty">
+      双击空座进入房间
     </view>
   </section>
 

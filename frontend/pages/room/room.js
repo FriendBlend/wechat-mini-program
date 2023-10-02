@@ -15,6 +15,11 @@ Page({
     readyNum: 0,
     joinedNum: 0,
     completedInfoNum: 0,
+    countDown: {
+      days: 0,
+      hours: 0,
+      minutes: 0
+    },
     partyInfo: {
       partyId: "1234567890",
       partyType: "桌游",
@@ -23,10 +28,18 @@ Page({
       partyYear: "2023",
       partyMonth: "8",
       partyDate: "1",
-      partyWeekDay: "星期二",
+      partyWeekday: "星期二",
       partyAmPm: "下午",
       partyTime: "3点",
-      partyLocation: "老地方",
+      partyLocation: {
+        city: "北京市",
+        district: "海淀区",
+        detail: "领站购物广场 3楼 Room201"
+      },
+      partyCost: {
+        expenseLevel: 1,
+        payMethod: "AA"
+      },
       partyDescript: "狼人杀局，可转阿瓦隆，不卡颜。欢迎带朋友。无dress code。3狼3民3神。地铁5号口出来。"
     },
     seats: [
@@ -43,6 +56,11 @@ Page({
       { occupied: true, user_id: 9, dropdown: false },
       { occupied: true, user_id: 10, dropdown: false },
       { occupied: true, user_id: 11, dropdown: false }
+    ],
+    dollarSignArray: [
+      {color: "white"},
+      {color: "white"},
+      {color: "white"}
     ],
     users: [
       {
@@ -276,6 +294,17 @@ Page({
               });
           }
       });
+    }
+    /* 更新dollarSignArray */
+    let newDollarSignArray = this.data.dollarSignArray;
+    for (let i = 0; i < newDollarSignArray.length; i++) {
+      console.log(i, this.data.partyInfo.partyCost.expenseLevel);
+      if (i < this.data.partyInfo.partyCost.expenseLevel) {
+        console.log("hererere");
+        newDollarSignArray[i] = "grey";
+      } else {
+        newDollarSignArray[i] = "white";
+      }
     }
   },
 
