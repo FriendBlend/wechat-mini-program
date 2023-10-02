@@ -5,10 +5,11 @@ Page({
    * Page initial data
    */
   data: {
+    upcomingEvent: null,
     showNamecard: false,
     currentUser: {
       name: '仁喆',
-      skin: 'var(--lightGrey)',
+      skin: '#979797',
       userPictures: [
         '../../images/large-namecard/brady.png',
         '../../images/large-namecard/brady2.jpeg',

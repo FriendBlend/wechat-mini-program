@@ -14,7 +14,9 @@ Component({
     },
     userPictures: {
       type: Array,
-      value: ["../../images/large-namecard/dog.png"]
+      value: ["/frontend/images/large-namecard/brady.png",
+              "/frontend/images/large-namecard/brady2.jpeg",
+              "/frontend/images/large-namecard/brady3.jpeg"]
     },
     petName: {
       type: String,
@@ -39,22 +41,28 @@ Component({
    */
   data: {
     indicatorDots: true,
-    activeTab: "person"
+    isCurrentUser: false,
+    isFriend: false
   },
 
   /**
    * Component methods
    */
   methods: {
+    addFriend(event) {
+      // TODO: 加好友功能
+      this.setData({
+        isFriend: true
+      });
+    },
+    deleteFriend() {
+      // TODO: 删好友功能
+    },
+
     hideNamecard() {
       this.setData({
         showNamecard: false
       });
-    },
-    tabClick(e) {
-      this.setData({
-        activeTab: e.currentTarget.id
-      })
     }
   }
 })

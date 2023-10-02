@@ -5,6 +5,8 @@ Page({
    * Page initial data
    */
   data: {
+    isCurrentUser: false,
+    isFriend: false,
     activeTab: "friends",
     activeEventsTab: "future",
     currentUser: {
@@ -129,7 +131,18 @@ Page({
   onShareAppMessage() {
 
   },
-  
+
+  addFriend(event) {
+    console.log("friend added");
+    // TODO: 加好友功能
+    this.setData({
+      isFriend: true
+    });
+  },
+  deleteFriend(event) {
+    // TODO: 删好友功能
+  },
+
   tabClick(e) {
     this.setData({
       activeTab: e.currentTarget.id

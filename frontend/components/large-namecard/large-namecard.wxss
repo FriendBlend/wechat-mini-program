@@ -1,5 +1,5 @@
 /* large namecard */
-.container {
+.large-namecard-container {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 99;
 }
 .popup-mask {
   position: fixed;
@@ -167,11 +168,13 @@
   width: 100%;
   height: 100%;
 }
+.wx-swiper-dots {
+  background: crimson;
+}
 .wx-swiper-dots-horizontal {
   width: 100%;
-  position: relative;
+  position: absolute;
   top: 34rpx;
-  background-color: coral;
 }
 .wx-swiper-dot {
   width: 30% !important;

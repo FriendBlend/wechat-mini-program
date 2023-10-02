@@ -12,13 +12,19 @@
       </view>
       <view class="option-buttons">
         <view class="option-button">
-          <image src="../../images/icons/menu.svg" mode=""/>
+          <image class="button-icon" src="../../images/icons/menu.svg"/>
         </view>
         <view class="option-button">
-          <image src="../../images/icons/add.svg" mode=""/>
+          <view wx:if="{{isCurrentUser}}">
+            <image class="button-icon" src="../../images/icons/edit.png"/>
+          </view>
+          <view wx:else>
+            <image wx:if="{{isFriend}}" class="button-icon" src="../../images/icons/delete.svg" bind:tap="deleteFriend"/>
+            <image wx:else class="button-icon" src="../../images/icons/add.svg" bind:tap="addFriend"/>
+          </view>
         </view>
         <view class="option-button">
-          <image src="../../images/icons/greet.svg" mode=""/>
+          <image class="button-icon" src="../../images/icons/greet.svg"/>
         </view>
       </view>
     </view>

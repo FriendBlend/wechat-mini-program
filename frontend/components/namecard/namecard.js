@@ -16,7 +16,7 @@ Component({
     },
     avatarUrl: {
       type: String,
-      value: "../../images/namecard/empty-avatar.png"
+      value: "../../images/large-namecard/brady-avatar.JPG"
     },
     skin: {
       type: String,
