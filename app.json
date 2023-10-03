@@ -4,13 +4,10 @@
     "frontend/pages/room/room",
     "frontend/pages/profile/profile",
     "frontend/pages/join/join",
-    "frontend/pages/initiate/init-content/init-content",
-    "frontend/pages/initiate/init-location/init-location",
-    "frontend/pages/initiate/init-else/init-else",
-    "frontend/pages/initiate/init-time/init-time",
     "frontend/pages/testfunc/test",
     "frontend/pages/profile-edit/profile-edit",
-    "frontend/components/large-namecard/large-namecard"
+    "frontend/components/large-namecard/large-namecard",
+    "frontend/pages/initiate/initiate"
   ],
   "window": {
     "backgroundTextStyle": "light",

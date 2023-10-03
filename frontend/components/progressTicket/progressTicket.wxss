@@ -8,10 +8,10 @@
 }
 .avatar {
   position: absolute;
-  top: 78rpx;
-  left: 69rpx;
-  width: 110rpx;
-  height: 110rpx;
+  top: 84rpx;
+  left: 76rpx;
+  width: 100rpx;
+  height: 100rpx;
 }
 .avatar-square {
   position: absolute;

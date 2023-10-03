@@ -1,11 +1,11 @@
 <view class="progress-ticket-component">
   <svg src="/frontend/images/tickets/blue-ticket.svg" color="{{skin}}" height="268rpx" width="620rpx"></svg>
-  <image wx:if="{{avatar != 'meeting'}}" class="avatar" src="../../images/event-avatars/{{avatar}}.png" alt="头像" />
+  <image wx:if="{{avatar != null && avatar != ''}}" class="avatar" src="../../images/event-avatars/{{avatar}}.svg" alt="头像" />
   <view wx:else class="avatar-square empty"></view>
-  <view wx:if="{{location != null}}" class="location non-empty">{{location}}</view>
+  <view wx:if="{{location != null && location != ''}}" class="location non-empty">{{location}}</view>
   <view wx:else class="location"></view>
-  <view wx:if="{{time != null}}" class="time non-empty">{{time}}</view>
+  <view wx:if="{{time != null && time != ''}}" class="time non-empty">{{time}}</view>
   <view wx:else class="time"></view>
-  <view wx:if="{{name != null}}" class="name non-empty">{{name}}</view>
+  <view wx:if="{{name != null && name != ''}}" class="name non-empty">{{name}}</view>
   <view wx:else class="name"></view>
 </view>

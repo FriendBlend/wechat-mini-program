@@ -1,0 +1,216 @@
+<view class="container">
+  <progress-ticket 
+    name="{{partyName}}" 
+    avatar="{{partyContent}}" 
+    location="{{partyLocation}}" 
+    time="{{partyTime}}"
+  ></progress-ticket>
+  <image class="tabs--active-bg {{tabs[activeTabIndex] == 'detail' ? 'reversed' : ''}}" src="/frontend/images/icons/init-active-tab.svg" style="left: {{54 + activeTabOffset}}rpx"/>
+  <view class="tabs">
+    <view class="tab {{tabs[activeTabIndex] == 'content' ? 'active' : ''}}" id="content" bind:tap="tabClick" data-index="{{0}}">
+      <view class="tab-text">事件</view>
+    </view>
+    <view class="tab {{tabs[activeTabIndex] == 'time' ? 'active' : ''}}" id="time" bind:tap="tabClick" data-index="{{1}}">
+      <view class="tab-text">时间</view>
+    </view>
+    <view class="tab {{tabs[activeTabIndex] == 'location' ? 'active' : ''}}" id="location" bind:tap="tabClick" data-index="{{2}}">
+      <view class="tab-text">地点</view>
+    </view>
+    <view class="tab {{tabs[activeTabIndex] == 'detail' ? 'active' : ''}}" id="detail" bind:tap="tabClick" data-index="{{3}}">
+      <view class="tab-text">详情</view>
+    </view>
+  </view>
+  <view class="main-frame {{tabs[activeTabIndex] == 'detail' ? 'main-frame--detail' : ''}}">
+    <view class="skip-button {{tabs[activeTabIndex] == 'detail' ? 'skip-button--detail' : ''}}" bind:tap="skip">跳过</view>
+    <section class="content-section" wx:if="{{tabs[activeTabIndex] == 'content'}}">
+      <!--name input-->
+      <view class="name-input">
+        <view class="title">
+          <image class="title-icon--lg" src="/frontend/images/icons/init-name.svg"/>
+          <span class="title-txt--lg">名称</span>
+        </view>
+        <view class="name-input-box--word-count">{{nameWordCount}}/10</view>
+        <input class="name-input-box" type="text" placeholder="xyr的紧急派对" placeholder-class="name-input-box--placeholder" bindinput="getNameInput" maxlength="10" />
+      </view>
+      <view class="content-selection">
+        <view class="title">
+          <image class="title-icon--lg" src="/frontend/images/icons/init-content.svg"/>
+          <span class="title-txt--lg">类别</span>
+        </view>
+        <view class="activity-content">
+          <view class="event-type">
+            <view class="event-type--button white-button {{partyContent=='party' ? 'selected' : ''}}" bindtap="onSelection" id="party">
+              <image class="icon" src="/frontend/images/event-avatars/party.svg"/>
+            </view>
+            <text class="event-type--name">派对</text>
+          </view>
+          <view class="event-type">
+            <view class="event-type--button white-button {{partyContent=='alcohol' ? 'selected' : ''}}" bindtap="onSelection" id="alcohol">
+              <image class="icon" src="/frontend/images/event-avatars/alcohol.svg"/>
+            </view>
+            <text class="event-type--name">酒局</text>
+          </view>
+          <view class="event-type">
+            <view class="event-type--button white-button {{partyContent=='meal' ? 'selected' : ''}}"  bindtap="onSelection" id="meal">
+              <image class="icon" src="/frontend/images/event-avatars/meal.svg"/>
+            </view>
+            <text class="event-type--name">饭局</text>
+          </view>
+          <view class="event-type">
+            <view class="event-type--button white-button {{partyContent=='board-game' ? 'selected' : ''}}" bindtap="onSelection" id="board-game">
+              <image class="icon" src="/frontend/images/event-avatars/board-game.svg"/>
+            </view>
+            <text class="event-type--name">桌游</text>
+          </view>
+          <view class="event-type">
+            <view class="event-type--button white-button {{partyContent=='sports' ? 'selected' : ''}}" bindtap="onSelection" id="sports">
+              <image class="icon" src="/frontend/images/event-avatars/sports.svg"/>
+            </view>
+            <text class="event-type--name">运动</text>
+          </view>
+          <view class="event-type">
+            <view class="event-type--button white-button {{partyContent=='outdoor' ? 'selected' : ''}}" bindtap="onSelection" id="outdoor">
+              <image class="icon" src="/frontend/images/event-avatars/outdoor.svg"/>
+            </view>
+            <text class="event-type--name">户外</text>
+          </view>
+        </view>
+      </view>
+    </section>
+    <section class="time-section" wx:if="{{tabs[activeTabIndex] == 'time'}}">
+      <view class="title">
+        <image class="title-icon--lg" src="/frontend/images/icons/init-time.svg"/>
+        <span class="title-txt--lg">时间</span>
+      </view>
+      <view class="title">
+        <image class="title-icon--sm" src="/frontend/images/icons/init-time-date.svg"/>
+        <span class="title-txt--sm">事件时间</span>
+      </view>
+      <view class="time-pickers">
+        <picker-view class="picker" value="{{selectedPickerIndices}}" bindchange="onPickerChange">
+          <picker-view-column class="date-column">
+            <view wx:for="{{date}}" wx:key="*this" class="picker-item">{{item}}</view>
+          </picker-view-column>
+          <picker-view-column class="ampm-column">
+            <view wx:for="{{ampm}}" wx:key="*this" class="picker-item">{{item}}</view>
+          </picker-view-column>
+          <picker-view-column class="time-column">
+            <view wx:for="{{time}}" wx:key="*this" class="picker-item">{{item}}</view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+      <view class="title">
+        <image class="title-icon--sm" src="/frontend/images/icons/init-time-range.svg"/>
+        <span class="title-txt--sm">时间跨度</span>
+      </view>
+      <view class="time-range-remarks">事件将覆盖的时间段，可多选</view>
+      <view class="time-range-selection">
+        <view class="time-range" id="day" bind:tap="selectTimeRange">
+          <view class="time-range--button white-button {{timeRange.includes('day') ? 'selected' : ''}}">
+            <image class="time-range--icon" src="/frontend/images/icons/day.svg"/>
+          </view>
+          <view class="time-range--txt">白天</view>
+        </view>
+        <view class="time-range" id="evening" bind:tap="selectTimeRange">
+          <view class="time-range--button white-button {{timeRange.includes('evening') ? 'selected' : ''}}">
+            <image class="time-range--icon" src="/frontend/images/icons/evening.svg"/>
+          </view>
+          <view class="time-range--txt">夜晚</view>
+        </view>
+        <view class="time-range" id="night" bind:tap="selectTimeRange">
+          <view class="time-range--button white-button {{timeRange.includes('night') ? 'selected' : ''}}">
+            <image class="time-range--icon" src="/frontend/images/icons/night.svg"/>
+          </view>
+          <view class="time-range--txt">凌晨<span class="time-range--txt--sm">(次日)</span></view>
+        </view>
+      </view>
+    </section>
+    <section class="location-section" wx:if="{{tabs[activeTabIndex] == 'location'}}">
+      <view class="title">
+        <image class="title-icon--lg" src="/frontend/images/icons/init-location.svg"/>
+        <span class="title-txt--lg">地点</span>
+      </view>
+      <input class="location-input-box" type="text" placeholder="地址信息" placeholder-class="location-input-box--placeholder" bindinput="onMapInput" />
+      <view class="map-container">
+        <map class="map"></map>
+      </view>
+    </section>
+    <section class="detail-section" wx:if="{{tabs[activeTabIndex] == 'detail'}}">
+      <view class="population-view">
+        <view class="title title--detail">
+          <image class="title-icon--md" src="/frontend/images/icons/population.svg"/>
+          <span class="title-txt--md">人数上限</span>
+        </view>
+        <slider class="population-slider" min="2" max="15" step="1" value="8" activeColor="var(--darkGrey)" show-value="{{true}}" bindchange="setPopulation"/>
+      </view>
+      <view class="cost-view">
+        <view class="title title--detail">
+          <image class="title-icon--md" src="/frontend/images/icons/cost.svg"/>
+          <span class="title-txt--md">费用信息</span>
+        </view>
+        <view class="detail--sub-title">预估人均</view>
+        <view class="expense-indicator">
+          <view
+            class="minus-button white-button"
+            bindtap="minusExpense"
+          >-</view>
+          <view class="dollar-icon-container">
+            <image
+              class="dollar-icon"
+              src="{{expenseLevel >= 1 ? '/frontend/images/icons/dollar.svg' : '/frontend/images/icons/dollar-white.svg'}}"
+            ></image>
+            <image
+            class="dollar-icon"
+              src="{{expenseLevel >= 2 ? '/frontend/images/icons/dollar.svg' : '/frontend/images/icons/dollar-white.svg'}}"
+            ></image>
+            <image
+              class="dollar-icon"
+              src="{{expenseLevel >= 3 ? '/frontend/images/icons/dollar.svg' : '/frontend/images/icons/dollar-white.svg'}}"
+            ></image>
+          </view>
+          <view
+            class="plus-button white-button"
+            bindtap="plusExpense"
+          >+</view>
+        </view>
+        <view class="detail--sub-title">消费形式</view>
+        <view class="pay-method-selection">
+          <view class="pay-method" id="AA" bind:tap="selectPayMethod">
+            <view class="pay-method--button white-button {{payMethod == 'AA' ? 'selected' : ''}}">
+              <image class="pay-method--icon" src="/frontend/images/icons/AA.svg"/>
+            </view>
+            <view class="pay-method--txt">AA</view>
+          </view>
+          <view class="pay-method" id="free" bind:tap="selectPayMethod">
+            <view class="pay-method--button white-button {{payMethod == 'free' ? 'selected' : ''}}">
+              <image class="pay-method--icon" src="/frontend/images/icons/free.svg"/>
+            </view>
+            <view class="pay-method--txt">免单</view>
+          </view>
+          <view class="pay-method" id="girlsA" bind:tap="selectPayMethod">
+            <view class="pay-method--button white-button {{payMethod == 'girlsA' ? 'selected' : ''}}">
+              <image class="pay-method--icon" src="/frontend/images/icons/girlsA.svg"/>
+            </view>
+            <view class="pay-method--txt">女A男免</view>
+          </view>
+          <view class="pay-method" id="boysA" bind:tap="selectPayMethod">
+            <view class="pay-method--button white-button {{payMethod == 'boysA' ? 'selected' : ''}}">
+              <image class="pay-method--icon" src="/frontend/images/icons/boysA.svg"/>
+            </view>
+            <view class="pay-method--txt">男A女免</view>
+          </view>
+        </view>
+      </view>
+      <view class="remarks-view">
+        <view class="title title--detail">
+          <image class="title-icon--md" src="/frontend/images/icons/description.svg"/>
+          <span class="title-txt--md">简介/备注</span>
+        </view>
+        <textarea class="remarks-input-box" type="text" placeholder="输入简介/备注信息…" placeholder-class="remarks-input-placeholder"/>
+      </view>
+    </section>
+    <image wx:if="{{tabs[activeTabIndex] != 'content'}}" class="prev-button" src="/frontend/images/icons/prev-page.svg" bind:tap="prevPage" />
+    <image wx:if="{{tabs[activeTabIndex] != 'detail'}}" class="next-button" src="/frontend/images/icons/next-page.svg" bind:tap="nextPage" />
+    <image wx:else class="finish-button" src="/frontend/images/icons/finish.svg" bind:tap="finishInitialize" />
+  </view>
+</view>

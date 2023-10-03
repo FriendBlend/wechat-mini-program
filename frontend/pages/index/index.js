@@ -86,7 +86,7 @@ Page({
   }, 
   toInitiate:function() {
     wx.navigateTo({
-      url: '../initiate/init-content/init-content',
+      url: '../initiate/initiate',
     })
   }, 
   toJoin:function() {
