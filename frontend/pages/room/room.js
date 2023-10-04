@@ -30,7 +30,7 @@ Page({
       partyDate: "1",
       partyWeekday: "星期二",
       partyAmPm: "下午",
-      partyTime: "3点",
+      partyTime: "3",
       partyLocation: {
         city: "北京市",
         district: "海淀区",

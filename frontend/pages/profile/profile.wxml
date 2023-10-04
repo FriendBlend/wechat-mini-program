@@ -124,20 +124,53 @@
         </view>
       </view>
       <!-- 未来/历史事件列表 -->
-      <scroll-view scroll-y="true" class="events-list" wx:if="{{activeEventsTab == 'future'}}">
-        <block wx:for="{{ futureEvents }}">
-          <view class="future-events-list-item">
-            <event></event>
-          </view>
-        </block>
-      </scroll-view>
-      <scroll-view scroll-y="true" class="events-list" wx:else >
-        <block wx:for="{{ historyEvents }}">
-          <view class="history-events-list-item">
-            <image class="used-ticket" src="/frontend/images/tickets/green-ticket-used.svg"/>
-          </view>
-        </block>
-      </scroll-view>
+      <view class="scroll-view-wrapper">
+        <view class="upper-blocker"></view>
+        <view class="events-list--header-bg"></view>
+        <view class="lower-blocker"></view>
+        <scroll-view scroll-y="true" class="events-list" wx:if="{{activeEventsTab == 'future'}}">
+          <block wx:for="{{ groupedFutureEvents }}" wx:key="index">
+            <view class="future-events-list-group">
+              <view class="events-list-header">
+                <view>{{item[0].partyDate}}</view>
+                <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
+              </view>
+              <block wx:for="{{item}}" wx:key="index">
+                <view class="future-events-list-item">
+                  <event name="{{ item.partyName }}" 
+                    avatar="{{ item.partyTypeEng }}" 
+                    location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+                    time="{{item.partyAmPm}} {{item.partyTime}}点"
+                    skin="{{item.partySkin}}"
+                  ></event>
+                </view>
+              </block>
+            </view>
+          </block>
+        </scroll-view>
+        <scroll-view scroll-y="true" class="events-list" wx:else >
+          <block wx:for="{{ groupedHistoryEvents }}" wx:key="index">
+            <view class="history-events-list-group">
+              <view class="events-list-header events-list-header--history">
+                <view>{{item[0].partyDate}}</view>
+                <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
+              </view>
+              <block wx:for="{{item}}" wx:key="index">
+                <view class="history-events-list-item">
+                  <view class="history-event">
+                    <image src="/frontend/images/tickets/green-ticket-used.svg" class="used-ticket"/>
+                    <view class="history-event-avatar-bg"></view>
+                    <image class="history-event-avatar" src="/frontend/images/event-avatars/{{item.partyTypeEng}}.svg"></image>
+                    <view class="history-event-name">{{item.partyName}}</view>
+                    <view class="history-event-location">{{item.partyLocation.city}} {{item.partyLocation.district}}</view>
+                    <view class="history-event-time">{{item.partyAmPm}} {{item.partyTime}}点</view>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
     </view>
   </view>
 </view>

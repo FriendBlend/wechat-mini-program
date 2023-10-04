@@ -192,22 +192,113 @@
   align-items: flex-end;
   font-size: 20px;
 }
-.events-list {
+.scroll-view-wrapper {
+  position: relative;
   height: 700rpx;
-  margin-top: 28rpx;
+  margin-top: 20rpx;
+}
+.events-list {
+  height: 100%;
+}
+.upper-blocker {
+  position: absolute;
+  background: var(--lightGrey);
+  width: 94rpx;
+  height: 50rpx;
+  z-index: 10;
+}
+.events-list--header-bg {
+  position: absolute;
+  top: 50rpx;
+  background: #EBEBEB;
+  border-radius: 15px;
+  width: 94rpx;
+  height: 600rpx;
+}
+.lower-blocker {
+  position: absolute;
+  top: 650rpx;
+  background: var(--lightGrey);
+  width: 94rpx;
+  height: 50rpx;
+  z-index: 10;
+}
+.future-events-list-group {
+  position: relative;
+  margin-bottom: 50rpx;
 }
 .future-events-list-item {
   position: relative;
   height: 240rpx;
-  scale: 80%;
-  margin-left: -70rpx;
+  scale: 75%;
+  margin-bottom: -30rpx;
+  margin-top: -10rpx;
+}
+.events-list-header {
+  position: absolute;
+  top: 80rpx;
+  left: 20rpx;
+  font-size: 24px;
+  text-align: center;
+  line-height: 108%;
+}
+.events-list-header--history {
+  margin-top: -40rpx;
+}
+.events-list-header--month {
+  font-size: 16px;
+}
+.history-events-list-group {
+  position: relative;
+  margin-top: 30rpx;
 }
 .history-events-list-item {
   display: flex;
   justify-content: center;
   margin: 10rpx 0;
 }
+.history-event {
+  position: relative;
+  margin-left: 100rpx;
+  height: 200rpx;
+  width: 450rpx;
+}
 .used-ticket {
-  height: 230rpx;
-  width: 500rpx;
+  height: 210rpx;
+  width: 470rpx;
+}
+.history-event-avatar-bg {
+  position: absolute;
+  height: 100rpx;
+  width: 100rpx;
+  background: var(--lightGrey);
+  border-radius: 50rpx;
+  left: 50rpx;
+  top: 44rpx;
+}
+.history-event-avatar {
+  position: absolute;
+  height: 74rpx;
+  width: 74rpx;
+  border-radius: 50rpx;
+  left: 62rpx;
+  top: 56rpx;
+}
+.history-event-name {
+  position: absolute;
+  top: 32rpx;
+  left: 200rpx;
+  font-size: 15px;
+}
+.history-event-time {
+  position: absolute;
+  top: 126rpx;
+  left: 200rpx;
+  font-size: 13px;
+}
+.history-event-location {
+  position: absolute;
+  top: 90rpx;
+  left: 200rpx;
+  font-size: 13px;
 }
