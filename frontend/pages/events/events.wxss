@@ -1,0 +1,248 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: ABeeZee;
+  padding: 10rpx 54rpx;
+  gap: 1rem;
+  color: var(--black);
+}
+
+/* top section */
+.top-section {
+  position: relative;
+  width: 100%;
+  height: 290rpx;
+  padding: 0;
+  display: flex;
+}
+.top-section--background {
+  position: absolute;
+  right: 0;
+  background: var(--lightGrey);
+  width: 60%;
+  height: 100%;
+  border-radius: 21px;
+  float: right;
+  z-index: -1;
+}
+.event-ticket {
+  position: relative;
+  top: 10rpx;
+  left: -90rpx;
+  width: 281px;
+  height: 115px;
+  scale: 80%;
+}
+.option-buttons {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  position: absolute;
+  right: 26rpx;
+}
+.option-button {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+.option-button--icon {
+  width: 54rpx;
+  height: 54rpx;
+  margin: 12rpx;
+}
+
+/* bottom section */
+.bottom-section {
+  width: 580rpx;
+  padding: 34rpx;
+  height: fit-content;
+  background: var(--lightGrey);
+  border-radius: 42rpx;
+}
+.bottom-section .tabs {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.bottom-section .tab {
+  border-radius: 5px;
+  background: white;
+  padding: 14rpx;
+  width: 26%;
+}
+.bottom-section .active {
+  background: var(--darkGrey);
+  color: white;
+}
+.tab-number {
+  text-align: center;
+  font-size: 42rpx;
+}
+.tab-text {
+  margin-top: -6rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+/* 搜索栏 */
+.search-input {
+  margin-top: 38rpx;
+  padding: 20rpx;
+  border-radius: 15px;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  background: white;
+}
+.search-input--placeholder {
+  color: #BCB7B7;
+}
+.search-bar-wrapper {
+  padding-bottom: 40rpx;
+  border-bottom: 1px solid #B2B2B2;
+}
+
+/* ------- */
+/* 关注列表 */
+/* ------- */
+.followed-page--remarks {
+  font-size: 12px;
+  color: #696969;
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+  margin-bottom: -10rpx;
+}
+.followed-list-item,
+.followed--option-buttons,
+.followed--option-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.followed-list-item {
+  position: relative;
+  padding: 36rpx 0;
+  border-bottom: 1px solid #B2B2B2;
+  justify-content: space-between;
+}
+.followed-event {
+  position: relative;
+  left: -110rpx;
+  top: -40rpx;
+  width: 420rpx;
+  height: 172rpx;
+  scale: 70%;
+}
+.followed--option-buttons {
+  flex-direction: column;
+  gap: 22rpx;
+}
+.followed--option-button {
+  width: 120rpx;
+  height: 76rpx;
+  background: #EBEBEB;
+  border-radius: 12px;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  color: #696969;
+  font-weight: 700;
+  font-size: 12px;
+}
+.followed--option-button--icon {
+  width: 42rpx;
+  height: 50rpx;
+}
+
+/* ----------- */
+/* 未来/历史事件 */
+/* ----------- */
+
+/* 发起/加入选项 */
+.small-tabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 24rpx;
+  margin-top: 40rpx;
+}
+.small-tab {
+  width: 222rpx;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9rpx;
+  background: white;
+  border-radius: 15px;
+}
+.small-tab--active {
+  color: white;
+  background: var(--darkGrey);
+}
+.small-tab--text {
+  display: flex;
+  align-items: center;
+}
+.small-tab--icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/* 未来/历史事件列表 */
+.scroll-view-wrapper {
+  position: relative;
+  height: 700rpx;
+  margin-top: 20rpx;
+}
+.events-list {
+  height: 100%;
+}
+.upper-blocker {
+  position: absolute;
+  background: var(--lightGrey);
+  width: 94rpx;
+  height: 50rpx;
+  z-index: 10;
+}
+.events-list--header-bg {
+  position: absolute;
+  top: 50rpx;
+  background: #EBEBEB;
+  border-radius: 15px;
+  width: 94rpx;
+  height: 600rpx;
+}
+.lower-blocker {
+  position: absolute;
+  top: 650rpx;
+  background: var(--lightGrey);
+  width: 94rpx;
+  height: 50rpx;
+  z-index: 10;
+}
+.events-list-group {
+  position: relative;
+  margin-bottom: 50rpx;
+}
+.events-list-item {
+  position: relative;
+  height: 240rpx;
+  scale: 72%;
+  margin-bottom: -30rpx;
+  margin-top: -10rpx;
+}
+.events-list-header {
+  position: absolute;
+  top: 80rpx;
+  left: 20rpx;
+  font-size: 24px;
+  text-align: center;
+  line-height: 108%;
+}
+.events-list-header--month {
+  font-size: 16px;
+}

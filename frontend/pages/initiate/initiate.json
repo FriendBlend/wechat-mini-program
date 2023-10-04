@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "progress-ticket": "/frontend/components/progressTicket/progressTicket"
+    "progress-ticket": "/frontend/components/progressTicket/progressTicket",
+    "svg": "/frontend/components/svg/svg"
   }
 }

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "namecard": "../../components/namecard/namecard",
+    "svg": "../../components/svg/svg",
+    "event": "../../components/progressTicket/progressTicket"
+  }
+}

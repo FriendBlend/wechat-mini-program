@@ -251,6 +251,7 @@
 .history-events-list-group {
   position: relative;
   margin-top: 30rpx;
+  margin-bottom: 50rpx;
 }
 .history-events-list-item {
   display: flex;

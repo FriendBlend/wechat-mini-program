@@ -96,7 +96,7 @@ Page({
   }, 
   toEvents:function() {
     wx.navigateTo({
-      url: '../profile/profile?initTab=events',
+      url: '/frontend/pages/events/events',
     })
   },
 

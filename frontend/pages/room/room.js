@@ -31,6 +31,7 @@ Page({
       partyWeekday: "星期二",
       partyAmPm: "下午",
       partyTime: "3",
+      partyTimeRange: ["day", "evening"],
       partyLocation: {
         city: "北京市",
         district: "海淀区",

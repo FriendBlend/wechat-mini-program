@@ -1,0 +1,183 @@
+<view class="container">
+  <section class="top-section">
+    <view class="top-section--background"></view>
+    <view class="event-ticket">
+      <event></event>
+    </view>
+    <view class="option-buttons">
+      <view class="option-button">
+        <image class="option-button--icon" src="/frontend/images/icons/menu.svg"/>
+      </view>
+      <view class="option-button">
+        <image class="option-button--icon" src="/frontend/images/icons/chat.svg"/>
+      </view>
+    </view>
+  </section>
+
+  <view class="bottom-section">
+    <view class="tabs">
+      <view class="tab {{activeTab == 'future' ? 'active' : ''}}" id="future" bind:tap="tabClick">
+        <view class="tab-number">{{futureEventsJoined.length + futureEventsInitiated.length}}</view>
+        <view class="tab-text">未来事件</view>
+      </view>
+      <view class="tab {{activeTab == 'followed' ? 'active' : ''}}" id="followed" bind:tap="tabClick">
+        <view class="tab-number">{{followedEvents.length}}</view>
+        <view class="tab-text">关注列表</view>
+      </view>
+      <view class="tab {{activeTab == 'history' ? 'active' : ''}}" id="history" bind:tap="tabClick">
+        <view class="tab-number">{{historyEventsJoined.length + historyEventsInitiated.length}}</view>
+        <view class="tab-text">历史事件</view>
+      </view>
+    </view>
+    <!-- 搜索框 -->
+    <view class="search-bar-wrapper">
+      <input class="search-input" bindinput="onSearchInput" placeholder="🔍搜索" placeholder-class="search-input--placeholder" />
+    </view>
+    <!-- 未来事件 -->
+    <view class="future-page" wx:if="{{activeTab == 'future'}}">
+      <!-- 发起/加入选项 -->
+      <view class="small-tabs">
+        <view id="init" bind:tap="smallTabClick" class="small-tab {{activeSmallTab == 'init' ? 'small-tab--active' : ''}}">
+          <svg class="small-tab--icon" src="/frontend/images/icons/initiated.svg" color="{{activeSmallTab == 'init' ? 'white' : '#333333'}}" height="50rpx" width="50rpx"></svg>
+          <view class="small-tab--text">我发起的</view>
+        </view>
+        <view id="joined" bind:tap="smallTabClick" class="small-tab {{activeSmallTab == 'joined' ? 'small-tab--active' : ''}}">
+          <svg class="small-tab--icon" src="/frontend/images/icons/joined.svg" color="{{activeSmallTab == 'joined' ? 'white' : '#333333'}}" height="50rpx" width="50rpx"></svg>
+          <view class="small-tab--text">我加入的</view>
+        </view>
+      </view>
+      <!-- 事件列表 -->
+      <view class="scroll-view-wrapper">
+        <view class="upper-blocker"></view>
+        <view class="events-list--header-bg"></view>
+        <view class="lower-blocker"></view>
+        <scroll-view scroll-y="true" class="events-list" wx:if="{{activeSmallTab == 'init'}}">
+          <block wx:for="{{ filteredFutureI }}" wx:key="index">
+            <view class="events-list-group">
+              <view class="events-list-header">
+                <view>{{item[0].partyDate}}</view>
+                <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
+              </view>
+              <block wx:for="{{item}}" wx:key="index">
+                <view class="events-list-item">
+                  <event name="{{ item.partyName }}" 
+                    avatar="{{ item.partyTypeEng }}" 
+                    location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+                    time="{{item.partyAmPm}} {{item.partyTime}}点"
+                    skin="{{item.partySkin}}"
+                  ></event>
+                </view>
+              </block>
+            </view>
+          </block>
+        </scroll-view>
+        <scroll-view scroll-y="true" class="events-list" wx:else >
+          <block wx:for="{{ filteredFutureJ }}" wx:key="index">
+            <view class="events-list-group">
+              <view class="events-list-header">
+                <view>{{item[0].partyDate}}</view>
+                <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
+              </view>
+              <block wx:for="{{item}}" wx:key="index">
+                <view class="events-list-item">
+                  <event name="{{ item.partyName }}" 
+                    avatar="{{ item.partyTypeEng }}" 
+                    location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+                    time="{{item.partyAmPm}} {{item.partyTime}}点"
+                    skin="{{item.partySkin}}"
+                  ></event>
+                </view>
+              </block>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+    <!-- 关注列表 -->
+    <view class="followed-page" wx:if="{{activeTab == 'followed'}}">
+      <view class="followed-page--remarks">已经结束的事件会被自动移出关注列表</view>
+      <block wx:for="{{ filteredFollow }}" wx:key="index">
+        <view class="followed-list-item">
+          <view class="followed-event">
+            <event name="{{ item.partyName }}" 
+              avatar="{{ item.partyTypeEng }}" 
+              location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+              time="{{item.partyAmPm}} {{item.partyTime}}点"
+              skin="{{item.partySkin}}"
+            ></event>
+          </view>
+          <view class="followed--option-buttons">
+            <view class="followed--option-button">
+              <image class="followed--option-button--icon" src="/frontend/images/icons/follow-join.svg"/>
+              <view>加入</view>
+            </view>
+            <view class="followed--option-button">
+              <image class="followed--option-button--icon" src="/frontend/images/icons/follow-delete.svg"/>
+              <view>移除</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!-- 历史事件 -->
+    <view class="history-page" wx:if="{{activeTab == 'history'}}">
+      <!-- 发起/加入选项 -->
+      <view class="small-tabs">
+        <view id="init" bind:tap="smallTabClick" class="small-tab {{activeSmallTab == 'init' ? 'small-tab--active' : ''}}">
+          <svg class="small-tab--icon" src="/frontend/images/icons/initiated.svg" color="{{activeSmallTab == 'init' ? 'white' : '#333333'}}" height="50rpx" width="50rpx"></svg>
+          <view class="small-tab--text">我发起的</view>
+        </view>
+        <view id="joined" bind:tap="smallTabClick" class="small-tab {{activeSmallTab == 'joined' ? 'small-tab--active' : ''}}">
+          <svg class="small-tab--icon" src="/frontend/images/icons/joined.svg" color="{{activeSmallTab == 'joined' ? 'white' : '#333333'}}" height="50rpx" width="50rpx"></svg>
+          <view class="small-tab--text">我加入的</view>
+        </view>
+      </view>
+      <!-- 事件列表 -->
+      <view class="scroll-view-wrapper">
+        <view class="upper-blocker"></view>
+        <view class="events-list--header-bg"></view>
+        <view class="lower-blocker"></view>
+        <scroll-view scroll-y="true" class="events-list" wx:if="{{activeSmallTab == 'init'}}">
+          <block wx:for="{{ filteredHistoryI }}" wx:key="index">
+            <view class="events-list-group">
+              <view class="events-list-header">
+                <view>{{item[0].partyDate}}</view>
+                <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
+              </view>
+              <block wx:for="{{item}}" wx:key="index">
+                <view class="events-list-item">
+                  <event name="{{ item.partyName }}" 
+                    avatar="{{ item.partyTypeEng }}" 
+                    location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+                    time="{{item.partyAmPm}} {{item.partyTime}}点"
+                    skin="{{item.partySkin}}"
+                  ></event>
+                </view>
+              </block>
+            </view>
+          </block>
+        </scroll-view>
+        <scroll-view scroll-y="true" class="events-list" wx:else >
+          <block wx:for="{{ filteredHistoryJ }}" wx:key="index">
+            <view class="events-list-group">
+              <view class="events-list-header">
+                <view>{{item[0].partyDate}}</view>
+                <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
+              </view>
+              <block wx:for="{{item}}" wx:key="index">
+                <view class="events-list-item">
+                  <event name="{{ item.partyName }}" 
+                    avatar="{{ item.partyTypeEng }}" 
+                    location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+                    time="{{item.partyAmPm}} {{item.partyTime}}点"
+                    skin="{{item.partySkin}}"
+                  ></event>
+                </view>
+              </block>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>

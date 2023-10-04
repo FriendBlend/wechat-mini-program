@@ -131,6 +131,11 @@
               <view class="row2--time--date">{{partyInfo.partyMonth}}月{{partyInfo.partyDate}}日</view>
               <view class="row2--time--weekday">{{partyInfo.partyWeekday}}</view>
               <view class="row2--time--time">{{partyInfo.partyAmPm}} {{partyInfo.partyTime}}点</view>
+              <view class="row2--time--time-range" wx:if="{{ partyInfo.partyTimeRange.length > 0 }}">
+                <block wx:for="{{ partyInfo.partyTimeRange }}" wx:key="index">
+                  <image class="time-range-icons" src="/frontend/images/icons/{{item}}.svg"/>
+                </block>
+              </view>
             </view>
             <view class="row2--countdown">
               <image class="room-info--icon" src="/frontend/images/icons/countdown.svg"/>

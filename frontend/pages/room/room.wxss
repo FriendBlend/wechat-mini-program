@@ -272,6 +272,22 @@ view {
 .row2--time--weekday {
   color: #696969;
 }
+.row2--time--time-range {
+  position: absolute;
+  bottom: 16rpx;
+  right: 12rpx;
+  background: var(--lightGrey);
+  padding: 6rpx 8rpx;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.time-range-icons {
+  width: 28rpx;
+  height: 28rpx;
+}
 .row2--countdown {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 44rpx;

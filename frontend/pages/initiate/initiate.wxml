@@ -177,25 +177,25 @@
         <view class="pay-method-selection">
           <view class="pay-method" id="AA" bind:tap="selectPayMethod">
             <view class="pay-method--button white-button {{payMethod == 'AA' ? 'selected' : ''}}">
-              <image class="pay-method--icon" src="/frontend/images/icons/AA.svg"/>
+              <svg class="pay-method--icon" src="/frontend/images/icons/AA.svg" width="60rpx" height="60rpx" color="{{payMethod == 'AA' ? '#D9D9D9' : '#979797'}}"></svg>
             </view>
             <view class="pay-method--txt">AA</view>
           </view>
           <view class="pay-method" id="free" bind:tap="selectPayMethod">
             <view class="pay-method--button white-button {{payMethod == 'free' ? 'selected' : ''}}">
-              <image class="pay-method--icon" src="/frontend/images/icons/free.svg"/>
+              <svg class="pay-method--icon" src="/frontend/images/icons/free.svg" width="60rpx" height="60rpx" color="{{payMethod == 'free' ? '#D9D9D9' : '#979797'}}"></svg>
             </view>
             <view class="pay-method--txt">免单</view>
           </view>
           <view class="pay-method" id="girlsA" bind:tap="selectPayMethod">
             <view class="pay-method--button white-button {{payMethod == 'girlsA' ? 'selected' : ''}}">
-              <image class="pay-method--icon" src="/frontend/images/icons/girlsA.svg"/>
+              <svg class="pay-method--icon" src="/frontend/images/icons/girlsA.svg" width="60rpx" height="60rpx" color="{{payMethod == 'girlsA' ? '#D9D9D9' : '#979797'}}"></svg>
             </view>
             <view class="pay-method--txt">女A男免</view>
           </view>
           <view class="pay-method" id="boysA" bind:tap="selectPayMethod">
             <view class="pay-method--button white-button {{payMethod == 'boysA' ? 'selected' : ''}}">
-              <image class="pay-method--icon" src="/frontend/images/icons/boysA.svg"/>
+              <svg class="pay-method--icon" src="/frontend/images/icons/boysA.svg" width="60rpx" height="60rpx" color="{{payMethod == 'boysA' ? '#D9D9D9' : '#979797'}}"></svg>
             </view>
             <view class="pay-method--txt">男A女免</view>
           </view>

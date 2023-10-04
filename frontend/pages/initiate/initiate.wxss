@@ -29,6 +29,7 @@
   z-index: -10;
   position: absolute;
   top: 300rpx;
+  transition: 0.3s;
 }
 .tabs--active-bg.reversed {
   transform: rotateY(180deg);
