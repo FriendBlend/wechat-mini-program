@@ -52,7 +52,7 @@
         <view class="events-list--header-bg"></view>
         <view class="lower-blocker"></view>
         <scroll-view scroll-y="true" class="events-list" wx:if="{{activeSmallTab == 'init'}}">
-          <block wx:for="{{ filteredFutureI }}" wx:key="index">
+          <block wx:for="{{ groupedFutureInitEvents }}" wx:key="index">
             <view class="events-list-group">
               <view class="events-list-header">
                 <view>{{item[0].partyDate}}</view>
@@ -72,7 +72,7 @@
           </block>
         </scroll-view>
         <scroll-view scroll-y="true" class="events-list" wx:else >
-          <block wx:for="{{ filteredFutureJ }}" wx:key="index">
+          <block wx:for="{{ groupedFutureJoinedEvents }}" wx:key="index">
             <view class="events-list-group">
               <view class="events-list-header">
                 <view>{{item[0].partyDate}}</view>
@@ -107,11 +107,11 @@
             ></event>
           </view>
           <view class="followed--option-buttons">
-            <view class="followed--option-button">
+            <view class="followed--option-button" bind:tap="joinFollow" data-party-id="{{item.partyId}}">
               <image class="followed--option-button--icon" src="/frontend/images/icons/follow-join.svg"/>
               <view>加入</view>
             </view>
-            <view class="followed--option-button">
+            <view class="followed--option-button" bind:tap="deleteFollow" data-party-id="{{item.partyId}}">
               <image class="followed--option-button--icon" src="/frontend/images/icons/follow-delete.svg"/>
               <view>移除</view>
             </view>
@@ -138,7 +138,7 @@
         <view class="events-list--header-bg"></view>
         <view class="lower-blocker"></view>
         <scroll-view scroll-y="true" class="events-list" wx:if="{{activeSmallTab == 'init'}}">
-          <block wx:for="{{ filteredHistoryI }}" wx:key="index">
+          <block wx:for="{{ groupedHistoryInitEvents }}" wx:key="index">
             <view class="events-list-group">
               <view class="events-list-header">
                 <view>{{item[0].partyDate}}</view>
@@ -158,7 +158,7 @@
           </block>
         </scroll-view>
         <scroll-view scroll-y="true" class="events-list" wx:else >
-          <block wx:for="{{ filteredHistoryJ }}" wx:key="index">
+          <block wx:for="{{ groupedHistoryJoinedEvents }}" wx:key="index">
             <view class="events-list-group">
               <view class="events-list-header">
                 <view>{{item[0].partyDate}}</view>

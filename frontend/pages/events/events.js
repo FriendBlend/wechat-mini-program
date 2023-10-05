@@ -7,6 +7,130 @@ Page({
   data: {
     activeTab: "followed",
     activeSmallTab: "init",
+    joinedEvents: [
+      {
+        partyId: "1234567890",
+        partyType: "桌游",
+        partyTypeEng: "board-game",
+        partySkin: "#10AEFF",
+        partyName: "Brady的紧急派对",
+        partyYear: "2024",
+        partyMonth: "8",
+        partyDate: "1",
+        partyWeekday: "星期二",
+        partyAmPm: "下午",
+        partyHour: "3",
+        partyMinute: "30",
+        partyLocation: { city: "北京市", district: "海淀区", detail: "领站购物广场 3楼 Room201"}
+      }, 
+      {
+        partyId: "1234567891",
+        partyType: "桌游",
+        partyTypeEng: "board-game",
+        partySkin: "#10AEFF",
+        partyName: "xyr的紧急派对",
+        partyYear: "2023",
+        partyMonth: "11",
+        partyDate: "1",
+        partyWeekday: "星期二",
+        partyAmPm: "下午",
+        partyHour: "2",
+        partyMinute: "30",
+        partyLocation: { city: "北京市", district: "海淀区", detail: "领站购物广场 3楼 Room201"}
+      }, 
+      {
+        partyId: "1234567892",
+        partyType: "桌游",
+        partyTypeEng: "board-game",
+        partySkin: "#979797",
+        partyName: "Mike的紧急派对",
+        partyYear: "2023",
+        partyMonth: "8",
+        partyDate: "5",
+        partyWeekday: "星期二",
+        partyAmPm: "下午",
+        partyHour: "3",
+        partyMinute: "30",
+        partyLocation: { city: "北京市", district: "海淀区", detail: "领站购物广场 3楼 Room201"}
+      }, 
+      {
+        partyId: "1234567893",
+        partyType: "桌游",
+        partyTypeEng: "board-game",
+        partySkin: "#10AEFF",
+        partyName: "drz的紧急派对",
+        partyYear: "2023",
+        partyMonth: "8",
+        partyDate: "15",
+        partyWeekday: "星期二",
+        partyAmPm: "下午",
+        partyHour: "3",
+        partyMinute: "30",
+        partyLocation: { city: "北京市", district: "海淀区", detail: "领站购物广场 3楼 Room201"}
+      }
+    ],
+    initiatedEvents: [
+      {
+        partyId: "1234567890",
+        partyType: "桌游",
+        partyTypeEng: "board-game",
+        partySkin: "#10AEFF",
+        partyName: "Brady的紧急派对",
+        partyYear: "2023",
+        partyMonth: "8",
+        partyDate: "1",
+        partyWeekday: "星期二",
+        partyAmPm: "下午",
+        partyHour: "3",
+        partyMinute: "30",
+        partyLocation: { city: "北京市", district: "海淀区", detail: "领站购物广场 3楼 Room201"}
+      }, 
+      {
+        partyId: "1234567891",
+        partyType: "桌游",
+        partyTypeEng: "board-game",
+        partySkin: "#10AEFF",
+        partyName: "xyr的紧急派对",
+        partyYear: "2023",
+        partyMonth: "8",
+        partyDate: "1",
+        partyWeekday: "星期二",
+        partyAmPm: "下午",
+        partyHour: "2",
+        partyMinute: "30",
+        partyLocation: { city: "北京市", district: "海淀区", detail: "领站购物广场 3楼 Room201"}
+      }, 
+      {
+        partyId: "1234567892",
+        partyType: "桌游",
+        partyTypeEng: "board-game",
+        partySkin: "#979797",
+        partyName: "Mike的紧急派对",
+        partyYear: "2023",
+        partyMonth: "8",
+        partyDate: "5",
+        partyWeekday: "星期二",
+        partyAmPm: "下午",
+        partyHour: "3",
+        partyMinute: "30",
+        partyLocation: { city: "北京市", district: "海淀区", detail: "领站购物广场 3楼 Room201"}
+      }, 
+      {
+        partyId: "1234567893",
+        partyType: "桌游",
+        partyTypeEng: "board-game",
+        partySkin: "#10AEFF",
+        partyName: "drz的紧急派对",
+        partyYear: "2023",
+        partyMonth: "8",
+        partyDate: "15",
+        partyWeekday: "星期二",
+        partyAmPm: "下午",
+        partyHour: "3",
+        partyMinute: "30",
+        partyLocation: { city: "北京市", district: "海淀区", detail: "领站购物广场 3楼 Room201"}
+      }
+    ],
     futureEventsJoined:
     [
       {
@@ -202,8 +326,10 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    this.getGroupedEvents();
+    let date = new Date()
+    this.initEventLists();
     this.initFilteredLists();
+    this.getGroupedEvents();
   },
 
   /**
@@ -269,10 +395,10 @@ Page({
 
   /* 事件列表制作 */
   getGroupedEvents() {
-    let futureEventsJ = this.data.futureEventsJoined;
-    let historyEventsJ = this.data.historyEventsJoined;
-    let futureEventsI = this.data.futureEventsInitiated;
-    let historyEventsI = this.data.historyEventsInitiated;
+    let futureEventsJ = this.data.filteredFutureJ;
+    let historyEventsJ = this.data.filteredHistoryJ;
+    let futureEventsI = this.data.filteredFutureI;
+    let historyEventsI = this.data.filteredHistoryI;
     let listArray = [futureEventsJ, historyEventsJ, futureEventsI, historyEventsI];
     let resultsArray = [[], [], [], []];
     for (var i = 0; i < listArray.length; i++) {
@@ -308,41 +434,109 @@ Page({
     return Object.values(groupedEvents);
   },
 
-  /* 其他 */
+  /* 列表初始化 */
+  initEventLists() {
+    let joinedEvents = this.data.joinedEvents;
+    let initEvents = this.data.initiatedEvents;
+    let joinedFuture = [];
+    let joinedHistory = [];
+    let initFuture = [];
+    let initHistory = [];
+
+    joinedEvents.forEach(e => {
+      let date = new Date(this.getStandardDate(e.partyYear, e.partyMonth, e.partyDate) + 'T' + this.getStandardTime(e.partyAmPm, e.partyHour, e.partyMinute));
+      let now = new Date();
+      if (date - now > 0) {
+        joinedFuture.push(e);
+      } else {
+        joinedHistory.push(e);
+      }
+    });
+    initEvents.forEach(e => {
+      let date = new Date(this.getStandardDate(e.partyYear, e.partyMonth, e.partyDate) + 'T' + this.getStandardTime(e.partyAmPm, e.partyHour, e.partyMinute));
+      let now = new Date();
+      if (date - now > 0) {
+        initFuture.push(e);
+      } else {
+        initHistory.push(e);
+      }
+    });
+    this.setData({
+      futureEventsJoined: joinedFuture,
+      futureEventsInitiated: initFuture,
+      historyEventsJoined: joinedHistory,
+      historyEventsInitiated: initHistory
+    });
+  },
+  getStandardDate(year, month, date) {
+    let y = year;
+    let m = month;
+    let d = date;
+    if (m < 10) {
+      m = '0' + m;
+    }
+    if (d < 10) {
+      d = '0' + d;
+    }
+    return `${y}-${m}-${d}`;
+  },
+  getStandardTime(ampm, hour, minute) {
+    if (ampm == '下午') {
+      hour + 12;
+    }
+    if (hour < 10) {
+      return `0${hour}:${minute}:00`;
+    } else {
+      return `${hour}:${minute}:00`;
+    }
+  },
   initFilteredLists() {
     this.setData({
       filteredFollow: this.data.followedEvents,
-      filteredFutureJ: this.data.groupedFutureJoinedEvents,
-      filteredFutureI: this.data.groupedFutureInitEvents,
-      filteredHistoryJ: this.data.groupedHistoryJoinedEvents,
-      filteredHistoryI: this.data.groupedHistoryInitEvents
+      filteredFutureJ: this.data.futureEventsJoined,
+      filteredFutureI: this.data.futureEventsInitiated,
+      filteredHistoryJ: this.data.historyEventsJoined,
+      filteredHistoryI: this.data.historyEventsInitiated
     });
   },
+
+  /* 关注列表 */
+  joinFollow(e) {
+    /* 以下为测试用 */
+    let partyId = e.currentTarget.dataset.partyId;
+    console.log(partyId);
+  },
+  deleteFollow(e) {
+    /* 以下为测试用 */
+    let partyId = e.currentTarget.dataset.partyId;
+    console.log(partyId);
+  },
+
+  /* 其他 */
   onSearchInput: function(event) {
     const searchQuery = event.detail.value.toLowerCase();
-    let futureEventsJ = this.data.groupedFutureJoinedEvents;
-    let historyEventsJ = this.data.groupedHistoryJoinedEvents;
-    let futureEventsI = this.data.groupedFutureInitEvents;
-    let historyEventsI = this.data.groupedHistoryInitEvents;
+    let futureEventsJ = this.data.futureEventsJoined;
+    let historyEventsJ = this.data.historyEventsJoined;
+    let futureEventsI = this.data.futureEventsInitiated;
+    let historyEventsI = this.data.historyEventsInitiated;
     let followedEvents = this.data.followedEvents;
     let listArray = [futureEventsJ, historyEventsJ, futureEventsI, historyEventsI];
     let resultsArray = [[], [], [], []]
     for (var i = 0; i < listArray.length; i++) {
-      for (var j = 0; j < listArray[i].length; j++) {
-        resultsArray[i].push(listArray[i][j].filter(f => {
+        resultsArray[i] = listArray[i].filter(f => {
           return f.partyName.toLowerCase().includes(searchQuery);
-        }));
-      }
+        });
     }
     followedEvents = followedEvents.filter(f => {
       return f.partyName.toLowerCase().includes(searchQuery);
     });
     this.setData({
       filteredFollow: followedEvents,
-      filteredFutureJ: listArray[0],
-      filteredHistoryJ: listArray[1],
-      filteredFutureI: listArray[2],
-      filteredHistoryI: listArray[3]
+      filteredFutureJ: resultsArray[0],
+      filteredHistoryJ: resultsArray[1],
+      filteredFutureI: resultsArray[2],
+      filteredHistoryI: resultsArray[3]
     });
+    this.getGroupedEvents();
   },
 })
