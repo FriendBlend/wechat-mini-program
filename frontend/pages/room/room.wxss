@@ -171,6 +171,22 @@ view {
 .people-progress--ready .wx-progress-inner-bar {
   background: linear-gradient(173deg, #8EFFC4, #0BFE7F);
 }
+.progress-remarks {
+  position: absolute;
+  top: 70rpx;
+  left: 160rpx;
+  font-size: 10px;
+  font-weight: 700;
+}
+.green-text {
+  color: #6CE89E;
+}
+.blue-text {
+  color: #10AEFF;
+}
+.white-text {
+  color: white;
+}
 .info-progress {
   position: relative;
   width: 30vw;

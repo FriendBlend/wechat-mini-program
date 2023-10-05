@@ -9,9 +9,11 @@ Page({
     currentUser: null,
     currentSeatIndex: -1,
     showDropdown: false,
-    selfStatus: 'owner',
-    activeTab: "people",
+    userInfo: {
+      userId: 12,
+    },
     userStatus: "joined",
+    activeTab: "people",
     readyNum: 0,
     joinedNum: 0,
     completedInfoNum: 0,
@@ -44,25 +46,21 @@ Page({
       partyDescript: "狼人杀局，可转阿瓦隆，不卡颜。欢迎带朋友。无dress code。3狼3民3神。地铁5号口出来。"
     },
     seats: [
-      { occupied: true, user_id: 1, dropdown: false },
+      { occupied: true, user_id: 1 },
       { occupied: false },
-      { occupied: true, user_id: 2, dropdown: false },
-      { occupied: true, user_id: 3, dropdown: false },
-      { occupied: true, user_id: 4, dropdown: false },
-      { occupied: true, user_id: 5, dropdown: false },
-      { occupied: true, user_id: 6, dropdown: false },
+      { occupied: true, user_id: 2 },
+      { occupied: true, user_id: 3 },
+      { occupied: true, user_id: 4 },
+      { occupied: true, user_id: 5 },
+      { occupied: true, user_id: 6 },
       { occupied: false },
-      { occupied: true, user_id: 7, dropdown: false },
-      { occupied: true, user_id: 8, dropdown: false },
-      { occupied: true, user_id: 9, dropdown: false },
-      { occupied: true, user_id: 10, dropdown: false },
-      { occupied: true, user_id: 11, dropdown: false }
+      { occupied: true, user_id: 7 },
+      { occupied: true, user_id: 8 },
+      { occupied: true, user_id: 9 },
+      { occupied: true, user_id: 10 },
+      { occupied: true, user_id: 11 }
     ],
-    dollarSignArray: [
-      {color: "white"},
-      {color: "white"},
-      {color: "white"}
-    ],
+    dollarSignArray: [ "white", "white", "white"],
     users: [
       {
         id: 1,
@@ -177,7 +175,7 @@ Page({
       {
         id: 12,
         name: "Mike",
-        status: "joined",
+        status: "none",
         avatar: "../../images/namecard/empty-avatar.png",
         skin: "#AEF359",
         userImage1: '../../images/large-namecard/brady.png',
@@ -192,6 +190,10 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    /* 初始化 */
+    this.initUserStatus();
+    this.initDollarSignArray();
+
     // 检查是否从URL获取了partyId
     if (options.partyId) {
       wx.showToast({
@@ -296,17 +298,34 @@ Page({
           }
       });
     }
-    /* 更新dollarSignArray */
+  },
+
+  initDollarSignArray() {
     let newDollarSignArray = this.data.dollarSignArray;
     for (let i = 0; i < newDollarSignArray.length; i++) {
-      console.log(i, this.data.partyInfo.partyCost.expenseLevel);
       if (i < this.data.partyInfo.partyCost.expenseLevel) {
-        console.log("hererere");
         newDollarSignArray[i] = "grey";
       } else {
         newDollarSignArray[i] = "white";
       }
     }
+    this.setData({
+      dollarSignArray: newDollarSignArray
+    });
+  },
+
+  initUserStatus() {
+    var status = "none"
+    this.data.users.some(user => {
+      if (user.id == this.data.userInfo.userId) {
+        status = user.status;
+        return true;
+      }
+      return false;
+    });
+    this.setData({
+      userStatus: status
+    });
   },
 
   getPartyInfo(partyId) {
@@ -404,26 +423,29 @@ Page({
   }, 
 
   getReady() {
-    // TODO: Implement ready button logic
-    console.log("I am ready!");
+    this.setData({
+      userStatus: "ready",
+      readyNum: this.data.readyNum + 1,
+      joinedNum: this.data.joinedNum - 1
+    });
   },
 
   getCancel() {
-    // TODO: Implement cancel button logic
-    console.log("I quit!");
+    this.setData({
+      userStatus: "joined",
+      readyNum: this.data.readyNum - 1,
+      joinedNum: this.data.joinedNum + 1
+    });
   },
 
   updatePeopleProgress() {
     let numJoined = 0;
     let numReady = 0;
-    for (let seat of this.data.seats) {
-      if (seat.occupied) {
-        let status = this.data.users[seat.user_id].status;
-        if (["ready","host"].indexOf(status) > -1) {
-          numReady += 1;
-        } else if (status === "joined") {
-          numJoined += 1;
-        }
+    for (let user of this.data.users) {
+      if (["ready","host"].indexOf(user.status) > -1) {
+        numReady += 1;
+      } else if (user.status === "joined") {
+        numJoined += 1;
       }
     }
     this.setData({
@@ -433,7 +455,6 @@ Page({
   },
 
   tabClick(e) {
-    console.log(e.currentTarget);
     this.setData({
       activeTab: e.currentTarget.id
     })
@@ -460,7 +481,6 @@ Page({
     // TODO: double click logic
     console.log("Double click detected!");
     const seatIndex = event.currentTarget.dataset.seatIndex;
-    const seats = this.data.seats;
 
     wx.request({
       url: 'http://localhost/operate/joinParty',
@@ -483,19 +503,55 @@ Page({
         // 处理请求失败后的逻辑
       }
     });
-    console.log(seats[seatIndex].user_id);
+    this.toggleSeat(seatIndex);
+  },
+
+  toggleSeat(seatIndex) {
+    var seats = this.data.seats;
+    var users = this.data.users;
+    var userInfo = this.data.userInfo;
+
     if (!seats[seatIndex].occupied) {
+      /* 入座 */
       seats[seatIndex].occupied = true;
-      seats[seatIndex].user_id = 12;
+      seats[seatIndex].user_id = userInfo.userId;
+      users.some(user => {
+        if (user.id == userInfo.userId) {
+          user.status = "joined";
+          return true;
+        }
+        return false;
+      });
+      seats[seatIndex].userStatus = "joined";
       this.setData({
+        userStatus: "joined",
+        users: users,
         seats: seats,
       });
-    } else if (seats[seatIndex].user_id == 12) {
+    } else if (seats[seatIndex].user_id == userInfo.userId) {
+      /* 离座 */
+      if (this.data.userStatus == "ready") {
+        wx.showToast({
+          title: '准备状态中不能离座',
+          icon: 'none'
+        });
+        return;
+      }
       seats[seatIndex].occupied = false;
+      users.some(user => {
+        if (user.id == userInfo.userId) {
+          user.status = "none";
+          return true;
+        }
+        return false;
+      });
       this.setData({
+        userStatus: "none",
+        users: users,
         seats: seats,
       });
     }
+    this.updatePeopleProgress();
   },
 
   singleClickSeat(event) {
@@ -504,10 +560,6 @@ Page({
     if (event.currentTarget.dataset.occupied) {
       this.showNamecard(event);
     }
-  },
-
-  joinCorridor(event) {
-    console.log("I joined the corridor")
   },
 
   showNamecard(event) {

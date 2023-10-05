@@ -47,6 +47,9 @@
             border-radius="25px"
             backgroundColor="rgba(0, 0, 0, 0)"/>
         </view>
+        <view class="progress-remarks" wx:if="{{activeTab == 'people'}}">
+          <text class="green-text">准备</text>/<text class="blue-text">加入</text>/<text class="white-text">上限</text>
+        </view>
       </view>
       <view id="info" class="room-tab {{activeTab == 'info' ? 'active' : ''}}" bind:tap="tabClick">
         <image class="room-tab--icon" src="../../images/icons/room-info.png"/>
@@ -168,7 +171,7 @@
               <view class="row3--cost--container">
                 <view class="row3--cost--expense">
                   <view wx:for="{{dollarSignArray}}">
-                    <image class="row3--cost--dollar" src="/frontend/images/icons/dollar-{{item.color}}.svg"/>
+                    <image class="row3--cost--dollar" src="/frontend/images/icons/dollar-{{item}}.svg"/>
                   </view>
                 </view>
                 <image class="row3--cost--pay" src="/frontend/images/icons/{{partyInfo.partyCost.payMethod}}.svg" />
@@ -185,11 +188,15 @@
       <image class="followers--icon" src="/frontend/images/icons/followers.png"/>
       <view class="followers--text">关注者</view>
     </view>
-    <view wx:if="{{userStatus == 'joined'}}" class="action-button ready-button">
+    <view wx:if="{{userStatus == 'host'}}" class="action-button ready-button">
       <view class="action-button--text">锁定</view>
       <image class="action-button--icon" src="/frontend/images/icons/ready.svg"/>
     </view>
-    <view wx:elif="{{userStatus == 'ready'}}" class="action-button cancel-button">
+    <view wx:elif="{{userStatus == 'joined'}}" class="action-button ready-button" bind:tap="getReady">
+      <view class="action-button--text">准备</view>
+      <image class="action-button--icon" src="/frontend/images/icons/ready.svg"/>
+    </view>
+    <view wx:elif="{{userStatus == 'ready'}}" class="action-button cancel-button" bind:tap="getCancel">
      <view class="action-button--text">取消</view>
      <image class="action-button--icon" src="/frontend/images/icons/cancel.svg"/>
     </view>
