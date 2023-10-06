@@ -4,7 +4,7 @@
     <image class="title-image" src="/frontend/images/title-image.svg"/>
   </view>
   <!-- Menu button -->
-  <view class="menu-button">
+  <view class="menu-button" bind:tap="showMenu">
     <image class="menu-icon" src="/frontend/images/icons/menu.svg"/>
   </view>
   <!-- Profile and Namecard-->
@@ -81,5 +81,6 @@
     userSkin="{{currentUser.skin}}"
     avatarUrl="../../images/large-namecard/brady-avatar.JPG">
   </large-namecard>
-  
+  <!-- menu -->
+  <menu showMenu="{{showMenu}}" type="room-host" position-class="menu-window"></menu>
 </view>

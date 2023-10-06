@@ -1,0 +1,74 @@
+<view wx:if="{{showMenu}}" class="menu-container">
+  <view class="menu-backdrop" bindtap="hideMenu"></view>
+  <view class="position-class">
+    <view class="menu-main-frame">
+      <image class="menu-triangle" src="/frontend/images/icons/menu-triangle.svg"/>
+      <view class="top-section">
+        <view class="menu-button--sm" bind:tap="toHome">
+          <image class="menu-button-icon icon--home" src="/frontend/images/icons/home.svg"/>
+        </view>
+        <view class="menu-button--sm">
+          <image class="menu-button-icon" src="/frontend/images/icons/share.svg"/>
+        </view>
+        <view class="menu-button--sm" bind:tap="toProfile">
+          <image class="menu-button-icon icon--profile" src="/frontend/images/icons/profile.svg"/>
+        </view>
+        <view class="menu-button--sm" bind:tap="toEvents">
+          <image class="menu-button-icon" src="/frontend/images/icons/events.svg"/>
+        </view>
+        <view class="menu-button--sm">
+          <image class="menu-button-icon" src="/frontend/images/icons/customize.svg"/>
+        </view>
+        <view class="menu-button--sm">
+          <image class="menu-button-icon" src="/frontend/images/icons/settings.svg"/>
+        </view>
+      </view>
+      <view class="bottom-section" wx:if="{{type != 'none'}}">
+        <block wx:if="{{type == 'room-host'}}">
+          <view class="menu-button--special special-button--yellow">
+            <image class="menu-button-icon" src="/frontend/images/icons/edit.svg"/>
+            <view class="special-button-text">编辑事件</view>
+          </view>
+          <view class="menu-button--special special-button--red">
+            <image class="menu-button-icon" src="/frontend/images/icons/cancel-event.svg"/>
+            <view class="special-button-text">取消事件</view>
+          </view>
+        </block>
+        <block wx:if="{{type == 'room-guest'}}">
+          <view class="menu-button--special special-button--blue">
+            <image class="menu-button-icon icon--follow" src="/frontend/images/icons/follow.svg"/>
+            <view class="special-button-text">关注事件</view>
+          </view>
+          <view class="menu-button--special special-button--red">
+            <image class="menu-button-icon" src="/frontend/images/icons/exit.svg"/>
+            <view class="special-button-text">退出事件</view>
+          </view>
+        </block>
+        <block wx:if="{{type == 'profile-self'}}">
+          <view class="menu-button--special special-button--yellow">
+            <image class="menu-button-icon" src="/frontend/images/icons/edit.svg"/>
+            <view class="special-button-text">编辑信息</view>
+          </view>
+          <view class="menu-button--special special-button--red">
+            <image class="menu-button-icon" src="/frontend/images/icons/logout.svg"/>
+            <view class="special-button-text">注销账户</view>
+          </view>
+        </block>
+        <block wx:if="{{type == 'profile-other'}}">
+          <view wx:if="{{isFriend}}" class="menu-button--special special-button--red">
+            <image class="menu-button-icon" src="/frontend/images/icons/delete.svg"/>
+            <view class="special-button-text">移除好友</view>
+          </view>
+          <view wx:else class="menu-button--special special-button--green">
+            <image class="menu-button-icon" src="/frontend/images/icons/add.svg"/>
+            <view class="special-button-text">添加好友</view>
+          </view>
+          <view class="menu-button--special special-button--red">
+            <image class="menu-button-icon" src="/frontend/images/icons/blacklist.svg"/>
+            <view class="special-button-text">拉黑用户</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

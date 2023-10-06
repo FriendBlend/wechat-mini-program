@@ -7,6 +7,7 @@ Page({
   data: {
     isCurrentUser: false,
     isFriend: false,
+    showMenu: false,
     activeTab: "friends",
     activeEventsTab: "future",
     currentUser: {
@@ -292,6 +293,12 @@ Page({
     this.setData({
       filteredFriends: filteredF,
       filteredCommonFriends: filteredCF
+    });
+  },
+
+  showMenu() {
+    this.setData({
+      showMenu: true
     });
   },
 

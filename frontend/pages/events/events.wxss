@@ -106,6 +106,14 @@
   border-bottom: 1px solid #B2B2B2;
 }
 
+/* 列表通用 */
+.empty-reminder {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+}
+
 /* ------- */
 /* 关注列表 */
 /* ------- */
@@ -245,4 +253,11 @@
 }
 .events-list-header--month {
   font-size: 16px;
+}
+
+/* menu */
+.menu-window {
+  position: absolute;
+  top: 14rpx;
+  right: 230rpx;
 }

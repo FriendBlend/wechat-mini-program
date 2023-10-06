@@ -2,6 +2,7 @@
   "usingComponents": {
     "large-namecard": "/frontend/components/large-namecard/large-namecard",
     "namecard": "/frontend/components/namecard/namecard",
-    "progressTicket": "/frontend/components/progressTicket/progressTicket"
+    "progressTicket": "/frontend/components/progressTicket/progressTicket",
+    "menu": "/frontend/components/menu/menu"
   }
 }

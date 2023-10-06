@@ -20,6 +20,7 @@ Page({
       partyLocation: { city: "北京市", district: "海淀区", detail: "领站购物广场 3楼 Room201"}
     },
     showNamecard: false,
+    showMenu: false,
     currentUser: {
       name: '仁喆',
       skin: '#979797',
@@ -113,7 +114,7 @@ Page({
     })
   },
 
-  showNamecard(event) {
+  showNamecard() {
     this.setData({
       showNamecard: true
     });
@@ -121,6 +122,11 @@ Page({
   hideNamecard() {
     this.setData({
       showNamecard: false
+    });
+  },
+  showMenu() {
+    this.setData({
+      showMenu: true
     });
   }
 })

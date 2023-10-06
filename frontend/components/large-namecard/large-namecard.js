@@ -63,6 +63,12 @@ Component({
       this.setData({
         showNamecard: false
       });
+    },
+
+    toProfile() {
+      wx.navigateTo({
+        url: '/frontend/pages/profile/profile',
+      })
     }
   }
 })

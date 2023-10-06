@@ -7,13 +7,14 @@ Page({
   data: {
     showNamecard: false,
     showFollowers: false,
+    showMenu: false,
     currentUser: null,
     currentSeatIndex: -1,
     showDropdown: false,
     userInfo: {
       userId: 12,
     },
-    userStatus: "joined",
+    userStatus: "none",
     activeTab: "people",
     readyNum: 0,
     joinedNum: 0,
@@ -306,6 +307,7 @@ Page({
         userImage3: '../../images/large-namecard/brady.png'
       },
     ],
+    filteredFollowers: [],
     lastClickTime: 0
   },
 
@@ -316,6 +318,7 @@ Page({
     /* 初始化 */
     this.initUserStatus();
     this.initDollarSignArray();
+    this.initFilteredLists();
 
     // 检查是否从URL获取了partyId
     if (options.partyId) {
@@ -451,6 +454,12 @@ Page({
     });
   },
 
+  initFilteredLists() {
+    this.setData({
+      filteredFollowers: this.data.followers
+    });
+  },
+
   getPartyInfo(partyId) {
     wx.cloud.callFunction({
         name: 'id_get_party',
@@ -548,16 +557,14 @@ Page({
   getReady() {
     this.setData({
       userStatus: "ready",
-      readyNum: this.data.readyNum + 1,
-      joinedNum: this.data.joinedNum - 1
+      readyNum: this.data.readyNum + 1
     });
   },
 
   getCancel() {
     this.setData({
       userStatus: "joined",
-      readyNum: this.data.readyNum - 1,
-      joinedNum: this.data.joinedNum + 1
+      readyNum: this.data.readyNum - 1
     });
   },
 
@@ -573,7 +580,7 @@ Page({
     }
     this.setData({
       readyNum: numReady,
-      joinedNum: numJoined
+      joinedNum: numJoined + numReady
     });
   },
 
@@ -696,7 +703,6 @@ Page({
       showNamecard: false
     });
   },
-  
   showFollowers() {
     this.setData({
       showFollowers: true
@@ -705,6 +711,11 @@ Page({
   hideFollowers() {
     this.setData({
       showFollowers: false
+    });
+  },
+  showMenu() {
+    this.setData({
+      showMenu: true
     });
   },
 
@@ -744,5 +755,15 @@ Page({
     // TODO: 发送换座邀请
     let followerId = e.currentTarget.dataset.followerId;
     console.log(followerId);
+  },
+  onSearchInput: function(event) {
+    const searchQuery = event.detail.value.toLowerCase();
+    let followers = this.data.followers;
+    followers = followers.filter(f => {
+      return f.name.toLowerCase().includes(searchQuery);
+    });
+    this.setData({
+      filteredFollowers: followers
+    });
   },
 })

@@ -1,5 +1,4 @@
 <view class="container">
-
   <section class="top-section">
     <view class="top-section--background"></view>
     <view class="event-ticket">
@@ -19,7 +18,7 @@
       <span class="event-ticket--name">{{partyName}}</span>
     </view>
     <view class="option-buttons">
-      <view class="option-button">
+      <view class="option-button" bind:tap="showMenu">
         <image src="/frontend/images/icons/menu.svg"/>
       </view>
       <view class="option-button">
@@ -36,7 +35,7 @@
           <text class="people-progress--text">{{readyNum}}/{{joinedNum}}/{{seats.length}}</text>
           <progress 
             class="people-progress--joined"
-            percent="{{(joinedNum + readyNum) / seats.length * 100}}"
+            percent="{{(joinedNum) / seats.length * 100}}"
             stroke-width="18"
             border-radius="25px"
             backgroundColor="white"/>
@@ -234,7 +233,7 @@
         <input class="search-input" bindinput="onSearchInput" placeholder="🔍搜索" placeholder-class="search-input--placeholder" />
       </view>
       <scroll-view class="followers-scroll-view" scroll-y="true">
-        <block wx:for="{{ followers }}" wx:key="index">
+        <block wx:for="{{ filteredFollowers }}" wx:key="index">
           <view class="followers-list-item">
             <view class="follower-namecard">
               <namecard 
@@ -260,3 +259,5 @@
     </view>
   </view>
 </view>
+<!-- menu -->
+<menu showMenu="{{showMenu}}" type="{{userStatus === 'host' ? 'room-host' : 'room-guest'}}" position-class="menu-window"></menu>

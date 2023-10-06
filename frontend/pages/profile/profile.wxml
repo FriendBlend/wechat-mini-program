@@ -11,7 +11,7 @@
         </view>
       </view>
       <view class="option-buttons">
-        <view class="option-button">
+        <view class="option-button" bind:tap="showMenu">
           <image class="button-icon" src="../../images/icons/menu.svg"/>
         </view>
         <view class="option-button">
@@ -174,3 +174,5 @@
     </view>
   </view>
 </view>
+<!-- menu -->
+<menu showMenu="{{showMenu}}" type="{{isCurrentUser ? 'profile-self' : 'profile-other'}}" isFriend="{{isFriend}}" position-class="menu-window"></menu>

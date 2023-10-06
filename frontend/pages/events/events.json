@@ -2,6 +2,7 @@
   "usingComponents": {
     "namecard": "../../components/namecard/namecard",
     "svg": "../../components/svg/svg",
-    "event": "../../components/progressTicket/progressTicket"
+    "event": "../../components/progressTicket/progressTicket",
+    "menu": "/frontend/components/menu/menu"
   }
 }

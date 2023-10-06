@@ -5,7 +5,7 @@
       <event></event>
     </view>
     <view class="option-buttons">
-      <view class="option-button">
+      <view class="option-button" bind:tap="showMenu">
         <image class="option-button--icon" src="/frontend/images/icons/menu.svg"/>
       </view>
       <view class="option-button">
@@ -52,50 +52,62 @@
         <view class="events-list--header-bg"></view>
         <view class="lower-blocker"></view>
         <scroll-view scroll-y="true" class="events-list" wx:if="{{activeSmallTab == 'init'}}">
-          <block wx:for="{{ groupedFutureInitEvents }}" wx:key="index">
-            <view class="events-list-group">
-              <view class="events-list-header">
-                <view>{{item[0].partyDate}}</view>
-                <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
-              </view>
-              <block wx:for="{{item}}" wx:key="index">
-                <view class="events-list-item">
-                  <event name="{{ item.partyName }}" 
-                    avatar="{{ item.partyTypeEng }}" 
-                    location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
-                    time="{{item.partyAmPm}} {{item.partyTime}}点"
-                    skin="{{item.partySkin}}"
-                  ></event>
+          <block wx:if="{{groupedFutureInitEvents.length === 0}}">
+            <view class="empty-reminder">您还没有发起的未来事件</view>
+          </block>
+          <block wx:else>
+            <block wx:for="{{ groupedFutureInitEvents }}" wx:key="index">
+              <view class="events-list-group">
+                <view class="events-list-header">
+                  <view>{{item[0].partyDate}}</view>
+                  <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
                 </view>
-              </block>
-            </view>
+                <block wx:for="{{item}}" wx:key="index">
+                  <view class="events-list-item">
+                    <event name="{{ item.partyName }}" 
+                      avatar="{{ item.partyTypeEng }}" 
+                      location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+                      time="{{item.partyAmPm}} {{item.partyTime}}点"
+                      skin="{{item.partySkin}}"
+                    ></event>
+                  </view>
+                </block>
+              </view>
+            </block>
           </block>
         </scroll-view>
         <scroll-view scroll-y="true" class="events-list" wx:else >
-          <block wx:for="{{ groupedFutureJoinedEvents }}" wx:key="index">
-            <view class="events-list-group">
-              <view class="events-list-header">
-                <view>{{item[0].partyDate}}</view>
-                <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
-              </view>
-              <block wx:for="{{item}}" wx:key="index">
-                <view class="events-list-item">
-                  <event name="{{ item.partyName }}" 
-                    avatar="{{ item.partyTypeEng }}" 
-                    location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
-                    time="{{item.partyAmPm}} {{item.partyTime}}点"
-                    skin="{{item.partySkin}}"
-                  ></event>
+          <block wx:if="{{groupedFutureJoinedEvents.length === 0}}">
+            <view class="empty-reminder">您还没有加入的未来事件</view>
+          </block>
+          <block wx:else>
+            <block wx:for="{{ groupedFutureJoinedEvents }}" wx:key="index">
+              <view class="events-list-group">
+                <view class="events-list-header">
+                  <view>{{item[0].partyDate}}</view>
+                  <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
                 </view>
-              </block>
-            </view>
+                <block wx:for="{{item}}" wx:key="index">
+                  <view class="events-list-item">
+                    <event name="{{ item.partyName }}" 
+                      avatar="{{ item.partyTypeEng }}" 
+                      location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+                      time="{{item.partyAmPm}} {{item.partyTime}}点"
+                      skin="{{item.partySkin}}"
+                    ></event>
+                  </view>
+                </block>
+              </view>
+            </block>
           </block>
         </scroll-view>
       </view>
     </view>
     <!-- 关注列表 -->
     <view class="followed-page" wx:if="{{activeTab == 'followed'}}">
-      <view class="followed-page--remarks">已经结束的事件会被自动移出关注列表</view>
+      <view class="followed-page--remarks">
+        {{filteredFollow.length === 0 ? '您还没有关注的事件' : '已经结束的事件会被自动移出关注列表'}}
+      </view>
       <block wx:for="{{ filteredFollow }}" wx:key="index">
         <view class="followed-list-item">
           <view class="followed-event">
@@ -138,46 +150,58 @@
         <view class="events-list--header-bg"></view>
         <view class="lower-blocker"></view>
         <scroll-view scroll-y="true" class="events-list" wx:if="{{activeSmallTab == 'init'}}">
-          <block wx:for="{{ groupedHistoryInitEvents }}" wx:key="index">
-            <view class="events-list-group">
-              <view class="events-list-header">
-                <view>{{item[0].partyDate}}</view>
-                <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
-              </view>
-              <block wx:for="{{item}}" wx:key="index">
-                <view class="events-list-item">
-                  <event name="{{ item.partyName }}" 
-                    avatar="{{ item.partyTypeEng }}" 
-                    location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
-                    time="{{item.partyAmPm}} {{item.partyTime}}点"
-                    skin="{{item.partySkin}}"
-                  ></event>
+          <block wx:if="{{groupedHistoryInitEvents.length === 0}}">
+            <view class="empty-reminder">您还没有发起的历史事件</view>
+          </block>
+          <block wx:else>
+            <block wx:for="{{ groupedHistoryInitEvents }}" wx:key="index">
+              <view class="events-list-group">
+                <view class="events-list-header">
+                  <view>{{item[0].partyDate}}</view>
+                  <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
                 </view>
-              </block>
-            </view>
+                <block wx:for="{{item}}" wx:key="index">
+                  <view class="events-list-item">
+                    <event name="{{ item.partyName }}" 
+                      avatar="{{ item.partyTypeEng }}" 
+                      location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+                      time="{{item.partyAmPm}} {{item.partyTime}}点"
+                      skin="{{item.partySkin}}"
+                    ></event>
+                  </view>
+                </block>
+              </view>
+            </block>
           </block>
         </scroll-view>
         <scroll-view scroll-y="true" class="events-list" wx:else >
-          <block wx:for="{{ groupedHistoryJoinedEvents }}" wx:key="index">
-            <view class="events-list-group">
-              <view class="events-list-header">
-                <view>{{item[0].partyDate}}</view>
-                <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
-              </view>
-              <block wx:for="{{item}}" wx:key="index">
-                <view class="events-list-item">
-                  <event name="{{ item.partyName }}" 
-                    avatar="{{ item.partyTypeEng }}" 
-                    location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
-                    time="{{item.partyAmPm}} {{item.partyTime}}点"
-                    skin="{{item.partySkin}}"
-                  ></event>
+          <block wx:if="{{groupedHistoryJoinedEvents.length === 0}}">
+            <view class="empty-reminder">您还没有加入的历史事件</view>
+          </block>
+          <block wx:else>
+            <block wx:for="{{ groupedHistoryJoinedEvents }}" wx:key="index">
+              <view class="events-list-group">
+                <view class="events-list-header">
+                  <view>{{item[0].partyDate}}</view>
+                  <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
                 </view>
-              </block>
-            </view>
+                <block wx:for="{{item}}" wx:key="index">
+                  <view class="events-list-item">
+                    <event name="{{ item.partyName }}" 
+                      avatar="{{ item.partyTypeEng }}" 
+                      location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+                      time="{{item.partyAmPm}} {{item.partyTime}}点"
+                      skin="{{item.partySkin}}"
+                    ></event>
+                  </view>
+                </block>
+              </view>
+            </block>
           </block>
         </scroll-view>
       </view>
     </view>
   </view>
 </view>
+<!-- menu -->
+<menu showMenu="{{showMenu}}" position-class="menu-window"></menu>

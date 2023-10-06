@@ -66,6 +66,7 @@
   padding: 4rpx 16rpx;
   border-radius: 24rpx;
   margin: 6rpx;
+  color: white;
 }
 
 /* bottom cotainer */
@@ -302,4 +303,10 @@
   top: 90rpx;
   left: 200rpx;
   font-size: 13px;
+}
+/* menu */
+.menu-window {
+  position: absolute;
+  top: 0rpx;
+  right: 220rpx;
 }

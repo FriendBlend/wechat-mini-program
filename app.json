@@ -6,9 +6,10 @@
     "frontend/pages/join/join",
     "frontend/pages/testfunc/test",
     "frontend/pages/profile-edit/profile-edit",
-    "frontend/components/large-namecard/large-namecard",
     "frontend/pages/initiate/initiate",
-    "frontend/pages/events/events"
+    "frontend/pages/events/events",
+    "frontend/components/large-namecard/large-namecard",
+    "frontend/components/menu/menu"
   ],
   "window": {
     "backgroundTextStyle": "light",

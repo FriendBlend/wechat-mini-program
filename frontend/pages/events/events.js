@@ -7,6 +7,7 @@ Page({
   data: {
     activeTab: "followed",
     activeSmallTab: "init",
+    showMenu: false,
     joinedEvents: [
       {
         partyId: "1234567890",
@@ -539,4 +540,9 @@ Page({
     });
     this.getGroupedEvents();
   },
+  showMenu() {
+    this.setData({
+      showMenu: true
+    });
+  }
 })

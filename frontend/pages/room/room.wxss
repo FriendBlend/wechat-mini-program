@@ -694,3 +694,10 @@ view {
   width: 66rpx;
   height: 66rpx;
 }
+
+/* menu */
+.menu-window {
+  position: absolute;
+  top: 10rpx;
+  right: 230rpx;
+}

@@ -38,6 +38,13 @@
   width: 56rpx;
   height: 56rpx;
 }
+/* menu */
+.menu-window {
+  position: absolute;
+  top: 76rpx;
+  right: 190rpx;
+}
+
 /* profile and namecard */
 .profile-and-namecard {
   margin-top: 20rpx;
