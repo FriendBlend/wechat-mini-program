@@ -5,7 +5,20 @@ Page({
    * Page initial data
    */
   data: {
-    upcomingEvent: null,
+    upcomingEvent: {
+      partyId: "1234567890",
+      partyType: "桌游",
+      partyTypeEng: "board-game",
+      partySkin: "#10AEFF",
+      partyName: "Brady的紧急派对",
+      partyYear: "2023",
+      partyMonth: "8",
+      partyDate: "1",
+      partyWeekday: "星期二",
+      partyAmPm: "下午",
+      partyTime: "3",
+      partyLocation: { city: "北京市", district: "海淀区", detail: "领站购物广场 3楼 Room201"}
+    },
     showNamecard: false,
     currentUser: {
       name: '仁喆',

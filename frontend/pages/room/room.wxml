@@ -184,9 +184,15 @@
   </section>
 
   <section class="bottom-section">
-    <view class="followers">
+    <view class="followers" bind:tap="showFollowers">
       <image class="followers--icon" src="/frontend/images/icons/followers.png"/>
       <view class="followers--text">关注者</view>
+      <image class="followers--avatar1" 
+        src="{{ followers.length > 0 ? followers[0].avatar : '/frontend/images/icons/empty-avatar.svg'}}"/>
+      <image class="followers--avatar2" 
+        src="{{ followers.length > 1 ? followers[1].avatar : '/frontend/images/icons/empty-avatar.svg'}}"/>
+      <image class="followers--avatar3" 
+        src="{{ followers.length > 2 ? followers[2].avatar : '/frontend/images/icons/empty-avatar.svg'}}"/>
     </view>
     <view wx:if="{{userStatus == 'host'}}" class="action-button ready-button">
       <view class="action-button--text">锁定</view>
@@ -213,4 +219,44 @@
     userSkin="{{currentUser.skin}}"
     avatarUrl="{{currentUser.avatar}}">
   </large-namecard>
+
+  <!-- followers -->
+  <view wx:if="{{showFollowers}}" class="followers-container">
+    <view class="followers-backdrop" bindtap="hideFollowers"></view>
+    <image class="followers-close-btn" bindtap="hideFollowers" src="/frontend/images/large-namecard/close-button.png"/>
+    <view class="followers-main-frame">
+      <view class="followers-title">
+        <image class="followers-title--icon" src="/frontend/images/icons/followers.png" />
+        <view class="followers-title--text">关注者</view>
+      </view>
+      <view class="followers-remarks">他/她们已将该事件加入关注列表</view>
+      <view class="search-bar-wrapper">
+        <input class="search-input" bindinput="onSearchInput" placeholder="🔍搜索" placeholder-class="search-input--placeholder" />
+      </view>
+      <scroll-view class="followers-scroll-view" scroll-y="true">
+        <block wx:for="{{ followers }}" wx:key="index">
+          <view class="followers-list-item">
+            <view class="follower-namecard">
+              <namecard 
+                name="{{item.name}}"
+                skin="{{item.skin}}"
+                avatarUrl="{{item.avatar}}"
+                hasShadow="{{true}}" 
+              ></namecard>
+            </view>
+            <view class="followers--option-buttons">
+              <view class="followers--option-button" bind:tap="inviteFollower" data-follower-id="{{item.id}}">
+                <image class="followers--option-button--icon" src="/frontend/images/icons/invite.svg"/>
+                <view>邀请</view>
+              </view>
+              <view class="followers--option-button" bind:tap="exchangeFollower" data-follower-id="{{item.id}}">
+                <image class="followers--option-button--icon" src="/frontend/images/icons/exchange.svg"/>
+                <view>交换</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
 </view>

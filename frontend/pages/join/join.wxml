@@ -4,8 +4,8 @@
       <view class="input-text">请输入房间号</view>
       <input class="input-field" type="text" placeholder="88888-88888" placeholder-class="input-field-placeholder" bindinput="onInput"/>
     </view>
-    <view class="join-button" bindtap="joinRoom">
-      <image src="../initiate/init-else/icons/check-icon.png" class="join-image"/>
+    <view class="join-button white-button" bindtap="joinRoom">
+      <image src="/frontend/images/icons/join.svg" class="join-image"/>
       <view class="join-text">加入!</view>
     </view>
   </view>

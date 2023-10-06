@@ -6,6 +6,7 @@ Page({
    */
   data: {
     showNamecard: false,
+    showFollowers: false,
     currentUser: null,
     currentSeatIndex: -1,
     showDropdown: false,
@@ -62,6 +63,128 @@ Page({
     ],
     dollarSignArray: [ "white", "white", "white"],
     users: [
+      {
+        id: 1,
+        name: "Brady",
+        status: "ready",
+        avatar: "../../images/large-namecard/brady2.jpeg",
+        skin: "#10AEFF",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 2,
+        name: "xyr",
+        status: "joined",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "#FF7966",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 3,
+        name: "Jessie",
+        status: "ready",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "#10AEFF",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 4,
+        name: "Renzhe",
+        status: "host",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "pink",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 5,
+        name: "Jimmy",
+        status: "ready",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "#C7F5D8",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 6,
+        name: "Tomy",
+        status: "joined",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "#FF7966",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 7,
+        name: "Mike",
+        status: "ready",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "#37CD82",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 8,
+        name: "忍者",
+        status: "joined",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "#FF7966",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 9,
+        name: "Brady",
+        status: "ready",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "#37CD82",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 10,
+        name: "xyr",
+        status: "joined",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "#10AEFF",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 11,
+        name: "老玉米",
+        status: "ready",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "#C7F5D8",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+      {
+        id: 12,
+        name: "Mike",
+        status: "none",
+        avatar: "../../images/namecard/empty-avatar.png",
+        skin: "#AEF359",
+        userImage1: '../../images/large-namecard/brady.png',
+        userImage2: '../../images/large-namecard/brady.png',
+        userImage3: '../../images/large-namecard/brady.png'
+      },
+    ],
+    followers: [
       {
         id: 1,
         name: "Brady",
@@ -568,10 +691,20 @@ Page({
       currentUser: event.currentTarget.dataset.user
     });
   },
-
   hideNamecard() {
     this.setData({
       showNamecard: false
+    });
+  },
+  
+  showFollowers() {
+    this.setData({
+      showFollowers: true
+    });
+  },
+  hideFollowers() {
+    this.setData({
+      showFollowers: false
     });
   },
 
@@ -599,5 +732,17 @@ Page({
             });
         }
     });
-}
+  },
+
+  /* 关注者 */
+  inviteFollower(e) {
+    // TODO: 发送邀请
+    let followerId = e.currentTarget.dataset.followerId;
+    console.log(followerId);
+  },
+  exchangeFollower(e) {
+    // TODO: 发送换座邀请
+    let followerId = e.currentTarget.dataset.followerId;
+    console.log(followerId);
+  },
 })

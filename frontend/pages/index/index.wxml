@@ -1,24 +1,20 @@
 <view class="page-container">
   <!-- Title -->
   <view class="title">
-    <view class="title-blue-rect"></view>
-    <view class="title-green-rect"></view>
-    <image
-      class="title-ellipse"
-      src="Icons/Ellipse-24.png"
-    ></image>
-    <span class="jinji-txt">紧急</span>
-    <span class="paidui-txt">派对</span>
-    <span class="title-en-txt">FriendBlend</span>
+    <image class="title-image" src="/frontend/images/title-image.svg"/>
+  </view>
+  <!-- Menu button -->
+  <view class="menu-button">
+    <image class="menu-icon" src="/frontend/images/icons/menu.svg"/>
   </view>
   <!-- Profile and Namecard-->
   <view class="profile-and-namecard">
     <view class="profile grey-button" bindtap="toProfile">
-      <span class="wo-txt">我</span>
-      <span class="profile-txt">profile</span>
+      <view class="cn-title">我</view>
+      <view class="en-title">profile</view>
       <image
         class="profile-icon"
-        src="Icons/contacts.png"
+        src="/frontend/images/icons/profile.svg"
       ></image>
     </view>
     <view class="namecard-holder">
@@ -31,53 +27,49 @@
       </namecard>
     </view>
   </view>
-  <!-- Initiate and Join -->
+  <!-- 发起和加入 -->
   <view class="initiate-and-join">
     <view class="initiate" bindtap="toInitiate">
-      <button class="init-button grey-button" style="width: 324rpx;"></button>
-      <span class="init-cn-txt">发起</span>
-      <span class="init-txt">initiate</span>
-      <image
-        class="init-icon"
-        src="Icons/add.png"
-      ></image>
+      <view class="init-button grey-button">
+        <view class="cn-title">发起</view>
+        <view class="en-title">initiate</view>
+        <image
+          class="init-icon"
+          src="/frontend/images/icons/initiate.svg"
+        ></image>
+      </view>
     </view>
     <view class="join" bindtap="toJoin">
-      <button class="join-button grey-button" style="width: 260rpx;"></button>
-      <span class="join-txt">join</span>
-      <span class="join-cn-txt">加入</span>
-      <image
-        class="join-icon"
-        src="Icons/sending.png"
-      ></image>
+      <view class="join-button grey-button">
+        <view class="cn-title">加入</view>
+        <view class="en-title">join</view>
+        <image
+          class="join-icon"
+          src="/frontend/images/icons/join.svg"
+        ></image>
+      </view>
     </view>
   </view>
   <!-- Events -->
   <view class="events">
-    <button class="events-button grey-button" bindtap="toEvents" style="width: 506rpx;"></button>
-    <view class="i-phone1-pro-default-group5">
-      <span class="events-cn-txt">事件</span>
-      <span class="events-txt">events</span>
+    <view class="events-button grey-button" bindtap="toEvents">
       <image
         class="events-icon"
-        src="Icons/menu.png"
+        src="/frontend/images/icons/events.svg"
       ></image>
+      <view class="events-title">
+        <view class="cn-title">事件</view>
+        <view class="en-title">events</view>
+      </view>
     </view>
     <!-- Event Ticket -->
     <view class="event-ticket" bindtap="toRoom">
-      <image
-        class="ticket-base"
-        src="../../images/tickets/blue-ticket.png"
-      ></image>
-      <span class="ticket-event-name">仁喆的生日派对</span>
-      <span class="ticket-event-info">
-        <view>明天</view>
-        <view>下午 3点</view>
-      </span>
-      <image
-        class="ticket-avatar"
-        src="../../images/event-avatars/balloon.png"
-      ></image>
+      <event name="{{ upcomingEvent.partyName }}" 
+        avatar="{{ upcomingEvent.partyTypeEng }}" 
+        location="{{upcomingEvent.partyLocation.city}} {{upcomingEvent.partyLocation.district}}"
+        time="{{upcomingEvent.partyAmPm}} {{upcomingEvent.partyTime}}点"
+        skin="{{upcomingEvent.partySkin}}"
+      ></event>
     </view>
   </view>
   <!-- Large namecard -->

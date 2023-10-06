@@ -503,6 +503,7 @@ view {
   border-radius: 22px;
 }
 .followers {
+  position: relative;
   background: var(--lightGrey);
   display: flex;
   padding: 18rpx 20rpx;
@@ -516,6 +517,26 @@ view {
   font-size: 1.375rem;
   font-weight: 800;
   color: var(--darkGrey);
+}
+.followers--avatar1,
+.followers--avatar2,
+.followers--avatar3 {
+  height: 80rpx;
+  width: 80rpx;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 18rpx;
+  right: 20rpx;
+  object-fit: cover;
+  box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.25);
+}
+.followers--avatar1 {
+  right: 142rpx;
+  z-index: 2;
+}
+.followers--avatar2 {
+  right: 78rpx;
+  z-index: 1;
 }
 .ready-button {
   background: linear-gradient(180deg, #58E365 27.94%, #2EC139 75.51%);
@@ -546,4 +567,130 @@ view {
   justify-content: center;
   align-items: center;
   color: var(--darkGrey);
+}
+
+/* large namecard */
+.wx-swiper-dots-horizontal {
+  width: 100%;
+  position: relative;
+  top: 34rpx;
+}
+.wx-swiper-dot {
+  width: 30% !important;
+  border-radius: 100px !important;
+  background-color: var(--darkGrey) !important;
+  height: 3.156px !important;
+}
+.wx-swiper-dot-active {
+  background-color: white !important;
+}
+
+/* followers */
+.followers-container {
+  z-index: 99;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.followers-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.30);
+  backdrop-filter: blur(1.5px);
+  z-index: -1;
+}
+.followers-close-btn {
+  width: 68rpx;
+  height: 66rpx;
+  position: absolute;
+  top: 34rpx;
+  left: 34rpx;
+}
+.followers-main-frame {
+  height: 90%;
+  width: 556rpx;
+  border-radius: 30rpx;
+  background: rgba(217, 217, 217, 0.7);
+  margin: 0 auto;
+  margin-top: 66rpx;
+  padding: 34rpx;
+}
+.followers-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 990;
+}
+.followers-title--icon {
+  width: 44rpx;
+  height: 44rpx;
+}
+.followers-title--text {
+  font-size: 18px;
+  font-weight: 700;
+}
+.followers-remarks {
+  color: #696969;
+  font-size: 12px;
+  text-align: center;
+}
+.search-input {
+  margin-top: 38rpx;
+  padding: 14rpx 20rpx;
+  border-radius: 10px;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  background: white;
+}
+.search-input--placeholder {
+  color: #BCB7B7;
+}
+.search-bar-wrapper {
+  padding-bottom: 40rpx;
+  border-bottom: 1px solid #B2B2B2;
+}
+.followers-scroll-view {
+  height: 75%;
+  overflow: hidden;
+}
+.followers-list-item,
+.followers--option-buttons,
+.followers--option-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.followers-list-item {
+  position: relative;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #B2B2B2;
+  justify-content: space-between;
+}
+.follower-namecard {
+  position: relative;
+  scale: 90%;
+}
+.followers--option-buttons {
+  flex-direction: column;
+  gap: 22rpx;
+}
+.followers--option-button {
+  width: 152rpx;
+  height: 76rpx;
+  background: #EBEBEB;
+  border-radius: 12px;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  color: #696969;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  gap: 8rpx;
+}
+.followers--option-button--icon {
+  width: 66rpx;
+  height: 66rpx;
 }

@@ -20,6 +20,15 @@
   width: 134rpx;
   height: 134rpx;
 }
+.avatar-bg {
+  position: absolute;
+  top: 68rpx;
+  left: 62rpx;
+  width: 134rpx;
+  height: 134rpx;
+  z-index: -1;
+  background: var(--lightGrey);
+}
 .name {
   position: absolute;
   top: 46rpx;
