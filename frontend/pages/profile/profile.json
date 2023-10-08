@@ -3,6 +3,7 @@
     "namecard": "../../components/namecard/namecard",
     "svg": "../../components/svg/svg",
     "event": "../../components/progressTicket/progressTicket",
-    "menu": "/frontend/components/menu/menu"
+    "menu": "/frontend/components/menu/menu",
+    "large-namecard": "/frontend/components/large-namecard/large-namecard"
   }
 }

@@ -34,7 +34,8 @@ Page({
       partyDate: "1",
       partyWeekday: "星期二",
       partyAmPm: "下午",
-      partyTime: "3",
+      partyHour: "3",
+      partyMinute: "30",
       partyTimeRange: ["day", "evening"],
       partyLocation: {
         city: "北京市",

@@ -46,6 +46,220 @@
   margin: 12rpx;
 }
 
+/* fastcard button */
+.fastcard-button {
+  margin-top: 32rpx;
+  background: linear-gradient(80deg, #E7B540 54.21%, rgba(231, 181, 64, 0.00) 144.76%);
+  height: 140rpx;
+  width: 100%;
+  border-radius: 42rpx;
+  box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  gap: 14rpx;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.fastcard-title-en {
+  color: #FFF;
+  font-size: 40px;
+  line-height: 90%;
+  font-weight: 700;
+}
+.fastcard-button--right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fastcard-title-cn {
+  color: #FFF;
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 16px;
+  font-weight: 700;
+}
+.fastcard-free {
+  width: 49px;
+  height: 25px;
+  border-radius: 22px;
+  background: #23F788;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+}
+
+/* fastcard setup */
+.fastcard-setup-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+.fastcard-setup-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.30);
+  backdrop-filter: blur(1.5px);
+  z-index: -1;
+}
+.fastcard-setup-close-btn {
+  width: 68rpx;
+  height: 66rpx;
+  position: absolute;
+  left: 22rpx;
+  top: 40rpx;
+}
+.fastcard-setup-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 642rpx;
+  height: 982rpx;
+  background: #EDEAEA;
+  border-radius: 42rpx;
+  padding: 44rpx 0;
+  box-sizing: border-box;
+}
+.fastcard-setup-title {
+  color: #E8B641;
+  font-family: Alfa Slab One;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.64px;
+  align-self: flex-start;
+  padding-left: 64rpx;
+}
+.fastcard-setup-subtitle {
+  color: #FFF;
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 16px;
+  font-weight: 1000;
+}
+.yellow-text {
+  color: #E8B641;
+}
+.fastcard-setup-content-block {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 22rpx;
+  position: relative;
+}
+.fastcard-setup-content-block--bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10rpx;
+  height: 210rpx;
+}
+.fastcard-list-item {
+  position: relative;
+  color: #696969;
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 14px;
+  font-weight: 700;
+  padding-left: 20rpx;
+  line-height: 180%;
+}
+.fastcard-list-item--bottom {
+  padding-left: 52rpx;
+  line-height: 200%;
+}
+.fastcard-list-item::before {
+  content: ''; /* 使用伪元素添加小圆点 */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #333333; /* 圆点颜色 */
+  border-radius: 35%;
+  transform: translateY(-50%); /* 使圆点垂直居中 */
+}
+.fastcard-setup-content-block--bottom .fastcard-list-item::before {
+  display: none;
+}
+.fastcard-setup-namecard {
+  width: 200rpx;
+  height: 122rpx;
+  margin-bottom: -10rpx;
+}
+.fastcard-setup-label {
+  color: #696969;
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+.fastcard-setup-label--bottom {
+  position: relative;
+  top: -10rpx;
+  padding-left: 52rpx;
+}
+.fastcard-setup-content-block .option-buttons {
+  height: 100%;
+}
+.fastcard-setup-content-block .option-button {
+  background: #EDEAEA;
+}
+.fastcard-setup-top {
+  width: 570rpx;
+  height: 250rpx;
+  border-radius: 21px;
+  background: rgba(217, 217, 217, 0.70);
+  padding: 22rpx 28rpx;
+  box-sizing: border-box;
+}
+.fastcard-setup-bottom {
+  width: 570rpx;
+  height: 296rpx;
+  border-radius: 21px;
+  background: rgba(217, 217, 217, 0.70);
+  padding: 22rpx 28rpx;
+  box-sizing: border-box;
+  margin: 36rpx 0;
+}
+.fastcard-setup-create-button {
+  width: 285px;
+  height: 74.818px;
+  border-radius: 15px;
+  background: linear-gradient(80deg, #E7B540 54.21%, rgba(231, 181, 64, 0.00) 144.76%);
+  box-shadow: 0px 4px 3px 0px rgba(255, 255, 255, 0.62) inset, 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  text-align: center;
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 40px;
+  font-weight: 1000;
+}
+.option-circle {
+  display: inline;
+  width: 38rpx;
+  height: 38rpx;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid var(--lightGrey);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  position: absolute;
+  left: 0;
+  top: 2rpx;
+}
+
 /* tags */
 .top-container swiper {
   margin-top: 32rpx;
@@ -169,12 +383,14 @@
 }
 
 /* 事件 */
-.common-events-list {
+.common-events-list,
+.followed-events-list {
   margin-top: 28rpx;
   height: fit-content;
   white-space: nowrap;
 }
-.common-events-item {
+.common-events-item,
+.followed-events-item {
   display: inline-block;
   width: 92%;
   position: relative;
@@ -224,11 +440,11 @@
   height: 50rpx;
   z-index: 10;
 }
-.future-events-list-group {
+.events-list-group {
   position: relative;
   margin-bottom: 50rpx;
 }
-.future-events-list-item {
+.events-list-item {
   position: relative;
   height: 240rpx;
   scale: 75%;

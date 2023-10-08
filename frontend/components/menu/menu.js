@@ -52,6 +52,12 @@ Component({
       wx.redirectTo({
         url: '/frontend/pages/events/events',
       });
+    },
+    sharePage() {
+      wx.showShareMenu({
+        withShareTicket: true,
+        menus: ['shareAppMessage', 'shareTimeline']
+      });
     }
   }
 })

@@ -3,7 +3,8 @@
     <view class="top-container--namecard-row">
       <view class="top-container--namecard-placeholder">
         <view class="top-container--namecard">
-          <namecard 
+          <namecard
+            bind:tap="{{haveFastcard ? 'showNamecard' : 'showFastcardSetup'}}"
             name="{{currentUser.name}}"
             skin="{{currentUser.skin}}"
             avatarUrl="{{currentUser.avatar}}"
@@ -24,18 +25,35 @@
           </view>
         </view>
         <view class="option-button">
-          <image class="button-icon" src="../../images/icons/greet.svg"/>
+          <view wx:if="{{isCurrentUser}}">
+            <image class="button-icon" src="../../images/icons/chat.svg"/>
+          </view>
+          <view wx:else>
+            <image class="button-icon" src="../../images/icons/greet.svg"/>
+          </view>
+          
         </view>
       </view>
     </view>
-    <swiper vertical="{{true}}" indicator-dots="{{true}}" indicator-active-color="white">
-      <swiper-item class="tags-container">
-        <block wx:for="{{tags}}">
-          <view class="tag-block">{{item}}</view>
-        </block>
-      </swiper-item>
-      <swiper-item></swiper-item>
-    </swiper>
+    <block wx:if="{{isCurrentUser && !haveFastcard}}">
+      <view class="fastcard-button" bind:tap="showFastcardSetup">
+        <view class="fastcard-title-en">Fastcard</view>
+        <view class="fastcard-button--right">
+          <view class="fastcard-free">Free</view>
+          <view class="fastcard-title-cn">快速卡片</view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <swiper vertical="{{true}}" indicator-dots="{{true}}" indicator-active-color="white">
+        <swiper-item class="tags-container">
+          <block wx:for="{{currentUser.tags}}" wx:key="index">
+            <view class="tag-block">{{item}}</view>
+          </block>
+        </swiper-item>
+        <swiper-item></swiper-item>
+      </swiper>
+    </block>
   </view>
 
   <view class="bottom-container">
@@ -97,20 +115,37 @@
     </view>
     <!-- 事件页面 -->
     <view class="events-section" wx:if="{{activeTab == 'events'}}">
-      <!-- 共同事件 -->
-      <view class="common-events">
-        <view class="profile-small-title">
-          <image class="profile-small-icon" src="/frontend/images/icons/events-common.svg"/>
-          <view>共同事件</view>
+      <block wx:if="{{isCurrentUser}}">
+        <view class="followed-events">
+          <view class="profile-small-title">
+            <image class="profile-small-icon" src="/frontend/images/icons/events-common.svg"/>
+            <view>关注事件</view>
+          </view>
+          <scroll-view class="followed-events-list" scroll-x="true">
+            <block wx:for="{{ followedEvents }}" wx:key="eid">
+              <view class="followed-events-item">
+                <svg src="/frontend/images/tickets/blue-ticket.svg" color="#10AEFF" width="251px" height="102px"></svg>
+              </view>
+            </block>
+          </scroll-view>
         </view>
-        <scroll-view class="common-events-list" scroll-x="true">
-          <block wx:for="{{ commonEvents }}" wx:key="eid">
-            <view class="common-events-item">
-              <svg src="/frontend/images/tickets/blue-ticket.svg" color="#10AEFF" width="251px" height="102px"></svg>
-            </view>
-          </block>
-        </scroll-view>
-      </view>
+      </block>
+      <block wx:else>
+        <!-- 共同事件 -->
+        <view class="common-events">
+          <view class="profile-small-title">
+            <image class="profile-small-icon" src="/frontend/images/icons/events-common.svg"/>
+            <view>共同事件</view>
+          </view>
+          <scroll-view class="common-events-list" scroll-x="true">
+            <block wx:for="{{ commonEvents }}" wx:key="eid">
+              <view class="common-events-item">
+                <svg src="/frontend/images/tickets/blue-ticket.svg" color="#10AEFF" width="251px" height="102px"></svg>
+              </view>
+            </block>
+          </scroll-view>
+        </view>
+      </block>
       <!-- 未来/历史事件tabs -->
       <view class="events-tabs">
         <view id="future" bind:tap="eventsTabClick" class="profile-small-title events-tab {{activeEventsTab == 'future' ? 'events-tab--active' : ''}}">
@@ -130,13 +165,13 @@
         <view class="lower-blocker"></view>
         <scroll-view scroll-y="true" class="events-list" wx:if="{{activeEventsTab == 'future'}}">
           <block wx:for="{{ groupedFutureEvents }}" wx:key="index">
-            <view class="future-events-list-group">
+            <view class="events-list-group">
               <view class="events-list-header">
                 <view>{{item[0].partyDate}}</view>
                 <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
               </view>
               <block wx:for="{{item}}" wx:key="index">
-                <view class="future-events-list-item">
+                <view class="events-list-item">
                   <event name="{{ item.partyName }}" 
                     avatar="{{ item.partyTypeEng }}" 
                     location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
@@ -150,21 +185,19 @@
         </scroll-view>
         <scroll-view scroll-y="true" class="events-list" wx:else >
           <block wx:for="{{ groupedHistoryEvents }}" wx:key="index">
-            <view class="history-events-list-group">
-              <view class="events-list-header events-list-header--history">
+            <view class="events-list-group">
+              <view class="events-list-header">
                 <view>{{item[0].partyDate}}</view>
                 <view class="events-list-header--month">{{item[0].partyMonth}}月</view>
               </view>
               <block wx:for="{{item}}" wx:key="index">
-                <view class="history-events-list-item">
-                  <view class="history-event">
-                    <image src="/frontend/images/tickets/green-ticket-used.svg" class="used-ticket"/>
-                    <view class="history-event-avatar-bg"></view>
-                    <image class="history-event-avatar" src="/frontend/images/event-avatars/{{item.partyTypeEng}}.svg"></image>
-                    <view class="history-event-name">{{item.partyName}}</view>
-                    <view class="history-event-location">{{item.partyLocation.city}} {{item.partyLocation.district}}</view>
-                    <view class="history-event-time">{{item.partyAmPm}} {{item.partyTime}}点</view>
-                  </view>
+                <view class="events-list-item">
+                  <event name="{{ item.partyName }}" 
+                    avatar="{{ item.partyTypeEng }}" 
+                    location="{{item.partyLocation.city}} {{item.partyLocation.district}}"
+                    time="{{item.partyAmPm}} {{item.partyTime}}点"
+                    skin="{{item.partySkin}}"
+                  ></event>
                 </view>
               </block>
             </view>
@@ -174,5 +207,64 @@
     </view>
   </view>
 </view>
+<!-- fastcard setup -->
+<view class="fastcard-setup-container" wx:if="{{showFastcardSetup}}">
+  <view class="fastcard-setup-backdrop" bind:tap="hideFastcardSetup"></view>
+  <image class="fastcard-setup-close-btn" bindtap="hideFastcardSetup" src="/frontend/images/large-namecard/close-button.png"/>
+  <view class="fastcard-setup-window">
+    <view class="fastcard-setup-title">Fastcard</view>
+    <view class="fastcard-setup-top">
+      <view class="fastcard-setup-subtitle">什么是<text class="yellow-text">快速卡片</text>？</view>
+      <view class="fastcard-setup-content-block">
+        <view>
+          <view class="fastcard-list-item">个人名片的拓展窗口</view>
+          <view class="fastcard-list-item">社交信息的高效展示</view>
+          <view class="fastcard-list-item">便于分享的社交卡片</view>
+        </view>
+        <view bind:tap="showNamecard">
+          <image class="fastcard-setup-namecard" src="/frontend/images/namecard/namecard.svg"/>
+          <view class="fastcard-setup-label">点击预览</view>
+        </view>
+      </view>
+    </view>
+    <view class="fastcard-setup-bottom">
+      <view class="fastcard-setup-subtitle">如何创建<text class="yellow-text">快速卡片</text>？</view>
+      <view class="fastcard-setup-content-block fastcard-setup-content-block--bottom">
+        <view>
+          <view class="fastcard-list-item fastcard-list-item--bottom">
+            <view class="option-circle" style="background: {{fastcardSteps[0] ? '#23F788' : 'white'}};"></view>
+            完成账户设置
+          </view>
+          <view class="fastcard-setup-label fastcard-setup-label--bottom">头像、偏好称呼、性别</view>
+          <view class="fastcard-list-item fastcard-list-item--bottom">
+            <view class="option-circle" style="background: {{fastcardSteps[1] ? '#23F788' : 'white'}};"></view>
+            上传至少1张照片
+          </view>
+          <view class="fastcard-list-item fastcard-list-item--bottom">
+            <view class="option-circle" style="background: {{fastcardSteps[2] ? '#23F788' : 'white'}};"></view>
+            选择至少1个标签
+          </view>
+        </view>
+        <view class="option-buttons">
+          <view class="option-button">
+            <image class="button-icon" src="../../images/icons/settings.svg"/>
+          </view>
+          <view class="option-button">
+              <image class="button-icon" src="../../images/icons/edit.svg"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="fastcard-setup-create-button" bind:tap="createFastcard">创建</view>
+  </view>
+</view>
+<!-- Large namecard -->
+<large-namecard
+  showNamecard="{{showNamecard}}" 
+  userName="{{currentUser.name}}" 
+  userPictures="{{currentUser.photos}}" 
+  userSkin="{{currentUser.skin}}"
+  avatarUrl="/frontend/images/large-namecard/brady-avatar.JPG">
+</large-namecard>
 <!-- menu -->
 <menu showMenu="{{showMenu}}" type="{{isCurrentUser ? 'profile-self' : 'profile-other'}}" isFriend="{{isFriend}}" position-class="menu-window"></menu>

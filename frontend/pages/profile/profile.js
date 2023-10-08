@@ -5,20 +5,26 @@ Page({
    * Page initial data
    */
   data: {
-    isCurrentUser: false,
+    isCurrentUser: true,
     isFriend: false,
     showMenu: false,
+    showFastcardSetup: false,
+    showNamecard: false,
+    haveFastcard: false,
+    fastcardSteps: [false, false, false],
     activeTab: "friends",
     activeEventsTab: "future",
     currentUser: {
       name: '仁喆',
+      gender: 'male',
       skin: '#979797',
       avatar: "/frontend/images/large-namecard/brady-avatar.JPG",
       photos: [
         '../../images/large-namecard/brady.png',
         '../../images/large-namecard/brady2.jpeg',
         '../../images/large-namecard/brady3.jpeg'
-      ]
+      ],
+      tags: [ "香港大学'25", "180cm", "猫🐱", "19岁", "QDHS'21" ]
     },
     commonFriends:
     [
@@ -194,7 +200,10 @@ Page({
     [
       {eid: 0}, {eid: 1}, {eid: 2}
     ],
-    tags: [ "香港大学'25", "180cm", "猫🐱", "19岁", "QDHS'21" ]
+    followedEvents:
+    [
+      {eid: 0}, {eid: 1}, {eid: 2}
+    ]
   },
 
   /**
@@ -222,7 +231,9 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
-
+    if (this.data.haveFastcard === false) {
+      this.calculateFastcardSteps();
+    }
   },
 
   /**
@@ -271,6 +282,12 @@ Page({
     // TODO: 删好友功能
   },
 
+  enableFastcard() {
+    this.setData({
+      haveFastcard: true
+    });
+  },
+
   tabClick(e) {
     this.setData({
       activeTab: e.currentTarget.id
@@ -300,6 +317,56 @@ Page({
     this.setData({
       showMenu: true
     });
+  },
+  showFastcardSetup() {
+    this.setData({
+      showFastcardSetup: true
+    });
+  },
+  hideFastcardSetup() {
+    this.setData({
+      showFastcardSetup: false
+    });
+  },
+  showNamecard() {
+    this.setData({
+      showNamecard: true
+    });
+  },
+
+  calculateFastcardSteps() {
+    let steps = this.data.fastcardSteps;
+    let user = this.data.currentUser;
+    if (user.name != null && user.gender != null && user.avatar != null) {
+      steps[0] = true;
+    }
+    if (user.photos.length > 0) {
+      steps[1] = true;
+    }
+    if (user.tags.length > 0) {
+      steps[2] = true;
+    }
+    this.setData({
+      fastcardSteps: steps
+    });
+  },
+  createFastcard() {
+    let steps = this.data.fastcardSteps;
+    if (steps[0] && steps[1] && steps[2]) {
+      this.setData({
+        haveFastcard: true
+      });
+      this.hideFastcardSetup();
+      wx.showToast({
+        title: '创建成功',
+      })
+    } else {
+      wx.showToast({
+        title: '未满足创建要求',
+        icon: 'error',
+        duration: 2000
+      });
+    }
   },
 
   /* 事件列表制作 */

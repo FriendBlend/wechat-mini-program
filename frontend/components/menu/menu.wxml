@@ -7,7 +7,7 @@
         <view class="menu-button--sm" bind:tap="toHome">
           <image class="menu-button-icon icon--home" src="/frontend/images/icons/home.svg"/>
         </view>
-        <view class="menu-button--sm">
+        <view class="menu-button--sm" bind:tap="sharePage">
           <image class="menu-button-icon" src="/frontend/images/icons/share.svg"/>
         </view>
         <view class="menu-button--sm" bind:tap="toProfile">

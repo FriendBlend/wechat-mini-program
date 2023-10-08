@@ -12,10 +12,10 @@
         src="../../images/event-avatars/{{partyInfo.partyTypeEng}}.svg"
       ></image>
       <view class="event-ticket--info">
-        <view>{{partyLocation.detail}}</view>
-        <view>{{partyTime}}</view>
+        <view>{{partyInfo.partyLocation.city + ' ' + partyInfo.partyLocation.district}}</view>
+        <view>{{partyInfo.partyMonth}}月{{partyInfo.partyDate}}日 {{partyInfo.partyAmPm}} {{partyInfo.partyHour}}:{{partyInfo.partyMinute}}</view>
       </view>
-      <span class="event-ticket--name">{{partyName}}</span>
+      <span class="event-ticket--name">{{partyInfo.partyName}}</span>
     </view>
     <view class="option-buttons">
       <view class="option-button" bind:tap="showMenu">
