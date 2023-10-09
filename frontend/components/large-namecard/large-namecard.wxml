@@ -2,11 +2,12 @@
   <view class="popup-mask" bindtap="hideNamecard"></view>
   
   <view class="large-namecard">
+    <view class="large-namecard--bg" bindtap="hideNamecard"></view>
     <view class="large-namecard-content" style="background-color: #D9D9D9;">
       <image class="close-btn" bindtap="hideNamecard" src="../../images/large-namecard/close-button.png"/>
-      <namecard class="namecard" hasShadow="{{false}}" name="{{userName}}" avatarUrl="{{avatarUrl}}" skin="{{userSkin}}" bind:tap="toProfile"></namecard>
+      <namecard class="namecard" hasShadow="{{false}}" name="{{userName}}" avatarUrl="{{avatarUrl}}" skin="{{userSkin}}" bind:tap="{{previewMode ? '' : 'toProfile'}}"></namecard>
       <!-- buttons -->
-      <view class="button-more" bind:tap="toProfile">
+      <view class="button-more" bind:tap="{{previewMode ? '' : 'toProfile'}}">
         <image class="more-icon" src="../../images/icons/more.png"/>
       </view>
       <view class="action-buttons">

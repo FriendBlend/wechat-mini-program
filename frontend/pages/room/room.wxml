@@ -132,7 +132,7 @@
               <text class="room-info--title">时间</text>
               <view class="row2--time--date">{{partyInfo.partyMonth}}月{{partyInfo.partyDate}}日</view>
               <view class="row2--time--weekday">{{partyInfo.partyWeekday}}</view>
-              <view class="row2--time--time">{{partyInfo.partyAmPm}} {{partyInfo.partyTime}}点</view>
+              <view class="row2--time--time">{{partyInfo.partyAmPm}} {{partyInfo.partyHour}}:{{partyInfo.partyMinute}}</view>
               <view class="row2--time--time-range" wx:if="{{ partyInfo.partyTimeRange.length > 0 }}">
                 <block wx:for="{{ partyInfo.partyTimeRange }}" wx:key="index">
                   <image class="time-range-icons" src="/frontend/images/icons/{{item}}.svg"/>

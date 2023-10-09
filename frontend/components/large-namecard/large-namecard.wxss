@@ -28,6 +28,10 @@
   bottom: 72rpx;
   z-index: 900;
 }
+.large-namecard--bg {
+  width: 100%;
+  height: 100%;
+}
 .large-namecard-content {
   border-radius: 50rpx;
   height: auto;

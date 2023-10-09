@@ -18,8 +18,12 @@ Page({
     time: [],
     selectedPickerIndices: [0, 0, 0],
     timeRange: [],
+    timeRangeDay: false,
+    timeRangeEvening: false,
+    timeRangeNight: false,
     /* 详情 */
-    population: 0,
+    population: 8,
+    sliderValuePosition: 222,
     expenseLevel: 0,
     payMethod: "",
 
@@ -189,7 +193,10 @@ Page({
     }
     console.log(newRange);
     this.setData({
-      timeRange: newRange
+      timeRange: newRange,
+      timeRangeDay: newRange.includes('day'),
+      timeRangeEvening: newRange.includes('evening'),
+      timeRangeNight: newRange.includes('night')
     });
   },
 
@@ -205,8 +212,11 @@ Page({
 
   /* 详情 */
   setPopulation(event) {
+    const value = event.detail.value;
+    const position = ((value - 2) / 13) * 480;
     this.setData({
-      population: event.detail.value
+      population: event.detail.value,
+      sliderValuePosition: position
     });
   },
   selectPayMethod(event) {

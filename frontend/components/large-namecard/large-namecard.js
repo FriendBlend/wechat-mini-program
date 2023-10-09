@@ -33,6 +33,10 @@ Component({
     avatarUrl: {
       type: String,
       value: "../../images/event-avatars/default.png"
+    },
+    previewMode: {
+      type: Boolean,
+      value: false
     }
   },
 

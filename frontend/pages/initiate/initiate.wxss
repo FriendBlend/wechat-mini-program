@@ -48,11 +48,11 @@
   border-radius: 21px;
   background: var(--lightGrey); 
   width: 620rpx;
-  height: 828rpx;
+  height: 65%;
   position: absolute;
   top: 420rpx;
   padding: 0 44rpx;
-  padding-top: 48rpx;
+  padding-top: 40rpx;
   box-sizing: border-box;
 }
 .main-frame--detail {
@@ -74,8 +74,9 @@
 .skip-button--detail {
   background: var(--lightGrey);
   color: white;
-  top: 60rpx;
-  right: 60rpx;
+  top: 50rpx;
+  right: 50rpx;
+  z-index: 1;
 }
 .prev-button {
   width: 60rpx;
@@ -100,7 +101,8 @@
 }
 .title {
   display: flex;
-  margin: 22rpx 0;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
   gap: 0.2rem;
   align-items: center;
 }
@@ -140,7 +142,7 @@
 /* --------------- */
 .activity-content {
   display: grid;
-  height: 200px;
+  height: 380rpx;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   justify-items: center;
@@ -244,7 +246,7 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 .time-range--button.selected {
   background: var(--darkGrey);
@@ -292,25 +294,52 @@
   gap: 26rpx;
 }
 .population-view {
+  position: relative;
   background: white;
   height: 210rpx;
   border-radius: 30rpx;
   padding: 18rpx 26rpx;
   box-sizing: border-box;
 }
-wx-slider .wx-slider-track {
+.population-slider {
+  margin-left: 0;
+  margin-top: 54rpx;
+  width: 100%;
+}
+.population-slider .wx-slider-track {
+  border-radius: 30rpx;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  height: 48rpx;
+}
+.population-slider .wx-slider-handle-wrapper {
+  height: 48rpx;
   border-radius: 30rpx;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
-wx-slider .wx-slider-handle-wrapper {
-  height: 20px;
-  border-radius: 30rpx;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-}
-wx-slider .wx-slider-handle {
+.population-slider .wx-slider-handle {
   background: linear-gradient(306deg, rgba(114, 114, 114, 0.50) 30.35%, rgba(114, 114, 114, 0.50) 30.36%, rgba(183, 183, 183, 0.50) 48.99%, rgba(212, 212, 212, 0.50) 67.62%, rgba(127, 127, 127, 0.50) 86.25%);
   box-shadow: 2px 0.5px 4px 0px #FFF inset;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.slider-value {
+  position: absolute;
+  top: 60rpx;
+  margin-left: -8rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70rpx;
+  height: 70rpx;
+  color: white;
+  z-index: 1;
+}
+.slider-value-bg {
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 .cost-view {
   background: white;
@@ -376,7 +405,7 @@ wx-slider .wx-slider-handle {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 .pay-method--button.selected {
   background: var(--darkGrey);

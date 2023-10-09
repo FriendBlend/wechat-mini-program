@@ -5,6 +5,7 @@ import { Base64 } from './base64.js';
 const base64 = new Base64()
 
 Component({
+  externalClasses: ['external-class'],
 	/**
 	 * 组件的属性列表
 	 */

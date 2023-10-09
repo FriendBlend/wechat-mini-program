@@ -3,6 +3,10 @@
   left: 66rpx;
   top: 10rpx;
 }
+.ticket-base {
+  width: 620rpx;
+  height: 268rpx;
+}
 .empty {
   background-color: #fff1c1;
 }

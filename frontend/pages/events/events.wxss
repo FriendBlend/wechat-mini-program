@@ -198,6 +198,7 @@
 .small-tab--icon {
   width: 50rpx;
   height: 50rpx;
+  padding-top: 4rpx;
 }
 
 /* 未来/历史事件列表 */

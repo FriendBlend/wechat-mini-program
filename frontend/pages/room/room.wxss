@@ -624,13 +624,15 @@ view {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 990;
+  gap: 8rpx;
 }
 .followers-title--icon {
   width: 44rpx;
   height: 44rpx;
 }
 .followers-title--text {
+  position: relative;
+  top: 2rpx;
   font-size: 18px;
   font-weight: 700;
 }

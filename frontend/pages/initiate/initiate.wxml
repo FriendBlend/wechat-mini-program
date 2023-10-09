@@ -106,20 +106,20 @@
       <view class="time-range-remarks">事件将覆盖的时间段，可多选</view>
       <view class="time-range-selection">
         <view class="time-range" id="day" bind:tap="selectTimeRange">
-          <view class="time-range--button white-button {{timeRange.includes('day') ? 'selected' : ''}}">
-            <image class="time-range--icon" src="/frontend/images/icons/day.svg"/>
+          <view class="time-range--button white-button {{timeRangeDay ? 'selected' : ''}}">
+            <svg external-class="time-range--icon" src="/frontend/images/icons/day.svg" color="{{timeRangeDay ? 'white' : '#979797'}}"></svg>
           </view>
           <view class="time-range--txt">白天</view>
         </view>
         <view class="time-range" id="evening" bind:tap="selectTimeRange">
-          <view class="time-range--button white-button {{timeRange.includes('evening') ? 'selected' : ''}}">
-            <image class="time-range--icon" src="/frontend/images/icons/evening.svg"/>
+          <view class="time-range--button white-button {{timeRangeEvening ? 'selected' : ''}}">
+            <svg external-class="time-range--icon" src="/frontend/images/icons/evening.svg" color="{{timeRangeEvening ? 'white' : '#979797'}}"></svg>
           </view>
           <view class="time-range--txt">夜晚</view>
         </view>
         <view class="time-range" id="night" bind:tap="selectTimeRange">
-          <view class="time-range--button white-button {{timeRange.includes('night') ? 'selected' : ''}}">
-            <image class="time-range--icon" src="/frontend/images/icons/night.svg"/>
+          <view class="time-range--button white-button {{timeRangeNight ? 'selected' : ''}}">
+            <svg external-class="time-range--icon" src="/frontend/images/icons/night.svg" color="{{timeRangeNight ? 'white' : '#979797'}}"></svg>
           </view>
           <view class="time-range--txt">凌晨<span class="time-range--txt--sm">(次日)</span></view>
         </view>
@@ -141,7 +141,11 @@
           <image class="title-icon--md" src="/frontend/images/icons/population.svg"/>
           <span class="title-txt--md">人数上限</span>
         </view>
-        <slider class="population-slider" min="2" max="15" step="1" value="8" activeColor="var(--darkGrey)" show-value="{{true}}" bindchange="setPopulation"/>
+        <view class="slider-value" style="left: {{sliderValuePosition}}rpx;">
+          <image class="slider-value-bg" src="/frontend/images/icons/slider-value-bg.svg"/>
+          {{population}}
+        </view>
+        <slider class="population-slider" min="2" max="15" value="8" activeColor="var(--darkGrey)" bindchange="setPopulation" bindchanging="setPopulation"/>
       </view>
       <view class="cost-view">
         <view class="title title--detail">
@@ -177,25 +181,25 @@
         <view class="pay-method-selection">
           <view class="pay-method" id="AA" bind:tap="selectPayMethod">
             <view class="pay-method--button white-button {{payMethod == 'AA' ? 'selected' : ''}}">
-              <svg class="pay-method--icon" src="/frontend/images/icons/AA.svg" width="60rpx" height="60rpx" color="{{payMethod == 'AA' ? '#D9D9D9' : '#979797'}}"></svg>
+              <svg external-class="pay-method--icon" src="/frontend/images/icons/AA.svg" color="{{payMethod == 'AA' ? '#D9D9D9' : '#979797'}}"></svg>
             </view>
             <view class="pay-method--txt">AA</view>
           </view>
           <view class="pay-method" id="free" bind:tap="selectPayMethod">
             <view class="pay-method--button white-button {{payMethod == 'free' ? 'selected' : ''}}">
-              <svg class="pay-method--icon" src="/frontend/images/icons/free.svg" width="60rpx" height="60rpx" color="{{payMethod == 'free' ? '#D9D9D9' : '#979797'}}"></svg>
+              <svg external-class="pay-method--icon" src="/frontend/images/icons/free.svg" color="{{payMethod == 'free' ? '#D9D9D9' : '#979797'}}"></svg>
             </view>
             <view class="pay-method--txt">免单</view>
           </view>
           <view class="pay-method" id="girlsA" bind:tap="selectPayMethod">
             <view class="pay-method--button white-button {{payMethod == 'girlsA' ? 'selected' : ''}}">
-              <svg class="pay-method--icon" src="/frontend/images/icons/girlsA.svg" width="60rpx" height="60rpx" color="{{payMethod == 'girlsA' ? '#D9D9D9' : '#979797'}}"></svg>
+              <svg external-class="pay-method--icon" src="/frontend/images/icons/girlsA.svg" color="{{payMethod == 'girlsA' ? '#D9D9D9' : '#979797'}}"></svg>
             </view>
             <view class="pay-method--txt">女A男免</view>
           </view>
           <view class="pay-method" id="boysA" bind:tap="selectPayMethod">
             <view class="pay-method--button white-button {{payMethod == 'boysA' ? 'selected' : ''}}">
-              <svg class="pay-method--icon" src="/frontend/images/icons/boysA.svg" width="60rpx" height="60rpx" color="{{payMethod == 'boysA' ? '#D9D9D9' : '#979797'}}"></svg>
+              <svg external-class="pay-method--icon" src="/frontend/images/icons/boysA.svg" color="{{payMethod == 'boysA' ? '#D9D9D9' : '#979797'}}"></svg>
             </view>
             <view class="pay-method--txt">男A女免</view>
           </view>

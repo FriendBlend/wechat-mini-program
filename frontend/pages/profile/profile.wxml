@@ -124,7 +124,7 @@
           <scroll-view class="followed-events-list" scroll-x="true">
             <block wx:for="{{ followedEvents }}" wx:key="eid">
               <view class="followed-events-item">
-                <svg src="/frontend/images/tickets/blue-ticket.svg" color="#10AEFF" width="251px" height="102px"></svg>
+                <svg external-class="ticket-base" src="/frontend/images/tickets/blue-ticket.svg" color="#10AEFF"></svg>
               </view>
             </block>
           </scroll-view>
@@ -140,7 +140,7 @@
           <scroll-view class="common-events-list" scroll-x="true">
             <block wx:for="{{ commonEvents }}" wx:key="eid">
               <view class="common-events-item">
-                <svg src="/frontend/images/tickets/blue-ticket.svg" color="#10AEFF" width="251px" height="102px"></svg>
+                <svg external-class="ticket-base" src="/frontend/images/tickets/blue-ticket.svg" color="#10AEFF"></svg>
               </view>
             </block>
           </scroll-view>
@@ -149,12 +149,12 @@
       <!-- 未来/历史事件tabs -->
       <view class="events-tabs">
         <view id="future" bind:tap="eventsTabClick" class="profile-small-title events-tab {{activeEventsTab == 'future' ? 'events-tab--active' : ''}}">
-          <svg class="profile-small-icon" src="/frontend/images/icons/events-future.svg" color="{{activeEventsTab == 'future' ? 'white' : '#333333'}}" height="58rpx" width="58rpx"></svg>
+          <svg external-class="profile-small-icon" src="/frontend/images/icons/events-future.svg" color="{{activeEventsTab == 'future' ? 'white' : '#333333'}}"></svg>
           <view>未来事件</view>
         </view>
         <view class="tab-divider">|</view>
         <view id="history" bind:tap="eventsTabClick" class="profile-small-title events-tab {{activeEventsTab == 'history' ? 'events-tab--active' : ''}}">
-          <svg class="profile-small-icon" src="/frontend/images/icons/events-history.svg" color="{{activeEventsTab == 'history' ? 'white' : '#333333'}}" height="58rpx" width="58rpx"></svg>
+          <svg external-class="profile-small-icon" src="/frontend/images/icons/events-history.svg" color="{{activeEventsTab == 'history' ? 'white' : '#333333'}}"></svg>
           <view>历史事件</view>
         </view>
       </view>
@@ -260,6 +260,8 @@
 </view>
 <!-- Large namecard -->
 <large-namecard
+  class="large-namecard"
+  previewMode="{{true}}"
   showNamecard="{{showNamecard}}" 
   userName="{{currentUser.name}}" 
   userPictures="{{currentUser.photos}}" 

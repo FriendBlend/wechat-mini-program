@@ -1,6 +1,6 @@
 .namecard-component {
-  width: 130px;
-  height: 80px;
+  width: 161.8px;
+  height: 100px;
   border-radius: 21px;
   position: absolute;
 }

@@ -38,11 +38,11 @@
       <!-- 发起/加入选项 -->
       <view class="small-tabs">
         <view id="init" bind:tap="smallTabClick" class="small-tab {{activeSmallTab == 'init' ? 'small-tab--active' : ''}}">
-          <svg class="small-tab--icon" src="/frontend/images/icons/initiated.svg" color="{{activeSmallTab == 'init' ? 'white' : '#333333'}}" height="50rpx" width="50rpx"></svg>
+          <svg external-class="small-tab--icon" src="/frontend/images/icons/initiated.svg" color="{{activeSmallTab == 'init' ? 'white' : '#333333'}}"></svg>
           <view class="small-tab--text">我发起的</view>
         </view>
         <view id="joined" bind:tap="smallTabClick" class="small-tab {{activeSmallTab == 'joined' ? 'small-tab--active' : ''}}">
-          <svg class="small-tab--icon" src="/frontend/images/icons/joined.svg" color="{{activeSmallTab == 'joined' ? 'white' : '#333333'}}" height="50rpx" width="50rpx"></svg>
+          <svg external-class="small-tab--icon" src="/frontend/images/icons/joined.svg" color="{{activeSmallTab == 'joined' ? 'white' : '#333333'}}"></svg>
           <view class="small-tab--text">我加入的</view>
         </view>
       </view>
@@ -136,11 +136,11 @@
       <!-- 发起/加入选项 -->
       <view class="small-tabs">
         <view id="init" bind:tap="smallTabClick" class="small-tab {{activeSmallTab == 'init' ? 'small-tab--active' : ''}}">
-          <svg class="small-tab--icon" src="/frontend/images/icons/initiated.svg" color="{{activeSmallTab == 'init' ? 'white' : '#333333'}}" height="50rpx" width="50rpx"></svg>
+          <svg external-class="small-tab--icon" src="/frontend/images/icons/initiated.svg" color="{{activeSmallTab == 'init' ? 'white' : '#333333'}}"></svg>
           <view class="small-tab--text">我发起的</view>
         </view>
         <view id="joined" bind:tap="smallTabClick" class="small-tab {{activeSmallTab == 'joined' ? 'small-tab--active' : ''}}">
-          <svg class="small-tab--icon" src="/frontend/images/icons/joined.svg" color="{{activeSmallTab == 'joined' ? 'white' : '#333333'}}" height="50rpx" width="50rpx"></svg>
+          <svg external-class="small-tab--icon" src="/frontend/images/icons/joined.svg" color="{{activeSmallTab == 'joined' ? 'white' : '#333333'}}"></svg>
           <view class="small-tab--text">我加入的</view>
         </view>
       </view>

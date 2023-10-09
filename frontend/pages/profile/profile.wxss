@@ -396,6 +396,10 @@
   position: relative;
   height: fit-content;
 }
+.ticket-base {
+  width: 251px;
+  height: 102px;
+}
 .events-tabs {
   width: auto;
   display: grid;
@@ -519,6 +523,22 @@
   top: 90rpx;
   left: 200rpx;
   font-size: 13px;
+}
+
+/* large namecard */
+.large-namecard .wx-swiper-dots-horizontal {
+  width: 100%;
+  position: relative;
+  top: 34rpx;
+}
+.large-namecard .wx-swiper-dot {
+  width: 30% !important;
+  border-radius: 100px !important;
+  background-color: var(--darkGrey) !important;
+  height: 3.156px !important;
+}
+.large-namecard .wx-swiper-dot-active {
+  background-color: white !important;
 }
 /* menu */
 .menu-window {

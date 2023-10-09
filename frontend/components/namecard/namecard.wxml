@@ -1,5 +1,5 @@
 <view class="namecard-container">
-<svg class="namecard-component" src="/frontend/images/namecard/namecard.svg" color="{{skin}}" width="{{width}}" height="{{height}}" style="box-shadow: {{hasShadow ? '0px 4px 4px 0px rgba(0, 0, 0, 0.25)' : 'none'}};"></svg>
+<svg external-class="namecard-component" src="/frontend/images/namecard/namecard.svg" color="{{skin}}" style="box-shadow: {{hasShadow ? '0px 4px 4px 0px rgba(0, 0, 0, 0.25)' : 'none'}};"></svg>
 <view class="namecard-placeholder" style="width: {{width}}; height: {{height}}; font-size: {{fontSize}};">
   <view class="left-side">
     <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
