@@ -39,7 +39,6 @@
   row-gap: 20rpx;
   column-gap: 16rpx;
   justify-items: center;
-  margin-bottom: 20rpx;
 }
 .menu-button--sm {
   height: 80rpx;
@@ -61,6 +60,11 @@
 .icon--profile {
   height: 50rpx;
   width: 46rpx;
+}
+
+/* section break */
+.section-break {
+  height: 20rpx;
 }
 
 /* bottome section */

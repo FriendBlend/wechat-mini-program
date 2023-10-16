@@ -82,5 +82,5 @@
     avatarUrl="../../images/large-namecard/brady-avatar.JPG">
   </large-namecard>
   <!-- menu -->
-  <menu showMenu="{{showMenu}}" type="room-host" position-class="menu-window"></menu>
+  <menu showMenu="{{showMenu}}" position-class="menu-window"></menu>
 </view>
