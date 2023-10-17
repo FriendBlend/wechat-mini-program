@@ -26,7 +26,7 @@
   - components
     - large-namecard（快速卡片）：用户简介弹窗，点击名片触发
     - menu：各个页面中点击菜单按钮触发
-    - namecard
+    - namecard：展示用户信息的名片
     - progressTicket（事件卡片）：展示事件信息，例如主页最下方的事件卡片；点击跳转对应房间
     - svg：用来改变svg颜色的组件
   - fonts
