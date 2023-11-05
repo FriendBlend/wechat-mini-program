@@ -53,6 +53,11 @@ Component({
         url: '/frontend/pages/events/events',
       });
     },
+    toBackend() {
+      wx.redirectTo({
+        url: '/frontend/pages/backend-test/backend-test',
+      });
+    },
     sharePage() {
       wx.showShareMenu({
         withShareTicket: true,

@@ -1,0 +1,14 @@
+<view class="backend-container">  
+  <view class="row">
+    <input placeholder="Enter data" value="{{inputValue}}" bind:change="inputChange" />
+    <button bind:tap="addData">Add</button>
+  </view>
+  <scroll-view scroll-y="{{true}}">
+    <block wx:for="{{dataList}}" wx:key="id">
+      <view class="row">
+        <text>{{item.id}} {{item.name}}</text>
+        <button bind:tap="deleteData" data-index="{{index}}">Delete</button>
+      </view>
+    </block>
+  </scroll-view>
+</view>

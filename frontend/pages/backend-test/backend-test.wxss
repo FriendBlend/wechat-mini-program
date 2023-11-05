@@ -1,0 +1,22 @@
+.backend-container {
+  padding: 50rpx
+}
+button {
+  width: 160rpx !important;
+  font-size: 30rpx;
+  padding: 0.2rem;
+}
+input {
+  border: 1px solid black;
+  padding: 0.2rem;
+  margin: 0;
+}
+.row {
+  display: flex;
+  border-bottom: 1px solid gray;
+  padding: 0.5rem;
+  align-items: center;
+}
+scroll-view {
+  height: 800rpx;
+}
