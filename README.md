@@ -1,35 +1,37 @@
-#FriendBlend
+# 紧急派对 FriendBlend
 
-## 后端:
+## 前端：
 
-#### 数据库设计
+### 6个页面
+- 主页 index
+  - 五个按钮分别前往另外五个页面
+- 用户页 profile
+  - 展示用户相片、好友、事件列表
+  - 快速卡片
+- 加入页 join
+  - 输入房间号加入房间
+- 发起页 initiate
+  - 创建事件
+  - 填写事件各类信息，可跳过
+  - 完成后跳转至创建好的房间页
+- 事件页 events
+  - 用户的未来事件、关注事件、历史事件列表
+- 房间页 room
+  - 座位表（用户可入座、换座位、入座后准备/取消）
+  - 房间对应的事件信息展示
+  - 关注者列表
 
-个人Profile: 
-- user_id: int
-- avatar: String
-- name: String
-- age: int
-- school: String
-- photos: String
-- decription: String
-- room_id_list: list<int> 
-- skin_id_list: list<String>
-
-局Party:
-- room_id: int
-- member_num: int
-- seat_list: list<String>
-- time: String
-- location: String
-- cost: float
-- description: String
-- type: String
-
-座位Seat: 
-- seat_seq: int
-- user_id: int
-- ifOccupied: bool
-
-#### 外部功能
-
-学校选择器: https://developers.weixin.qq.com/community/develop/article/doc/0002e4f1780e20fa130d0e65756c13
+### 文件结构
+- frontend
+  - components
+    - large-namecard（快速卡片）：用户简介弹窗，点击名片触发
+    - menu：各个页面中点击菜单按钮触发
+    - namecard：展示用户信息的名片
+    - progressTicket（事件卡片）：展示事件信息，例如主页最下方的事件卡片；点击跳转对应房间
+    - svg：用来改变svg颜色的组件
+  - fonts
+    - 用到的字体
+  - images
+    - 存放所有图片
+  - pages
+    - 上述6个页面
